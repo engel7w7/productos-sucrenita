@@ -36,18 +36,9 @@ app.use('/', healthRouter); // Expone GET /health
 app.use('/api/products', productsRouter); // Expone GET /api/products y GET /api/products/:slug
 app.use('/api/payments', paymentsRouter); // Expone POST /api/payments/webhook
 
-// Ruta raíz informativa
+// Ruta raíz neutra y minimalista
 app.get('/', (_req: Request, res: Response) => {
-  res.json({
-    name: 'Productos Sucreñita API',
-    version: '1.0.0',
-    status: 'online',
-    endpoints: {
-      health: '/health',
-      products: '/api/products',
-      webhook: '/api/payments/webhook',
-    },
-  });
+  res.status(200).json({ status: 'ok' });
 });
 
 // Manejador 404
