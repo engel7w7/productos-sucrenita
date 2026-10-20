@@ -18,11 +18,9 @@ import {
   Wheat,
 } from 'lucide-react';
 
-interface ProductPageProps {
-  params: {
-    slug: string;
-  };
-}
+type Props = {
+  params: Promise<{ slug: string }> | { slug: string };
+};
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sucrenita-web.onrender.com';
 
@@ -31,8 +29,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sucrenita-web.onren
  */
 export async function generateMetadata({
   params,
-}: ProductPageProps): Promise<Metadata> {
-  const product = await getProductBySlug(params.slug);
+}: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const product = await getProductBySlug(slug);
 
   if (!product) {
     return {
@@ -82,8 +81,9 @@ export async function generateMetadata({
 
 export const revalidate = 60;
 
-export default async function ProductDetailPage({ params }: ProductPageProps) {
-  const product = await getProductBySlug(params.slug);
+export default async function ProductDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const product = await getProductBySlug(slug);
 
   if (!product || !product.isActive) {
     notFound();

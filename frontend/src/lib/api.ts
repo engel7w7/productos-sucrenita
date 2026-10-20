@@ -153,7 +153,7 @@ export async function getProducts(categorySlug?: string): Promise<Product[]> {
 export async function getProductBySlug(slug: string): Promise<Product | null> {
   try {
     const res = await fetch(`${API_BASE_URL}/api/products/${slug}`, {
-      next: { revalidate: 60 },
+      cache: 'no-store',
     });
 
     if (!res.ok) {
@@ -161,10 +161,11 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
       throw new Error(`Error en API: ${res.statusText}`);
     }
 
-    const json: ApiResponse<Product> = await res.json();
-    return json.data || null;
-  } catch (err) {
-    console.warn(`[getProductBySlug] Conexión a ${API_BASE_URL} no disponible, buscando en catálogo local.`);
+    const result = await res.json();
+    // Si la API devuelve { success: true, data: {...} }, extrae data; de lo contrario usa result
+    return result.data || result || null;
+  } catch (error) {
+    console.warn(`[getProductBySlug] Error o conexión a ${API_BASE_URL} no disponible (${slug}), buscando en catálogo local:`, error);
     const fallback = FALLBACK_PRODUCTS.find((p) => p.slug === slug);
     return fallback || null;
   }
