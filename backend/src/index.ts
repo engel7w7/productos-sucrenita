@@ -9,6 +9,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 10000;
+const BASE_URL = process.env.RENDER_EXTERNAL_URL || process.env.API_URL || `http://localhost:${PORT}`;
 
 // Configuración CORS
 const corsOrigin = process.env.FRONTEND_URL || '*';
@@ -54,12 +55,12 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`===============================================`);
+  console.log('===============================================');
   console.log(`🚀 Sucrenita API Server corriendo en puerto ${PORT}`);
-  console.log(`📍 Salud:   http://localhost:${PORT}/health`);
-  console.log(`📦 Productos: http://localhost:${PORT}/api/products`);
-  console.log(`💳 Webhook:   http://localhost:${PORT}/api/payments/webhook`);
-  console.log(`===============================================`);
+  console.log(`📍 Salud:     ${BASE_URL}/health`);
+  console.log(`📦 Productos: ${BASE_URL}/api/products`);
+  console.log(`💳 Webhook:   ${BASE_URL}/api/payments/webhook`);
+  console.log('===============================================');
 });
 
 export default app;
