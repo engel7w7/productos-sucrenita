@@ -1,10 +1,10 @@
 # Sucrenita — Catálogo Web & E-Commerce Artesanal
 
-Monorepo con arquitectura moderna full-stack para el catálogo web y tienda de **Sucrenita** (chocolatería fina y dulces tradicionales de Sucre, Bolivia).
+Monorepo con arquitectura moderna full-stack para el catálogo web y tienda de **Sucrenita**
 
 ---
 
-## 🏛️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ```
 productos-sucrenita/
@@ -60,16 +60,17 @@ productos-sucrenita/
 
 ---
 
-## 🚀 Despliegue en Render (`render.yaml`)
+## Despliegue en Render (`render.yaml`)
 
 El archivo [render.yaml](render.yaml) define automáticamente:
+
 1. **Base de Datos PostgreSQL Gestionada:** `sucrenita-db` (plan free).
 2. **API Backend:** `sucrenita-api` (ejecuta `npm install && npx prisma generate && npm run build` y se conecta mediante `DATABASE_URL`).
 3. **Frontend Next.js:** `sucrenita-web` (ejecuta `npm install && npm run build` en modo Node SSR en el puerto 3000).
 
 ---
 
-## 🛠️ Ejecución Local
+## Ejecución Local
 
 ### 1. Backend (`/backend`)
 
@@ -104,12 +105,3 @@ npm run dev
 npm run build
 npm start
 ```
-
----
-
-## 🔍 SEO y Datos Estructurados
-
-- **generateMetadata():** Genera dinámicamente `<title>`, `<meta name="description">` y etiquetas OpenGraph basadas en el producto.
-- **JSON-LD Schema.org:** En cada ruta `/productos/[slug]` se inyecta un bloque `@type: "Product"` con ofertas (`offers`), precio en bolivianos (`BOB`), stock y estado.
-- **Sitemap Dinámico:** Generado automáticamente en `/sitemap.xml` indexando todas las URLs canónicas.
-- **Robots.txt:** Configurado en `/robots.txt` para Googlebot y otros rastreadores.
