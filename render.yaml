@@ -1,7 +1,7 @@
 databases:
   - name: sucrenita-db
     databaseName: sucrenita
-    user: postgres
+    user: sucrenita_user
     plan: free
 
 services:
