@@ -1,124 +1,176 @@
-# Sucrenita — Catálogo Web & E-Commerce Artesanal
+# Sucrenita - Catalogo Web y E-Commerce Artesanal
 
-Monorepo con arquitectura moderna full-stack para el catálogo web y tienda de **Sucrenita**
+Plataforma web para el catalogo de productos y venta en linea de Sucrenita, especializada en chocolates finos, bombones artesanales y reposteria tradicional de Sucre, Bolivia.
+
+El proyecto esta organizado bajo una arquitectura de monorepositorio que separa de forma clara la logica de la API y la interfaz de usuario, optimizada para posicionamiento en motores de busqueda (SEO) y rendimiento en produccion.
 
 ---
 
-## Arquitectura del Sistema
+## Tecnologias Utilizadas
+
+### Backend
+- Node.js con Express y TypeScript.
+- Prisma ORM para el modelado de datos y migraciones.
+- Base de datos relacional PostgreSQL alojada en Supabase (compatible con Transaction Pooler y conexion directa).
+- Endpoint preparado para recepcion de webhooks de pagos (soporte para lectura de cuerpo en crudo / raw body).
+
+### Frontend
+- Next.js (App Router) con TypeScript.
+- Tailwind CSS para la interfaz y sistema de diseno responsive.
+- Renderizado del lado del servidor (SSR) y generacion estatica incremental (ISR).
+- Metadatos dinamicos (generateMetadata), integracion de datos estructurados con Schema.org (JSON-LD para productos) y generacion automatica de sitemap.xml y robots.txt.
+
+### Infraestructura y Calidad
+- Integracion continua con GitHub Actions para validacion automatica de tipos y compilacion en cada push o pull request.
+- Manifiesto de despliegue automatizado con Render Blueprint (render.yaml).
+
+---
+
+## Estructura del Repositorio
 
 ```
 productos-sucrenita/
-├── render.yaml               # Configuración Blueprint para despliegue en Render (PostgreSQL + API + Next.js)
-├── .gitignore                # Reglas de exclusión para Git
-├── README.md                 # Documentación técnica del proyecto
-│
-├── backend/                  # API REST (Node.js + Express + TypeScript + Prisma ORM)
+├── .github/
+│   └── workflows/
+│       └── ci.yml               # Pipeline de integracion continua (GitHub Actions)
+├── backend/                     # API REST del sistema
 │   ├── prisma/
-│   │   ├── schema.prisma     # Modelos de BD: Category, Product, Order, OrderItem
-│   │   └── seed.ts           # Datos semilla iniciales (productos y categorías)
+│   │   ├── schema.prisma        # Definicion de modelos (Category, Product, Order, OrderItem)
+│   │   └── seed.ts              # Carga inicial de categorias y productos de prueba
 │   ├── src/
 │   │   ├── lib/
-│   │   │   └── prisma.ts     # Instancia Singleton de PrismaClient
+│   │   │   └── prisma.ts        # Instancia singleton de PrismaClient
 │   │   ├── routes/
-│   │   │   ├── health.routes.ts    # GET /health
-│   │   │   ├── products.routes.ts  # GET /api/products, GET /api/products/:slug
-│   │   │   └── payments.routes.ts  # POST /api/payments/webhook (con Raw Body)
-│   │   └── index.ts          # Servidor Express, CORS y middleware
-│   ├── .env                  # Variables locales provisionales
-│   ├── .env.example          # Plantilla de variables de entorno
-│   ├── package.json          # Scripts: dev, build, start, prisma:*
-│   └── tsconfig.json         # Configuración estricta de TypeScript
-│
-└── frontend/                 # Aplicación Web SSR/SSG (Next.js 14 App Router + Tailwind CSS)
-    ├── src/
-    │   ├── app/
-    │   │   ├── layout.tsx              # Root Layout, tipografías y metadatos globales
-    │   │   ├── globals.css             # Tailwind CSS y tokens de diseño
-    │   │   ├── page.tsx                # Página de inicio con SSR consumiendo API
-    │   │   ├── catalogo/
-    │   │   │   └── page.tsx            # Catálogo interactivo con filtrado por categoría
-    │   │   ├── productos/[slug]/
-    │   │   │   └── page.tsx            # SEO dinámico (generateMetadata) + Schema.org JSON-LD
-    │   │   ├── sitemap.ts              # Generador automático de Sitemap XML
-    │   │   └── robots.ts               # Configuración robots.txt
-    │   ├── components/
-    │   │   ├── Navbar.tsx              # Barra de navegación receptiva
-    │   │   ├── Footer.tsx              # Pie de página artesanal
-    │   │   ├── ProductCard.tsx         # Tarjeta de producto optimizada
-    │   │   └── JsonLd.tsx              # Inyector de datos estructurados para Googlebot
-    │   ├── lib/
-    │   │   ├── api.ts                  # Cliente de datos con revalidación ISR y fallback
-    │   │   └── utils.ts                # Formateo de moneda (BOB) y utilidades de estilo
-    │   └── types/
-    │       └── index.ts                # Tipos TypeScript para entidades de negocio
-    ├── next.config.mjs
-    ├── tailwind.config.ts
-    ├── postcss.config.mjs
-    ├── .env.local
-    └── package.json
+│   │   │   ├── health.routes.ts # Ruta de verificacion de salud (GET /health)
+│   │   │   ├── products.routes.ts # Rutas del catalogo (GET /api/products, /api/products/:slug)
+│   │   │   └── payments.routes.ts # Ruta receptora de webhooks (POST /api/payments/webhook)
+│   │   └── index.ts             # Punto de entrada de la aplicacion y middlewares
+│   ├── .env.example             # Variables de entorno sugeridas
+│   ├── package.json             # Dependencias y scripts del backend
+│   └── tsconfig.json            # Configuracion de TypeScript
+├── frontend/                    # Aplicacion web orientada al usuario
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── catalogo/        # Pagina de catalogo con filtros por categoria
+│   │   │   ├── productos/[slug]/# Detalle del producto con SEO y datos estructurados
+│   │   │   ├── globals.css      # Estilos globales y tokens
+│   │   │   ├── layout.tsx       # Estructura principal y metadatos base
+│   │   │   ├── page.tsx         # Portada con productos destacados mediante SSR
+│   │   │   ├── robots.ts        # Configuracion de robots.txt
+│   │   │   └── sitemap.ts       # Generador de sitemap XML dinamico
+│   │   ├── components/          # Componentes reutilizables (Navbar, Footer, ProductCard, JsonLd)
+│   │   ├── lib/                 # Cliente de datos hacia la API y formateadores
+│   │   └── types/               # Definiciones de tipos para entidades del negocio
+│   ├── next.config.mjs          # Configuracion de Next.js y dominios de imagenes
+│   ├── package.json             # Dependencias del frontend
+│   └── tailwind.config.ts       # Configuracion del tema visual
+├── .gitignore                   # Archivos y carpetas excluidos del control de versiones
+├── README.md                    # Documentacion del proyecto
+└── render.yaml                  # Configuracion de infraestructura para Render
 ```
 
 ---
 
-## Despliegue en Render (`render.yaml`)
+## Guia de Puesta en Marcha Local
 
-El archivo [render.yaml](render.yaml) define automáticamente:
-
-1. **Base de Datos PostgreSQL Gestionada:** `sucrenita-db` (plan free).
-2. **API Backend:** `sucrenita-api` (ejecuta `npm install && npx prisma generate && npm run build` y se conecta mediante `DATABASE_URL`).
-3. **Frontend Next.js:** `sucrenita-web` (ejecuta `npm install && npm run build` en modo Node SSR en el puerto 3000).
-
----
-
-## Ejecución Local
-
-### 1. Backend (`/backend`)
-
-```bash
-cd backend
-npm install
-npx prisma generate
-
-# Levantar servidor en desarrollo con recarga en caliente:
-npm run dev
-
-# Para sincronizar esquema con una base de datos local o remota:
-npx prisma db push
-
-# Para cargar los productos iniciales de prueba:
-npm run prisma:seed
-
-# Compilar para producción:
-npm run build
-```
-
-### 2. Frontend (`/frontend`)
-
-```bash
-cd frontend
-npm install
-
-# Levantar entorno de desarrollo Next.js:
-npm run dev
-
-# Compilar aplicación optimizada para producción:
-npm run build
-npm start
-```
+### Requisitos previos
+- Node.js version 18 o superior (recomendado Node.js 20 LTS o superior).
+- Gestor de paquetes npm.
+- Una cuenta en Supabase o una instancia local de PostgreSQL.
 
 ---
 
-## ⚡ Conexión a Base de Datos con Supabase
+### Paso 1: Configuracion del Backend
 
-1. Crea tu cuenta gratuita en [supabase.com](https://supabase.com).
-2. Crea un proyecto nuevo (`productos-sucrenita`).
-3. Ve a **Project Settings** > **Database** > sección **Connection string**:
-   - En la pestaña **URI**, copia la cadena con modo **Transaction** (asígnala a `DATABASE_URL` en tu `.env` y en las variables de Render).
-   - Copia la cadena con modo **Session** o directa (asígnala a `DIRECT_URL` para que Prisma ejecute migraciones sin conflicto de pgbouncer).
-4. Para sincronizar las tablas y cargar el catálogo inicial:
+1. Entra a la carpeta del backend e instala las dependencias:
    ```bash
    cd backend
+   npm install
+   ```
+
+2. Crea tu archivo de variables de entorno a partir del archivo de ejemplo:
+   ```bash
+   cp .env.example .env
+   ```
+   En Windows (PowerShell):
+   ```powershell
+   Copy-Item .env.example .env
+   ```
+
+3. Edita `.env` con las credenciales de tu base de datos:
+   - `DATABASE_URL`: Cadena con el Transaction Pooler (puerto 6543 y parametro `?pgbouncer=true`).
+   - `DIRECT_URL`: Cadena con conexion directa (puerto 5432) para ejecutar migraciones.
+
+4. Sincroniza la estructura de la base de datos y genera el cliente de Prisma:
+   ```bash
    npm run db:push
+   ```
+
+5. Opcionalmente, carga los datos iniciales de prueba (chocolates, alfajores y bombones):
+   ```bash
    npm run seed
    ```
 
+6. Inicia el servidor en modo desarrollo:
+   ```bash
+   npm run dev
+   ```
+   El backend estara disponible en `http://localhost:10000`.
+
+---
+
+### Paso 2: Configuracion del Frontend
+
+1. En una nueva terminal, entra a la carpeta del frontend e instala las dependencias:
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+2. Crea tu archivo `.env.local` si deseas cambiar las URLs por defecto:
+   ```env
+   NEXT_PUBLIC_API_URL=http://localhost:10000
+   NEXT_PUBLIC_SITE_URL=http://localhost:3000
+   ```
+
+3. Inicia la aplicacion en modo desarrollo:
+   ```bash
+   npm run dev
+   ```
+   Abre tu navegador en `http://localhost:3000`.
+
+---
+
+## Conexion con Supabase
+
+Para utilizar Supabase como base de datos del proyecto:
+
+1. Crea un proyecto en [supabase.com](https://supabase.com).
+2. Dirigete a la seccion **Project Settings** > **Database** > **Connection string**.
+3. Selecciona la pestana **URI**:
+   - Copia la URL en modo **Transaction** y colocala en `DATABASE_URL`.
+   - Copia la URL en modo **Session** (o conexion directa) y colocala en `DIRECT_URL`.
+4. Ejecuta `npm run db:push` en la carpeta `backend` para aplicar los modelos a tu proyecto en la nube.
+
+---
+
+## Flujo de Trabajo con Ramas (Git Flow)
+
+El proyecto mantiene dos ramas principales:
+
+- `main`: Codigo estable listo para despliegues a produccion.
+- `develop`: Rama base de integracion para nuevas caracteristicas, correcciones y pruebas.
+
+Cada cambio que se incorpora a estas ramas es verificado automaticamente por el pipeline de GitHub Actions antes de ser desplegado.
+
+---
+
+## Despliegue en Render
+
+El repositorio incluye el archivo `render.yaml` para realizar despliegues mediante la funcionalidad Blueprints de Render:
+
+1. Conecta tu repositorio de GitHub en el panel de Render.
+2. Selecciona la opcion **Blueprints** y Render detectara la configuracion de los dos servicios:
+   - `sucrenita-api`: Servicio web para Node.js con Express.
+   - `sucrenita-web`: Servicio web para Next.js con soporte SSR.
+3. Configura en las variables de entorno de `sucrenita-api` el valor de `DATABASE_URL` y `DIRECT_URL` provistos por Supabase.
