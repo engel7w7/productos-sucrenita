@@ -24,14 +24,14 @@ export function ProductCard({ product }: ProductCardProps) {
             className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-sucrenita-400 font-serif">
-            Sucrenita Artesanal
+          <div className="w-full h-full flex items-center justify-center text-amber-700/60 font-serif text-sm">
+            Productos Sucreñita
           </div>
         )}
 
         {/* Badge de Categoría */}
         {product.category && (
-          <span className="absolute top-3 left-3 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider bg-white/90 backdrop-blur-md text-sucrenita-700 rounded-full shadow-sm">
+          <span className="absolute top-3 left-3 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider bg-white/95 backdrop-blur-md text-amber-900 rounded-full shadow-sm">
             {product.category.name}
           </span>
         )}
@@ -50,7 +50,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
       {/* Contenido */}
       <div className="flex flex-col flex-1 p-5">
-        <h3 className="font-serif text-lg font-bold text-sucrenita-900 group-hover:text-sucrenita-600 transition-colors line-clamp-1">
+        <h3 className="font-serif text-lg font-bold text-sucrenita-900 group-hover:text-amber-800 transition-colors line-clamp-1">
           <Link href={`/productos/${product.slug}`}>
             <span className="absolute inset-0 z-10" />
             {product.name}
@@ -58,7 +58,7 @@ export function ProductCard({ product }: ProductCardProps) {
         </h3>
 
         <p className="mt-2 text-xs text-sucrenita-600 line-clamp-2 leading-relaxed flex-1">
-          {product.description || 'Delicioso producto elaborado con recetas auténticas de la ciudad blanca de Sucre.'}
+          {product.description || 'Producto seleccionado con la calidad y frescura de Productos Sucreñita.'}
         </p>
 
         {/* Pie de tarjeta: Precio y Acción */}

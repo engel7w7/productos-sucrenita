@@ -11,9 +11,11 @@ import {
   Clock,
   MessageCircle,
   PackageCheck,
+  QrCode,
   ShieldCheck,
   Sparkles,
   Truck,
+  Wheat,
 } from 'lucide-react';
 
 interface ProductPageProps {
@@ -39,13 +41,13 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${product.name} | Sucrenita`;
+  const title = `${product.name} | Productos Sucreñita`;
   const description =
     product.description ||
-    `Compra ${product.name} artesanal elaborado en Sucre, Bolivia. Cacao selecto y sabor inigualable.`;
+    `Compra ${product.name} garantizado por Productos Sucreñita. Abarrotes y snacks tradicionales con venta directa por WhatsApp y cobro QR.`;
   const imageUrl =
     product.imageUrl ||
-    'https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=1200&h=630&q=80';
+    'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&h=630&q=80';
 
   return {
     title,
@@ -59,7 +61,7 @@ export async function generateMetadata({
       url: `${siteUrl}/productos/${product.slug}`,
       title,
       description,
-      siteName: 'Sucrenita',
+      siteName: 'Productos Sucreñita',
       images: [
         {
           url: imageUrl,
@@ -96,13 +98,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     '@type': 'Product',
     name: product.name,
     image: product.imageUrl ? [product.imageUrl] : [],
-    description: product.description || `Delicioso ${product.name} artesanal elaborado por Sucrenita.`,
+    description: product.description || `Calidad garantizada de ${product.name} por Productos Sucreñita.`,
     sku: product.id,
     brand: {
       '@type': 'Brand',
-      name: 'Sucrenita',
+      name: 'Productos Sucreñita',
     },
-    category: product.category?.name || 'Chocolatería y Repostería',
+    category: product.category?.name || 'Abarrotes y Snacks',
     offers: {
       '@type': 'Offer',
       url: `${siteUrl}/productos/${product.slug}`,
@@ -117,16 +119,16 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         : 'https://schema.org/OutOfStock',
       seller: {
         '@type': 'Organization',
-        name: 'Sucrenita',
+        name: 'Productos Sucreñita',
       },
     },
   };
 
   // Mensaje preparado para pedido por WhatsApp
   const whatsappText = encodeURIComponent(
-    `¡Hola Sucrenita! Me interesa pedir el producto: "${product.name}" (${formatPrice(
+    `¡Hola Productos Sucreñita! Me interesa pedir el producto: "${product.name}" (${formatPrice(
       product.price
-    )}) desde su catálogo web.`
+    )}) desde su catálogo web. ¿Tienen disponible para coordinar la entrega y el cobro por QR?`
   );
   const whatsappUrl = `https://wa.me/59170000000?text=${whatsappText}`;
 
@@ -140,13 +142,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <nav aria-label="Breadcrumb" className="mb-8">
           <ol className="flex items-center gap-2 text-xs sm:text-sm text-sucrenita-500">
             <li>
-              <Link href="/" className="hover:text-sucrenita-800 transition-colors">
+              <Link href="/" className="hover:text-amber-800 transition-colors">
                 Inicio
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link href="/catalogo" className="hover:text-sucrenita-800 transition-colors">
+              <Link href="/catalogo" className="hover:text-amber-800 transition-colors">
                 Catálogo
               </Link>
             </li>
@@ -156,7 +158,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 <li>
                   <Link
                     href={`/catalogo?categoria=${product.category.slug}`}
-                    className="hover:text-sucrenita-800 transition-colors"
+                    className="hover:text-amber-800 transition-colors"
                   >
                     {product.category.name}
                   </Link>
@@ -185,13 +187,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   className="object-cover object-center"
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-sucrenita-400 font-serif">
-                  Sucrenita Artesanal
+                <div className="w-full h-full flex items-center justify-center text-amber-600 font-serif">
+                  Productos Sucreñita
                 </div>
               )}
 
               {product.category && (
-                <span className="absolute top-4 left-4 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider bg-white/95 backdrop-blur-md text-sucrenita-800 rounded-full shadow-md">
+                <span className="absolute top-4 left-4 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider bg-white/95 backdrop-blur-md text-amber-900 rounded-full shadow-md">
                   {product.category.name}
                 </span>
               )}
@@ -214,7 +216,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                       isAvailable ? 'bg-emerald-500' : 'bg-rose-500'
                     }`}
                   />
-                  {isAvailable ? `Disponible (${product.stock} en inventario)` : 'Agotado'}
+                  {isAvailable ? `Disponible (${product.stock} unidades en almacén)` : 'Agotado temporalmente'}
                 </span>
                 <span className="text-xs text-sucrenita-400">SKU: {product.id}</span>
               </div>
@@ -224,28 +226,39 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               </h1>
 
               <div className="mt-4 flex items-baseline gap-3">
-                <span className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-800">
+                <span className="font-serif text-3xl sm:text-4xl font-bold text-amber-800">
                   {formatPrice(product.price)}
                 </span>
                 <span className="text-xs text-sucrenita-500 uppercase tracking-wider font-semibold">
-                  (Incluye impuestos de ley)
+                  (Precio por unidad / paquete)
                 </span>
               </div>
             </div>
 
             {/* Descripción */}
             <div className="p-5 rounded-2xl bg-white border border-sucrenita-200/80 shadow-sm space-y-3">
-              <h2 className="font-serif font-bold text-sm text-sucrenita-900 uppercase tracking-wider">
-                Descripción Artesanal
+              <h2 className="font-serif font-bold text-sm text-sucrenita-900 uppercase tracking-wider flex items-center gap-2">
+                <Wheat className="w-4 h-4 text-amber-600" />
+                Detalles del Producto y Calidad
               </h2>
               <p className="text-sm text-sucrenita-700 leading-relaxed">
                 {product.description ||
-                  'Delicada preparación elaborada según la auténtica receta tradicional de Sucre. Cuidamos cada detalle desde la selección del cacao hasta el empaque final.'}
+                  'Producto elaborado y seleccionado con los más altos estándares de calidad artesanal, conservando el auténtico sabor tradicional boliviano.'}
+              </p>
+            </div>
+
+            {/* Cobro con QR y Pedido */}
+            <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-900 text-xs flex items-center gap-3">
+              <div className="p-2 bg-white rounded-xl shadow-sm text-amber-700">
+                <QrCode className="w-5 h-5" />
+              </div>
+              <p className="leading-snug">
+                <strong>Pago fácil y seguro con código QR:</strong> Coordina tu pedido por chat y realiza la transferencia directa mediante Simple QR sin comisiones adicionales.
               </p>
             </div>
 
             {/* Botones de Acción */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row gap-4 pt-1">
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -258,7 +271,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
               <Link
                 href="/catalogo"
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-sm font-semibold bg-white hover:bg-sucrenita-100 text-sucrenita-800 border border-sucrenita-300 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-sm font-semibold bg-white hover:bg-amber-50 text-sucrenita-800 border border-sucrenita-300 transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Volver al Catálogo</span>
@@ -268,16 +281,16 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             {/* Beneficios & Garantías */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-sucrenita-200">
               <div className="flex items-center gap-3">
-                <Truck className="w-5 h-5 text-sucrenita-gold" />
-                <span className="text-xs text-sucrenita-700 font-medium">Envío refrigerado</span>
+                <Wheat className="w-5 h-5 text-amber-600" />
+                <span className="text-xs text-sucrenita-700 font-medium">Granos limpios</span>
               </div>
               <div className="flex items-center gap-3">
-                <Sparkles className="w-5 h-5 text-sucrenita-gold" />
-                <span className="text-xs text-sucrenita-700 font-medium">100% Cacao fino</span>
+                <ShieldCheck className="w-5 h-5 text-amber-600" />
+                <span className="text-xs text-sucrenita-700 font-medium">Calidad casera</span>
               </div>
               <div className="flex items-center gap-3">
-                <ShieldCheck className="w-5 h-5 text-sucrenita-gold" />
-                <span className="text-xs text-sucrenita-700 font-medium">Garantía artesanal</span>
+                <QrCode className="w-5 h-5 text-amber-600" />
+                <span className="text-xs text-sucrenita-700 font-medium">Pago Simple QR</span>
               </div>
             </div>
           </div>

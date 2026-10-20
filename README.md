@@ -1,6 +1,11 @@
-# Sucrenita - Catalogo Web y E-Commerce Artesanal
+# Productos Sucreñita - Catalogo Web y E-Commerce Artesanal
 
-Plataforma web para el catalogo de productos y venta en linea de Sucrenita, Sucre, Bolivia.
+Plataforma de comercio electronico y catalogo digital para el negocio familiar "Productos Sucreñita", dividida en dos lineas comerciales:
+
+1. Abarrotes y Condimentos: Mani crudo y molido especial para sopa de mani, ajies colorados y amarillos molidos (con y sin picante) y condimentos criollos.
+2. Snacks Artesanales: Chicharrones crocantes, mani dulce garrapinado y habas fritas con sal marina.
+
+Implementa un modelo de catalogo web y venta directa al consumidor (B2C) con atencion personalizada via WhatsApp Business y cobros modernos mediante codigos QR (Simple QR).
 
 ---
 

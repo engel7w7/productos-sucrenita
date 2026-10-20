@@ -27,19 +27,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
-      url: `${siteUrl}/catalogo?categoria=chocolates-tradicionales`,
+      url: `${siteUrl}/catalogo?categoria=abarrotes-condimentos`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.7,
     },
     {
-      url: `${siteUrl}/catalogo?categoria=alfajores-galletas`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${siteUrl}/catalogo?categoria=dulces-tipicos-bombones`,
+      url: `${siteUrl}/catalogo?categoria=snacks-artesanales`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.7,
