@@ -105,3 +105,20 @@ npm run dev
 npm run build
 npm start
 ```
+
+---
+
+## ⚡ Conexión a Base de Datos con Supabase
+
+1. Crea tu cuenta gratuita en [supabase.com](https://supabase.com).
+2. Crea un proyecto nuevo (`productos-sucrenita`).
+3. Ve a **Project Settings** > **Database** > sección **Connection string**:
+   - En la pestaña **URI**, copia la cadena con modo **Transaction** (asígnala a `DATABASE_URL` en tu `.env` y en las variables de Render).
+   - Copia la cadena con modo **Session** o directa (asígnala a `DIRECT_URL` para que Prisma ejecute migraciones sin conflicto de pgbouncer).
+4. Para sincronizar las tablas y cargar el catálogo inicial:
+   ```bash
+   cd backend
+   npm run db:push
+   npm run seed
+   ```
+
