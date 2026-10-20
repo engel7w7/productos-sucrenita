@@ -1,26 +1,27 @@
 # Sucrenita - Catalogo Web y E-Commerce Artesanal
 
-Plataforma web para el catalogo de productos y venta en linea de Sucrenita, especializada en chocolates finos, bombones artesanales y reposteria tradicional de Sucre, Bolivia.
-
-El proyecto esta organizado bajo una arquitectura de monorepositorio que separa de forma clara la logica de la API y la interfaz de usuario, optimizada para posicionamiento en motores de busqueda (SEO) y rendimiento en produccion.
+Plataforma web para el catalogo de productos y venta en linea de Sucrenita, Sucre, Bolivia.
 
 ---
 
 ## Tecnologias Utilizadas
 
 ### Backend
+
 - Node.js con Express y TypeScript.
 - Prisma ORM para el modelado de datos y migraciones.
 - Base de datos relacional PostgreSQL alojada en Supabase (compatible con Transaction Pooler y conexion directa).
 - Endpoint preparado para recepcion de webhooks de pagos (soporte para lectura de cuerpo en crudo / raw body).
 
 ### Frontend
+
 - Next.js (App Router) con TypeScript.
 - Tailwind CSS para la interfaz y sistema de diseno responsive.
 - Renderizado del lado del servidor (SSR) y generacion estatica incremental (ISR).
 - Metadatos dinamicos (generateMetadata), integracion de datos estructurados con Schema.org (JSON-LD para productos) y generacion automatica de sitemap.xml y robots.txt.
 
 ### Infraestructura y Calidad
+
 - Integracion continua con GitHub Actions para validacion automatica de tipos y compilacion en cada push o pull request.
 - Manifiesto de despliegue automatizado con Render Blueprint (render.yaml).
 
@@ -74,6 +75,7 @@ productos-sucrenita/
 ## Guia de Puesta en Marcha Local
 
 ### Requisitos previos
+
 - Node.js version 18 o superior (recomendado Node.js 20 LTS o superior).
 - Gestor de paquetes npm.
 - Una cuenta en Supabase o una instancia local de PostgreSQL.
@@ -83,16 +85,20 @@ productos-sucrenita/
 ### Paso 1: Configuracion del Backend
 
 1. Entra a la carpeta del backend e instala las dependencias:
+
    ```bash
    cd backend
    npm install
    ```
 
 2. Crea tu archivo de variables de entorno a partir del archivo de ejemplo:
+
    ```bash
    cp .env.example .env
    ```
+
    En Windows (PowerShell):
+
    ```powershell
    Copy-Item .env.example .env
    ```
@@ -102,19 +108,23 @@ productos-sucrenita/
    - `DIRECT_URL`: Cadena con conexion directa (puerto 5432) para ejecutar migraciones.
 
 4. Sincroniza la estructura de la base de datos y genera el cliente de Prisma:
+
    ```bash
    npm run db:push
    ```
 
 5. Opcionalmente, carga los datos iniciales de prueba (chocolates, alfajores y bombones):
+
    ```bash
    npm run seed
    ```
 
 6. Inicia el servidor en modo desarrollo:
+
    ```bash
    npm run dev
    ```
+
    El backend estara disponible en `http://localhost:10000`.
 
 ---
@@ -122,21 +132,25 @@ productos-sucrenita/
 ### Paso 2: Configuracion del Frontend
 
 1. En una nueva terminal, entra a la carpeta del frontend e instala las dependencias:
+
    ```bash
    cd frontend
    npm install
    ```
 
 2. Crea tu archivo `.env.local` si deseas cambiar las URLs por defecto:
+
    ```env
    NEXT_PUBLIC_API_URL=http://localhost:10000
    NEXT_PUBLIC_SITE_URL=http://localhost:3000
    ```
 
 3. Inicia la aplicacion en modo desarrollo:
+
    ```bash
    npm run dev
    ```
+
    Abre tu navegador en `http://localhost:3000`.
 
 ---
