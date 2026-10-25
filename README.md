@@ -118,7 +118,7 @@ productos-sucrenita/
    npm run db:push
    ```
 
-5. Opcionalmente, carga los datos iniciales de prueba (chocolates, alfajores y bombones):
+5. Opcionalmente, carga los datos iniciales de prueba (mani, ajies, chicharrones y snacks):
 
    ```bash
    npm run seed
@@ -184,12 +184,37 @@ Cada cambio que se incorpora a estas ramas es verificado automaticamente por el 
 
 ---
 
-## Despliegue en Render
+## Seguridad y Certificados SSL/TLS
 
-El repositorio incluye el archivo `render.yaml` para realizar despliegues mediante la funcionalidad Blueprints de Render:
+El proyecto incorpora mecanismos de seguridad y cifrado para transmision segura HTTPS:
 
-1. Conecta tu repositorio de GitHub en el panel de Render.
-2. Selecciona la opcion **Blueprints** y Render detectara la configuracion de los dos servicios:
-   - `sucrenita-api`: Servicio web para Node.js con Express.
-   - `sucrenita-web`: Servicio web para Next.js con soporte SSR.
-3. Configura en las variables de entorno de `sucrenita-api` el valor de `DATABASE_URL` y `DIRECT_URL` provistos por Supabase.
+1. **Let's Encrypt Automatizado:**
+   - En Render y Vercel, la emision y renovacion de certificados Let's Encrypt es automatica y transparente.
+   - Para despliegues en VPS (Ubuntu/Debian) mediante Nginx, se incluye la configuracion base en `deploy/nginx/sucrenita.conf` y soporte para renovacion con Certbot (`sudo certbot --nginx`).
+
+2. **ZeroSSL (zerossl.com):**
+   - El backend Express incluye soporte para la validacion del desafio HTTP-01 sirviendo archivos desde `backend/public/.well-known/acme-challenge/`.
+   - Se documenta el procedimiento para concatenar `certificate.crt` y `ca_bundle.crt` en `deploy/ssl/SSL_GUIDE.md`.
+
+3. **Certificados Autofirmados:**
+   - Para entornos locales o servidores de evaluacion interna, se incluyen scripts generadores con OpenSSL:
+     - Linux/macOS: `deploy/ssl/generate-self-signed.sh`
+     - Windows (PowerShell): `deploy/ssl/generate-self-signed.ps1`
+
+4. **Cabeceras de Seguridad y HSTS:**
+   - El servidor Express utiliza `helmet` para inyectar cabeceras `Strict-Transport-Security` (HSTS de 1 ano con subdominios y precarga), proteccion contra sniffing de tipos MIME y deteccion fiable de proxies inversos (`trust proxy`).
+
+---
+
+## Analitica Web con Google Analytics 4 (GA4)
+
+La aplicacion frontend integra Google Analytics para medir visitas e interacciones clave:
+
+1. **Configuracion:**
+   - Define tu Measurement ID en la variable de entorno `NEXT_PUBLIC_GA_ID` (ej: `G-XXXXXXXXXX`).
+   - El componente `GoogleAnalytics` inyecta las etiquetas con estrategia `afterInteractive` para no penalizar el rendimiento ni el Core Web Vitals.
+
+2. **Seguimiento de Conversiones (Eventos Personalizados):**
+   - Visualizacion de productos: evento `view_item` con nombre, categoria y precio.
+   - Contactos comerciales: evento `generate_lead` al presionar cualquier boton de pedido por WhatsApp, capturando el origen del clic y el producto consultado.
+

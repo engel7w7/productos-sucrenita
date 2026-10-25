@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { MessageCircle, ShoppingBag, Store, UtensilsCrossed } from 'lucide-react';
+import { ShoppingBag, Store, UtensilsCrossed } from 'lucide-react';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 
 export function Navbar() {
   return (
@@ -53,15 +54,12 @@ export function Navbar() {
 
           {/* Action: Pedidos por WhatsApp */}
           <div className="flex items-center gap-3">
-            <a
-              href="https://wa.me/59170000000?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20una%20consulta%20sobre%20sus%20productos"
-              target="_blank"
-              rel="noopener noreferrer"
+            <WhatsAppButton
+              url="https://wa.me/59170000000?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20una%20consulta%20sobre%20sus%20productos"
+              source="navbar"
+              label="WhatsApp"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-semibold tracking-wide bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm hover:shadow transition-all"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span className="hidden sm:inline">WhatsApp</span>
-            </a>
+            />
 
             <Link
               href="/catalogo"

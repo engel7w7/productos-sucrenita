@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getProducts } from '@/lib/api';
 import { ProductCard } from '@/components/ProductCard';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { ArrowRight, CheckCircle2, MessageCircle, QrCode, Sparkles, Utensils, Wheat } from 'lucide-react';
 
 export const revalidate = 60; // SSR con Revalidación Incremental (ISR)
@@ -43,15 +44,12 @@ export default async function HomePage() {
                   <span>Ver Catálogo Completo</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-                <a
-                  href="https://wa.me/59170000000?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20un%20pedido%20desde%20su%20cat%C3%A1logo%20web"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <WhatsAppButton
+                  url="https://wa.me/59170000000?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20un%20pedido%20desde%20su%20cat%C3%A1logo%20web"
+                  source="hero"
+                  label="Pedir por WhatsApp"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold bg-white hover:bg-emerald-50 text-emerald-800 border border-emerald-300 shadow-sm transition-colors"
-                >
-                  <MessageCircle className="w-4 h-4 text-emerald-600" />
-                  <span>Pedir por WhatsApp</span>
-                </a>
+                />
               </div>
 
               {/* Badges de confianza */}

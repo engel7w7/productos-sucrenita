@@ -17,6 +17,7 @@ import {
   Truck,
   Wheat,
 } from 'lucide-react';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 
 type Props = {
   params: Promise<{ slug: string }> | { slug: string };
@@ -259,15 +260,12 @@ export default async function ProductDetailPage({ params }: Props) {
 
             {/* Botones de Acción */}
             <div className="flex flex-col sm:flex-row gap-4 pt-1">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md hover:shadow-lg transition-all"
-              >
-                <MessageCircle className="w-5 h-5" />
-                <span>Pedir por WhatsApp</span>
-              </a>
+              <WhatsAppButton
+                url={whatsappUrl}
+                productName={product.name}
+                price={product.price}
+                source="product_detail"
+              />
 
               <Link
                 href="/catalogo"
