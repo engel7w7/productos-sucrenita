@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '@/types';
 import { formatPrice } from '@/lib/utils';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -10,11 +10,12 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const isAvailable = product.stock > 0 && product.isActive;
+  const isAbarrotes = product.category?.slug === 'abarrotes-condimentos';
 
   return (
-    <article className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-sucrenita-200/70 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-      {/* Imagen del producto */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-sucrenita-100">
+    <article className="group relative flex flex-col bg-white rounded-3xl overflow-hidden border border-pastel-sandDark/70 shadow-soft hover:shadow-soft-lg transition-all duration-300 transform hover:-translate-y-1">
+      {/* Imagen del producto con fondo pastel */}
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-pastel-sand">
         {product.imageUrl ? (
           <Image
             src={product.imageUrl}
@@ -24,33 +25,39 @@ export function ProductCard({ product }: ProductCardProps) {
             className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-amber-700/60 font-serif text-sm">
+          <div className="w-full h-full flex items-center justify-center text-pastel-peachText font-serif text-sm">
             Productos Sucreñita
           </div>
         )}
 
-        {/* Badge de Categoría */}
+        {/* Badge de Categoria en tonos pastel */}
         {product.category && (
-          <span className="absolute top-3 left-3 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider bg-white/95 backdrop-blur-md text-amber-900 rounded-full shadow-sm">
+          <span
+            className={`absolute top-3.5 left-3.5 px-3 py-1 text-[11px] font-semibold tracking-wide rounded-full backdrop-blur-md shadow-sm border ${
+              isAbarrotes
+                ? 'bg-pastel-amber/95 text-pastel-amberText border-pastel-amberBorder/60'
+                : 'bg-pastel-peach/95 text-pastel-peachText border-pastel-peachBorder/60'
+            }`}
+          >
             {product.category.name}
           </span>
         )}
 
-        {/* Badge de Disponibilidad */}
+        {/* Badge de Disponibilidad suave */}
         <span
-          className={`absolute top-3 right-3 px-2.5 py-1 text-[10px] font-medium rounded-full backdrop-blur-md ${
+          className={`absolute top-3.5 right-3.5 px-2.5 py-1 text-[10px] font-medium rounded-full backdrop-blur-md border ${
             isAvailable
-              ? 'bg-emerald-500/90 text-white'
-              : 'bg-rose-500/90 text-white'
+              ? 'bg-pastel-sage/95 text-pastel-sageText border-pastel-sageBorder/60'
+              : 'bg-pastel-rose/95 text-pastel-roseText border-pastel-roseBorder/60'
           }`}
         >
-          {isAvailable ? 'En stock' : 'Agotado'}
+          {isAvailable ? 'En almacén' : 'Agotado'}
         </span>
       </div>
 
-      {/* Contenido */}
-      <div className="flex flex-col flex-1 p-5">
-        <h3 className="font-serif text-lg font-bold text-sucrenita-900 group-hover:text-amber-800 transition-colors line-clamp-1">
+      {/* Contenido de la tarjeta */}
+      <div className="flex flex-col flex-1 p-5 sm:p-6">
+        <h3 className="font-serif text-lg font-bold text-sucrenita-900 group-hover:text-pastel-peachText transition-colors line-clamp-1">
           <Link href={`/productos/${product.slug}`}>
             <span className="absolute inset-0 z-10" />
             {product.name}
@@ -61,18 +68,18 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.description || 'Producto seleccionado con la calidad y frescura de Productos Sucreñita.'}
         </p>
 
-        {/* Pie de tarjeta: Precio y Acción */}
-        <div className="mt-5 pt-4 border-t border-sucrenita-100 flex items-center justify-between">
+        {/* Pie de tarjeta: Precio y Accion */}
+        <div className="mt-5 pt-4 border-t border-pastel-sandDark/60 flex items-center justify-between">
           <div className="flex flex-col">
-            <span className="text-[10px] uppercase font-bold tracking-wider text-sucrenita-400">
-              Precio
+            <span className="text-[10px] uppercase font-semibold tracking-wider text-sucrenita-400">
+              Precio unitario
             </span>
-            <span className="text-xl font-bold font-serif text-sucrenita-800">
+            <span className="text-xl font-bold font-serif text-sucrenita-700">
               {formatPrice(product.price)}
             </span>
           </div>
 
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-sucrenita-600 group-hover:text-sucrenita-800 transition-colors">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-pastel-peach/70 text-pastel-peachText group-hover:bg-pastel-peach transition-colors">
             <span>Ver detalle</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </div>

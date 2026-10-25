@@ -143,13 +143,13 @@ export default async function ProductDetailPage({ params }: Props) {
         <nav aria-label="Breadcrumb" className="mb-8">
           <ol className="flex items-center gap-2 text-xs sm:text-sm text-sucrenita-500">
             <li>
-              <Link href="/" className="hover:text-amber-800 transition-colors">
+              <Link href="/" className="hover:text-sucrenita-900 transition-colors">
                 Inicio
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link href="/catalogo" className="hover:text-amber-800 transition-colors">
+              <Link href="/catalogo" className="hover:text-sucrenita-900 transition-colors">
                 Catálogo
               </Link>
             </li>
@@ -159,7 +159,7 @@ export default async function ProductDetailPage({ params }: Props) {
                 <li>
                   <Link
                     href={`/catalogo?categoria=${product.category.slug}`}
-                    className="hover:text-amber-800 transition-colors"
+                    className="hover:text-sucrenita-900 transition-colors"
                   >
                     {product.category.name}
                   </Link>
@@ -177,7 +177,7 @@ export default async function ProductDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Galería / Imagen */}
           <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] sm:aspect-square w-full rounded-3xl overflow-hidden bg-white border border-sucrenita-200/80 shadow-lg">
+            <div className="relative aspect-[4/3] sm:aspect-square w-full rounded-3xl overflow-hidden bg-pastel-cream border border-pastel-sandDark shadow-soft">
               {product.imageUrl ? (
                 <Image
                   src={product.imageUrl}
@@ -188,13 +188,13 @@ export default async function ProductDetailPage({ params }: Props) {
                   className="object-cover object-center"
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-amber-600 font-serif">
+                <div className="w-full h-full flex items-center justify-center text-pastel-amberText font-serif">
                   Productos Sucreñita
                 </div>
               )}
 
               {product.category && (
-                <span className="absolute top-4 left-4 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider bg-white/95 backdrop-blur-md text-amber-900 rounded-full shadow-md">
+                <span className="absolute top-4 left-4 px-3.5 py-1.5 text-xs font-semibold tracking-wide bg-white/95 backdrop-blur-md text-sucrenita-800 rounded-full border border-pastel-sandDark shadow-sm">
                   {product.category.name}
                 </span>
               )}
@@ -204,12 +204,12 @@ export default async function ProductDetailPage({ params }: Props) {
           {/* Información del Producto */}
           <div className="lg:col-span-6 flex flex-col gap-6">
             <div>
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center gap-3 mb-3">
                 <span
-                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${
+                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border ${
                     isAvailable
-                      ? 'bg-emerald-100 text-emerald-800'
-                      : 'bg-rose-100 text-rose-800'
+                      ? 'bg-pastel-sage text-pastel-sageText border-pastel-sageBorder'
+                      : 'bg-pastel-rose text-rose-800 border-rose-200'
                   }`}
                 >
                   <span
@@ -227,19 +227,19 @@ export default async function ProductDetailPage({ params }: Props) {
               </h1>
 
               <div className="mt-4 flex items-baseline gap-3">
-                <span className="font-serif text-3xl sm:text-4xl font-bold text-amber-800">
+                <span className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900">
                   {formatPrice(product.price)}
                 </span>
-                <span className="text-xs text-sucrenita-500 uppercase tracking-wider font-semibold">
+                <span className="text-xs text-sucrenita-500 uppercase tracking-wider font-medium">
                   (Precio por unidad / paquete)
                 </span>
               </div>
             </div>
 
             {/* Descripción */}
-            <div className="p-5 rounded-2xl bg-white border border-sucrenita-200/80 shadow-sm space-y-3">
+            <div className="p-5 rounded-3xl bg-white/80 backdrop-blur-sm border border-pastel-sandDark shadow-soft space-y-3">
               <h2 className="font-serif font-bold text-sm text-sucrenita-900 uppercase tracking-wider flex items-center gap-2">
-                <Wheat className="w-4 h-4 text-amber-600" />
+                <span className="w-6 h-6 rounded-full bg-pastel-amber flex items-center justify-center text-xs border border-pastel-amberBorder">🌾</span>
                 Detalles del Producto y Calidad
               </h2>
               <p className="text-sm text-sucrenita-700 leading-relaxed">
@@ -249,8 +249,8 @@ export default async function ProductDetailPage({ params }: Props) {
             </div>
 
             {/* Cobro con QR y Pedido */}
-            <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-900 text-xs flex items-center gap-3">
-              <div className="p-2 bg-white rounded-xl shadow-sm text-amber-700">
+            <div className="p-4 rounded-3xl bg-pastel-amber/40 border border-pastel-amberBorder text-sucrenita-800 text-xs flex items-center gap-3">
+              <div className="p-2.5 bg-white rounded-2xl shadow-sm text-pastel-amberText border border-pastel-amberBorder/60">
                 <QrCode className="w-5 h-5" />
               </div>
               <p className="leading-snug">
@@ -269,7 +269,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
               <Link
                 href="/catalogo"
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-sm font-semibold bg-white hover:bg-amber-50 text-sucrenita-800 border border-sucrenita-300 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-sm font-semibold bg-white hover:bg-pastel-sand text-sucrenita-800 border border-pastel-sandDark shadow-soft transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Volver al Catálogo</span>
@@ -277,17 +277,17 @@ export default async function ProductDetailPage({ params }: Props) {
             </div>
 
             {/* Beneficios & Garantías */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-sucrenita-200">
-              <div className="flex items-center gap-3">
-                <Wheat className="w-5 h-5 text-amber-600" />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-pastel-sandDark">
+              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark/60">
+                <span className="w-7 h-7 rounded-full bg-pastel-amber flex items-center justify-center text-xs">🌾</span>
                 <span className="text-xs text-sucrenita-700 font-medium">Granos limpios</span>
               </div>
-              <div className="flex items-center gap-3">
-                <ShieldCheck className="w-5 h-5 text-amber-600" />
+              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark/60">
+                <span className="w-7 h-7 rounded-full bg-pastel-sage flex items-center justify-center text-xs">🛡️</span>
                 <span className="text-xs text-sucrenita-700 font-medium">Calidad casera</span>
               </div>
-              <div className="flex items-center gap-3">
-                <QrCode className="w-5 h-5 text-amber-600" />
+              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark/60">
+                <span className="w-7 h-7 rounded-full bg-pastel-peach flex items-center justify-center text-xs">📱</span>
                 <span className="text-xs text-sucrenita-700 font-medium">Pago Simple QR</span>
               </div>
             </div>

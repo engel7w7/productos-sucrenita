@@ -30,35 +30,35 @@ export default async function CatalogoPage({ searchParams }: CatalogoPageProps) 
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-      {/* Encabezado */}
+      {/* Encabezado con estilo pastel armonioso */}
       <div className="text-center max-w-3xl mx-auto mb-10">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-amber-100 text-amber-800 mb-3">
+        <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-pastel-amber/80 text-pastel-amberText border border-pastel-amberBorder shadow-soft mb-3">
           <Store className="w-3.5 h-3.5" />
           Tienda Virtual Oficial &bull; Productos Sucreñita
         </span>
-        <h1 className="font-serif text-3xl sm:text-5xl font-bold text-sucrenita-900 mt-1">
-          Catálogo de Productos
+        <h1 className="font-serif text-3xl sm:text-5xl font-bold text-sucrenita-900 mt-2">
+          Catálogo Artesanal
         </h1>
         <p className="mt-3 text-sm sm:text-base text-sucrenita-600 max-w-xl mx-auto leading-relaxed">
-          Selecciona tu categoría para explorar abarrotes de cocina tradicional y deliciosos snacks caseros. Realiza tu pedido directo por WhatsApp y paga de forma segura mediante código QR.
+          Selecciona tu categoría para explorar abarrotes de cocina tradicional y deliciosos snacks caseros. Realiza tu pedido directo por WhatsApp y paga mediante código QR.
         </p>
 
-        {/* Banner Informativo QR & WhatsApp */}
-        <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-6 px-6 py-3 rounded-2xl bg-white border border-amber-200 shadow-sm text-xs text-sucrenita-700">
+        {/* Banner Informativo QR & WhatsApp en tonos pastel */}
+        <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-6 px-6 py-3 rounded-2xl bg-white/80 border border-pastel-sandDark shadow-soft text-xs text-sucrenita-700">
           <span className="flex items-center gap-2 font-medium">
-            <QrCode className="w-4 h-4 text-amber-600" />
+            <QrCode className="w-4 h-4 text-pastel-peachText" />
             Pagos rápidos con Simple QR
           </span>
-          <span className="hidden sm:inline text-amber-300">•</span>
+          <span className="hidden sm:inline text-pastel-sandDark">•</span>
           <span className="flex items-center gap-2 font-medium">
-            <MessageCircle className="w-4 h-4 text-emerald-600" />
+            <MessageCircle className="w-4 h-4 text-pastel-sageText" />
             Atención personalizada por WhatsApp
           </span>
         </div>
       </div>
 
-      {/* Filtros por Categoría */}
-      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+      {/* Filtros por Categoria en botones pastel */}
+      <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 mb-12">
         {categories.map((cat) => {
           const isActive = currentCategory === cat.slug;
           const href = cat.slug ? `/catalogo?categoria=${cat.slug}` : '/catalogo';
@@ -67,10 +67,10 @@ export default async function CatalogoPage({ searchParams }: CatalogoPageProps) 
             <Link
               key={cat.name}
               href={href}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all ${
+              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all ${
                 isActive
-                  ? 'bg-amber-700 text-white shadow-md'
-                  : 'bg-white text-sucrenita-800 hover:bg-amber-50 border border-sucrenita-200'
+                  ? 'bg-sucrenita-600 text-white shadow-soft-lg scale-105'
+                  : 'bg-white text-sucrenita-700 hover:bg-pastel-peach/60 hover:text-pastel-peachText border border-pastel-sandDark/80 shadow-soft'
               }`}
             >
               {cat.name}
@@ -87,7 +87,7 @@ export default async function CatalogoPage({ searchParams }: CatalogoPageProps) 
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 bg-white rounded-3xl border border-dashed border-amber-300">
+        <div className="text-center py-16 bg-white rounded-3xl border border-dashed border-pastel-sandDark shadow-soft">
           <p className="font-serif text-xl text-sucrenita-800 font-bold">
             No se encontraron productos en esta categoría.
           </p>
@@ -96,7 +96,7 @@ export default async function CatalogoPage({ searchParams }: CatalogoPageProps) 
           </p>
           <Link
             href="/catalogo"
-            className="mt-6 inline-block px-6 py-2.5 rounded-full text-xs font-semibold bg-amber-700 text-white shadow-sm"
+            className="mt-6 inline-block px-6 py-2.5 rounded-full text-xs font-semibold bg-sucrenita-600 hover:bg-sucrenita-700 text-white shadow-soft"
           >
             Ver todos los productos
           </Link>
