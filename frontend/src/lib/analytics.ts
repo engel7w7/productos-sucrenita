@@ -5,7 +5,7 @@ declare global {
   }
 }
 
-export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || '';
+export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-488V6796W5';
 
 export function pageView(url: string) {
   if (typeof window !== 'undefined' && window.gtag && GA_TRACKING_ID) {

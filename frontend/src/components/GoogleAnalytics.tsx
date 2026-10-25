@@ -7,7 +7,7 @@ interface GoogleAnalyticsProps {
 }
 
 export function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
-  const trackingId = gaId || process.env.NEXT_PUBLIC_GA_ID;
+  const trackingId = gaId || process.env.NEXT_PUBLIC_GA_ID || 'G-488V6796W5';
 
   if (!trackingId) {
     return null;
