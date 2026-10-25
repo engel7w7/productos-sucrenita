@@ -184,25 +184,21 @@ Cada cambio que se incorpora a estas ramas es verificado automaticamente por el 
 
 ---
 
-## Seguridad y Certificados SSL/TLS
+## Seguridad y Certificados SSL/TLS (ZeroSSL)
 
-El proyecto incorpora mecanismos de seguridad y cifrado para transmision segura HTTPS:
+El proyecto incorpora mecanismos de seguridad y cifrado para transmision segura HTTPS basados en **ZeroSSL** (zerossl.com):
 
-1. **Let's Encrypt Automatizado:**
-   - En Render y Vercel, la emision y renovacion de certificados Let's Encrypt es automatica y transparente.
-   - Para despliegues en VPS (Ubuntu/Debian) mediante Nginx, se incluye la configuracion base en `deploy/nginx/sucrenita.conf` y soporte para renovacion con Certbot (`sudo certbot --nginx`).
+1. **Emision y Validacion con ZeroSSL:**
+   - Emision de certificados RSA de 2048 bits reconocidos por todos los navegadores modernos.
+   - El backend Express incluye soporte nativo para la validacion del desafio HTTP-01 mediante la ruta publica `/.well-known/acme-challenge/`.
+   - Procedimiento de emision, descarga y concatenacion de la cadena de confianza (`fullchain.crt`) documentado en `deploy/ssl/SSL_GUIDE.md`.
 
-2. **ZeroSSL (zerossl.com):**
-   - El backend Express incluye soporte para la validacion del desafio HTTP-01 sirviendo archivos desde `backend/public/.well-known/acme-challenge/`.
-   - Se documenta el procedimiento para concatenar `certificate.crt` y `ca_bundle.crt` en `deploy/ssl/SSL_GUIDE.md`.
+2. **Politica de Seguridad en el Repositorio:**
+   - Las claves privadas (`*.key`), certificados (`*.crt`) y archivos de configuracion de servidores web se encuentran excluidos del repositorio mediante `.gitignore` para evitar la exposicion de secretos en GitHub.
 
-3. **Certificados Autofirmados:**
-   - Para entornos locales o servidores de evaluacion interna, se incluyen scripts generadores con OpenSSL:
-     - Linux/macOS: `deploy/ssl/generate-self-signed.sh`
-     - Windows (PowerShell): `deploy/ssl/generate-self-signed.ps1`
-
-4. **Cabeceras de Seguridad y HSTS:**
+3. **Cabeceras de Seguridad y HSTS:**
    - El servidor Express utiliza `helmet` para inyectar cabeceras `Strict-Transport-Security` (HSTS de 1 ano con subdominios y precarga), proteccion contra sniffing de tipos MIME y deteccion fiable de proxies inversos (`trust proxy`).
+
 
 ---
 

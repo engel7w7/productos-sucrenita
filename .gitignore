@@ -27,6 +27,16 @@ pnpm-debug.log*
 backend/prisma/*.db
 backend/prisma/*.db-journal
 
+# SSL certificates and private keys (ZeroSSL / custom)
+*.pem
+*.key
+*.crt
+*.csr
+*.pfx
+
+# Server and Nginx infrastructure (excluido de GitHub)
+deploy/nginx/
+
 # OS files
 .DS_Store
 Thumbs.db
