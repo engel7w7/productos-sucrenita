@@ -9,7 +9,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Paleta pastel elegante y armoniosa para Productos Sucreñita
         pastel: {
           cream: '#FFFDF9',
           sand: '#FAF6F0',

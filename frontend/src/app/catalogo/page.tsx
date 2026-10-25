@@ -30,7 +30,6 @@ export default async function CatalogoPage({ searchParams }: CatalogoPageProps) 
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-      {/* Encabezado con estilo pastel armonioso */}
       <div className="text-center max-w-3xl mx-auto mb-10">
         <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-pastel-amber/80 text-pastel-amberText border border-pastel-amberBorder shadow-soft mb-3">
           <Store className="w-3.5 h-3.5" />
@@ -43,7 +42,6 @@ export default async function CatalogoPage({ searchParams }: CatalogoPageProps) 
           Selecciona tu categoría para explorar abarrotes de cocina tradicional y deliciosos snacks caseros. Realiza tu pedido directo por WhatsApp y paga mediante código QR.
         </p>
 
-        {/* Banner Informativo QR & WhatsApp en tonos pastel */}
         <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-6 px-6 py-3 rounded-2xl bg-white/80 border border-pastel-sandDark shadow-soft text-xs text-sucrenita-700">
           <span className="flex items-center gap-2 font-medium">
             <QrCode className="w-4 h-4 text-pastel-peachText" />
@@ -57,7 +55,6 @@ export default async function CatalogoPage({ searchParams }: CatalogoPageProps) 
         </div>
       </div>
 
-      {/* Filtros por Categoria en botones pastel */}
       <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 mb-12">
         {categories.map((cat) => {
           const isActive = currentCategory === cat.slug;
@@ -79,7 +76,6 @@ export default async function CatalogoPage({ searchParams }: CatalogoPageProps) 
         })}
       </div>
 
-      {/* Grid de Productos */}
       {products.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product) => (

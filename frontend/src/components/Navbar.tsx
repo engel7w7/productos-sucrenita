@@ -7,7 +7,6 @@ export function Navbar() {
     <header className="sticky top-0 z-50 glass-pastel transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo con estilo artesanal suave */}
           <Link href="/" className="flex items-center gap-3.5 group">
             <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-pastel-peachText to-amber-500/80 flex items-center justify-center text-white font-serif font-bold text-xl shadow-soft group-hover:scale-105 transition-transform">
               S
@@ -22,7 +21,6 @@ export function Navbar() {
             </div>
           </Link>
 
-          {/* Navegacion con estilo suave */}
           <nav className="hidden md:flex items-center gap-2 text-sm font-medium text-sucrenita-800">
             <Link
               href="/"
@@ -52,7 +50,6 @@ export function Navbar() {
             </Link>
           </nav>
 
-          {/* Acciones: WhatsApp suave y Boton de Catalogo */}
           <div className="flex items-center gap-3">
             <WhatsAppButton
               url="https://wa.me/59170000000?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20una%20consulta%20sobre%20sus%20productos"

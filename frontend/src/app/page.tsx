@@ -5,7 +5,7 @@ import { ProductCard } from '@/components/ProductCard';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { ArrowRight, MessageCircle, QrCode, Store, Utensils, Wheat } from 'lucide-react';
 
-export const revalidate = 60; // SSR con Revalidación Incremental (ISR)
+export const revalidate = 60;
 
 export default async function HomePage() {
   const products = await getProducts();
@@ -13,11 +13,9 @@ export default async function HomePage() {
 
   return (
     <div className="flex flex-col gap-16 md:gap-24 pb-20">
-      {/* Hero Section con gradiente pastel cálido y armonioso */}
       <section className="relative overflow-hidden bg-gradient-to-b from-pastel-peach/40 via-pastel-amber/30 to-pastel-sand pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-pastel-sandDark/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Texto Hero */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-pastel-amber/80 border border-pastel-amberBorder text-pastel-amberText shadow-soft">
                 <Wheat className="w-4 h-4 text-pastel-amberText" />
@@ -54,7 +52,6 @@ export default async function HomePage() {
                 />
               </div>
 
-              {/* Badges de confianza en tonos pastel */}
               <div className="grid grid-cols-3 gap-4 pt-8 border-t border-pastel-sandDark/70">
                 <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white/70 border border-pastel-sandDark/50 shadow-soft">
                   <span className="font-serif font-bold text-2xl text-sucrenita-700">100%</span>
@@ -71,7 +68,6 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* Imagen Hero */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto w-full max-w-md lg:max-w-none aspect-[4/5] rounded-3xl overflow-hidden shadow-soft-lg border-4 border-white">
                 <Image
@@ -95,10 +91,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Secciones de Categorias Principales con colores pastel armoniosos */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Banner Abarrotes en tono pastel ambar/miel */}
           <div className="relative rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-pastel-amber to-amber-100/70 border border-pastel-amberBorder text-sucrenita-900 shadow-soft flex flex-col justify-between min-h-[220px]">
             <div>
               <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/90 text-pastel-amberText border border-pastel-amberBorder/50 shadow-soft mb-3">
@@ -120,7 +114,6 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          {/* Banner Snacks en tono pastel peach/coral suave */}
           <div className="relative rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-pastel-peach to-orange-100/60 border border-pastel-peachBorder text-sucrenita-900 shadow-soft flex flex-col justify-between min-h-[220px]">
             <div>
               <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/90 text-pastel-peachText border border-pastel-peachBorder/50 shadow-soft mb-3">
@@ -144,7 +137,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Catalogo Destacado (SSR) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div>
@@ -171,7 +163,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Pilares del Modelo de Negocio con estilo pastel suave */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="card-pastel rounded-3xl p-8 sm:p-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex items-start gap-4 p-4 rounded-2xl bg-pastel-amber/50 border border-pastel-amberBorder/60">

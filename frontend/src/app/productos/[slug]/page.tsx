@@ -7,14 +7,8 @@ import { formatPrice } from '@/lib/utils';
 import { JsonLd } from '@/components/JsonLd';
 import {
   ArrowLeft,
-  CheckCircle2,
-  Clock,
-  MessageCircle,
-  PackageCheck,
   QrCode,
   ShieldCheck,
-  Sparkles,
-  Truck,
   Wheat,
 } from 'lucide-react';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
@@ -25,9 +19,6 @@ type Props = {
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sucrenita-web.onrender.com';
 
-/**
- * Generación dinámica de Metadata SEO para Googlebot y redes sociales
- */
 export async function generateMetadata({
   params,
 }: Props): Promise<Metadata> {
@@ -93,7 +84,6 @@ export default async function ProductDetailPage({ params }: Props) {
   const isAvailable = product.stock > 0;
   const numericPrice = typeof product.price === 'string' ? parseFloat(product.price) : product.price;
 
-  // Datos estructurados Schema.org para Googlebot (Rich Results: Product)
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -125,7 +115,6 @@ export default async function ProductDetailPage({ params }: Props) {
     },
   };
 
-  // Mensaje preparado para pedido por WhatsApp
   const whatsappText = encodeURIComponent(
     `¡Hola Productos Sucreñita! Me interesa pedir el producto: "${product.name}" (${formatPrice(
       product.price
@@ -135,11 +124,9 @@ export default async function ProductDetailPage({ params }: Props) {
 
   return (
     <>
-      {/* Inyección JSON-LD Schema.org para Googlebot */}
       <JsonLd data={productSchema} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
-        {/* Breadcrumb de navegación */}
         <nav aria-label="Breadcrumb" className="mb-8">
           <ol className="flex items-center gap-2 text-xs sm:text-sm text-sucrenita-500">
             <li>
@@ -173,9 +160,7 @@ export default async function ProductDetailPage({ params }: Props) {
           </ol>
         </nav>
 
-        {/* Detalle Principal */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Galería / Imagen */}
           <div className="lg:col-span-6">
             <div className="relative aspect-[4/3] sm:aspect-square w-full rounded-3xl overflow-hidden bg-pastel-cream border border-pastel-sandDark shadow-soft">
               {product.imageUrl ? (
@@ -201,7 +186,6 @@ export default async function ProductDetailPage({ params }: Props) {
             </div>
           </div>
 
-          {/* Información del Producto */}
           <div className="lg:col-span-6 flex flex-col gap-6">
             <div>
               <div className="flex items-center gap-3 mb-3">
@@ -236,10 +220,9 @@ export default async function ProductDetailPage({ params }: Props) {
               </div>
             </div>
 
-            {/* Descripción */}
             <div className="p-5 rounded-3xl bg-white/80 backdrop-blur-sm border border-pastel-sandDark shadow-soft space-y-3">
               <h2 className="font-serif font-bold text-sm text-sucrenita-900 uppercase tracking-wider flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-pastel-amber flex items-center justify-center text-xs border border-pastel-amberBorder">🌾</span>
+                <Wheat className="w-4 h-4 text-pastel-amberText" />
                 Detalles del Producto y Calidad
               </h2>
               <p className="text-sm text-sucrenita-700 leading-relaxed">
@@ -248,7 +231,6 @@ export default async function ProductDetailPage({ params }: Props) {
               </p>
             </div>
 
-            {/* Cobro con QR y Pedido */}
             <div className="p-4 rounded-3xl bg-pastel-amber/40 border border-pastel-amberBorder text-sucrenita-800 text-xs flex items-center gap-3">
               <div className="p-2.5 bg-white rounded-2xl shadow-sm text-pastel-amberText border border-pastel-amberBorder/60">
                 <QrCode className="w-5 h-5" />
@@ -258,7 +240,6 @@ export default async function ProductDetailPage({ params }: Props) {
               </p>
             </div>
 
-            {/* Botones de Acción */}
             <div className="flex flex-col sm:flex-row gap-4 pt-1">
               <WhatsAppButton
                 url={whatsappUrl}
@@ -276,18 +257,17 @@ export default async function ProductDetailPage({ params }: Props) {
               </Link>
             </div>
 
-            {/* Beneficios & Garantías */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-pastel-sandDark">
               <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark/60">
-                <span className="w-7 h-7 rounded-full bg-pastel-amber flex items-center justify-center text-xs">🌾</span>
+                <Wheat className="w-4 h-4 text-pastel-amberText shrink-0" />
                 <span className="text-xs text-sucrenita-700 font-medium">Granos limpios</span>
               </div>
               <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark/60">
-                <span className="w-7 h-7 rounded-full bg-pastel-sage flex items-center justify-center text-xs">🛡️</span>
+                <ShieldCheck className="w-4 h-4 text-pastel-sageText shrink-0" />
                 <span className="text-xs text-sucrenita-700 font-medium">Calidad casera</span>
               </div>
               <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark/60">
-                <span className="w-7 h-7 rounded-full bg-pastel-peach flex items-center justify-center text-xs">📱</span>
+                <QrCode className="w-4 h-4 text-pastel-peachText shrink-0" />
                 <span className="text-xs text-sucrenita-700 font-medium">Pago Simple QR</span>
               </div>
             </div>

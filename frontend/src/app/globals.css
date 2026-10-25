@@ -19,7 +19,6 @@ body {
   color: #643C28;
 }
 
-/* Glassmorphism y contenedores pastel */
 .glass-pastel {
   background: rgba(255, 253, 249, 0.85);
   backdrop-filter: blur(14px);

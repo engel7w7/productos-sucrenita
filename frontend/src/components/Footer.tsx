@@ -1,15 +1,16 @@
 import Link from 'next/link';
-import { QrCode, Phone, ShieldCheck, Truck } from 'lucide-react';
+import { QrCode, Phone, ShieldCheck, Truck, Wheat } from 'lucide-react';
 
 export function Footer() {
   return (
     <footer className="bg-pastel-sandDark/60 text-sucrenita-800 border-t border-pastel-sandDark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          {/* Historia y Propósito */}
           <div className="space-y-4 md:col-span-2">
             <span className="font-serif text-2xl font-bold tracking-tight text-sucrenita-900 flex items-center gap-2">
-              <span className="w-8 h-8 rounded-full bg-pastel-amber flex items-center justify-center text-base border border-pastel-amberBorder">🌾</span>
+              <span className="w-8 h-8 rounded-full bg-pastel-amber flex items-center justify-center border border-pastel-amberBorder text-pastel-amberText">
+                <Wheat className="w-4 h-4" />
+              </span>
               Productos Sucreñita
             </span>
             <p className="text-sm text-sucrenita-600 max-w-md leading-relaxed">
@@ -27,7 +28,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Categorías */}
           <div>
             <h4 className="font-serif font-bold text-sucrenita-900 text-sm uppercase tracking-wider mb-4">
               Nuestras Líneas
@@ -62,7 +62,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Confianza y Servicio */}
           <div>
             <h4 className="font-serif font-bold text-sucrenita-900 text-sm uppercase tracking-wider mb-4">
               Garantía y Entrega

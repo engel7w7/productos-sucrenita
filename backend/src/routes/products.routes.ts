@@ -3,7 +3,6 @@ import { prisma } from '../lib/prisma';
 
 export const productsRouter = Router();
 
-// GET /api/products
 productsRouter.get('/', async (req: Request, res: Response) => {
   try {
     const { category, search } = req.query;
@@ -56,7 +55,6 @@ productsRouter.get('/', async (req: Request, res: Response) => {
   }
 });
 
-// GET /api/products/:slug
 productsRouter.get('/:slug', async (req: Request, res: Response) => {
   try {
     const { slug } = req.params;

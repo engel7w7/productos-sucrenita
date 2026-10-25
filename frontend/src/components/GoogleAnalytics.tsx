@@ -9,7 +9,6 @@ interface GoogleAnalyticsProps {
 export function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
   const trackingId = gaId || process.env.NEXT_PUBLIC_GA_ID;
 
-  // Si no se ha configurado un ID de medicion, no inyecta etiquetas para evitar errores
   if (!trackingId) {
     return null;
   }

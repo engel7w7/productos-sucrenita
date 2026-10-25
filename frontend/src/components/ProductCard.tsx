@@ -14,7 +14,6 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <article className="group relative flex flex-col bg-white rounded-3xl overflow-hidden border border-pastel-sandDark/70 shadow-soft hover:shadow-soft-lg transition-all duration-300 transform hover:-translate-y-1">
-      {/* Imagen del producto con fondo pastel */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-pastel-sand">
         {product.imageUrl ? (
           <Image
@@ -30,7 +29,6 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
 
-        {/* Badge de Categoria en tonos pastel */}
         {product.category && (
           <span
             className={`absolute top-3.5 left-3.5 px-3 py-1 text-[11px] font-semibold tracking-wide rounded-full backdrop-blur-md shadow-sm border ${
@@ -43,7 +41,6 @@ export function ProductCard({ product }: ProductCardProps) {
           </span>
         )}
 
-        {/* Badge de Disponibilidad suave */}
         <span
           className={`absolute top-3.5 right-3.5 px-2.5 py-1 text-[10px] font-medium rounded-full backdrop-blur-md border ${
             isAvailable
@@ -55,7 +52,6 @@ export function ProductCard({ product }: ProductCardProps) {
         </span>
       </div>
 
-      {/* Contenido de la tarjeta */}
       <div className="flex flex-col flex-1 p-5 sm:p-6">
         <h3 className="font-serif text-lg font-bold text-sucrenita-900 group-hover:text-pastel-peachText transition-colors line-clamp-1">
           <Link href={`/productos/${product.slug}`}>
@@ -68,7 +64,6 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.description || 'Producto seleccionado con la calidad y frescura de Productos Sucreñita.'}
         </p>
 
-        {/* Pie de tarjeta: Precio y Accion */}
         <div className="mt-5 pt-4 border-t border-pastel-sandDark/60 flex items-center justify-between">
           <div className="flex flex-col">
             <span className="text-[10px] uppercase font-semibold tracking-wider text-sucrenita-400">

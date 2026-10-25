@@ -1,5 +1,3 @@
-// Utilidades para Google Analytics 4 (GA4)
-
 declare global {
   interface Window {
     gtag?: (...args: any[]) => void;
@@ -9,9 +7,6 @@ declare global {
 
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 
-/**
- * Registra una visualizacion de pagina
- */
 export function pageView(url: string) {
   if (typeof window !== 'undefined' && window.gtag && GA_TRACKING_ID) {
     window.gtag('config', GA_TRACKING_ID, {
@@ -20,18 +15,12 @@ export function pageView(url: string) {
   }
 }
 
-/**
- * Registra un evento personalizado en GA4
- */
 export function trackEvent(action: string, params: Record<string, any> = {}) {
   if (typeof window !== 'undefined' && window.gtag && GA_TRACKING_ID) {
     window.gtag('event', action, params);
   }
 }
 
-/**
- * Evento de comercio electronico: visualizacion de producto
- */
 export function trackViewItem(product: {
   id: string;
   name: string;
@@ -53,9 +42,6 @@ export function trackViewItem(product: {
   });
 }
 
-/**
- * Evento de conversion: clic en pedido por WhatsApp
- */
 export function trackWhatsAppContact(details: {
   productName?: string;
   price?: string | number;
