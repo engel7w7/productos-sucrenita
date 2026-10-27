@@ -1,14 +1,18 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '@/types';
 import { formatPrice } from '@/lib/utils';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Plus, ShoppingBag } from 'lucide-react';
+import { useCart } from '@/context/CartContext';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const { addToCart } = useCart();
   const isAvailable = product.stock > 0 && product.isActive;
   const isAbarrotes = product.category?.slug === 'abarrotes-condimentos';
 
@@ -55,7 +59,6 @@ export function ProductCard({ product }: ProductCardProps) {
       <div className="flex flex-col flex-1 p-5 sm:p-6">
         <h3 className="font-serif text-lg font-bold text-sucrenita-900 group-hover:text-pastel-peachText transition-colors line-clamp-1">
           <Link href={`/productos/${product.slug}`}>
-            <span className="absolute inset-0 z-10" />
             {product.name}
           </Link>
         </h3>
@@ -64,7 +67,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.description || 'Producto seleccionado con la calidad y frescura de Productos Sucreñita.'}
         </p>
 
-        <div className="mt-5 pt-4 border-t border-pastel-sandDark/60 flex items-center justify-between">
+        <div className="mt-5 pt-4 border-t border-pastel-sandDark/60 flex items-center justify-between gap-2">
           <div className="flex flex-col">
             <span className="text-[10px] uppercase font-semibold tracking-wider text-sucrenita-400">
               Precio unitario
@@ -74,9 +77,24 @@ export function ProductCard({ product }: ProductCardProps) {
             </span>
           </div>
 
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-pastel-peach/70 text-pastel-peachText group-hover:bg-pastel-peach transition-colors">
-            <span>Ver detalle</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => addToCart(product, 1)}
+              aria-label={`Agregar ${product.name} a la lista`}
+              className="inline-flex items-center gap-1 px-3 py-2 rounded-full text-xs font-semibold bg-pastel-amber/80 hover:bg-pastel-amber text-pastel-amberText border border-pastel-amberBorder shadow-soft transition-all"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>Agregar</span>
+            </button>
+
+            <Link
+              href={`/productos/${product.slug}`}
+              aria-label={`Ver detalle de ${product.name}`}
+              className="p-2 rounded-full text-sucrenita-500 hover:text-sucrenita-900 hover:bg-pastel-sand transition-colors"
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>

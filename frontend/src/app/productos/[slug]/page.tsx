@@ -10,9 +10,13 @@ import {
   QrCode,
   ShieldCheck,
   Wheat,
+  Utensils,
+  Truck,
+  Sparkles,
+  CheckCircle2,
 } from 'lucide-react';
-import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { ShareProductButtons } from '@/components/ShareProductButtons';
+import { ProductDetailActions } from '@/components/ProductDetailActions';
 
 type Props = {
   params: Promise<{ slug: string }> | { slug: string };
@@ -86,7 +90,6 @@ export default async function ProductDetailPage({ params }: Props) {
 
   const isAvailable = product.stock > 0;
   const numericPrice = typeof product.price === 'string' ? parseFloat(product.price) : product.price;
-
   const productUrl = `${siteUrl}/productos/${product.slug}`;
 
   const productSchema = {
@@ -163,11 +166,31 @@ export default async function ProductDetailPage({ params }: Props) {
   };
 
   const whatsappText = encodeURIComponent(
-    `¡Hola Productos Sucreñita! Me interesa pedir el producto: "${product.name}" (${formatPrice(
+    `¡Hola Doña Sucreñita! Me interesa pedir: "${product.name}" (${formatPrice(
       product.price
-    )}) desde su catálogo web. ¿Tienen disponible para coordinar la entrega y el cobro por QR?`
+    )}) desde su catálogo web. ¿Tienen disponible para coordinar la entrega y el cobro por Simple QR?`
   );
   const whatsappUrl = `https://wa.me/59170000000?text=${whatsappText}`;
+
+  const getCookingTip = () => {
+    const s = product.slug.toLowerCase();
+    if (s.includes('sopa') || s.includes('mani-molido')) {
+      return 'Para lograr la auténtica sopa de maní chuquisaqueña de domingo, sofríe primero tus verduras y carne, añade el caldo y agrega el maní molido disuelto en un poco de agua fría. Cocina a fuego lento durante 40 a 45 minutos sin tapar para que espese con su propia grasa natural.';
+    }
+    if (s.includes('aji-colorado')) {
+      return 'Sofríe este ají molido a piedra a fuego muy bajo con un chorrito de aceite durante 10 minutos antes de añadirlo a tus carnes. Así libera todo su pigmento rojo rubí y su picor equilibrado para mondongos y picantes.';
+    }
+    if (s.includes('aji-amarillo')) {
+      return 'Este ají dulce es el preferido para sajta de pollo y picante de lengua sin ardor. Mézclalo con cebollita sofrita y comino criollo para obtener una salsa dorada y aromática.';
+    }
+    if (s.includes('chicharron')) {
+      return 'Corteza frita en su punto justo. Para disfrutarlo extra crocante en días húmedos, colócalo 3 minutos en sartén seca o en horno suave sin añadir aceite.';
+    }
+    if (s.includes('habas')) {
+      return 'Habas de altura tostadas con sal marina, perfectas para acompañar con un queso criollo o disfrutar como snack energético a cualquier hora.';
+    }
+    return 'Elaborado bajo receta casera tradicional sucrense, seleccionado a mano y embolsado con total higiene para garantizar frescura en tu cocina.';
+  };
 
   return (
     <>
@@ -209,7 +232,7 @@ export default async function ProductDetailPage({ params }: Props) {
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 space-y-4">
             <div className="relative aspect-[4/3] sm:aspect-square w-full rounded-3xl overflow-hidden bg-pastel-cream border border-pastel-sandDark shadow-soft">
               {product.imageUrl ? (
                 <Image
@@ -232,6 +255,16 @@ export default async function ProductDetailPage({ params }: Props) {
                 </span>
               )}
             </div>
+
+            <div className="p-4 rounded-3xl bg-pastel-sand/50 border border-pastel-sandDark text-xs text-sucrenita-700 space-y-2">
+              <div className="flex items-center gap-2 font-semibold text-sucrenita-900">
+                <Utensils className="w-4 h-4 text-pastel-peachText" />
+                <span>Consejo de la Casa de Doña Sucreñita</span>
+              </div>
+              <p className="leading-relaxed text-[11px] sm:text-xs">
+                {getCookingTip()}
+              </p>
+            </div>
           </div>
 
           <div className="lg:col-span-6 flex flex-col gap-6">
@@ -251,7 +284,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   />
                   {isAvailable ? `Disponible (${product.stock} unidades en almacén)` : 'Agotado temporalmente'}
                 </span>
-                <span className="text-xs text-sucrenita-400">SKU: {product.id}</span>
+                <span className="text-xs text-sucrenita-400">Código: {product.slug}</span>
               </div>
 
               <h1 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 tracking-tight">
@@ -263,15 +296,15 @@ export default async function ProductDetailPage({ params }: Props) {
                   {formatPrice(product.price)}
                 </span>
                 <span className="text-xs text-sucrenita-500 uppercase tracking-wider font-medium">
-                  (Precio por unidad / paquete)
+                  (Precio en Bolivianos)
                 </span>
               </div>
             </div>
 
-            <div className="p-5 rounded-3xl bg-white/80 backdrop-blur-sm border border-pastel-sandDark shadow-soft space-y-3">
+            <div className="p-5 rounded-3xl bg-white border border-pastel-sandDark shadow-soft space-y-3">
               <h2 className="font-serif font-bold text-sm text-sucrenita-900 uppercase tracking-wider flex items-center gap-2">
                 <Wheat className="w-4 h-4 text-pastel-amberText" />
-                Detalles del Producto y Calidad
+                <span>Descripción y Calidad Tradicional</span>
               </h2>
               <p className="text-sm text-sucrenita-700 leading-relaxed">
                 {product.description ||
@@ -279,30 +312,16 @@ export default async function ProductDetailPage({ params }: Props) {
               </p>
             </div>
 
-            <div className="p-4 rounded-3xl bg-pastel-amber/40 border border-pastel-amberBorder text-sucrenita-800 text-xs flex items-center gap-3">
-              <div className="p-2.5 bg-white rounded-2xl shadow-sm text-pastel-amberText border border-pastel-amberBorder/60">
-                <QrCode className="w-5 h-5" />
+            <ProductDetailActions product={product} whatsappUrl={whatsappUrl} />
+
+            <div className="p-4 rounded-3xl bg-pastel-amber/40 border border-pastel-amberBorder text-sucrenita-800 text-xs space-y-2">
+              <div className="flex items-center gap-2 font-semibold">
+                <QrCode className="w-4 h-4 text-pastel-amberText shrink-0" />
+                <span>Cobro seguro e inmediato con Simple QR</span>
               </div>
-              <p className="leading-snug">
-                <strong>Pago fácil y seguro con código QR:</strong> Coordina tu pedido por chat y realiza la transferencia directa mediante Simple QR sin comisiones adicionales.
+              <p className="leading-relaxed text-[11px] text-sucrenita-700">
+                Aceptamos transferencias desde <strong>Banco Unión, BCP, BNB, Banco FIE, Mercantil Santa Cruz, Ganadero, Banco Sol</strong> y todas las aplicaciones bancarias de Bolivia. Al coordinar por WhatsApp te enviamos el código QR para pagar en un segundo sin comisiones.
               </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-1">
-              <WhatsAppButton
-                url={whatsappUrl}
-                productName={product.name}
-                price={product.price}
-                source="product_detail"
-              />
-
-              <Link
-                href="/catalogo"
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-sm font-semibold bg-white hover:bg-pastel-sand text-sucrenita-800 border border-pastel-sandDark shadow-soft transition-colors"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                <span>Volver al Catálogo</span>
-              </Link>
             </div>
 
             <ShareProductButtons productName={product.name} slug={product.slug} />
@@ -314,12 +333,22 @@ export default async function ProductDetailPage({ params }: Props) {
               </div>
               <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark/60">
                 <ShieldCheck className="w-4 h-4 text-pastel-sageText shrink-0" />
-                <span className="text-xs text-sucrenita-700 font-medium">Calidad casera</span>
+                <span className="text-xs text-sucrenita-700 font-medium">Sazón casera</span>
               </div>
               <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark/60">
-                <QrCode className="w-4 h-4 text-pastel-peachText shrink-0" />
-                <span className="text-xs text-sucrenita-700 font-medium">Pago Simple QR</span>
+                <Truck className="w-4 h-4 text-pastel-peachText shrink-0" />
+                <span className="text-xs text-sucrenita-700 font-medium">Envíos en Sucre</span>
               </div>
+            </div>
+
+            <div className="pt-2">
+              <Link
+                href="/catalogo"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-sucrenita-600 hover:text-sucrenita-900 transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Volver al catálogo completo de productos</span>
+              </Link>
             </div>
           </div>
         </div>

@@ -6,6 +6,8 @@ import { Footer } from '@/components/Footer';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import { JsonLd } from '@/components/JsonLd';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
+import { CartProvider } from '@/context/CartContext';
+import { CartDrawer } from '@/components/CartDrawer';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -127,10 +129,13 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col font-sans antialiased bg-sucrenita-50 text-sucrenita-900 selection:bg-sucrenita-600 selection:text-white">
         <JsonLd data={organizationSchema} />
         <GoogleAnalytics />
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingWhatsApp />
+        <CartProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FloatingWhatsApp />
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

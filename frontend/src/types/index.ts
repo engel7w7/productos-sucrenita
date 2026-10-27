@@ -10,7 +10,7 @@ export interface Product {
   name: string;
   slug: string;
   description: string | null;
-  price: string | number; // Decimal from Prisma can serialize as string or number
+  price: string | number;
   stock: number;
   imageUrl: string | null;
   categoryId: string;

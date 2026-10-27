@@ -2,7 +2,6 @@ import { ApiResponse, Product } from '@/types';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:10000';
 
-// Catálogo de respaldo para Productos Sucreñita (Abarrotes y Snacks Artesanales)
 export const FALLBACK_PRODUCTS: Product[] = [
   {
     id: 'prod-1',
@@ -118,9 +117,6 @@ export const FALLBACK_PRODUCTS: Product[] = [
   },
 ];
 
-/**
- * Obtiene todos los productos desde la API REST o datos de reserva
- */
 export async function getProducts(categorySlug?: string): Promise<Product[]> {
   try {
     const url = new URL(`${API_BASE_URL}/api/products`);
@@ -129,7 +125,7 @@ export async function getProducts(categorySlug?: string): Promise<Product[]> {
     }
 
     const res = await fetch(url.toString(), {
-      next: { revalidate: 60 }, // ISR cada 60 segundos
+      next: { revalidate: 60 },
     });
 
     if (!res.ok) {
@@ -147,9 +143,6 @@ export async function getProducts(categorySlug?: string): Promise<Product[]> {
   }
 }
 
-/**
- * Obtiene el detalle de un producto por su slug
- */
 export async function getProductBySlug(slug: string): Promise<Product | null> {
   try {
     const res = await fetch(`${API_BASE_URL}/api/products/${slug}`, {
@@ -162,7 +155,6 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
     }
 
     const result = await res.json();
-    // Si la API devuelve { success: true, data: {...} }, extrae data; de lo contrario usa result
     return result.data || result || null;
   } catch (error) {
     console.warn(`[getProductBySlug] Error o conexión a ${API_BASE_URL} no disponible (${slug}), buscando en catálogo local:`, error);
