@@ -3,7 +3,22 @@ import Image from 'next/image';
 import { getProducts } from '@/lib/api';
 import { ProductCard } from '@/components/ProductCard';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
-import { ArrowRight, MessageCircle, QrCode, Store, Utensils, Wheat, Facebook, Instagram, Heart, CheckCircle2 } from 'lucide-react';
+import {
+  ArrowRight,
+  MessageCircle,
+  QrCode,
+  Store,
+  Utensils,
+  Wheat,
+  Facebook,
+  Instagram,
+  Heart,
+  CheckCircle2,
+  Sparkles,
+  ShoppingBag,
+  Clock,
+  MapPin,
+} from 'lucide-react';
 
 export const revalidate = 60;
 
@@ -31,7 +46,7 @@ export default async function HomePage() {
               </h1>
 
               <p className="text-base sm:text-lg text-sucrenita-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Maní crudo y molido con la grasa exacta para la sopa tradicional, ajíes chuquisaqueños desvenados y molidos a piedra, y snacks crujientes preparados artesanalmente en casa.
+                Maní crudo y molido con la grasa exacta para la tradicional sopa de maní chuquisaqueña, ajíes desvenados y molidos a piedra, y snacks crocantes preparados con esmero en nuestro hogar.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
@@ -80,9 +95,12 @@ export default async function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-sucrenita-900/60 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl glass-pastel text-sucrenita-900 shadow-soft">
-                  <p className="text-[11px] uppercase tracking-wider text-pastel-peachText font-bold">
-                    El Secreto del Sabor Casero
-                  </p>
+                  <div className="flex items-center gap-2 mb-1">
+                    <MapPin className="w-3.5 h-3.5 text-pastel-peachText" />
+                    <span className="text-[11px] uppercase tracking-wider text-pastel-peachText font-bold">
+                      Desde Sucre, Bolivia
+                    </span>
+                  </div>
                   <p className="font-serif text-lg font-bold">Maní, Ajíes & Snacks Artesanales</p>
                 </div>
               </div>
@@ -92,8 +110,18 @@ export default async function HomePage() {
       </section>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-pastel-amber/80 text-pastel-amberText border border-pastel-amberBorder shadow-soft mb-2">
+            <Sparkles className="w-3.5 h-3.5" />
+            Nuestras Dos Líneas Comerciales
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900">
+            Escoge tu sabor preferido
+          </h2>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="relative rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-pastel-amber to-amber-100/70 border border-pastel-amberBorder text-sucrenita-900 shadow-soft flex flex-col justify-between min-h-[220px]">
+          <div className="relative rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-pastel-amber to-amber-100/70 border border-pastel-amberBorder text-sucrenita-900 shadow-soft flex flex-col justify-between min-h-[240px]">
             <div>
               <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/90 text-pastel-amberText border border-pastel-amberBorder/50 shadow-soft mb-3">
                 Línea de Cocina Tradicional
@@ -102,7 +130,7 @@ export default async function HomePage() {
                 Abarrotes & Condimentos
               </h3>
               <p className="mt-2 text-sm text-sucrenita-700 max-w-sm leading-relaxed">
-                Maní crudo y molido con la grasa exacta para la sopa de maní, ají colorado picante y ají dulce amarillo molido puro.
+                Maní crudo y molido con la proporción exacta para la auténtica sopa de maní, ají colorado picante chuquisaqueño y ají dulce amarillo puro molido en batán.
               </p>
             </div>
             <Link
@@ -114,7 +142,7 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div className="relative rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-pastel-peach to-orange-100/60 border border-pastel-peachBorder text-sucrenita-900 shadow-soft flex flex-col justify-between min-h-[220px]">
+          <div className="relative rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-pastel-peach to-orange-100/60 border border-pastel-peachBorder text-sucrenita-900 shadow-soft flex flex-col justify-between min-h-[240px]">
             <div>
               <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/90 text-pastel-peachText border border-pastel-peachBorder/50 shadow-soft mb-3">
                 Línea de Degustación
@@ -123,7 +151,7 @@ export default async function HomePage() {
                 Snacks Artesanales
               </h3>
               <p className="mt-2 text-sm text-sucrenita-700 max-w-sm leading-relaxed">
-                Chicharrones crujientes, maní garrapiñado acaramelado y habas fritas saladas para compartir en cualquier momento.
+                Chicharrones crujientes sin grasa excedente, maní garrapiñado acaramelado a fuego lento y habas fritas saladas para compartir en familia.
               </p>
             </div>
             <Link
@@ -160,6 +188,56 @@ export default async function HomePage() {
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-pastel-sage text-pastel-sageText border border-pastel-sageBorder shadow-soft mb-2">
+            <Clock className="w-3.5 h-3.5" />
+            Experiencia de Compra Sencilla
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900">
+            ¿Cómo realizar tu pedido?
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 rounded-3xl bg-white border border-pastel-sandDark shadow-soft flex flex-col items-center text-center">
+            <div className="w-14 h-14 rounded-2xl bg-pastel-amber flex items-center justify-center text-pastel-amberText font-serif font-bold text-xl mb-4 border border-pastel-amberBorder">
+              1
+            </div>
+            <h3 className="font-serif font-bold text-lg text-sucrenita-900 mb-2">
+              Explora el Catálogo
+            </h3>
+            <p className="text-xs text-sucrenita-600 leading-relaxed">
+              Revisa nuestras fotos y detalles de maní, ajíes y snacks preparados artesanalmente en Sucre.
+            </p>
+          </div>
+
+          <div className="p-6 rounded-3xl bg-white border border-pastel-sandDark shadow-soft flex flex-col items-center text-center">
+            <div className="w-14 h-14 rounded-2xl bg-pastel-sage flex items-center justify-center text-pastel-sageText font-serif font-bold text-xl mb-4 border border-pastel-sageBorder">
+              2
+            </div>
+            <h3 className="font-serif font-bold text-lg text-sucrenita-900 mb-2">
+              Pide por WhatsApp
+            </h3>
+            <p className="text-xs text-sucrenita-600 leading-relaxed">
+              Haz clic en el botón de pedido para enviar el mensaje con el producto exacto y coordinar la entrega.
+            </p>
+          </div>
+
+          <div className="p-6 rounded-3xl bg-white border border-pastel-sandDark shadow-soft flex flex-col items-center text-center">
+            <div className="w-14 h-14 rounded-2xl bg-pastel-peach flex items-center justify-center text-pastel-peachText font-serif font-bold text-xl mb-4 border border-pastel-peachBorder">
+              3
+            </div>
+            <h3 className="font-serif font-bold text-lg text-sucrenita-900 mb-2">
+              Paga con Simple QR
+            </h3>
+            <p className="text-xs text-sucrenita-600 leading-relaxed">
+              Escanea el código QR desde cualquier aplicación bancaria boliviana sin comisiones y recibe tu pedido.
+            </p>
+          </div>
         </div>
       </section>
 
