@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { getProducts } from '@/lib/api';
 import { ProductCard } from '@/components/ProductCard';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
-import { ArrowRight, MessageCircle, QrCode, Store, Utensils, Wheat } from 'lucide-react';
+import { ArrowRight, MessageCircle, QrCode, Store, Utensils, Wheat, Facebook, Instagram, Heart, CheckCircle2 } from 'lucide-react';
 
 export const revalidate = 60;
 
@@ -160,6 +160,89 @@ export default async function HomePage() {
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-pastel-peach/50 via-white to-pastel-amber/40 border border-pastel-sandDark shadow-soft">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-pastel-peachText border border-pastel-peachBorder shadow-soft">
+                <Heart className="w-3.5 h-3.5 text-rose-500" />
+                <span>Nuestra Comunidad &bull; Redes Oficiales</span>
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 tracking-tight">
+                Síguenos en Facebook e Instagram
+              </h2>
+              <p className="text-sm sm:text-base text-sucrenita-700 leading-relaxed max-w-xl">
+                Descubre videos del proceso de selección de granos, fotos de lotes recién tostados, ideas de recetas tradicionales chuquisaqueñas y novedades de nuevos productos. Conéctate directamente con nosotros sin costo alguno.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs text-sucrenita-700">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Avisos de disponibilidad de maní fresco</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Recetas familiares de sopa y ajíes</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Atención rápida sin intermediarios</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Lotes de snacks crocantes de la semana</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 flex flex-col gap-4">
+              <a
+                href="https://www.facebook.com/ProductosSucrenita"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between p-5 rounded-2xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark shadow-soft transition-all"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-[#1877F2]/10 text-[#1877F2] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                    <Facebook className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif font-bold text-sucrenita-900 group-hover:text-[#1877F2] transition-colors">
+                      Página de Facebook
+                    </h3>
+                    <p className="text-xs text-sucrenita-600">
+                      facebook.com/ProductosSucrenita
+                    </p>
+                  </div>
+                </div>
+                <ArrowRight className="w-5 h-5 text-sucrenita-400 group-hover:text-[#1877F2] group-hover:translate-x-1 transition-all" />
+              </a>
+
+              <a
+                href="https://www.instagram.com/productossucrenita"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between p-5 rounded-2xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark shadow-soft transition-all"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-[#E4405F]/10 text-[#E4405F] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                    <Instagram className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif font-bold text-sucrenita-900 group-hover:text-[#E4405F] transition-colors">
+                      Perfil de Instagram
+                    </h3>
+                    <p className="text-xs text-sucrenita-600">
+                      @productossucrenita
+                    </p>
+                  </div>
+                </div>
+                <ArrowRight className="w-5 h-5 text-sucrenita-400 group-hover:text-[#E4405F] group-hover:translate-x-1 transition-all" />
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 

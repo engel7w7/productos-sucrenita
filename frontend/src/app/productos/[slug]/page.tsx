@@ -12,12 +12,13 @@ import {
   Wheat,
 } from 'lucide-react';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { ShareProductButtons } from '@/components/ShareProductButtons';
 
 type Props = {
   params: Promise<{ slug: string }> | { slug: string };
 };
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sucrenita-web.onrender.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://productos-sucrenita.vercel.app';
 
 export async function generateMetadata({
   params,
@@ -35,10 +36,12 @@ export async function generateMetadata({
   const title = `${product.name} | Productos Sucreñita`;
   const description =
     product.description ||
-    `Compra ${product.name} garantizado por Productos Sucreñita. Abarrotes y snacks tradicionales con venta directa por WhatsApp y cobro QR.`;
+    `Compra ${product.name} garantizado por Productos Sucreñita en Sucre, Bolivia. Abarrotes y snacks tradicionales con venta directa por WhatsApp y cobro Simple QR.`;
   const imageUrl =
     product.imageUrl ||
     'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&h=630&q=80';
+
+  const productUrl = `${siteUrl}/productos/${product.slug}`;
 
   return {
     title,
@@ -47,9 +50,9 @@ export async function generateMetadata({
       canonical: `/productos/${product.slug}`,
     },
     openGraph: {
-      type: 'website',
+      type: 'article',
       locale: 'es_BO',
-      url: `${siteUrl}/productos/${product.slug}`,
+      url: productUrl,
       title,
       description,
       siteName: 'Productos Sucreñita',
@@ -84,6 +87,8 @@ export default async function ProductDetailPage({ params }: Props) {
   const isAvailable = product.stock > 0;
   const numericPrice = typeof product.price === 'string' ? parseFloat(product.price) : product.price;
 
+  const productUrl = `${siteUrl}/productos/${product.slug}`;
+
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -98,7 +103,7 @@ export default async function ProductDetailPage({ params }: Props) {
     category: product.category?.name || 'Abarrotes y Snacks',
     offers: {
       '@type': 'Offer',
-      url: `${siteUrl}/productos/${product.slug}`,
+      url: productUrl,
       priceCurrency: 'BOB',
       price: Number(numericPrice).toFixed(2),
       priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1))
@@ -115,6 +120,48 @@ export default async function ProductDetailPage({ params }: Props) {
     },
   };
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Inicio',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Catálogo',
+        item: `${siteUrl}/catalogo`,
+      },
+      ...(product.category
+        ? [
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: product.category.name,
+              item: `${siteUrl}/catalogo?categoria=${product.category.slug}`,
+            },
+            {
+              '@type': 'ListItem',
+              position: 4,
+              name: product.name,
+              item: productUrl,
+            },
+          ]
+        : [
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: product.name,
+              item: productUrl,
+            },
+          ]),
+    ],
+  };
+
   const whatsappText = encodeURIComponent(
     `¡Hola Productos Sucreñita! Me interesa pedir el producto: "${product.name}" (${formatPrice(
       product.price
@@ -125,6 +172,7 @@ export default async function ProductDetailPage({ params }: Props) {
   return (
     <>
       <JsonLd data={productSchema} />
+      <JsonLd data={breadcrumbSchema} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
         <nav aria-label="Breadcrumb" className="mb-8">
@@ -256,6 +304,8 @@ export default async function ProductDetailPage({ params }: Props) {
                 <span>Volver al Catálogo</span>
               </Link>
             </div>
+
+            <ShareProductButtons productName={product.name} slug={product.slug} />
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-pastel-sandDark">
               <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark/60">
