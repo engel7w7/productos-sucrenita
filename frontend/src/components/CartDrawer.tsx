@@ -15,6 +15,7 @@ import {
 import { formatPrice } from '@/lib/utils';
 import { trackWhatsAppContact } from '@/lib/analytics';
 import { PayPalCheckoutModal } from './PayPalCheckoutModal';
+import { SimpleQRModal } from './SimpleQRModal';
 import { PayPalIcon, WhatsAppIcon } from './SocialIcons';
 
 export function CartDrawer() {
@@ -31,6 +32,7 @@ export function CartDrawer() {
   } = useCart();
 
   const [isPayPalOpen, setIsPayPalOpen] = useState(false);
+  const [isQROpen, setIsQROpen] = useState(false);
 
   if (!isOpen) return null;
 
@@ -100,60 +102,57 @@ export function CartDrawer() {
                   onClick={closeCart}
                   className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-semibold bg-sucrenita-600 hover:bg-sucrenita-700 text-white shadow-soft transition-all"
                 >
-                  <span>Ver catálogo disponible</span>
+                  <span>Explorar catálogo</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             ) : (
               items.map((item) => {
-                const itemPrice =
+                const numericPrice =
                   typeof item.product.price === 'string'
                     ? parseFloat(item.product.price)
                     : item.product.price;
-                const subtotal = itemPrice * item.quantity;
+                const itemTotal = numericPrice * item.quantity;
 
                 return (
                   <div
                     key={item.product.id}
-                    className="p-3.5 rounded-2xl bg-pastel-sand/40 border border-pastel-sandDark/70 flex gap-3.5 items-center"
+                    className="p-3.5 rounded-2xl bg-white border border-pastel-sandDark shadow-soft flex items-center gap-3.5 group"
                   >
-                    <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-white shrink-0 border border-pastel-sandDark">
-                      {item.product.imageUrl ? (
-                        <Image
-                          src={item.product.imageUrl}
-                          alt={item.product.name}
-                          fill
-                          className="object-cover object-center"
-                          sizes="64px"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center text-[10px] text-pastel-peachText font-serif">
-                          Sucreñita
-                        </div>
-                      )}
+                    <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-pastel-sand shrink-0 border border-pastel-sandDark">
+                      <Image
+                        src={item.product.imageUrl || 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=300&q=80'}
+                        alt={item.product.name}
+                        fill
+                        className="object-cover object-center"
+                        sizes="64px"
+                      />
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      <h5 className="font-serif text-xs font-bold text-sucrenita-900 line-clamp-1">
+                      <h4 className="font-serif font-bold text-xs text-sucrenita-900 truncate">
                         {item.product.name}
-                      </h5>
+                      </h4>
                       <p className="text-[11px] text-sucrenita-500 mt-0.5">
-                        {formatPrice(item.product.price)} c/u
+                        {formatPrice(numericPrice)} c/u
                       </p>
 
                       <div className="flex items-center justify-between mt-2">
-                        <div className="inline-flex items-center gap-1.5 bg-white rounded-full border border-pastel-sandDark px-2 py-0.5 shadow-soft">
+                        <div className="inline-flex items-center gap-2 bg-pastel-sand/60 rounded-lg p-1 border border-pastel-sandDark">
                           <button
                             type="button"
                             onClick={() =>
-                              updateQuantity(item.product.id, item.quantity - 1)
+                              updateQuantity(
+                                item.product.id,
+                                Math.max(1, item.quantity - 1)
+                              )
                             }
-                            aria-label="Restar una unidad"
-                            className="p-1 text-sucrenita-600 hover:text-sucrenita-900"
+                            aria-label="Disminuir cantidad"
+                            className="w-5 h-5 rounded flex items-center justify-center hover:bg-white text-sucrenita-700 transition-colors"
                           >
                             <Minus className="w-3 h-3" />
                           </button>
-                          <span className="text-xs font-semibold text-sucrenita-900 px-1.5 min-w-[16px] text-center">
+                          <span className="text-xs font-semibold text-sucrenita-900 w-4 text-center">
                             {item.quantity}
                           </span>
                           <button
@@ -161,15 +160,15 @@ export function CartDrawer() {
                             onClick={() =>
                               updateQuantity(item.product.id, item.quantity + 1)
                             }
-                            aria-label="Sumar una unidad"
-                            className="p-1 text-sucrenita-600 hover:text-sucrenita-900"
+                            aria-label="Aumentar cantidad"
+                            className="w-5 h-5 rounded flex items-center justify-center hover:bg-white text-sucrenita-700 transition-colors"
                           >
                             <Plus className="w-3 h-3" />
                           </button>
                         </div>
 
                         <span className="font-serif font-bold text-xs text-sucrenita-900">
-                          Bs {subtotal.toFixed(2)}
+                          Bs {itemTotal.toFixed(2)}
                         </span>
                       </div>
                     </div>
@@ -190,11 +189,13 @@ export function CartDrawer() {
 
           {items.length > 0 && (
             <div className="p-5 border-t border-pastel-sandDark bg-pastel-sand/30 space-y-3.5">
-              <div className="p-3 rounded-2xl bg-pastel-amber/40 border border-pastel-amberBorder/60 text-[11px] text-sucrenita-800 flex items-center gap-2.5">
-                <QrCode className="w-4 h-4 text-pastel-amberText shrink-0" />
-                <span>
-                  Aceptamos <strong>Simple QR</strong> sin comisiones y <strong>PayPal</strong> para tarjetas internacionales.
-                </span>
+              <div className="p-3 rounded-2xl bg-pastel-amber/40 border border-pastel-amberBorder/60 text-[11px] text-sucrenita-800 flex items-center justify-between gap-2.5">
+                <div className="flex items-center gap-2">
+                  <QrCode className="w-4 h-4 text-pastel-amberText shrink-0" />
+                  <span>
+                    Aceptamos <strong>Simple QR</strong> sin comisiones y <strong>PayPal</strong> internacional.
+                  </span>
+                </div>
               </div>
 
               <div className="flex items-baseline justify-between pt-1">
@@ -207,6 +208,15 @@ export function CartDrawer() {
               </div>
 
               <div className="space-y-2">
+                <button
+                  type="button"
+                  onClick={() => setIsQROpen(true)}
+                  className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-2xl bg-pastel-amber hover:bg-amber-300 text-sucrenita-900 border border-pastel-amberBorder font-semibold text-xs tracking-wide shadow-soft transition-all"
+                >
+                  <QrCode className="w-4 h-4 text-pastel-amberText" />
+                  <span>Pagar con Simple QR (Bancos de Bolivia)</span>
+                </button>
+
                 <a
                   href={generateWhatsAppUrl()}
                   target="_blank"
@@ -215,7 +225,7 @@ export function CartDrawer() {
                   className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs tracking-wide shadow-soft transition-all"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
-                  <span>Pedir por WhatsApp (Simple QR / Efectivo)</span>
+                  <span>Pedir por WhatsApp (Atención Directa)</span>
                 </a>
 
                 <button
@@ -224,7 +234,7 @@ export function CartDrawer() {
                   className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-2xl bg-[#0070BA] hover:bg-[#003087] text-white font-semibold text-xs tracking-wide shadow-soft transition-all"
                 >
                   <PayPalIcon className="w-4 h-4" />
-                  <span>Pagar con PayPal / Tarjeta de Crédito</span>
+                  <span>Pagar con PayPal / Tarjeta Internacional</span>
                 </button>
 
                 <div className="flex items-center justify-between pt-1">
@@ -248,6 +258,14 @@ export function CartDrawer() {
           )}
         </aside>
       </div>
+
+      <SimpleQRModal
+        isOpen={isQROpen}
+        onClose={() => setIsQROpen(false)}
+        totalBob={totalPrice}
+        items={items}
+        onSuccessClearCart={clearCart}
+      />
 
       <PayPalCheckoutModal
         isOpen={isPayPalOpen}

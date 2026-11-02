@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
-import { Plus, Minus, ShoppingBag } from 'lucide-react';
+import { Plus, Minus, ShoppingBag, QrCode, Check } from 'lucide-react';
 import { trackWhatsAppContact } from '@/lib/analytics';
 import { PayPalCheckoutModal } from './PayPalCheckoutModal';
+import { SimpleQRModal } from './SimpleQRModal';
 import { PayPalIcon, WhatsAppIcon } from './SocialIcons';
 
 interface ProductDetailActionsProps {
@@ -15,10 +16,13 @@ interface ProductDetailActionsProps {
 
 export function ProductDetailActions({
   product,
+  whatsappUrl,
 }: ProductDetailActionsProps) {
   const [quantity, setQuantity] = useState(1);
   const [isPayPalOpen, setIsPayPalOpen] = useState(false);
-  const { addToCart } = useCart();
+  const [isQROpen, setIsQROpen] = useState(false);
+  const [added, setAdded] = useState(false);
+  const { addToCart, openCart } = useCart();
 
   const priceNum =
     typeof product.price === 'string'
@@ -28,6 +32,11 @@ export function ProductDetailActions({
 
   const handleAdd = () => {
     addToCart(product, quantity);
+    setAdded(true);
+    setTimeout(() => {
+      setAdded(false);
+      openCart();
+    }, 800);
   };
 
   const handleDirectWhatsApp = () => {
@@ -87,10 +96,23 @@ export function ProductDetailActions({
           <button
             type="button"
             onClick={handleAdd}
-            className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-semibold bg-pastel-amber/90 hover:bg-pastel-amber text-pastel-amberText border border-pastel-amberBorder shadow-soft hover:shadow-soft-lg transition-all"
+            className={`inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-semibold transition-all border ${
+              added
+                ? 'bg-emerald-100 text-emerald-800 border-emerald-300 shadow-soft scale-105'
+                : 'bg-pastel-amber/90 hover:bg-pastel-amber text-pastel-amberText border border-pastel-amberBorder shadow-soft hover:shadow-soft-lg'
+            }`}
           >
-            <ShoppingBag className="w-4 h-4" />
-            <span>Agregar a mi bolsita</span>
+            {added ? (
+              <>
+                <Check className="w-4 h-4 text-emerald-600" />
+                <span>¡Agregado a la bolsita!</span>
+              </>
+            ) : (
+              <>
+                <ShoppingBag className="w-4 h-4" />
+                <span>Agregar a mi bolsita</span>
+              </>
+            )}
           </button>
 
           <button
@@ -103,17 +125,34 @@ export function ProductDetailActions({
           </button>
         </div>
 
-        <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <button
+            type="button"
+            onClick={() => setIsQROpen(true)}
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-xs font-semibold bg-white hover:bg-pastel-amber/40 text-sucrenita-900 border border-pastel-sandDark shadow-soft hover:shadow-soft-lg transition-all"
+          >
+            <QrCode className="w-4 h-4 text-pastel-amberText" />
+            <span>Pagar con Simple QR</span>
+          </button>
+
           <button
             type="button"
             onClick={() => setIsPayPalOpen(true)}
-            className="w-full inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-2xl text-xs font-semibold bg-[#0070BA] hover:bg-[#003087] text-white shadow-soft hover:shadow-soft-lg transition-all"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-xs font-semibold bg-[#0070BA] hover:bg-[#003087] text-white shadow-soft hover:shadow-soft-lg transition-all"
           >
             <PayPalIcon className="w-4 h-4" />
-            <span>Comprar con PayPal o Tarjeta de Crédito</span>
+            <span>PayPal / Tarjeta de Crédito</span>
           </button>
         </div>
       </div>
+
+      <SimpleQRModal
+        isOpen={isQROpen}
+        onClose={() => setIsQROpen(false)}
+        items={[{ product, quantity }]}
+        totalBob={currentSubtotal}
+        onSuccessClearCart={() => {}}
+      />
 
       <PayPalCheckoutModal
         isOpen={isPayPalOpen}

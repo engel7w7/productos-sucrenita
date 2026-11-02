@@ -1,10 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '@/types';
 import { formatPrice } from '@/lib/utils';
-import { ArrowRight, Plus, ShoppingBag } from 'lucide-react';
+import { ArrowRight, Plus, Check } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
 interface ProductCardProps {
@@ -13,8 +14,15 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
+  const [added, setAdded] = useState(false);
   const isAvailable = product.stock > 0 && product.isActive;
   const isAbarrotes = product.category?.slug === 'abarrotes-condimentos';
+
+  const handleAdd = () => {
+    addToCart(product, 1);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1200);
+  };
 
   return (
     <article className="group relative flex flex-col bg-white rounded-3xl overflow-hidden border border-pastel-sandDark/70 shadow-soft hover:shadow-soft-lg transition-all duration-300 transform hover:-translate-y-1">
@@ -49,7 +57,7 @@ export function ProductCard({ product }: ProductCardProps) {
           className={`absolute top-3.5 right-3.5 px-2.5 py-1 text-[10px] font-medium rounded-full backdrop-blur-md border ${
             isAvailable
               ? 'bg-pastel-sage/95 text-pastel-sageText border-pastel-sageBorder/60'
-              : 'bg-pastel-rose/95 text-pastel-roseText border-pastel-roseBorder/60'
+              : 'bg-pastel-rose text-rose-800 border-rose-200'
           }`}
         >
           {isAvailable ? 'En almacén' : 'Agotado'}
@@ -80,12 +88,25 @@ export function ProductCard({ product }: ProductCardProps) {
           <div className="flex items-center gap-1.5">
             <button
               type="button"
-              onClick={() => addToCart(product, 1)}
+              onClick={handleAdd}
               aria-label={`Agregar ${product.name} a la lista`}
-              className="inline-flex items-center gap-1 px-3 py-2 rounded-full text-xs font-semibold bg-pastel-amber/80 hover:bg-pastel-amber text-pastel-amberText border border-pastel-amberBorder shadow-soft transition-all"
+              className={`inline-flex items-center gap-1 px-3 py-2 rounded-full text-xs font-semibold transition-all border ${
+                added
+                  ? 'bg-emerald-100 text-emerald-800 border-emerald-300 shadow-soft scale-105'
+                  : 'bg-pastel-amber/80 hover:bg-pastel-amber text-pastel-amberText border-pastel-amberBorder shadow-soft'
+              }`}
             >
-              <Plus className="w-3.5 h-3.5" />
-              <span>Agregar</span>
+              {added ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>¡Agregado!</span>
+                </>
+              ) : (
+                <>
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>Agregar</span>
+                </>
+              )}
             </button>
 
             <Link

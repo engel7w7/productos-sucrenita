@@ -20,6 +20,11 @@ export interface Product {
   updatedAt?: string;
 }
 
+export interface CartItem {
+  product: Product;
+  quantity: number;
+}
+
 export interface ApiResponse<T> {
   success: boolean;
   count?: number;

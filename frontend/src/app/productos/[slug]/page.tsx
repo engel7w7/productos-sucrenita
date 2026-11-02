@@ -128,6 +128,13 @@ export default async function ProductDetailPage({ params }: Props) {
         name: 'Productos Sucreñita',
       },
     },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '34',
+      bestRating: '5',
+      worstRating: '1',
+    },
   };
 
   const breadcrumbSchema = {

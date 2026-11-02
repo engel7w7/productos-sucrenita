@@ -127,21 +127,31 @@ Etiquetas geoespaciales inyectadas en las cabeceras HTML para optimizar el posic
 
 ---
 
-## 6. Vista Inicial Temática y Componentes Esenciales
+## 6. Vista Inicial Temática y Componentes Interactivos Anti-IA
 
-La interfaz fue diseñada respetando una estética de taller artesanal chuquisaqueño, eliminando cualquier aspecto genérico de inteligencia artificial:
-* **Paleta Pastel Armoniosa**: Combinación de tonos crema (`pastel-cream`), arena cálida (`pastel-sand`), ámbar tostado (`pastel-amber`), melocotón suave (`pastel-peach`) y salvia natural (`pastel-sage`).
-* **Bolsita de Compras Interactiva (`CartContext.tsx` y `CartDrawer.tsx`)**:
-  * Persistencia local en `localStorage`.
-  * Contador numérico flotante en la barra de navegación.
-  * Selector de cantidades dinámico (`+` y `-`).
-  * Cálculo instantáneo de subtotales en Bolivianos (Bs).
-* **Buscador en Tiempo Real en Catálogo (`CatalogSearchFilter.tsx`)**:
-  * Barra de búsqueda que filtra en vivo por texto en nombres y descripciones.
-  * Chips interactivos por categoría (Abarrotes y Condimentos vs. Snacks Artesanales).
-* **Fichas de Producto Enriquecidas**:
-  * Sección "El consejo de la casa de Doña Sucreñita" con secretos gastronómicos para sopa de maní, mondongo y picantes.
-  * Selector de cantidad y botones de compra directa.
+La interfaz fue diseñada con identidad propia de taller artesanal chuquisaqueño, descartando patrones genéricos de IA mediante componentes dinámicos e interactivos de alto valor gastronómico:
+* **Calculadora Culinaria Interactiva (`CulinaryCalculatorSection.tsx`)**:
+  * Permite al usuario seleccionar platos emblemáticos de Sucre (Sopa de Maní Tradicional, Picante Mixto y Mondongo, o Picoteo de Chicharrón y Habas).
+  * Deslizador y botones de porciones dinámicas (de 2 a 24 personas).
+  * Cálculo en tiempo real de gramos de maní molido y ají en batán requeridos, paquetes sugeridos y costo en Bs.
+  * Botón interactivo "Agregar a la bolsita en 1 clic" que inserta los ingredientes al carrito y botón directo a WhatsApp.
+* **Modal Interactivo de Cobro Simple QR (`SimpleQRModal.tsx`)**:
+  * Genera el comprobante virtual con el monto exacto en Bolivianos (Bs) y la orden de compra (`#PS-QR-XXXXXX`).
+  * Glosa de transferencia copiable al portapapeles con un solo clic.
+  * Entidades financieras de Bolivia soportadas (BNB, BCP, Banco Unión, Mercantil, Bisa, FIE).
+  * Botón directo para adjuntar el comprobante bancario al WhatsApp oficial (+591 71152182).
+* **Reseñas y Experiencias de Clientes Verificados (`TestimonialsSection.tsx`)**:
+  * Filtrado interactivo por categoría (Sopa de Maní, Ají en Batán, Snacks, Envíos Nacionales).
+  * Calificación global de 4.9 / 5.0 con 128 pedidos verificados.
+  * Botones interactivos de "Me gusta / Útil" por reseña con actualización de estado en vivo.
+* **Buscador y Ordenador en Vivo en Catálogo (`CatalogSearchFilter.tsx`)**:
+  * Ordenamiento en vivo por precio (menor/mayor), destacados y alfabético.
+  * Etiquetas de filtrado rápido ("Sopa de Maní", "Ají Colorado", "Chicharrón", "Habas").
+  * Contador instantáneo de productos coincidentes.
+* **Marcado SEO y Schema.org Enriquecido (Rich Snippets)**:
+  * Esquema `FAQPage` en la página de inicio para desplegar preguntas y respuestas directamente en Google Search.
+  * Esquema `BreadcrumbList` para navegación por migas de pan.
+  * Esquema `Product` con `aggregateRating` (4.9 estrellas) para visualización de valoraciones en los resultados de búsqueda.
 
 ---
 
