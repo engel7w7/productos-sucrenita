@@ -112,7 +112,7 @@ export function Footer() {
               </a>
 
               <a
-                href="https://www.tiktok.com/@productossucrenita"
+                href="https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
@@ -203,7 +203,7 @@ export function Footer() {
             </a>
             <span>&bull;</span>
             <a
-              href="https://www.tiktok.com/@productossucrenita"
+              href="https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-sucrenita-800 transition-colors"

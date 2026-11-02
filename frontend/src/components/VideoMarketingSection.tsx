@@ -66,21 +66,21 @@ const TIKTOK_SHORTS = [
     title: '¿Por qué nuestro maní para sopa es el más pedido de Sucre?',
     tag: '#SopaDeMani #ComidaBoliviana',
     views: '24.8K vistas',
-    url: 'https://www.tiktok.com/@productossucrenita',
+    url: 'https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk',
   },
   {
     id: 'tt-2',
     title: 'Probando el nivel de picante del Ají Colorado Chuquisaqueño',
     tag: '#AjiBoliviano #Picante',
     views: '31.2K vistas',
-    url: 'https://www.tiktok.com/@productossucrenita',
+    url: 'https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk',
   },
   {
     id: 'tt-3',
     title: 'El sonido crocante del chicharrón recién tostado en paila',
     tag: '#SnackArtesanal #Crocante',
     views: '19.5K vistas',
-    url: 'https://www.tiktok.com/@productossucrenita',
+    url: 'https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk',
   },
 ];
 
@@ -179,7 +179,7 @@ export function VideoMarketingSection() {
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-rose-300 border border-white/10">
                 <TikTokIcon className="w-3.5 h-3.5" />
-                <span>Comunidad en TikTok Oficial @productossucrenita</span>
+                <span>Comunidad en TikTok Oficial @sucrenita_artesanal</span>
               </div>
               <h3 className="font-serif text-2xl font-bold">
                 Videos Cortos, Novedades y Degustaciones en TikTok
@@ -190,7 +190,7 @@ export function VideoMarketingSection() {
             </div>
 
             <a
-              href="https://www.tiktok.com/@productossucrenita"
+              href="https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-slate-100 text-sucrenita-950 font-bold text-xs tracking-wide shadow-soft transition-all shrink-0"

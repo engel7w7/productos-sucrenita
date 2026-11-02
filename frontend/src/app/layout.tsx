@@ -118,7 +118,7 @@ const organizationSchema = {
   sameAs: [
     'https://www.facebook.com/profile.php?id=61595923780807',
     'https://www.instagram.com/productossucrenita',
-    'https://www.tiktok.com/@productossucrenita',
+    'https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk',
     'https://www.youtube.com/@ProductosSucrenita',
     'https://t.me/ProductosSucrenita',
   ],

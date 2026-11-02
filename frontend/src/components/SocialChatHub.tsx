@@ -327,7 +327,7 @@ export function SocialChatHub() {
                 </a>
 
                 <a
-                  href="https://www.tiktok.com/@productossucrenita"
+                  href="https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between p-3 rounded-2xl bg-white hover:bg-rose-50 border border-pastel-sandDark transition-all group"
@@ -340,7 +340,7 @@ export function SocialChatHub() {
                       <h4 className="text-xs font-bold text-sucrenita-900 group-hover:text-rose-600 transition-colors">
                         TikTok Oficial
                       </h4>
-                      <p className="text-[11px] text-sucrenita-500">@productossucrenita &bull; Videos y recetas</p>
+                      <p className="text-[11px] text-sucrenita-500">@sucrenita_artesanal &bull; Videos y recetas</p>
                     </div>
                   </div>
                   <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-rose-600" />
@@ -380,7 +380,7 @@ export function SocialChatHub() {
                       <h4 className="text-xs font-bold text-sucrenita-900 group-hover:text-[#E4405F] transition-colors">
                         Perfil de Instagram
                       </h4>
-                      <p className="text-[11px] text-sucrenita-500">@productossucrenita</p>
+                      <p className="text-[11px] text-sucrenita-500">@sucrenita_artesanal</p>
                     </div>
                   </div>
                   <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-[#E4405F]" />

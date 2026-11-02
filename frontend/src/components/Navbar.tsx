@@ -57,7 +57,7 @@ export function Navbar() {
             </a>
             <span className="text-pastel-sandDark">&bull;</span>
             <a
-              href="https://www.tiktok.com/@productossucrenita"
+              href="https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="TikTok de Productos Sucreñita"

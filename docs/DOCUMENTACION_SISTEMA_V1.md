@@ -151,7 +151,7 @@ Se implementó el componente central `SocialChatHub.tsx`, ubicado en la esquina 
 1. **WhatsApp Directo**: `https://wa.me/59171152182` con mensajes preconfigurados.
 2. **Facebook Messenger**: `https://m.me/61595923780807` para atención vía chat de Meta.
 3. **Telegram Oficial**: `https://t.me/ProductosSucrenita` para consultas seguras.
-4. **TikTok Oficial**: `https://www.tiktok.com/@productossucrenita` para videos cortos y recetas.
+4. **TikTok Oficial**: `https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk` para videos cortos y recetas.
 5. **Canal de YouTube**: `https://www.youtube.com/@ProductosSucrenita` para clases culinarias.
 6. **Instagram**: `https://www.instagram.com/productossucrenita` para galería fotográfica.
 
@@ -221,7 +221,7 @@ El componente `VideoMarketingSection.tsx` implementa la estrategia de atracción
 * **Video 3**: "Elaboración de Chicharrón Crocante y Habas Fritas de Altura" (Fritura artesanal controlada).
 * Incluye reproductor modal embebido interactivo para reproducir el video sin abandonar la página web.
 
-### 10.2 Contenido en TikTok (@productossucrenita)
+### 10.2 Contenido en TikTok (@sucrenita_artesanal)
 * Tarjetas de video corto en formato vertical enfocadas en *lifestyle*, crocancia del chicharrón y empaque artesanal.
 * Enlaces directos para sumar seguidores en la cuenta oficial de TikTok.
 
