@@ -5,7 +5,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import { JsonLd } from '@/components/JsonLd';
-import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
+import { SocialChatHub } from '@/components/SocialChatHub';
 import { CartProvider } from '@/context/CartContext';
 import { CartDrawer } from '@/components/CartDrawer';
 
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: '%s | Productos Sucreñita',
   },
   description:
-    'Catálogo oficial de Productos Sucreñita en Sucre, Bolivia. Abarrotes tradicionales seleccionados: maní crudo y molido para sopa de maní, ají colorado y amarillo puro, y snacks crocantes caseros. Pedidos directos por WhatsApp con cobro seguro Simple QR.',
+    'Catálogo oficial de Productos Sucreñita en Sucre, Bolivia. Abarrotes tradicionales seleccionados: maní crudo y molido para sopa de maní, ají colorado y amarillo puro, y snacks crocantes caseros. Pedidos directos con cobro seguro Simple QR y pasarela PayPal.',
   keywords: [
     'productos sucreñita',
     'sopa de mani bolivia',
@@ -44,6 +44,8 @@ export const metadata: Metadata = {
     'snacks tradicionales bolivianos',
     'condimentos bolivia',
     'tienda virtual sucre',
+    'simple qr sucre',
+    'paypal bolivia',
   ],
   authors: [{ name: 'Productos Sucreñita' }],
   creator: 'Productos Sucreñita',
@@ -57,7 +59,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: 'Productos Sucreñita | Abarrotes, Ajíes y Snacks Artesanales',
     description:
-      'Llevamos la auténtica sazón chuquisaqueña y los mejores snacks caseros directo a tu mesa. Haz tu pedido fácil por WhatsApp con pago Simple QR.',
+      'Llevamos la auténtica sazón chuquisaqueña y los mejores snacks caseros directo a tu mesa. Haz tu pedido fácil por WhatsApp con pago Simple QR o PayPal.',
     siteName: 'Productos Sucreñita',
     images: [
       {
@@ -72,7 +74,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Productos Sucreñita | Abarrotes, Ajíes y Snacks Artesanales',
     description:
-      'Abarrotes seleccionados, ajíes chuquisaqueños y snacks crocantes con sabor tradicional y pago por Simple QR.',
+      'Abarrotes seleccionados, ajíes chuquisaqueños y snacks crocantes con sabor tradicional, cobro por Simple QR y pasarela PayPal.',
     images: ['https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&h=630&q=80'],
   },
   robots: {
@@ -99,14 +101,14 @@ const organizationSchema = {
   '@type': 'FoodEstablishment',
   name: 'Productos Sucreñita',
   description:
-    'Emprendimiento familiar boliviano de abarrotes de cocina tradicional (maní, ajíes, condimentos) y snacks artesanales con venta directa B2C y cobros por Simple QR.',
+    'Emprendimiento familiar boliviano de abarrotes de cocina tradicional (maní, ajíes, condimentos) y snacks artesanales con venta directa B2C, cobros por Simple QR y pasarela PayPal.',
   url: siteUrl,
   logo: `${siteUrl}/icon.png`,
   image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&h=630&q=80',
   telephone: '+59170000000',
   priceRange: '$',
-  currenciesAccepted: 'BOB',
-  paymentAccepted: 'Simple QR, Efectivo, Transferencia Bancaria',
+  currenciesAccepted: 'BOB, USD',
+  paymentAccepted: 'Simple QR, PayPal, Tarjeta de Crédito, Efectivo, Transferencia Bancaria',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Sucre',
@@ -116,6 +118,9 @@ const organizationSchema = {
   sameAs: [
     'https://www.facebook.com/ProductosSucrenita',
     'https://www.instagram.com/productossucrenita',
+    'https://www.tiktok.com/@productossucrenita',
+    'https://www.youtube.com/@ProductosSucrenita',
+    'https://t.me/ProductosSucrenita',
   ],
 };
 
@@ -133,7 +138,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
-          <FloatingWhatsApp />
+          <SocialChatHub />
           <CartDrawer />
         </CartProvider>
       </body>

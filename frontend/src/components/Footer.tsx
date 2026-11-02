@@ -1,5 +1,22 @@
 import Link from 'next/link';
-import { QrCode, Phone, ShieldCheck, Truck, Wheat, Facebook, Instagram } from 'lucide-react';
+import {
+  QrCode,
+  Phone,
+  ShieldCheck,
+  Truck,
+  Wheat,
+  Facebook,
+  Instagram,
+  Youtube,
+  CreditCard,
+} from 'lucide-react';
+import {
+  TelegramIcon,
+  TikTokIcon,
+  MessengerIcon,
+  PayPalIcon,
+  WhatsAppIcon,
+} from './SocialIcons';
 
 export function Footer() {
   return (
@@ -19,10 +36,14 @@ export function Footer() {
             <div className="pt-2 flex flex-wrap items-center gap-2 text-xs">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-pastel-amber text-pastel-amberText border border-pastel-amberBorder font-medium">
                 <QrCode className="w-3.5 h-3.5 text-pastel-amberText" />
-                Cobros con QR Simple
+                Simple QR Bancario
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sky-100 text-sky-800 border border-sky-200 font-medium">
+                <PayPalIcon className="w-3.5 h-3.5 text-[#0070BA]" />
+                PayPal Checkout
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-pastel-sage text-pastel-sageText border border-pastel-sageBorder font-medium">
-                <Phone className="w-3.5 h-3.5 text-pastel-sageText" />
+                <WhatsAppIcon className="w-3.5 h-3.5 text-pastel-sageText" />
                 Atención vía WhatsApp
               </span>
             </div>
@@ -64,66 +85,98 @@ export function Footer() {
 
           <div>
             <h4 className="font-serif font-bold text-sucrenita-900 text-sm uppercase tracking-wider mb-4">
-              Redes Sociales Oficiales
+              Canales Sociales Oficiales
             </h4>
             <p className="text-xs text-sucrenita-600 mb-3 leading-relaxed">
-              Síguenos sin costo para conocer nuevos tostados semanales, disponibilidad de lotes frescos y recetas tradicionales:
+              Síguenos sin costo para conocer novedades, recetas tradicionales en video y lotes frescos:
             </p>
-            <ul className="space-y-2.5 text-xs text-sucrenita-700">
-              <li>
-                <a
-                  href="https://www.facebook.com/ProductosSucrenita"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-[#1877F2] transition-colors p-1.5 rounded-xl hover:bg-white/80"
-                >
-                  <Facebook className="w-4 h-4 text-[#1877F2]" />
-                  <span className="font-medium">Facebook: /ProductosSucrenita</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/productossucrenita"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-[#E4405F] transition-colors p-1.5 rounded-xl hover:bg-white/80"
-                >
-                  <Instagram className="w-4 h-4 text-[#E4405F]" />
-                  <span className="font-medium">Instagram: @productossucrenita</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/59170000000"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-emerald-700 transition-colors p-1.5 rounded-xl hover:bg-white/80"
-                >
-                  <Phone className="w-4 h-4 text-emerald-600" />
-                  <span className="font-medium">WhatsApp directo de atención</span>
-                </a>
-              </li>
-            </ul>
+            <div className="grid grid-cols-2 gap-2 text-xs text-sucrenita-700">
+              <a
+                href="https://www.facebook.com/ProductosSucrenita"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
+              >
+                <Facebook className="w-3.5 h-3.5 text-[#1877F2]" />
+                <span className="font-medium">Facebook</span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/productossucrenita"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
+              >
+                <Instagram className="w-3.5 h-3.5 text-[#E4405F]" />
+                <span className="font-medium">Instagram</span>
+              </a>
+
+              <a
+                href="https://www.tiktok.com/@productossucrenita"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
+              >
+                <TikTokIcon className="w-3.5 h-3.5 text-slate-900" />
+                <span className="font-medium">TikTok</span>
+              </a>
+
+              <a
+                href="https://www.youtube.com/@ProductosSucrenita"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
+              >
+                <Youtube className="w-3.5 h-3.5 text-red-600" />
+                <span className="font-medium">YouTube</span>
+              </a>
+
+              <a
+                href="https://t.me/ProductosSucrenita"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
+              >
+                <TelegramIcon className="w-3.5 h-3.5 text-[#229ED9]" />
+                <span className="font-medium">Telegram</span>
+              </a>
+
+              <a
+                href="https://m.me/ProductosSucrenita"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
+              >
+                <MessengerIcon className="w-3.5 h-3.5 text-[#0084FF]" />
+                <span className="font-medium">Messenger</span>
+              </a>
+            </div>
           </div>
 
           <div>
             <h4 className="font-serif font-bold text-sucrenita-900 text-sm uppercase tracking-wider mb-4">
-              Garantía y Entrega
+              Garantía y Métodos de Pago
             </h4>
             <ul className="space-y-2.5 text-xs text-sucrenita-600">
               <li className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-pastel-amberText shrink-0" />
-                <span>Granos e ingredientes seleccionados</span>
+                <span>Granos e ingredientes 100% seleccionados</span>
               </li>
               <li className="flex items-center gap-2">
                 <Truck className="w-4 h-4 text-pastel-sageText shrink-0" />
-                <span>Entregas coordinadas por chat</span>
+                <span>Envíos en Sucre y flotas a toda Bolivia</span>
               </li>
               <li className="flex items-center gap-2">
                 <QrCode className="w-4 h-4 text-pastel-peachText shrink-0" />
-                <span>Pago inmediato sin comisiones con QR</span>
+                <span>Simple QR sin comisiones (Bancos de Bolivia)</span>
               </li>
-              <li className="text-sucrenita-500 italic">Venta directa familiar del productor a tu mesa</li>
+              <li className="flex items-center gap-2">
+                <CreditCard className="w-4 h-4 text-[#0070BA] shrink-0" />
+                <span>PayPal internacional con tarjetas de débito/crédito</span>
+              </li>
+              <li className="text-sucrenita-500 italic pt-1">
+                Taller familiar en Sucre &bull; Venta directa del productor
+              </li>
             </ul>
           </div>
         </div>
@@ -149,7 +202,23 @@ export function Footer() {
               Instagram
             </a>
             <span>&bull;</span>
-            <span>Tradición, calidad y frescura</span>
+            <a
+              href="https://www.tiktok.com/@productossucrenita"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-sucrenita-800 transition-colors"
+            >
+              TikTok
+            </a>
+            <span>&bull;</span>
+            <a
+              href="https://www.youtube.com/@ProductosSucrenita"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-sucrenita-800 transition-colors"
+            >
+              YouTube
+            </a>
           </div>
         </div>
       </div>

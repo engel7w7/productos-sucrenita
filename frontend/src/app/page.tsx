@@ -3,6 +3,9 @@ import Image from 'next/image';
 import { getProducts } from '@/lib/api';
 import { ProductCard } from '@/components/ProductCard';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { VideoMarketingSection } from '@/components/VideoMarketingSection';
+import { FAQSection } from '@/components/FAQSection';
+import { BrandStorySection } from '@/components/BrandStorySection';
 import {
   ArrowRight,
   MessageCircle,
@@ -15,10 +18,12 @@ import {
   Heart,
   CheckCircle2,
   Sparkles,
-  ShoppingBag,
   Clock,
   MapPin,
+  CreditCard,
+  ShieldCheck,
 } from 'lucide-react';
+import { PayPalIcon, WhatsAppIcon } from '@/components/SocialIcons';
 
 export const revalidate = 60;
 
@@ -46,7 +51,7 @@ export default async function HomePage() {
               </h1>
 
               <p className="text-base sm:text-lg text-sucrenita-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Maní crudo y molido con la grasa exacta para la tradicional sopa de maní chuquisaqueña, ajíes desvenados y molidos a piedra, y snacks crocantes preparados con esmero en nuestro hogar.
+                Maní crudo y molido con la grasa exacta para la tradicional sopa de maní chuquisaqueña, ajíes desvenados y molidos a piedra, y snacks crocantes preparados con esmero en nuestro hogar en Sucre.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
@@ -67,18 +72,22 @@ export default async function HomePage() {
                 />
               </div>
 
-              <div className="grid grid-cols-3 gap-4 pt-8 border-t border-pastel-sandDark/70">
+              <div className="grid grid-cols-4 gap-3 pt-8 border-t border-pastel-sandDark/70">
                 <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white/70 border border-pastel-sandDark/50 shadow-soft">
-                  <span className="font-serif font-bold text-2xl text-sucrenita-700">100%</span>
-                  <span className="text-xs text-sucrenita-500">Granos Selectos</span>
+                  <span className="font-serif font-bold text-xl sm:text-2xl text-sucrenita-700">100%</span>
+                  <span className="text-[11px] text-sucrenita-500">Granos Selectos</span>
                 </div>
                 <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white/70 border border-pastel-sandDark/50 shadow-soft">
-                  <span className="font-serif font-bold text-2xl text-pastel-amberText">Simple QR</span>
-                  <span className="text-xs text-sucrenita-500">Cobro Seguro</span>
+                  <span className="font-serif font-bold text-xl sm:text-2xl text-pastel-amberText">Simple QR</span>
+                  <span className="text-[11px] text-sucrenita-500">Bancos de Bolivia</span>
                 </div>
                 <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white/70 border border-pastel-sandDark/50 shadow-soft">
-                  <span className="font-serif font-bold text-2xl text-pastel-sageText">B2C</span>
-                  <span className="text-xs text-sucrenita-500">Venta Directa</span>
+                  <span className="font-serif font-bold text-xl sm:text-2xl text-[#0070BA]">PayPal</span>
+                  <span className="text-[11px] text-sucrenita-500">Pago Internacional</span>
+                </div>
+                <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white/70 border border-pastel-sandDark/50 shadow-soft">
+                  <span className="font-serif font-bold text-xl sm:text-2xl text-pastel-sageText">B2C</span>
+                  <span className="text-[11px] text-sucrenita-500">Directo del Taller</span>
                 </div>
               </div>
             </div>
@@ -191,6 +200,8 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <BrandStorySection />
+
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-pastel-sage text-pastel-sageText border border-pastel-sageBorder shadow-soft mb-2">
@@ -220,10 +231,10 @@ export default async function HomePage() {
               2
             </div>
             <h3 className="font-serif font-bold text-lg text-sucrenita-900 mb-2">
-              Pide por WhatsApp
+              Bolsita o WhatsApp
             </h3>
             <p className="text-xs text-sucrenita-600 leading-relaxed">
-              Haz clic en el botón de pedido para enviar el mensaje con el producto exacto y coordinar la entrega.
+              Agrega a tu bolsita para calcular el subtotal en Bolivianos o haz clic para pedir directo por WhatsApp.
             </p>
           </div>
 
@@ -232,14 +243,16 @@ export default async function HomePage() {
               3
             </div>
             <h3 className="font-serif font-bold text-lg text-sucrenita-900 mb-2">
-              Paga con Simple QR
+              Simple QR o PayPal
             </h3>
             <p className="text-xs text-sucrenita-600 leading-relaxed">
-              Escanea el código QR desde cualquier aplicación bancaria boliviana sin comisiones y recibe tu pedido.
+              Escanea el Simple QR bancario nacional sin comisiones o paga con PayPal y tarjeta internacional.
             </p>
           </div>
         </div>
       </section>
+
+      <VideoMarketingSection />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-pastel-peach/50 via-white to-pastel-amber/40 border border-pastel-sandDark shadow-soft">
@@ -250,7 +263,7 @@ export default async function HomePage() {
                 <span>Nuestra Comunidad &bull; Redes Oficiales</span>
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 tracking-tight">
-                Síguenos en Facebook e Instagram
+                Síguenos en Facebook, Instagram y Redes
               </h2>
               <p className="text-sm sm:text-base text-sucrenita-700 leading-relaxed max-w-xl">
                 Descubre videos del proceso de selección de granos, fotos de lotes recién tostados, ideas de recetas tradicionales chuquisaqueñas y novedades de nuevos productos. Conéctate directamente con nosotros sin costo alguno.
@@ -324,6 +337,8 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <FAQSection />
+
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="card-pastel rounded-3xl p-8 sm:p-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex items-start gap-4 p-4 rounded-2xl bg-pastel-amber/50 border border-pastel-amberBorder/60">
@@ -355,9 +370,9 @@ export default async function HomePage() {
               <QrCode className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-serif text-base font-bold text-sucrenita-900">Cobro Fácil con QR</h3>
+              <h3 className="font-serif text-base font-bold text-sucrenita-900">Simple QR y PayPal</h3>
               <p className="mt-1 text-xs text-sucrenita-600 leading-relaxed">
-                Paga de forma rápida y moderna con Simple QR desde cualquier banco nacional, sin efectivo y con confirmación inmediata.
+                Paga con Simple QR bancario nacional sin comisiones o con tarjeta internacional a través de la pasarela PayPal.
               </p>
             </div>
           </div>

@@ -2,7 +2,19 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ShoppingBag, Store, UtensilsCrossed, Facebook, Instagram, ShieldCheck, Menu, X, Phone } from 'lucide-react';
+import {
+  ShoppingBag,
+  Store,
+  UtensilsCrossed,
+  Facebook,
+  Instagram,
+  Youtube,
+  ShieldCheck,
+  Menu,
+  X,
+  Phone,
+} from 'lucide-react';
+import { TikTokIcon } from '@/components/SocialIcons';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { useCart } from '@/context/CartContext';
 
@@ -17,11 +29,11 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-3.5 h-3.5 text-pastel-amberText shrink-0" />
             <span className="font-medium">
-              Venta directa familiar en Sucre y envíos a toda Bolivia &bull; Cobro seguro con Simple QR
+              Venta directa familiar en Sucre y envíos a Bolivia &bull; Cobro con Simple QR y PayPal
             </span>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-sucrenita-500 hidden md:inline">Redes oficiales:</span>
+          <div className="flex items-center gap-3">
+            <span className="text-sucrenita-500 hidden md:inline">Canales oficiales:</span>
             <a
               href="https://www.facebook.com/ProductosSucrenita"
               target="_blank"
@@ -32,7 +44,7 @@ export function Navbar() {
               <Facebook className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Facebook</span>
             </a>
-            <span className="text-pastel-sandDark">•</span>
+            <span className="text-pastel-sandDark">&bull;</span>
             <a
               href="https://www.instagram.com/productossucrenita"
               target="_blank"
@@ -42,6 +54,28 @@ export function Navbar() {
             >
               <Instagram className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Instagram</span>
+            </a>
+            <span className="text-pastel-sandDark">&bull;</span>
+            <a
+              href="https://www.tiktok.com/@productossucrenita"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok de Productos Sucreñita"
+              className="inline-flex items-center gap-1 text-sucrenita-700 hover:text-rose-600 transition-colors"
+            >
+              <TikTokIcon className="w-3 h-3" />
+              <span className="hidden sm:inline">TikTok</span>
+            </a>
+            <span className="text-pastel-sandDark">&bull;</span>
+            <a
+              href="https://www.youtube.com/@ProductosSucrenita"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube de Productos Sucreñita"
+              className="inline-flex items-center gap-1 text-sucrenita-700 hover:text-red-600 transition-colors"
+            >
+              <Youtube className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">YouTube</span>
             </a>
           </div>
         </div>
