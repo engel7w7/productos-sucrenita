@@ -146,7 +146,7 @@ export async function getProducts(categorySlug?: string): Promise<Product[]> {
 export async function getProductBySlug(slug: string): Promise<Product | null> {
   try {
     const res = await fetch(`${API_BASE_URL}/api/products/${slug}`, {
-      cache: 'no-store',
+      next: { revalidate: 60 },
     });
 
     if (!res.ok) {

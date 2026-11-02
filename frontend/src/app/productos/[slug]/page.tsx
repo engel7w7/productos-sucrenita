@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getProductBySlug } from '@/lib/api';
+import { getProductBySlug, getProducts } from '@/lib/api';
 import { formatPrice } from '@/lib/utils';
 import { JsonLd } from '@/components/JsonLd';
 import {
@@ -23,6 +23,13 @@ type Props = {
 };
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://productos-sucrenita.vercel.app';
+
+export async function generateStaticParams() {
+  const products = await getProducts();
+  return products.map((product) => ({
+    slug: product.slug,
+  }));
+}
 
 export async function generateMetadata({
   params,

@@ -29,7 +29,14 @@ export const revalidate = 60;
 
 export default async function HomePage() {
   const products = await getProducts();
-  const featuredProducts = products.slice(0, 4);
+  const prioritizedSlugs = new Set([
+    'mani-molido-tradicional-sopa-500g',
+    'aji-colorado-molido-picante-250g',
+    'chicharron-artesanal-crocante-200g',
+    'mani-dulce-garrapinado-250g',
+  ]);
+  const featured = products.filter((p) => prioritizedSlugs.has(p.slug));
+  const featuredProducts = featured.length >= 4 ? featured : products.slice(0, 4);
 
   return (
     <div className="flex flex-col gap-16 md:gap-24 pb-20">
