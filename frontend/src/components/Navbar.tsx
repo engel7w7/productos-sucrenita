@@ -8,7 +8,6 @@ import {
   UtensilsCrossed,
   Facebook,
   Instagram,
-  Youtube,
   ShieldCheck,
   Menu,
   X,
@@ -65,17 +64,6 @@ export function Navbar() {
             >
               <TikTokIcon className="w-3 h-3" />
               <span className="hidden sm:inline">TikTok</span>
-            </a>
-            <span className="text-pastel-sandDark">&bull;</span>
-            <a
-              href="https://www.youtube.com/@ProductosSucrenita"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube de Productos Sucreñita"
-              className="inline-flex items-center gap-1 text-sucrenita-700 hover:text-red-600 transition-colors"
-            >
-              <Youtube className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">YouTube</span>
             </a>
           </div>
         </div>

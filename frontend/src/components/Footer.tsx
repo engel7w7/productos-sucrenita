@@ -7,7 +7,6 @@ import {
   Wheat,
   Facebook,
   Instagram,
-  Youtube,
   CreditCard,
 } from 'lucide-react';
 import {
@@ -122,13 +121,13 @@ export function Footer() {
               </a>
 
               <a
-                href="https://www.youtube.com/@ProductosSucrenita"
+                href="https://wa.me/59171152182?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20consultar%20sobre%20sus%20productos"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
               >
-                <Youtube className="w-3.5 h-3.5 text-red-600" />
-                <span className="font-medium">YouTube</span>
+                <WhatsAppIcon className="w-3.5 h-3.5 text-pastel-sageText" />
+                <span className="font-medium">WhatsApp</span>
               </a>
 
               <a
@@ -209,15 +208,6 @@ export function Footer() {
               className="hover:text-sucrenita-800 transition-colors"
             >
               TikTok
-            </a>
-            <span>&bull;</span>
-            <a
-              href="https://www.youtube.com/@ProductosSucrenita"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-sucrenita-800 transition-colors"
-            >
-              YouTube
             </a>
           </div>
         </div>

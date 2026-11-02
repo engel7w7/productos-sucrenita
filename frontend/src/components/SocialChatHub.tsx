@@ -11,7 +11,6 @@ import {
   ShieldCheck,
   Facebook,
   Instagram,
-  Youtube,
 } from 'lucide-react';
 import {
   TelegramIcon,
@@ -386,25 +385,6 @@ export function SocialChatHub() {
                   <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-[#E4405F]" />
                 </a>
 
-                <a
-                  href="https://www.youtube.com/@ProductosSucrenita"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-2xl bg-white hover:bg-red-50 border border-pastel-sandDark transition-all group"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-red-100 text-red-600 flex items-center justify-center">
-                      <Youtube className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-sucrenita-900 group-hover:text-red-600 transition-colors">
-                        Canal de YouTube
-                      </h4>
-                      <p className="text-[11px] text-sucrenita-500">Recetas tradicionales y secretos</p>
-                    </div>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-red-600" />
-                </a>
               </div>
             )}
           </div>
