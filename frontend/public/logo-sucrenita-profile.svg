@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="65%" stop-color="#FBF4EA" />
+      <stop offset="100%" stop-color="#F3E5D3" />
+    </radialGradient>
+
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5A638" />
+      <stop offset="50%" stop-color="#C6821A" />
+      <stop offset="100%" stop-color="#9E6108" />
+    </linearGradient>
+
+    <linearGradient id="chiliGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D94132" />
+      <stop offset="60%" stop-color="#B32415" />
+      <stop offset="100%" stop-color="#7A1208" />
+    </linearGradient>
+
+    <linearGradient id="peanutGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D19D" />
+      <stop offset="50%" stop-color="#DDAA63" />
+      <stop offset="100%" stop-color="#B87E35" />
+    </linearGradient>
+
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4E9F6E" />
+      <stop offset="100%" stop-color="#245F3B" />
+    </linearGradient>
+
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#5A3A1A" flood-opacity="0.18" />
+    </filter>
+
+    <filter id="badgeShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1E3E26" flood-opacity="0.25" />
+    </filter>
+
+    <path id="archTop" d="M 210,540 A 330,330 0 0,1 870,540" fill="none" />
+    <path id="archBottom" d="M 870,540 A 330,330 0 0,1 210,540" fill="none" />
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#bgGradient)" />
+
+  <g filter="url(#softShadow)">
+    <circle cx="540" cy="540" r="490" fill="#FFFDF9" stroke="#E2C9AC" stroke-width="4" />
+    <circle cx="540" cy="540" r="468" fill="none" stroke="url(#goldGradient)" stroke-width="8" stroke-dasharray="8 6" />
+    <circle cx="540" cy="540" r="448" fill="#FFFBF5" stroke="#9E6108" stroke-width="3" />
+  </g>
+
+  <circle cx="540" cy="540" r="360" fill="#FAF1E4" stroke="#DDB88C" stroke-width="2" />
+
+  <text font-family="'Playfair Display', Georgia, serif" font-size="62" font-weight="900" fill="#4A260D" letter-spacing="9">
+    <textPath href="#archTop" startOffset="50%" text-anchor="middle">
+      PRODUCTOS SUCREÑITA
+    </textPath>
+  </text>
+
+  <text font-family="'Inter', Arial, sans-serif" font-size="24" font-weight="800" fill="#8C531B" letter-spacing="8">
+    <textPath href="#archBottom" startOffset="50%" text-anchor="middle">
+      • DESDE SUCRE, BOLIVIA •
+    </textPath>
+  </text>
+
+  <circle cx="215" cy="540" r="10" fill="url(#goldGradient)" />
+  <circle cx="865" cy="540" r="10" fill="url(#goldGradient)" />
+
+  <g transform="translate(540, 500)">
+    <circle cx="0" cy="0" r="230" fill="#FFFDF9" stroke="#E8D1B5" stroke-width="3" />
+    <circle cx="0" cy="0" r="218" fill="none" stroke="#DDAA63" stroke-width="1.5" stroke-dasharray="4 4" />
+
+    <g opacity="0.85">
+      <path d="M -160,80 C -180,0 -120,-80 -60,-120" fill="none" stroke="#DDAA63" stroke-width="4" stroke-linecap="round" />
+      <path d="M -150,50 C -140,40 -120,40 -115,55" fill="none" stroke="#DDAA63" stroke-width="3" />
+      <path d="M -140,-10 C -130,-20 -110,-20 -105,-5" fill="none" stroke="#DDAA63" stroke-width="3" />
+      <path d="M -110,-60 C -100,-70 -80,-70 -75,-55" fill="none" stroke="#DDAA63" stroke-width="3" />
+
+      <path d="M 160,80 C 180,0 120,-80 60,-120" fill="none" stroke="#DDAA63" stroke-width="4" stroke-linecap="round" />
+      <path d="M 150,50 C 140,40 120,40 115,55" fill="none" stroke="#DDAA63" stroke-width="3" />
+      <path d="M 140,-10 C 130,-20 110,-20 105,-5" fill="none" stroke="#DDAA63" stroke-width="3" />
+      <path d="M 110,-60 C 100,-70 80,-70 75,-55" fill="none" stroke="#DDAA63" stroke-width="3" />
+    </g>
+
+    <g transform="translate(-40, -10) rotate(-18) scale(1.15)">
+      <path d="M 0,-70 C 45,-60 65,-20 45,20 C 65,55 45,95 0,85 C -45,95 -65,55 -45,20 C -65,-20 -45,-60 0,-70 Z" 
+            fill="url(#peanutGradient)" stroke="#8C531B" stroke-width="4" />
+      <path d="M 0,-50 C 15,-40 15,-20 0,-10 C -15,-20 -15,-40 0,-50 Z" fill="none" stroke="#A86F28" stroke-width="2" stroke-dasharray="3 3" />
+      <path d="M 0,10 C 18,20 18,50 0,65 C -18,50 -18,20 0,10 Z" fill="none" stroke="#A86F28" stroke-width="2" stroke-dasharray="3 3" />
+      <circle cx="-12" cy="-35" r="3" fill="#8C531B" opacity="0.4" />
+      <circle cx="10" cy="-25" r="3" fill="#8C531B" opacity="0.4" />
+      <circle cx="-10" cy="35" r="3.5" fill="#8C531B" opacity="0.4" />
+      <circle cx="12" cy="45" r="3" fill="#8C531B" opacity="0.4" />
+    </g>
+
+    <g transform="translate(45, -10) rotate(22) scale(1.1)">
+      <path d="M 0,-85 C 22,-85 28,-75 22,-60 C 35,-10 40,40 15,95 C 0,120 -15,115 -18,90 C -25,45 -22,-10 -15,-60 C -20,-75 -15,-85 0,-85 Z" 
+            fill="url(#chiliGradient)" stroke="#520B04" stroke-width="4" />
+      <path d="M -3,-60 C 10,-5 15,35 2,75" fill="none" stroke="#FFA399" stroke-width="5" stroke-linecap="round" opacity="0.45" />
+      <path d="M 0,-85 C -2,-105 10,-115 15,-120 C 12,-112 8,-105 5,-90" fill="none" stroke="url(#greenGradient)" stroke-width="6" stroke-linecap="round" />
+      <path d="M -15,-72 C -8,-68 8,-68 15,-72 C 12,-64 -12,-64 -15,-72 Z" fill="url(#greenGradient)" stroke="#1E4D2B" stroke-width="2" />
+    </g>
+
+    <g transform="translate(0, 105)">
+      <path d="M -160,0 L 160,0 L 140,36 L -140,36 Z" fill="#9E6108" opacity="0.3" transform="translate(0, 4)" />
+      <path d="M -160,0 L 160,0 L 145,36 L -145,36 Z" fill="url(#goldGradient)" stroke="#704303" stroke-width="2" />
+      <text y="24" font-family="'Inter', Arial, sans-serif" font-size="15" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">
+        ABARROTES &amp; SNACKS
+      </text>
+    </g>
+  </g>
+
+  <g transform="translate(540, 780)">
+    <text font-family="'Playfair Display', Georgia, serif" font-size="28" font-style="italic" font-weight="700" fill="#6B3710" text-anchor="middle">
+      Tradición y Sazón Chuquisaqueña
+    </text>
+    <line x1="-140" y1="20" x2="140" y2="20" stroke="#DDAA63" stroke-width="2" stroke-linecap="round" />
+    <circle cx="0" cy="20" r="5" fill="#C6821A" />
+  </g>
+
+  <g transform="translate(540, 890)" filter="url(#badgeShadow)">
+    <rect x="-240" y="-42" width="480" height="84" rx="42" fill="#1C6B38" stroke="#FFFFFF" stroke-width="4" />
+    <rect x="-234" y="-36" width="468" height="72" rx="36" fill="url(#greenGradient)" />
+
+    <g transform="translate(-175, -2)">
+      <circle cx="0" cy="0" r="22" fill="#25D366" />
+      <path d="M -10,-10 C -15,-5 -15,5 -10,10 C -5,15 5,15 10,10 C 15,5 15,-5 10,-10 C 5,-15 -5,-15 -10,-10 Z" fill="none" stroke="#FFFFFF" stroke-width="2.5" />
+      <path d="M -5,-3 C -4,-6 -2,-6 -1,-4 C 1,-2 2,1 1,3 C -1,5 -3,4 -5,-3 Z" fill="#FFFFFF" />
+    </g>
+
+    <text x="25" y="-5" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#D4F5DE" text-anchor="middle" letter-spacing="2">
+      PEDIDOS &amp; ATENCIÓN DIRECTA
+    </text>
+    <text x="25" y="24" font-family="'Inter', Arial, sans-serif" font-size="30" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">
+      +591 71152182
+    </text>
+  </g>
+</svg>
+

@@ -144,7 +144,7 @@ export function Navbar() {
 
               <div className="hidden sm:block">
                 <WhatsAppButton
-                  url="https://wa.me/59170000000?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20una%20consulta%20sobre%20sus%20productos"
+                  url="https://wa.me/59171152182?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20una%20consulta%20sobre%20sus%20productos"
                   source="navbar"
                   label="WhatsApp"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wide bg-pastel-sage hover:bg-emerald-100/70 text-pastel-sageText border border-pastel-sageBorder shadow-soft transition-all"
@@ -208,7 +208,7 @@ export function Navbar() {
             </Link>
             <div className="pt-3 border-t border-pastel-sandDark flex flex-col gap-2">
               <a
-                href="https://wa.me/59170000000"
+                href="https://wa.me/59171152182"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 p-3 rounded-2xl bg-emerald-600 text-white font-semibold text-xs shadow-soft"

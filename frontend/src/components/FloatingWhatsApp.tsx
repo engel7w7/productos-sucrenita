@@ -7,7 +7,7 @@ import { trackWhatsAppContact } from '@/lib/analytics';
 export function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const whatsappUrl = 'https://wa.me/59170000000?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20un%20pedido%20o%20consulta%20desde%20su%20cat%C3%A1logo%20web';
+  const whatsappUrl = 'https://wa.me/59171152182?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20un%20pedido%20o%20consulta%20desde%20su%20cat%C3%A1logo%20web';
 
   const handleClick = () => {
     trackWhatsAppContact({

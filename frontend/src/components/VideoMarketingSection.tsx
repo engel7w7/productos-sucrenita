@@ -260,7 +260,7 @@ export function VideoMarketingSection() {
             <div className="p-4 bg-sucrenita-900 text-xs text-slate-300 flex items-center justify-between">
               <span>Canal Oficial de Productos Sucreñita</span>
               <a
-                href={`https://wa.me/59170000000?text=${encodeURIComponent(
+                href={`https://wa.me/59171152182?text=${encodeURIComponent(
                   `Hola Productos Sucreñita, vi su video "${activeVideo.title}" y quisiera pedir los ingredientes necesarios.`
                 )}`}
                 target="_blank"

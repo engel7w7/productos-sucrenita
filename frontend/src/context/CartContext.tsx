@@ -98,7 +98,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const generateWhatsAppUrl = () => {
     if (items.length === 0) {
-      return 'https://wa.me/59170000000?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20un%20pedido%20desde%20su%20cat%C3%A1logo%20web';
+      return 'https://wa.me/59171152182?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20un%20pedido%20desde%20su%20cat%C3%A1logo%20web';
     }
 
     const itemsText = items
@@ -115,7 +115,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     const totalText = totalPrice.toFixed(2);
     const message = `¡Hola Doña Sucreñita! Quisiera hacer el siguiente pedido desde su catálogo web:\n\n${itemsText}\n\n*Total a pagar: Bs ${totalText}*\n\n¿Tienen disponible para coordinar el envío en Sucre y el pago por Simple QR?`;
 
-    return `https://wa.me/59170000000?text=${encodeURIComponent(message)}`;
+    return `https://wa.me/59171152182?text=${encodeURIComponent(message)}`;
   };
 
   return (

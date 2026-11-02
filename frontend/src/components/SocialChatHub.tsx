@@ -74,7 +74,7 @@ export function SocialChatHub() {
     let url = '';
 
     if (platform === 'whatsapp') {
-      url = `https://wa.me/59170000000?text=${encodeURIComponent(text)}`;
+      url = `https://wa.me/59171152182?text=${encodeURIComponent(text)}`;
     } else if (platform === 'messenger') {
       url = `https://m.me/ProductosSucrenita`;
     } else if (platform === 'telegram') {
@@ -201,7 +201,7 @@ export function SocialChatHub() {
                           <div className="px-3 pb-3 pt-1 border-t border-pastel-sandDark/60 bg-pastel-sand/30 text-xs text-sucrenita-700 space-y-2.5 animate-in fade-in">
                             <p className="leading-relaxed">{faq.answer}</p>
                             <a
-                              href={`https://wa.me/59170000000?text=${encodeURIComponent(
+                              href={`https://wa.me/59171152182?text=${encodeURIComponent(
                                 faq.whatsappMessage
                               )}`}
                               target="_blank"
@@ -267,7 +267,7 @@ export function SocialChatHub() {
                 </span>
 
                 <a
-                  href="https://wa.me/59170000000?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20un%20pedido"
+                  href="https://wa.me/59171152182?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20un%20pedido"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between p-3 rounded-2xl bg-white hover:bg-pastel-sage/30 border border-pastel-sandDark transition-all group"
@@ -280,7 +280,7 @@ export function SocialChatHub() {
                       <h4 className="text-xs font-bold text-sucrenita-900 group-hover:text-emerald-700 transition-colors">
                         WhatsApp Oficial
                       </h4>
-                      <p className="text-[11px] text-sucrenita-500">+591 70000000 &bull; Atención directa</p>
+                      <p className="text-[11px] text-sucrenita-500">+591 71152182 &bull; Atención directa</p>
                     </div>
                   </div>
                   <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-emerald-600" />

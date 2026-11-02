@@ -277,7 +277,7 @@ export function PayPalCheckoutModal({
 
               <div className="space-y-2.5">
                 <a
-                  href={`https://wa.me/59170000000?text=${generateWhatsAppMessage()}`}
+                  href={`https://wa.me/59171152182?text=${generateWhatsAppMessage()}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-soft transition-all"

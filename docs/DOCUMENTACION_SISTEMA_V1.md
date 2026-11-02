@@ -148,7 +148,7 @@ La interfaz fue diseñada respetando una estética de taller artesanal chuquisaq
 ## 7. Plugins Sociales Multicanal
 
 Se implementó el componente central `SocialChatHub.tsx`, ubicado en la esquina inferior de la pantalla:
-1. **WhatsApp Directo**: `https://wa.me/59170000000` con mensajes preconfigurados.
+1. **WhatsApp Directo**: `https://wa.me/59171152182` con mensajes preconfigurados.
 2. **Facebook Messenger**: `https://m.me/ProductosSucrenita` para atención vía chat de Meta.
 3. **Telegram Oficial**: `https://t.me/ProductosSucrenita` para consultas seguras.
 4. **TikTok Oficial**: `https://www.tiktok.com/@productossucrenita` para videos cortos y recetas.
@@ -244,7 +244,7 @@ Sección en la página principal con diseño acordeón interactivo que responde 
 
 ## 12. Mensajería Automatizada a WhatsApp
 
-Los mensajes dirigidos al número oficial de WhatsApp (+591 70000000) se generan mediante cadenas estructuradas que evitan malentendidos en los pedidos:
+Los mensajes dirigidos al número oficial de WhatsApp (+591 71152182) se generan mediante cadenas estructuradas que evitan malentendidos en los pedidos:
 * Encabezado institucional ("Pedido Oficial - Productos Sucreñita").
 * Desglose ítem por ítem con cantidades y subtotales en Bolivianos.
 * Total general de la compra en Bs.

@@ -133,7 +133,7 @@ export function FAQSection() {
             </p>
           </div>
           <a
-            href="https://wa.me/59170000000?text=Hola%20Productos%20Sucre%C3%B1ita,%20tengo%20una%20consulta%20adicional%20sobre%20sus%20productos"
+            href="https://wa.me/59171152182?text=Hola%20Productos%20Sucre%C3%B1ita,%20tengo%20una%20consulta%20adicional%20sobre%20sus%20productos"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shadow-soft transition-all shrink-0"

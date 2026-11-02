@@ -105,7 +105,7 @@ const organizationSchema = {
   url: siteUrl,
   logo: `${siteUrl}/icon.png`,
   image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&h=630&q=80',
-  telephone: '+59170000000',
+  telephone: '+59171152182',
   priceRange: '$',
   currenciesAccepted: 'BOB, USD',
   paymentAccepted: 'Simple QR, PayPal, Tarjeta de Crédito, Efectivo, Transferencia Bancaria',

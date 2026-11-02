@@ -33,7 +33,7 @@ export function ProductDetailActions({
   const handleDirectWhatsApp = () => {
     const subtotal = currentSubtotal.toFixed(2);
     const customMessage = `¡Hola Doña Sucreñita! Me interesa pedir ${quantity} unidad(es) de "${product.name}" (Total: Bs ${subtotal}) desde su catálogo web. ¿Tienen disponible para coordinar la entrega y el cobro por Simple QR?`;
-    const customUrl = `https://wa.me/59170000000?text=${encodeURIComponent(
+    const customUrl = `https://wa.me/59171152182?text=${encodeURIComponent(
       customMessage
     )}`;
 

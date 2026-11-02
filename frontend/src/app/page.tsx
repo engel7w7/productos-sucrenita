@@ -65,7 +65,7 @@ export default async function HomePage() {
                 </Link>
 
                 <WhatsAppButton
-                  url="https://wa.me/59170000000?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20un%20pedido%20desde%20su%20cat%C3%A1logo%20web"
+                  url="https://wa.me/59171152182?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20un%20pedido%20desde%20su%20cat%C3%A1logo%20web"
                   source="hero"
                   label="Pedir por WhatsApp"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-semibold bg-pastel-sage hover:bg-emerald-100/80 text-pastel-sageText border border-pastel-sageBorder shadow-soft transition-all"

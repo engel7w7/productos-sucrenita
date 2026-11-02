@@ -170,7 +170,7 @@ export default async function ProductDetailPage({ params }: Props) {
       product.price
     )}) desde su catálogo web. ¿Tienen disponible para coordinar la entrega y el cobro por Simple QR?`
   );
-  const whatsappUrl = `https://wa.me/59170000000?text=${whatsappText}`;
+  const whatsappUrl = `https://wa.me/59171152182?text=${whatsappText}`;
 
   const getCookingTip = () => {
     const s = product.slug.toLowerCase();

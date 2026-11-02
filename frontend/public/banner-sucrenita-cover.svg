@@ -1,0 +1,226 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bannerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF8" />
+      <stop offset="35%" stop-color="#FAF1E4" />
+      <stop offset="70%" stop-color="#F5E4D0" />
+      <stop offset="100%" stop-color="#EEDAC2" />
+    </linearGradient>
+
+    <linearGradient id="goldLinear" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C6821A" />
+      <stop offset="50%" stop-color="#E5A638" />
+      <stop offset="100%" stop-color="#9E6108" />
+    </linearGradient>
+
+    <linearGradient id="badgeGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#248746" />
+      <stop offset="100%" stop-color="#145229" />
+    </linearGradient>
+
+    <linearGradient id="paypalBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0079C1" />
+      <stop offset="100%" stop-color="#003087" />
+    </linearGradient>
+
+    <linearGradient id="chiliRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D94132" />
+      <stop offset="100%" stop-color="#8C170B" />
+    </linearGradient>
+
+    <linearGradient id="peanutColor" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D19D" />
+      <stop offset="100%" stop-color="#B87E35" />
+    </linearGradient>
+
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#543314" flood-opacity="0.14" />
+    </filter>
+
+    <filter id="bigShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#145229" flood-opacity="0.28" />
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bannerBg)" />
+
+  <g opacity="0.08" stroke="#4A260D" stroke-width="1.5" fill="none">
+    <circle cx="150" cy="150" r="120" />
+    <circle cx="150" cy="150" r="80" stroke-dasharray="6 6" />
+    <circle cx="1800" cy="900" r="160" />
+    <circle cx="1800" cy="900" r="110" stroke-dasharray="8 8" />
+    <circle cx="1000" cy="100" r="70" />
+  </g>
+
+  <g transform="translate(140, 160)">
+    <g transform="translate(180, 180)" filter="url(#cardShadow)">
+      <circle cx="0" cy="0" r="170" fill="#FFFDF9" stroke="#E2C9AC" stroke-width="4" />
+      <circle cx="0" cy="0" r="156" fill="none" stroke="url(#goldLinear)" stroke-width="5" stroke-dasharray="6 5" />
+      <circle cx="0" cy="0" r="144" fill="#FAF1E4" stroke="#DDB88C" stroke-width="2" />
+
+      <g transform="translate(-25, -5) rotate(-18) scale(0.85)">
+        <path d="M 0,-70 C 45,-60 65,-20 45,20 C 65,55 45,95 0,85 C -45,95 -65,55 -45,20 C -65,-20 -45,-60 0,-70 Z" 
+              fill="url(#peanutColor)" stroke="#8C531B" stroke-width="3" />
+      </g>
+      <g transform="translate(30, -5) rotate(22) scale(0.8)">
+        <path d="M 0,-85 C 22,-85 28,-75 22,-60 C 35,-10 40,40 15,95 C 0,120 -15,115 -18,90 C -25,45 -22,-10 -15,-60 C -20,-75 -15,-85 0,-85 Z" 
+              fill="url(#chiliRed)" stroke="#520B04" stroke-width="3" />
+      </g>
+      <g transform="translate(0, 95)">
+        <rect x="-105" y="-16" width="210" height="32" rx="16" fill="url(#goldLinear)" />
+        <text y="5" font-family="'Inter', Arial, sans-serif" font-size="11" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">
+          DESDE SUCRE • BOLIVIA
+        </text>
+      </g>
+    </g>
+
+    <g transform="translate(420, 100)">
+      <rect x="0" y="0" width="410" height="38" rx="19" fill="#FFF2E0" stroke="#E8CBA3" stroke-width="2" />
+      <circle cx="20" cy="19" r="6" fill="#C6821A" />
+      <text x="35" y="24" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="800" fill="#8C531B" letter-spacing="3">
+        EMPRENDIMIENTO FAMILIAR CHUQUISAQUEÑO
+      </text>
+
+      <text y="125" font-family="'Playfair Display', Georgia, serif" font-size="76" font-weight="900" fill="#3D1D09" letter-spacing="-1">
+        Productos Sucreñita
+      </text>
+
+      <text y="180" font-family="'Playfair Display', Georgia, serif" font-size="28" font-style="italic" font-weight="700" fill="#A84C32">
+        Abarrotes de Cocina Tradicional &amp; Snacks Artesanales
+      </text>
+
+      <text y="225" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="500" fill="#6B4627" opacity="0.95">
+        Maní seleccionado para sopa de domingo • Ajíes molidos a piedra en batán • Snacks crocantes
+      </text>
+
+      <g transform="translate(0, 270)">
+        <rect x="0" y="0" width="180" height="42" rx="21" fill="#FFFFFF" stroke="#DEC0A0" stroke-width="2" />
+        <text x="90" y="26" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#5A3A1A" text-anchor="middle">
+          100% ARTESANAL
+        </text>
+
+        <rect x="195" y="0" width="180" height="42" rx="21" fill="#FFFFFF" stroke="#DEC0A0" stroke-width="2" />
+        <text x="285" y="26" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#5A3A1A" text-anchor="middle">
+          SIN QUÍMICOS
+        </text>
+
+        <rect x="390" y="0" width="220" height="42" rx="21" fill="#FFFFFF" stroke="#DEC0A0" stroke-width="2" />
+        <text x="500" y="26" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#5A3A1A" text-anchor="middle">
+          VENTA DIRECTA B2C
+        </text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(140, 620)">
+    <g transform="translate(0, 0)" filter="url(#cardShadow)">
+      <rect width="360" height="320" rx="28" fill="#FFFFFF" stroke="#EAD5BF" stroke-width="3" />
+      <rect x="25" y="25" width="56" height="56" rx="18" fill="#FCE9C8" />
+      <circle cx="53" cy="53" r="14" fill="#C6821A" />
+      <text x="25" y="125" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="800" fill="#4A260D">
+        Maní para Sopa
+      </text>
+      <text x="25" y="160" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="500" fill="#6B4627">
+        Crudo seleccionado y molido fino con aceites naturales conservados para la auténtica sopa de maní.
+      </text>
+      <text x="25" y="280" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#A84C32">
+        DESDE 15.00 BS • 500g / 1kg
+      </text>
+    </g>
+
+    <g transform="translate(390, 0)" filter="url(#cardShadow)">
+      <rect width="360" height="320" rx="28" fill="#FFFFFF" stroke="#EAD5BF" stroke-width="3" />
+      <rect x="25" y="25" width="56" height="56" rx="18" fill="#FDD7D2" />
+      <circle cx="53" cy="53" r="14" fill="#B32415" />
+      <text x="25" y="125" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="800" fill="#4A260D">
+        Ajíes en Batán
+      </text>
+      <text x="25" y="160" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="500" fill="#6B4627">
+        Ají Colorado picante y Ají Amarillo dulce desvenado y molido a piedra para picantes, saice y fricasé.
+      </text>
+      <text x="25" y="280" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#A84C32">
+        DESDE 12.00 BS • 250g
+      </text>
+    </g>
+
+    <g transform="translate(780, 0)" filter="url(#cardShadow)">
+      <rect width="360" height="320" rx="28" fill="#FFFFFF" stroke="#EAD5BF" stroke-width="3" />
+      <rect x="25" y="25" width="56" height="56" rx="18" fill="#E2F2E7" />
+      <circle cx="53" cy="53" r="14" fill="#245F3B" />
+      <text x="25" y="125" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="800" fill="#4A260D">
+        Snacks Artesanales
+      </text>
+      <text x="25" y="160" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="500" fill="#6B4627">
+        Chicharrones crocantes sin exceso de grasa, maní garrapiñado con vainilla y habas tostadas con sal marina.
+      </text>
+      <text x="25" y="280" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#A84C32">
+        DESDE 10.00 BS • RECIÉN TOSTADOS
+      </text>
+    </g>
+  </g>
+
+  <g transform="translate(1330, 160)" filter="url(#bigShadow)">
+    <rect width="450" height="780" rx="36" fill="#1C6B38" stroke="#FFFFFF" stroke-width="6" />
+    <rect x="12" y="12" width="426" height="756" rx="28" fill="url(#badgeGreen)" />
+
+    <g transform="translate(225, 90)">
+      <circle cx="0" cy="0" r="44" fill="#25D366" />
+      <path d="M -18,-18 C -28,-8 -28,8 -18,18 C -8,28 8,28 18,18 C 28,8 28,-8 18,-18 C 8,-28 -8,-28 -18,-18 Z" fill="none" stroke="#FFFFFF" stroke-width="4" />
+      <path d="M -8,-5 C -6,-10 -2,-10 0,-7 C 2,-4 4,2 2,6 C -2,10 -5,8 -8,-5 Z" fill="#FFFFFF" />
+    </g>
+
+    <text x="225" y="180" font-family="'Inter', Arial, sans-serif" font-size="16" font-weight="800" fill="#A8F0C2" text-anchor="middle" letter-spacing="3">
+      PEDIDOS &amp; CONSULTAS POR WHATSAPP
+    </text>
+
+    <text x="225" y="240" font-family="'Inter', Arial, sans-serif" font-size="44" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+      +591 71152182
+    </text>
+
+    <text x="225" y="280" font-family="'Playfair Display', Georgia, serif" font-size="18" font-style="italic" fill="#E0F7EA" text-anchor="middle">
+      Atención familiar de Doña Sucreñita
+    </text>
+
+    <line x1="40" y1="320" x2="410" y2="320" stroke="#FFFFFF" stroke-width="2" opacity="0.25" />
+
+    <g transform="translate(40, 360)">
+      <rect width="370" height="90" rx="20" fill="#FFFFFF" opacity="0.12" />
+      <circle cx="45" cy="45" r="24" fill="#F59E0B" />
+      <text x="85" y="38" font-family="'Inter', Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">
+        COBRO CON SIMPLE QR
+      </text>
+      <text x="85" y="62" font-family="'Inter', Arial, sans-serif" font-size="12" font-weight="500" fill="#D4F5DE">
+        BNB, BCP, Banco Unión, Mercantil, Bisa
+      </text>
+    </g>
+
+    <g transform="translate(40, 470)">
+      <rect width="370" height="90" rx="20" fill="#FFFFFF" opacity="0.12" />
+      <circle cx="45" cy="45" r="24" fill="url(#paypalBlue)" />
+      <text x="85" y="38" font-family="'Inter', Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">
+        PAYPAL INTERNACIONAL
+      </text>
+      <text x="85" y="62" font-family="'Inter', Arial, sans-serif" font-size="12" font-weight="500" fill="#D4F5DE">
+        Tarjetas de débito y crédito en USD
+      </text>
+    </g>
+
+    <g transform="translate(40, 580)">
+      <rect width="370" height="75" rx="20" fill="#FFFFFF" opacity="0.12" />
+      <text x="185" y="32" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF" text-anchor="middle">
+        ENVÍOS EN SUCRE Y A TODA BOLIVIA
+      </text>
+      <text x="185" y="54" font-family="'Inter', Arial, sans-serif" font-size="12" font-weight="500" fill="#D4F5DE" text-anchor="middle">
+        La Paz, Cbba, Santa Cruz, Potosí, Tarija, Oruro
+      </text>
+    </g>
+
+    <g transform="translate(40, 680)">
+      <rect width="370" height="50" rx="15" fill="#FFFFFF" />
+      <text x="185" y="32" font-family="'Inter', Arial, sans-serif" font-size="15" font-weight="900" fill="#145229" text-anchor="middle" letter-spacing="1">
+        productos-sucrenita.vercel.app
+      </text>
+    </g>
+  </g>
+</svg>
+
