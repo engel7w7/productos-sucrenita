@@ -15,7 +15,7 @@ export function ShareProductButtons({ productName, slug }: ShareProductButtonsPr
     if (typeof window !== 'undefined') {
       return `${window.location.origin}/productos/${slug}`;
     }
-    return `http://localhost:3000/productos/${slug}`;
+    return `https://productos-sucrenita.vercel.app/productos/${slug}`;
   };
 
   const handleCopyLink = async () => {

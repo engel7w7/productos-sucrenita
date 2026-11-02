@@ -218,7 +218,7 @@
     <g transform="translate(40, 680)">
       <rect width="370" height="50" rx="15" fill="#FFFFFF" />
       <text x="185" y="32" font-family="'Inter', Arial, sans-serif" font-size="15" font-weight="900" fill="#145229" text-anchor="middle" letter-spacing="1">
-        localhost:3000
+        productos-sucrenita.vercel.app
       </text>
     </g>
   </g>

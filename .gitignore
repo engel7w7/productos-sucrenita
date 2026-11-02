@@ -40,3 +40,6 @@ deploy/nginx/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Archivos de uso exclusivamente local
+frontend/public/ver-logos.html
