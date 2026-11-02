@@ -76,7 +76,7 @@ export function SocialChatHub() {
     if (platform === 'whatsapp') {
       url = `https://wa.me/59171152182?text=${encodeURIComponent(text)}`;
     } else if (platform === 'messenger') {
-      url = `https://m.me/ProductosSucrenita`;
+      url = `https://m.me/61595923780807`;
     } else if (platform === 'telegram') {
       url = `https://t.me/ProductosSucrenita`;
     }
@@ -287,7 +287,7 @@ export function SocialChatHub() {
                 </a>
 
                 <a
-                  href="https://m.me/ProductosSucrenita"
+                  href="https://m.me/61595923780807"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between p-3 rounded-2xl bg-white hover:bg-blue-50 border border-pastel-sandDark transition-all group"
@@ -300,7 +300,7 @@ export function SocialChatHub() {
                       <h4 className="text-xs font-bold text-sucrenita-900 group-hover:text-[#0084FF] transition-colors">
                         Facebook Messenger
                       </h4>
-                      <p className="text-[11px] text-sucrenita-500">m.me/ProductosSucrenita</p>
+                      <p className="text-[11px] text-sucrenita-500">m.me/61595923780807</p>
                     </div>
                   </div>
                   <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-[#0084FF]" />
@@ -347,7 +347,7 @@ export function SocialChatHub() {
                 </a>
 
                 <a
-                  href="https://www.facebook.com/ProductosSucrenita"
+                  href="https://www.facebook.com/profile.php?id=61595923780807"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between p-3 rounded-2xl bg-white hover:bg-blue-50 border border-pastel-sandDark transition-all group"

@@ -116,7 +116,7 @@ const organizationSchema = {
     addressCountry: 'BO',
   },
   sameAs: [
-    'https://www.facebook.com/ProductosSucrenita',
+    'https://www.facebook.com/profile.php?id=61595923780807',
     'https://www.instagram.com/productossucrenita',
     'https://www.tiktok.com/@productossucrenita',
     'https://www.youtube.com/@ProductosSucrenita',

@@ -92,7 +92,7 @@ export function Footer() {
             </p>
             <div className="grid grid-cols-2 gap-2 text-xs text-sucrenita-700">
               <a
-                href="https://www.facebook.com/ProductosSucrenita"
+                href="https://www.facebook.com/profile.php?id=61595923780807"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
@@ -142,7 +142,7 @@ export function Footer() {
               </a>
 
               <a
-                href="https://m.me/ProductosSucrenita"
+                href="https://m.me/61595923780807"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
@@ -185,7 +185,7 @@ export function Footer() {
           <p>&copy; {new Date().getFullYear()} Productos Sucreñita. Sucre, Bolivia. Tienda virtual familiar.</p>
           <div className="flex items-center gap-4">
             <a
-              href="https://www.facebook.com/ProductosSucrenita"
+              href="https://www.facebook.com/profile.php?id=61595923780807"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-sucrenita-800 transition-colors"

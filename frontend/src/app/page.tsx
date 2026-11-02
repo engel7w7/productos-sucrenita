@@ -290,7 +290,7 @@ export default async function HomePage() {
 
             <div className="lg:col-span-5 flex flex-col gap-4">
               <a
-                href="https://www.facebook.com/ProductosSucrenita"
+                href="https://www.facebook.com/profile.php?id=61595923780807"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center justify-between p-5 rounded-2xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark shadow-soft transition-all"
@@ -304,7 +304,7 @@ export default async function HomePage() {
                       Página de Facebook
                     </h3>
                     <p className="text-xs text-sucrenita-600">
-                      facebook.com/ProductosSucrenita
+                      facebook.com/profile.php?id=61595923780807
                     </p>
                   </div>
                 </div>

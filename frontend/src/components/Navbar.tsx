@@ -35,7 +35,7 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <span className="text-sucrenita-500 hidden md:inline">Canales oficiales:</span>
             <a
-              href="https://www.facebook.com/ProductosSucrenita"
+              href="https://www.facebook.com/profile.php?id=61595923780807"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook de Productos Sucreñita"

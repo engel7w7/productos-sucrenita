@@ -97,7 +97,7 @@ La librería `frontend/src/lib/analytics.ts` centraliza el envío de eventos de 
 ## 4. Presencia Orgánica en Facebook e Instagram
 
 Para promover el taller familiar sin incurrir en gasto publicitario de pago:
-* **Página de Facebook Oficial**: `https://www.facebook.com/ProductosSucrenita`
+* **Página de Facebook Oficial**: `https://www.facebook.com/profile.php?id=61595923780807`
 * **Perfil de Instagram Oficial**: `https://www.instagram.com/productossucrenita`
 * **Botones para Compartir Productos**: Componente `ShareProductButtons.tsx` en cada ficha de producto (Facebook Sharer, Instagram directo y WhatsApp).
 * **Integración en Schema**: Ambas redes sociales se encuentran registradas en el atributo `sameAs` del marcado estructurado Schema.org en `layout.tsx`.
@@ -149,7 +149,7 @@ La interfaz fue diseñada respetando una estética de taller artesanal chuquisaq
 
 Se implementó el componente central `SocialChatHub.tsx`, ubicado en la esquina inferior de la pantalla:
 1. **WhatsApp Directo**: `https://wa.me/59171152182` con mensajes preconfigurados.
-2. **Facebook Messenger**: `https://m.me/ProductosSucrenita` para atención vía chat de Meta.
+2. **Facebook Messenger**: `https://m.me/61595923780807` para atención vía chat de Meta.
 3. **Telegram Oficial**: `https://t.me/ProductosSucrenita` para consultas seguras.
 4. **TikTok Oficial**: `https://www.tiktok.com/@productossucrenita` para videos cortos y recetas.
 5. **Canal de YouTube**: `https://www.youtube.com/@ProductosSucrenita` para clases culinarias.
