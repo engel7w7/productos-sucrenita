@@ -39,8 +39,8 @@
 
 ## 1. Instalación en CMS y Dominio
 
-### 1.1 Configuración de Dominio
-El proyecto se encuentra desplegado y vinculado a su dominio oficial en la red global de Vercel:
+### 1.1 Configuración de Dominio y Entorno de Ejecución Local
+El proyecto está configurado para operar 100% de manera **local** y autónoma (Frontend en http://localhost:3000, Backend en http://localhost:10000, y Nginx SSL local en https://localhost:8443 con los scripts iniciar-local.bat / iniciar-local.ps1):
 * **Dominio**: `https://productos-sucrenita.vercel.app`
 * **Enrutamiento DNS**:
   * Registro CNAME que apunta el host a los servidores Edge de Vercel (`cname.vercel-dns.com`).
