@@ -224,37 +224,43 @@ export async function getProducts(categorySlug?: string): Promise<Product[]> {
       next: { revalidate: 60 },
     });
 
-    if (!res.ok) {
-      throw new Error(`Error en API: ${res.statusText}`);
+    if (res.ok) {
+      const json: ApiResponse<Product[]> = await res.json();
+      if (json.data && Array.isArray(json.data) && json.data.length > 0) {
+        return json.data;
+      }
     }
-
-    const json: ApiResponse<Product[]> = await res.json();
-    return json.data || [];
   } catch (err) {
     console.warn(`[getProducts] Conexión a ${API_BASE_URL} no disponible, utilizando catálogo local.`);
-    if (categorySlug) {
-      return FALLBACK_PRODUCTS.filter((p) => p.category?.slug === categorySlug);
-    }
-    return FALLBACK_PRODUCTS;
   }
+
+  if (categorySlug) {
+    return FALLBACK_PRODUCTS.filter((p) => p.category?.slug === categorySlug);
+  }
+  return FALLBACK_PRODUCTS;
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
+  const normalizedSlug = decodeURIComponent(slug).trim().toLowerCase();
+
   try {
-    const res = await fetch(`${API_BASE_URL}/api/products/${slug}`, {
+    const res = await fetch(`${API_BASE_URL}/api/products/${normalizedSlug}`, {
       next: { revalidate: 60 },
     });
 
-    if (!res.ok) {
-      if (res.status === 404) return null;
-      throw new Error(`Error en API: ${res.statusText}`);
+    if (res.ok) {
+      const result = await res.json();
+      const product = result.data || result;
+      if (product && product.id && product.isActive) {
+        return product;
+      }
     }
-
-    const result = await res.json();
-    return result.data || result || null;
   } catch (error) {
-    console.warn(`[getProductBySlug] Error o conexión a ${API_BASE_URL} no disponible (${slug}), buscando en catálogo local:`, error);
-    const fallback = FALLBACK_PRODUCTS.find((p) => p.slug === slug);
-    return fallback || null;
+    console.warn(`[getProductBySlug] Conexión a ${API_BASE_URL} no disponible (${normalizedSlug}), utilizando catálogo local.`);
   }
+
+  const fallback = FALLBACK_PRODUCTS.find(
+    (p) => p.slug.toLowerCase() === normalizedSlug
+  );
+  return fallback || null;
 }

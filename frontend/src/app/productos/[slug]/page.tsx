@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getProductBySlug, getProducts } from '@/lib/api';
+import { getProductBySlug, getProducts, FALLBACK_PRODUCTS } from '@/lib/api';
 import { formatPrice } from '@/lib/utils';
 import { JsonLd } from '@/components/JsonLd';
 import {
@@ -19,22 +19,36 @@ import { ShareProductButtons } from '@/components/ShareProductButtons';
 import { ProductDetailActions } from '@/components/ProductDetailActions';
 
 type Props = {
-  params: Promise<{ slug: string }> | { slug: string };
+  params: { slug: string } | Promise<{ slug: string }>;
 };
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://productos-sucrenita.vercel.app';
 
+export const dynamicParams = true;
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const products = await getProducts();
-  return products.map((product) => ({
-    slug: product.slug,
+  const allSlugs = new Set<string>();
+
+  products.forEach((product) => {
+    if (product.slug) allSlugs.add(product.slug);
+  });
+
+  FALLBACK_PRODUCTS.forEach((product) => {
+    if (product.slug) allSlugs.add(product.slug);
+  });
+
+  return Array.from(allSlugs).map((slug) => ({
+    slug,
   }));
 }
 
 export async function generateMetadata({
   params,
 }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
   const product = await getProductBySlug(slug);
 
   if (!product) {
@@ -85,10 +99,9 @@ export async function generateMetadata({
   };
 }
 
-export const revalidate = 60;
-
 export default async function ProductDetailPage({ params }: Props) {
-  const { slug } = await params;
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
   const product = await getProductBySlug(slug);
 
   if (!product || !product.isActive) {

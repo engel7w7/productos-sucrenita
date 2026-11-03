@@ -87,10 +87,12 @@ productsRouter.get('/admin/all', async (req: Request, res: Response) => {
 
 productsRouter.get('/:slug', async (req: Request, res: Response) => {
   try {
-    const { slug } = req.params;
+    const rawSlug = decodeURIComponent(req.params.slug).trim();
 
-    const product = await prisma.product.findUnique({
-      where: { slug },
+    const product = await prisma.product.findFirst({
+      where: {
+        slug: { equals: rawSlug, mode: 'insensitive' },
+      },
       include: {
         category: {
           select: {
@@ -105,7 +107,7 @@ productsRouter.get('/:slug', async (req: Request, res: Response) => {
     if (!product || !product.isActive) {
       return res.status(404).json({
         success: false,
-        message: `Producto no encontrado con el slug: ${slug}`,
+        message: `Producto no encontrado con el slug: ${rawSlug}`,
       });
     }
 
