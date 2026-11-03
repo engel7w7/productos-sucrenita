@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { CartItem } from '@/types';
 import { WhatsAppIcon } from './SocialIcons';
+import { saveOrder } from '@/lib/orders';
 
 interface SimpleQRModalProps {
   isOpen: boolean;
@@ -66,6 +67,25 @@ export function SimpleQRModal({
   );
 
   const handleFinalize = () => {
+    saveOrder({
+      id: orderId,
+      customerName: 'Cliente Simple QR',
+      customerPhone: '+591 71152182',
+      customerCity: 'Sucre',
+      customerAddress: 'Coordinado vía WhatsApp con comprobante QR',
+      paymentMethod: 'SIMPLE_QR',
+      status: 'PAGADO',
+      items: items.map((i) => ({
+        name: i.product.name,
+        quantity: i.quantity,
+        priceBob:
+          typeof i.product.price === 'string'
+            ? parseFloat(i.product.price)
+            : Number(i.product.price),
+      })),
+      totalBob: Number(totalBob.toFixed(2)),
+      createdAt: new Date().toLocaleString('es-BO'),
+    });
     if (onSuccessClearCart) {
       onSuccessClearCart();
     }

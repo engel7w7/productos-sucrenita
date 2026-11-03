@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   X,
   CreditCard,
@@ -9,9 +9,12 @@ import {
   ExternalLink,
   ArrowRight,
   RefreshCw,
+  TrendingUp,
 } from 'lucide-react';
 import { PayPalIcon, WhatsAppIcon } from './SocialIcons';
 import { CartItem } from '@/context/CartContext';
+import { getExchangeRateConfig, ExchangeRateConfig } from '@/lib/exchangeRate';
+import { saveOrder } from '@/lib/orders';
 
 interface PayPalCheckoutModalProps {
   isOpen: boolean;
@@ -21,8 +24,6 @@ interface PayPalCheckoutModalProps {
   onSuccessClearCart: () => void;
 }
 
-const BOB_TO_USD_RATE = 6.96;
-
 export function PayPalCheckoutModal({
   isOpen,
   onClose,
@@ -30,6 +31,7 @@ export function PayPalCheckoutModal({
   totalBob,
   onSuccessClearCart,
 }: PayPalCheckoutModalProps) {
+  const [rateConfig, setRateConfig] = useState<ExchangeRateConfig>(getExchangeRateConfig());
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerAddress, setCustomerAddress] = useState('');
@@ -38,12 +40,27 @@ export function PayPalCheckoutModal({
   const [completedOrder, setCompletedOrder] = useState<{
     orderId: string;
     totalUsd: string;
+    rateUsed: number;
     timestamp: string;
   } | null>(null);
 
+  useEffect(() => {
+    setRateConfig(getExchangeRateConfig());
+
+    const handleUpdate = () => {
+      setRateConfig(getExchangeRateConfig());
+    };
+
+    window.addEventListener('sucrenita_exchange_rate_updated', handleUpdate);
+    return () => {
+      window.removeEventListener('sucrenita_exchange_rate_updated', handleUpdate);
+    };
+  }, []);
+
   if (!isOpen) return null;
 
-  const totalUsd = (totalBob / BOB_TO_USD_RATE).toFixed(2);
+  const currentRate = rateConfig.rate > 0 ? rateConfig.rate : 12.50;
+  const totalUsd = (totalBob / currentRate).toFixed(2);
 
   const handlePaypalSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,11 +68,37 @@ export function PayPalCheckoutModal({
 
     setTimeout(() => {
       const generatedOrderId = `PS-PAYPAL-${Date.now().toString().slice(-6)}`;
+      const timestamp = new Date().toLocaleString('es-BO');
+
       setCompletedOrder({
         orderId: generatedOrderId,
         totalUsd,
-        timestamp: new Date().toLocaleString('es-BO'),
+        rateUsed: currentRate,
+        timestamp,
       });
+
+      saveOrder({
+        id: generatedOrderId,
+        customerName: customerName.trim(),
+        customerPhone: customerPhone.trim(),
+        customerCity: customerCity.trim(),
+        customerAddress: customerAddress.trim(),
+        paymentMethod: 'PAYPAL',
+        status: 'PAGADO',
+        items: items.map((i) => ({
+          name: i.product.name,
+          quantity: i.quantity,
+          priceBob:
+            typeof i.product.price === 'string'
+              ? parseFloat(i.product.price)
+              : Number(i.product.price),
+        })),
+        totalBob: Number(totalBob.toFixed(2)),
+        totalUsd: Number(totalUsd),
+        exchangeRateUsed: currentRate,
+        createdAt: timestamp,
+      });
+
       setIsProcessing(false);
       onSuccessClearCart();
     }, 1200);
@@ -66,7 +109,7 @@ export function PayPalCheckoutModal({
     const itemsList = items
       .map(
         (i) =>
-          `• ${i.quantity}x ${i.product.name} = ${(
+          `* ${i.quantity}x ${i.product.name} = ${(
             Number(i.product.price) * i.quantity
           ).toFixed(2)} Bs`
       )
@@ -75,19 +118,20 @@ export function PayPalCheckoutModal({
     return encodeURIComponent(
       `Comprobante de Pago PayPal - Productos Sucreñita\n` +
         `-----------------------------------------\n` +
-        `Orden N°: ${completedOrder.orderId}\n` +
+        `Orden N: ${completedOrder.orderId}\n` +
         `Fecha: ${completedOrder.timestamp}\n` +
         `Cliente: ${customerName}\n` +
         `Ciudad: ${customerCity}\n` +
-        `Dirección: ${customerAddress}\n` +
-        `Teléfono: ${customerPhone}\n` +
+        `Direccion: ${customerAddress}\n` +
+        `Telefono: ${customerPhone}\n` +
         `-----------------------------------------\n` +
         `Detalle del Pedido:\n${itemsList}\n` +
         `-----------------------------------------\n` +
-        `Total pagado: ${totalBob.toFixed(2)} Bs ($ ${completedOrder.totalUsd} USD)\n` +
-        `Método: PayPal Checkout Internacional\n` +
-        `Estado: Aprobado y verificado\n\n` +
-        `Por favor coordinar el empaque y despacho de mi pedido.`
+        `Total en Bs: ${totalBob.toFixed(2)} Bs\n` +
+        `Tipo de Cambio Aplicado: 1 USD = ${completedOrder.rateUsed.toFixed(2)} BOB (Cotizacion referencial paralela / BCB - Ministerio de Economia)\n` +
+        `Total Pagado en PayPal: $${completedOrder.totalUsd} USD\n` +
+        `Estado: Aprobado y verificado en linea\n\n` +
+        `Solicito coordinar la preparacion y entrega de mi pedido.`
     );
   };
 
@@ -104,7 +148,7 @@ export function PayPalCheckoutModal({
                 Pasarela de Pago PayPal
               </h3>
               <p className="text-xs text-sky-200">
-                Cobro internacional seguro en USD
+                Cobro internacional en USD al tipo de cambio referencial
               </p>
             </div>
           </div>
@@ -124,20 +168,32 @@ export function PayPalCheckoutModal({
             <form onSubmit={handlePaypalSubmit} className="space-y-5">
               <div className="p-4 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-800 space-y-2.5">
                 <div className="flex items-center justify-between text-xs text-sucrenita-600 dark:text-cacao-300">
-                  <span>Total en Bolivianos:</span>
+                  <span>Total del pedido en Bolivianos:</span>
                   <span className="font-serif font-bold text-sm text-sucrenita-900 dark:text-cacao-50">
                     {totalBob.toFixed(2)} Bs
                   </span>
                 </div>
-                <div className="flex items-center justify-between text-xs text-sucrenita-600 dark:text-cacao-300">
-                  <span>Tipo de cambio referencial:</span>
-                  <span className="font-medium">1 USD = {BOB_TO_USD_RATE} BOB</span>
+
+                <div className="flex items-start justify-between text-xs text-sucrenita-600 dark:text-cacao-300 pt-1 border-t border-pastel-sandDark/50 dark:border-cacao-700">
+                  <div>
+                    <span className="font-medium text-sucrenita-700 dark:text-cacao-200 flex items-center gap-1">
+                      <TrendingUp className="w-3.5 h-3.5 text-pastel-amberText dark:text-amber-300" />
+                      <span>Tipo de cambio referencial (Paralelo / BCB):</span>
+                    </span>
+                    <span className="text-[10px] text-sucrenita-500 dark:text-cacao-400 block mt-0.5">
+                      Estimación Ministerio de Economía & Banco Central de Bolivia
+                    </span>
+                  </div>
+                  <span className="font-mono font-bold text-xs text-sucrenita-800 dark:text-amber-300 bg-white dark:bg-cacao-800 px-2 py-0.5 rounded-md border border-pastel-sandDark dark:border-cacao-700">
+                    1 USD = {currentRate.toFixed(2)} BOB
+                  </span>
                 </div>
+
                 <div className="pt-2 border-t border-pastel-sandDark/70 dark:border-cacao-700 flex items-center justify-between">
                   <span className="text-xs font-bold text-sucrenita-800 dark:text-cacao-100">
                     Total a procesar en PayPal:
                   </span>
-                  <span className="font-serif text-lg font-bold text-[#003087]">
+                  <span className="font-serif text-xl font-bold text-[#003087] dark:text-sky-300">
                     ${totalUsd} USD
                   </span>
                 </div>
@@ -157,7 +213,7 @@ export function PayPalCheckoutModal({
                     required
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
-                    placeholder="Ej. María Flores"
+                    placeholder="Ej. Maria Flores"
                     className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-pastel-sandDark dark:border-cacao-700 focus:outline-none focus:ring-2 focus:ring-[#0079C1] bg-white dark:bg-cacao-850 text-sucrenita-900 dark:text-cacao-100 placeholder-sucrenita-400 dark:placeholder-cacao-400"
                   />
                 </div>
@@ -186,7 +242,7 @@ export function PayPalCheckoutModal({
                       required
                       value={customerCity}
                       onChange={(e) => setCustomerCity(e.target.value)}
-                      placeholder="Sucre / La Paz / etc."
+                      placeholder="Sucre / La Paz / Santa Cruz"
                       className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-pastel-sandDark dark:border-cacao-700 focus:outline-none focus:ring-2 focus:ring-[#0079C1] bg-white dark:bg-cacao-850 text-sucrenita-900 dark:text-cacao-100 placeholder-sucrenita-400 dark:placeholder-cacao-400"
                     />
                   </div>
@@ -201,7 +257,7 @@ export function PayPalCheckoutModal({
                     required
                     value={customerAddress}
                     onChange={(e) => setCustomerAddress(e.target.value)}
-                    placeholder="Calle, zona o referencia en Sucre o para encomienda"
+                    placeholder="Calle, zona o referencia en Sucre o para encomienda nacional"
                     className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-pastel-sandDark dark:border-cacao-700 focus:outline-none focus:ring-2 focus:ring-[#0079C1] bg-white dark:bg-cacao-850 text-sucrenita-900 dark:text-cacao-100 placeholder-sucrenita-400 dark:placeholder-cacao-400"
                   />
                 </div>
@@ -210,7 +266,7 @@ export function PayPalCheckoutModal({
               <div className="p-3 rounded-2xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800/60 text-sky-800 dark:text-sky-200 text-[11px] flex items-start gap-2">
                 <ShieldCheck className="w-4 h-4 text-[#0079C1] shrink-0 mt-0.5" />
                 <span>
-                  Protección al comprador de PayPal activa. Puedes pagar con tu saldo PayPal o tarjeta de débito/crédito internacional.
+                  Protección al comprador de PayPal activa. Acepta saldo PayPal y tarjetas de crédito o débito internacionales (Visa, Mastercard, Amex).
                 </span>
               </div>
 
@@ -222,7 +278,7 @@ export function PayPalCheckoutModal({
                 {isProcessing ? (
                   <>
                     <RefreshCw className="w-4 h-4 animate-spin" />
-                    <span>Conectando con PayPal...</span>
+                    <span>Conectando con la pasarela PayPal...</span>
                   </>
                 ) : (
                   <>
@@ -246,7 +302,7 @@ export function PayPalCheckoutModal({
                   ¡Gracias por tu compra!
                 </h3>
                 <p className="text-xs text-sucrenita-600 dark:text-cacao-300 mt-1">
-                  Tu orden ha sido registrada correctamente en el sistema.
+                  Tu orden ha sido registrada correctamente en el sistema y en el panel administrativo.
                 </p>
               </div>
 
@@ -258,9 +314,15 @@ export function PayPalCheckoutModal({
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sucrenita-500 dark:text-cacao-300">Monto abonado:</span>
-                  <span className="font-bold text-[#003087]">
+                  <span className="text-sucrenita-500 dark:text-cacao-300">Total abonado:</span>
+                  <span className="font-bold text-[#003087] dark:text-sky-300">
                     ${completedOrder.totalUsd} USD ({totalBob.toFixed(2)} Bs)
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sucrenita-500 dark:text-cacao-300">Tipo de cambio aplicado:</span>
+                  <span className="font-medium text-sucrenita-800 dark:text-cacao-200">
+                    1 USD = {completedOrder.rateUsed.toFixed(2)} BOB (Paralelo / BCB)
                   </span>
                 </div>
                 <div className="flex justify-between">
@@ -302,4 +364,3 @@ export function PayPalCheckoutModal({
     </div>
   );
 }
-

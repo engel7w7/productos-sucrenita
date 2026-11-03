@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getProducts } from '@/lib/api';
@@ -32,6 +33,39 @@ export const revalidate = 60;
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://productos-sucrenita.vercel.app';
 
+export const metadata: Metadata = {
+  title: 'Productos Sucreñita | Abarrotes, Ajíes de Chuquisaca y Snacks Artesanales',
+  description:
+    'Catálogo oficial de Productos Sucreñita en Sucre, Bolivia. Maní seleccionado para la auténtica sopa de maní, ají colorado y dulce molidos en batán de piedra, y snacks crocantes caseros. Compra directa por WhatsApp con cobro Simple QR y pasarela PayPal.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'es_BO',
+    url: siteUrl,
+    title: 'Productos Sucreñita | Abarrotes, Ajíes de Chuquisaca y Snacks Artesanales',
+    description:
+      'Maní puro para sopa de maní, ají chuquisaqueño molido a piedra y snacks crocantes con venta directa en Sucre y envíos a toda Bolivia. Paga con Simple QR o PayPal.',
+    siteName: 'Productos Sucreñita',
+    images: [
+      {
+        url: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&h=630&q=80',
+        width: 1200,
+        height: 630,
+        alt: 'Productos Sucreñita - Abarrotes y Snacks Tradicionales en Sucre, Bolivia',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Productos Sucreñita | Abarrotes, Ajíes y Snacks de Sucre, Bolivia',
+    description:
+      'Maní para sopa, ají colorado molido y snacks tradicionales de Chuquisaca. Cobros con Simple QR y PayPal.',
+    images: ['https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&h=630&q=80'],
+  },
+};
+
 const faqSchemaData = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -65,10 +99,62 @@ const faqSchemaData = {
       name: '¿Qué formas de pago aceptan en la tienda virtual?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Aceptamos Simple QR bancario boliviano sin comisiones, pasarela PayPal internacional con tarjeta de crédito o débito, y efectivo contra entrega en la ciudad de Sucre.',
+        text: 'Aceptamos Simple QR bancario boliviano sin comisiones, pasarela PayPal internacional con tarjeta de crédito o débito al tipo de cambio referencial, y efectivo contra entrega en la ciudad de Sucre.',
       },
     },
   ],
+};
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'Store'],
+  name: 'Productos Sucreñita',
+  image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&h=630&q=80',
+  url: siteUrl,
+  telephone: '+59171152182',
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Calle San Alberto, Zona San Roque y Centro Histórico',
+    addressLocality: 'Sucre',
+    addressRegion: 'Chuquisaca',
+    postalCode: '0000',
+    addressCountry: 'BO',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -19.0353,
+    longitude: -65.2627,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '08:00',
+      closes: '20:00',
+    },
+  ],
+  paymentAccepted: 'Simple QR, PayPal, Tarjeta de Crédito, Efectivo contra entrega',
+  currenciesAccepted: 'BOB, USD',
+  sameAs: [
+    'https://www.facebook.com/profile.php?id=61595923780807',
+    'https://www.instagram.com/productossucrenita',
+    'https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk',
+    'https://wa.me/59171152182',
+  ],
+};
+
+const websiteSearchSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  url: siteUrl,
+  name: 'Productos Sucreñita',
+  description: 'Catálogo de abarrotes tradicionales chuquisaqueños, maní para sopa, ají molido y snacks crocantes.',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteUrl}/catalogo?buscar={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
 };
 
 export default async function HomePage() {
@@ -82,9 +168,36 @@ export default async function HomePage() {
   const featured = products.filter((p) => prioritizedSlugs.has(p.slug));
   const featuredProducts = featured.length >= 4 ? featured : products.slice(0, 4);
 
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Productos Destacados de Sucreñita',
+    description: 'Selección de abarrotes y snacks artesanales más solicitados en Sucre y Bolivia.',
+    itemListElement: featuredProducts.map((p, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      item: {
+        '@type': 'Product',
+        name: p.name,
+        url: `${siteUrl}/productos/${p.slug}`,
+        image: p.imageUrl ? [p.imageUrl] : [],
+        description: p.description || `Calidad garantizada de ${p.name} por Productos Sucreñita.`,
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'BOB',
+          price: (typeof p.price === 'string' ? parseFloat(p.price) : p.price).toFixed(2),
+          availability: p.stock > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+        },
+      },
+    })),
+  };
+
   return (
     <>
       <JsonLd data={faqSchemaData} />
+      <JsonLd data={localBusinessSchema} />
+      <JsonLd data={websiteSearchSchema} />
+      <JsonLd data={itemListSchema} />
 
       <div className="flex flex-col gap-16 md:gap-24 pb-20">
         <section className="relative overflow-hidden bg-pastel-sand/60 dark:bg-cacao-900/60 pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-pastel-sandDark dark:border-cacao-700 transition-colors">
@@ -137,7 +250,7 @@ export default async function HomePage() {
                   </div>
                   <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                     <span className="font-serif font-bold text-xl sm:text-2xl text-sucrenita-900 dark:text-[#FAF6F0]">PayPal</span>
-                    <span className="text-[11px] text-sucrenita-600 dark:text-[#A8988C]">Tarjetas / Exterior</span>
+                    <span className="text-[11px] text-sucrenita-600 dark:text-[#A8988C]">Cambio Paralelo</span>
                   </div>
                   <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                     <span className="font-serif font-bold text-xl sm:text-2xl text-sucrenita-900 dark:text-[#FAF6F0]">B2C</span>
@@ -302,7 +415,7 @@ export default async function HomePage() {
                 Simple QR o PayPal
               </h3>
               <p className="text-xs text-sucrenita-600 dark:text-[#A8988C] leading-relaxed">
-                Escanea el Simple QR bancario nacional sin comisiones o paga con PayPal y tarjeta internacional.
+                Escanea el Simple QR bancario nacional sin comisiones o paga con PayPal al tipo de cambio referencial.
               </p>
             </div>
           </div>
@@ -474,7 +587,7 @@ export default async function HomePage() {
               <div>
                 <h3 className="font-serif text-base font-bold text-sucrenita-900 dark:text-[#FAF6F0]">Simple QR y PayPal</h3>
                 <p className="mt-1 text-xs text-sucrenita-600 dark:text-[#A8988C] leading-relaxed">
-                  Paga con Simple QR bancario nacional sin comisiones o con tarjeta internacional a través de la pasarela PayPal.
+                  Paga con Simple QR bancario nacional sin comisiones o con tarjeta internacional a través de la pasarela PayPal al cambio referencial.
                 </p>
               </div>
             </div>

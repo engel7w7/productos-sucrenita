@@ -218,18 +218,20 @@ La presencia digital de la marca se concentra de manera exclusiva y rigurosa en 
 
 ---
 
-## 9. Pasarela de Pago PayPal
+## 9. Pasarela de Pago PayPal y Cotización Paralela Referencial
 
-Para atender a compradores en el exterior, residentes extranjeros y clientes con tarjetas de crédito/débito internacionales:
+Para atender a compradores en el exterior, residentes en el extranjero y clientes con tarjetas de crédito/débito internacionales:
 * **Componente de Checkout**: `PayPalCheckoutModal.tsx`.
-* **Conversión de Divisas en Vivo**:
-  * Moneda base: Bolivianos (`BOB`).
-  * Tipo de cambio oficial referencial: `1 USD = 6.96 BOB`.
-  * Cálculo transparente sin comisiones ocultas para el usuario.
-* **Formulario de Despacho**: Captura de nombre, teléfono WhatsApp, ciudad y dirección.
-* **Generación de Ticket de Compra**: Emisión de identificador de orden (`#PS-PAYPAL-XXXXXX`).
-* **Integración con WhatsApp**: Botón final para enviar el comprobante de pago de PayPal directamente al taller familiar para el despacho inmediato del pedido.
-* **Endpoints Backend**:
+* **Conversión Dinámica al Tipo de Cambio Paralelo Referencial**:
+  * Moneda base del catálogo: Bolivianos (`BOB`).
+  * Tasa de cambio referencial: Configurable en tiempo real desde el panel de administración (valor estándar: `12.50 BOB/USD`), en concordancia con estimaciones del mercado cambiario boliviano y disposiciones informativas del Ministerio de Economía y Finanzas Públicas y el Banco Central de Bolivia (BCB).
+  * Desglose explícito en modal: Total en Bolivianos, tipo de cambio aplicado (`1 USD = X.XX BOB`), total neto en Dólares Estadounidenses (`USD`) y leyenda regulatoria sobre transparencia en transacciones comerciales exteriores.
+* **Registro y Trazabilidad de Órdenes**:
+  * Emisión automática de código único de orden (ej. `#PS-PAYPAL-XXXXXX`).
+  * Persistencia inmediata en el registro central de pedidos (`sucrenita_orders_records`) para visualización instantánea por parte del equipo administrativo.
+* **Formulario de Despacho**: Captura de nombre del titular, teléfono de contacto con WhatsApp, ciudad y dirección de entrega.
+* **Integración con WhatsApp**: Botón final con enlace preformateado para remitir el comprobante oficial al taller familiar (+591 71152182).
+* **Endpoints y Servicios Backend**:
   * `POST /api/payments/paypal/create-order`
   * `POST /api/payments/paypal/capture-order`
 
@@ -330,12 +332,33 @@ Los mensajes dirigidos al número oficial de WhatsApp (+591 71152182) se generan
   * **Estado en Base de Datos**: Registrado y activo en PostgreSQL (Supabase) mediante el script `backend/prisma/create-admin.ts`.
   * **Tokens de Sesión**: Generación y firma de tokens de sesión HMAC-SHA256 con tiempo de expiración de 7 días.
 
-### 14.3 Capacidades del Panel Administrativo
-1. **Métricas en Tiempo Real**: Total de productos en catálogo, unidades en stock físico, valor total estimado del inventario en Bolivianos (Bs) y conteo de productos activos.
-2. **Creación de Nuevos Productos**: Formulario modal con selección de línea (Abarrotes vs Snacks), generación automática de slug amigable, precio, stock, descripción y selector de fotografía de producto.
-3. **Edición Completa**: Modificación inmediata de nombres, descripciones, precios, existencias y categoría de productos existentes.
-4. **Control de Visibilidad**: Activación y desactivación de productos con un solo clic para ocultar temporalmente del catálogo público productos sin stock sin eliminarlos del historial.
-5. **Persistencia Dual**: Capaz de sincronizarse con la API REST (`/api/products`) y mantener persistencia en almacenamiento local (`localStorage`) para funcionamiento continuo tanto en entornos conectados a la base de datos remota como en entornos desacoplados.
+### 14.3 Capacidades del Panel Administrativo Multivista
+El panel `/admin` incorpora navegación por pestañas modulares para una gestión integral del negocio:
+
+1. **Pestaña Catálogo e Inventario (`catalog`)**:
+   * Métricas de inventario: Total de referencias, unidades totales en stock, productos de la línea abarrotes y línea snacks.
+   * Filtros dinámicos por categoría comercial (Todos, Abarrotes, Snacks) y buscador en tiempo real por nombre de producto o slug.
+   * Tabla interactiva de productos con miniaturas, badges de categoría, precio unitario, disponibilidad de stock y conmutador de estado activo/pausado.
+   * Modal de creación y edición: Formulario reactivo para alta o modificación de título, slug, precio, stock, descripción detallada y selector de imágenes de producto de alta resolución.
+2. **Pestaña Ventas & Pedidos (`orders`)**:
+   * Monitor de pedidos consolidados generados tanto por Simple QR como por pasarela PayPal.
+   * Filtros por estado operativo: `TODOS`, `PENDIENTE`, `PAGADO`, `EN_CAMINO`, `ENTREGADO`.
+   * Filtros por pasarela: `SIMPLE_QR` y `PAYPAL`.
+   * Detalle completo por pedido: Código de transacción, fecha/hora, cliente, teléfono, ciudad, desglose de ítems, totales en BOB y USD.
+   * Conmutador de cambio de estado en vivo con actualización inmediata de métricas.
+   * Acceso directo a contacto de WhatsApp con mensaje preconfigurado al cliente según el estado de su orden.
+   * Eliminación segura de pedidos de prueba o cancelados.
+3. **Pestaña Divisas & Tipo de Cambio (`rates`)**:
+   * Control maestro de la cotización de cambio referencial paralela Bolivianos a Dólares (BOB/USD).
+   * Botones de ajuste rápido (presets de 11.50, 12.00, 12.50, 13.00, 13.50, 14.00 BOB/USD).
+   * Simulador de conversión en tiempo real para verificar el monto en USD que verán los clientes en PayPal.
+   * Despacho de eventos nativos del navegador (`sucrenita_exchange_rate_updated`) para propagar cambios de tipo de cambio instantáneamente a la tienda pública sin requerir recarga.
+   * Marco informativo basado en las directrices de comercio y tipo de cambio de referencia del Banco Central de Bolivia y el Ministerio de Economía.
+4. **Pestaña Finanzas & Estadísticas (`analytics`)**:
+   * Valorización económica total del almacén calculada simultáneamente en Bolivianos (Bs) y en Dólares Estadounidenses ($ USD).
+   * Tasa de disponibilidad operativa (porcentaje de catálogo activo sobre el total).
+   * Distribución porcentual y volumétrica de inventario entre la línea de abarrotes y snacks.
+   * Estado y verificación de canales de cobro activos (Simple QR y PayPal).
 
 ---
 
