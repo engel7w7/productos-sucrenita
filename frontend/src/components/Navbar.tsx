@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ShoppingBag,
   Store,
@@ -85,8 +86,15 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="flex items-center gap-3.5 group">
-              <div className="w-11 h-11 rounded-2xl bg-sucrenita-800 dark:bg-cacao-800 text-pastel-sand flex items-center justify-center font-serif font-bold text-xl shadow-soft group-hover:bg-sucrenita-900 dark:group-hover:bg-cacao-750 transition-colors">
-                S
+              <div className="relative w-11 h-11 rounded-2xl overflow-hidden shadow-soft border border-pastel-sandDark dark:border-cacao-700 bg-sucrenita-800 shrink-0 group-hover:scale-105 transition-transform duration-200">
+                <Image
+                  src="/logo-profile.jpg"
+                  alt="Logo Productos Sucreñita"
+                  width={44}
+                  height={44}
+                  className="w-full h-full object-cover"
+                  priority
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-sucrenita-900 dark:text-[#FAF6F0] group-hover:text-sucrenita-700 dark:group-hover:text-[#D4A853] transition-colors">

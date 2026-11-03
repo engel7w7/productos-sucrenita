@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import {
   MessageSquare,
   X,
@@ -96,8 +97,14 @@ export function SocialChatHub() {
           <div className="w-[340px] sm:w-[380px] bg-white dark:bg-cacao-900 rounded-3xl shadow-soft-lg border border-pastel-sandDark dark:border-cacao-800 overflow-hidden flex flex-col max-h-[85vh] animate-in zoom-in-95 duration-200 transition-colors">
             <div className="bg-sucrenita-900 dark:bg-cacao-950 dark:border-b dark:border-cacao-800 text-white p-5 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-sucrenita-800 text-pastel-sand flex items-center justify-center font-serif font-bold text-lg border border-sucrenita-700">
-                  S
+                <div className="relative w-10 h-10 rounded-2xl overflow-hidden border border-sucrenita-700 bg-sucrenita-800 shrink-0 shadow-soft">
+                  <Image
+                    src="/logo-profile.jpg"
+                    alt="Logo Productos Sucreñita"
+                    width={40}
+                    height={40}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="font-serif font-bold text-sm tracking-tight flex items-center gap-2">

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   QrCode,
   Phone,
@@ -23,8 +24,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="space-y-4 md:col-span-1">
             <span className="font-serif text-2xl font-bold tracking-tight text-sucrenita-900 dark:text-[#FAF6F0] flex items-center gap-2">
-              <span className="w-8 h-8 rounded-full bg-sucrenita-800 dark:bg-cacao-800 flex items-center justify-center text-pastel-sand border border-pastel-sandDark dark:border-cacao-700">
-                <Wheat className="w-4 h-4 text-[#D4A853]" />
+              <span className="relative w-8 h-8 rounded-full overflow-hidden bg-sucrenita-800 dark:bg-cacao-800 border border-pastel-sandDark dark:border-cacao-700 shrink-0 shadow-soft">
+                <Image
+                  src="/logo-profile.jpg"
+                  alt="Logo Productos Sucreñita"
+                  width={32}
+                  height={32}
+                  className="w-full h-full object-cover"
+                />
               </span>
               Productos Sucreñita
             </span>

@@ -152,18 +152,21 @@ export function SimpleQRModal({
                     strokeWidth="3.5"
                     strokeLinecap="round"
                   />
-                  <circle cx="50" cy="50" r="10" fill="#FFF7ED" stroke="#D97706" strokeWidth="3" />
-                  <text
-                    x="50"
-                    y="54"
-                    textAnchor="middle"
-                    fontSize="9"
-                    fontWeight="bold"
-                    fill="#92400E"
-                    fontFamily="serif"
-                  >
-                    S
-                  </text>
+                  <defs>
+                    <clipPath id="qr-logo-emblem">
+                      <circle cx="50" cy="50" r="9" />
+                    </clipPath>
+                  </defs>
+                  <circle cx="50" cy="50" r="10" fill="#FFF7ED" stroke="#D97706" strokeWidth="2.5" />
+                  <image
+                    href="/logo-profile.jpg"
+                    x="41"
+                    y="41"
+                    width="18"
+                    height="18"
+                    preserveAspectRatio="xMidYMid slice"
+                    clipPath="url(#qr-logo-emblem)"
+                  />
                 </svg>
 
                 <div className="absolute inset-x-0 bottom-1 text-center">

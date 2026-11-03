@@ -51,8 +51,18 @@ export const metadata: Metadata = {
   authors: [{ name: 'Productos Sucreñita' }],
   creator: 'Productos Sucreñita',
   publisher: 'Productos Sucreñita',
-  alternates: {
+    alternates: {
     canonical: '/',
+  },
+  icons: {
+    icon: [
+      { url: '/logo-profile.jpg', sizes: 'any' },
+      { url: '/logo-sucrenita-profile.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/logo-profile.jpg', sizes: '180x180', type: 'image/jpeg' },
+    ],
+    shortcut: ['/logo-profile.jpg'],
   },
   openGraph: {
     type: 'website',
@@ -104,8 +114,8 @@ const organizationSchema = {
   description:
     'Emprendimiento familiar boliviano de abarrotes de cocina tradicional (maní, ajíes, condimentos) y snacks artesanales con venta directa B2C, cobros por Simple QR y pasarela PayPal.',
   url: siteUrl,
-  logo: `${siteUrl}/icon.png`,
-  image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&h=630&q=80',
+  logo: `${siteUrl}/logo-profile.jpg`,
+  image: `${siteUrl}/logo-profile.jpg`,
   telephone: '+59171152182',
   priceRange: '$',
   currenciesAccepted: 'BOB, USD',
@@ -133,6 +143,8 @@ export default function RootLayout({
     <html lang="es" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
       <head>
         <meta name="color-scheme" content="light dark" />
+        <link rel="icon" href="/logo-profile.jpg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/logo-profile.jpg" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var s=localStorage.getItem('theme');var m=document.querySelector('meta[name="color-scheme"]');var d=s==='dark'||(!s&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d){document.documentElement.classList.add('dark');if(m)m.content='dark';}else{document.documentElement.classList.remove('dark');if(m)m.content='light';}}catch(e){}})();`,

@@ -396,8 +396,15 @@ export default function AdminPage() {
       <div className="min-h-screen flex items-center justify-center p-4">
         <div className="w-full max-w-md bg-white dark:bg-cacao-900 rounded-3xl p-8 border border-pastel-sandDark dark:border-cacao-800 shadow-2xl space-y-6 transition-colors">
           <div className="text-center space-y-2">
-            <div className="w-16 h-16 rounded-3xl bg-pastel-amber dark:bg-amber-950/60 flex items-center justify-center text-pastel-amberText dark:text-amber-300 font-serif font-bold text-2xl mx-auto shadow-soft border border-pastel-amberBorder dark:border-amber-800/70">
-              S
+            <div className="relative w-16 h-16 rounded-3xl overflow-hidden mx-auto shadow-soft border border-pastel-amberBorder dark:border-amber-800/70 bg-sucrenita-800">
+              <Image
+                src="/logo-profile.jpg"
+                alt="Logo Productos Sucreñita"
+                width={64}
+                height={64}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
             <h1 className="font-serif text-2xl font-bold text-sucrenita-900 dark:text-cacao-50">
               Panel Administrativo
@@ -498,8 +505,14 @@ export default function AdminPage() {
       <header className="sticky top-0 z-40 bg-white/95 dark:bg-cacao-900/95 backdrop-blur-md border-b border-pastel-sandDark dark:border-cacao-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-pastel-amber dark:bg-amber-950/60 flex items-center justify-center text-pastel-amberText dark:text-amber-300 font-serif font-bold text-lg border border-pastel-amberBorder dark:border-amber-800/70">
-              S
+            <div className="relative w-10 h-10 rounded-2xl overflow-hidden border border-pastel-amberBorder dark:border-amber-800/70 bg-sucrenita-800 shrink-0 shadow-soft">
+              <Image
+                src="/logo-profile.jpg"
+                alt="Logo Productos Sucreñita"
+                width={40}
+                height={40}
+                className="w-full h-full object-cover"
+              />
             </div>
             <div>
               <span className="font-serif font-bold text-base text-sucrenita-900 dark:text-cacao-50 block leading-tight">
