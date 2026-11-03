@@ -145,6 +145,21 @@ const localBusinessSchema = {
   ],
 };
 
+const videoObjectSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: 'Secretos de Nuestra Sazón Chuquisaqueña en TikTok - Productos Sucreñita',
+  description:
+    'Video oficial de Productos Sucreñita en TikTok (@sucrenita_artesanal): proceso artesanal de selección de maní para sopa, molienda de ají en batán y recetas tradicionales de Sucre.',
+  thumbnailUrl: [
+    `${siteUrl}/logo-profile.jpg`,
+    'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80',
+  ],
+  uploadDate: '2026-11-01T12:00:00-04:00',
+  contentUrl: 'https://vt.tiktok.com/ZSpdgQt7R/',
+  embedUrl: 'https://vt.tiktok.com/ZSpdgQt7R/',
+};
+
 const websiteSearchSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -198,6 +213,7 @@ export default async function HomePage() {
       <JsonLd data={faqSchemaData} />
       <JsonLd data={localBusinessSchema} />
       <JsonLd data={websiteSearchSchema} />
+      <JsonLd data={videoObjectSchema} />
       <JsonLd data={itemListSchema} />
 
       <div className="flex flex-col gap-16 md:gap-24 pb-20">
