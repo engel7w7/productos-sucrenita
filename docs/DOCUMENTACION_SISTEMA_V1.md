@@ -13,9 +13,9 @@
 * **Repositorio de Código**: [https://github.com/engel7w7/productos-sucrenita](https://github.com/engel7w7/productos-sucrenita)
 * **Stack Tecnológico**:
   * **Frontend**: Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS, Lucide React Icons.
-  * **Backend**: Node.js, Express, TypeScript, Prisma ORM, PostgreSQL / SQLite.
+  * **Backend**: Node.js, Express, TypeScript, Prisma ORM, PostgreSQL (Supabase) / SQLite.
   * **Pasarelas de Pago**: Simple QR (Red Bancaria de Bolivia) y PayPal Checkout Internacional (USD).
-  * **Infraestructura Cloud**: Vercel Edge Network, Render Cloud Services, Nginx Reverse Proxy (Entorno local SSL).
+  * **Infraestructura Cloud**: Vercel Edge Network, Supabase Managed Database, Render Cloud Services, Nginx Reverse Proxy (Entorno local SSL).
 
 ---
 
@@ -34,6 +34,7 @@
 11. Chat en Línea Interactivo y Preguntas Frecuentes
 12. Mensajería Automatizada a WhatsApp
 13. Contenido Final de la Plataforma y Políticas Comerciales
+14. Panel de Administración y Gestión de Inventario
 
 ---
 
@@ -51,7 +52,7 @@ El proyecto está configurado para operar 100% de manera **local** y autónoma (
 La plataforma utiliza una arquitectura desacoplada (*Headless*):
 * El frontend en Next.js consulta la API REST de productos (`/api/products`) utilizando **ISR (Incremental Static Regeneration)** con revalidación periódica de 60 segundos (`revalidate: 60`).
 * En caso de indisponibilidad temporal del backend, el frontend cuenta con un catálogo de respaldo local de alta fidelidad (`FALLBACK_PRODUCTS` en `frontend/src/lib/api.ts`) que garantiza 100% de disponibilidad (*Zero-Downtime*).
-* La administración de productos, precios y categorías se gestiona mediante modelos Prisma (`Category` y `Product`) con serialización de precios decimales y control de inventario (`stock` y `isActive`).
+* La administración de productos, precios y categorías se gestiona mediante modelos Prisma (`Category`, `Product` y `User`) con serialización de precios decimales y control de inventario (`stock` y `isActive`).
 
 ---
 
@@ -124,6 +125,7 @@ Etiquetas geoespaciales inyectadas en las cabeceras HTML para optimizar el posic
 ### 5.4 Sitemap y Robots Dinámicos
 * `frontend/src/app/sitemap.ts`: Genera automáticamente el índice XML de URLs canónicas.
 * `frontend/src/app/robots.ts`: Instrucciones para motores de búsqueda con referencia al sitemap oficial.
+* Protección de áreas privadas: `frontend/src/app/admin/layout.tsx` incluye metadatos específicos `robots: { index: false, follow: false }` para que los motores de búsqueda jamás indexen el panel administrativo o formularios internos.
 
 ---
 
@@ -182,15 +184,17 @@ Se implementó el componente central `SocialChatHub.tsx`, ubicado en la esquina 
 |  - Certificado SSL Let's Encrypt                            |
 |  - Google Analytics 4 (gtag.js)                             |
 |  - Schema.org JSON-LD + OpenGraph                           |
+|  - Panel /admin con cabecera noindex / nofollow             |
 +------------------------------+------------------------------+
                                |
                                | (REST API / CORS)
                                v
 +-------------------------------------------------------------+
 |                BACKEND API (Node.js + Express)              |
-|  - Rutas de Productos: /api/products                        |
+|  - Rutas de Autenticación: /api/auth/*                      |
+|  - Rutas de Productos: /api/products/*                      |
 |  - Rutas de Pagos: /api/payments/paypal/*                   |
-|  - Prisma ORM + Base de Datos (PostgreSQL / SQLite)         |
+|  - Prisma ORM + PostgreSQL (Supabase Pooler)                |
 +------------------------------+------------------------------+
                                |
                +---------------+---------------+
@@ -199,7 +203,7 @@ Se implementó el componente central `SocialChatHub.tsx`, ubicado en la esquina 
 +-----------------------------+ +-----------------------------+
 |     PASARELA SIMPLE QR      | |   PASARELA PAYPAL CHECKOUT  |
 |  Red Bancaria de Bolivia    | |  Tarjetas Internacionales   |
-|  Moneda: BOB (Sin comisin) | |  Moneda: USD (Tasa: 6.96)   |
+|  Moneda: BOB (Sin comisión) | |  Moneda: USD (Tasa: 6.96)   |
 +-----------------------------+ +-----------------------------+
 ```
 
@@ -285,3 +289,39 @@ Los mensajes dirigidos al número oficial de WhatsApp (+591 71152182) se generan
 * **Envíos Nacionales**: Despachos semanales por flota o empresas de transporte interdepartamental hacia La Paz, Cochabamba, Santa Cruz, Potosí, Oruro, Tarija, Beni y Pando.
 * **Garantía**: Productos 100% artesanales elaborados en Sucre, libres de harinas de relleno, conservantes o colorantes artificiales.
 
+---
+
+## 14. Panel de Administración y Gestión de Inventario
+
+### 14.1 Arquitectura y Acceso
+* **Ruta de Acceso**: `/admin` (disponible en local y en producción).
+* **Protección SEO**: `frontend/src/app/admin/layout.tsx` configura metadatos `robots: { index: false, follow: false }` para evitar la indexación de las herramientas de administración en buscadores.
+* **Enlace Discreto**: Incorporado en el pie de página (`Footer.tsx`) con icono vectorial seguro.
+
+### 14.2 Seguridad y Almacenamiento Criptográfico de Credenciales
+* **Modelo Prisma**:
+  ```prisma
+  model User {
+    id        String   @id @default(uuid())
+    name      String
+    username  String   @unique
+    password  String
+    role      String   @default("ADMIN")
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+  }
+  ```
+* **Cifrado Robusto**: Las contraseñas se almacenan mediante derivación de claves **PBKDF2-SHA512** con un salt aleatorio criptográfico de 16 bytes y 10,000 iteraciones (`crypto.pbkdf2Sync`).
+* **Comparación en Tiempo Constante**: La verificación utiliza `crypto.timingSafeEqual` para prevenir ataques de temporización (*timing attacks*).
+* **Usuario Administrador Inicial**:
+  * **Nombre**: `Jhojan Erick Romero Morales`
+  * **Nombre de Usuario**: `engel7u7`
+  * **Estado en Base de Datos**: Registrado y activo en PostgreSQL (Supabase) mediante el script `backend/prisma/create-admin.ts`.
+  * **Tokens de Sesión**: Generación y firma de tokens de sesión HMAC-SHA256 con tiempo de expiración de 7 días.
+
+### 14.3 Capacidades del Panel Administrativo
+1. **Métricas en Tiempo Real**: Total de productos en catálogo, unidades en stock físico, valor total estimado del inventario en Bolivianos (Bs) y conteo de productos activos.
+2. **Creación de Nuevos Productos**: Formulario modal con selección de línea (Abarrotes vs Snacks), generación automática de slug amigable, precio, stock, descripción y selector de fotografía de producto.
+3. **Edición Completa**: Modificación inmediata de nombres, descripciones, precios, existencias y categoría de productos existentes.
+4. **Control de Visibilidad**: Activación y desactivación de productos con un solo clic para ocultar temporalmente del catálogo público productos sin stock sin eliminarlos del historial.
+5. **Persistencia Dual**: Capaz de sincronizarse con la API REST (`/api/products`) y mantener persistencia en almacenamiento local (`localStorage`) para funcionamiento continuo tanto en entornos conectados a la base de datos remota como en entornos desacoplados.

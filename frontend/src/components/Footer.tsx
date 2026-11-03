@@ -8,6 +8,7 @@ import {
   Facebook,
   Instagram,
   CreditCard,
+  Lock,
 } from 'lucide-react';
 import {
   TelegramIcon,
@@ -209,6 +210,15 @@ export function Footer() {
             >
               TikTok
             </a>
+            <span>&bull;</span>
+            <Link
+              href="/admin"
+              className="inline-flex items-center gap-1 text-sucrenita-400 hover:text-sucrenita-700 transition-colors"
+              title="Acceso administrativo"
+            >
+              <Lock className="w-3 h-3" />
+              <span>Admin</span>
+            </Link>
           </div>
         </div>
       </div>

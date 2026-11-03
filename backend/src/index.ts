@@ -9,6 +9,7 @@ import dotenv from 'dotenv';
 import { healthRouter } from './routes/health.routes';
 import { productsRouter } from './routes/products.routes';
 import { paymentsRouter } from './routes/payments.routes';
+import { authRouter } from './routes/auth.routes';
 
 dotenv.config();
 
@@ -65,6 +66,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', healthRouter);
 app.use('/api/products', productsRouter);
 app.use('/api/payments', paymentsRouter);
+app.use('/api/auth', authRouter);
 
 app.get('/', (_req: Request, res: Response) => {
   res.status(200).json({ status: 'ok' });
