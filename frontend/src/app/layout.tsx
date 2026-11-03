@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
@@ -154,6 +155,11 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col font-sans antialiased bg-sucrenita-50 dark:bg-cacao-950 text-sucrenita-900 dark:text-[#F5EFEB] selection:bg-sucrenita-600 dark:selection:bg-[#5A3A27] selection:text-white transition-colors duration-200">
         <JsonLd data={organizationSchema} />
         <GoogleAnalytics />
+        <Script
+          id="paypal-js-sdk"
+          strategy="lazyOnload"
+          src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"
+        />
         <ThemeProvider>
           <CartProvider>
           <Navbar />

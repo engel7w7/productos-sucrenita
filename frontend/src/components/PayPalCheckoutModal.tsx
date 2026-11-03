@@ -21,6 +21,7 @@ import { PayPalIcon, WhatsAppIcon } from './SocialIcons';
 import { CartItem } from '@/context/CartContext';
 import { getExchangeRateConfig, ExchangeRateConfig } from '@/lib/exchangeRate';
 import { saveOrder } from '@/lib/orders';
+import { trackPurchase, trackBeginCheckout } from '@/lib/analytics';
 
 interface PayPalCheckoutModalProps {
   isOpen: boolean;
@@ -55,6 +56,13 @@ export function PayPalCheckoutModal({
 
   useEffect(() => {
     setRateConfig(getExchangeRateConfig());
+    if (isOpen) {
+      trackBeginCheckout({
+        paymentMethod: "PAYPAL",
+        totalBob,
+        itemCount: items.length,
+      });
+    }
 
     const handleUpdate = () => {
       setRateConfig(getExchangeRateConfig());
@@ -92,6 +100,21 @@ export function PayPalCheckoutModal({
         totalUsd,
         rateUsed: currentRate,
         timestamp,
+      });
+
+      trackPurchase({
+        transactionId: generatedOrderId,
+        valueBob: Number(totalBob.toFixed(2)),
+        valueUsd: Number(totalUsd),
+        paymentMethod: "PAYPAL",
+        items: items.map((i) => ({
+          name: i.product.name,
+          quantity: i.quantity,
+          priceBob:
+            typeof i.product.price === "string"
+              ? parseFloat(i.product.price)
+              : Number(i.product.price),
+        })),
       });
 
       saveOrder({

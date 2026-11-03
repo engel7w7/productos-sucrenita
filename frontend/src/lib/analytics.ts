@@ -42,6 +42,60 @@ export function trackViewItem(product: {
   });
 }
 
+export function trackAddToCart(item: {
+  id: string;
+  name: string;
+  price: string | number;
+  quantity: number;
+}) {
+  const priceNum = typeof item.price === 'string' ? parseFloat(item.price) : item.price;
+  trackEvent('add_to_cart', {
+    currency: 'BOB',
+    value: priceNum * item.quantity,
+    items: [
+      {
+        item_id: item.id,
+        item_name: item.name,
+        price: priceNum,
+        quantity: item.quantity,
+      },
+    ],
+  });
+}
+
+export function trackBeginCheckout(details: {
+  paymentMethod: 'PAYPAL' | 'SIMPLE_QR' | 'WHATSAPP';
+  totalBob: number;
+  itemCount: number;
+}) {
+  trackEvent('begin_checkout', {
+    currency: 'BOB',
+    value: details.totalBob,
+    payment_method: details.paymentMethod,
+    item_count: details.itemCount,
+  });
+}
+
+export function trackPurchase(details: {
+  transactionId: string;
+  valueBob: number;
+  valueUsd?: number;
+  paymentMethod: 'PAYPAL' | 'SIMPLE_QR' | 'WHATSAPP';
+  items: Array<{ name: string; quantity: number; priceBob: number }>;
+}) {
+  trackEvent('purchase', {
+    transaction_id: details.transactionId,
+    currency: details.paymentMethod === 'PAYPAL' ? 'USD' : 'BOB',
+    value: details.paymentMethod === 'PAYPAL' && details.valueUsd ? details.valueUsd : details.valueBob,
+    payment_type: details.paymentMethod,
+    items: details.items.map((i) => ({
+      item_name: i.name,
+      quantity: i.quantity,
+      price: i.priceBob,
+    })),
+  });
+}
+
 export function trackWhatsAppContact(details: {
   productName?: string;
   price?: string | number;

@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Product, CartItem } from '@/types';
+import { trackAddToCart } from '@/lib/analytics';
 
 export type { CartItem };
 
@@ -49,6 +50,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const toggleCart = () => setIsOpen((prev) => !prev);
 
   const addToCart = (product: Product, quantity = 1) => {
+    trackAddToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity,
+    });
     setItems((prev) => {
       const existing = prev.find((item) => item.product.id === product.id);
       if (existing) {

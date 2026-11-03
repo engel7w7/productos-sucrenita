@@ -33,6 +33,8 @@ import {
   Phone,
   QrCode,
   SlidersHorizontal,
+  Upload,
+  ImagePlus,
 } from 'lucide-react';
 import { Product } from '@/types';
 import { FALLBACK_PRODUCTS } from '@/lib/api';
@@ -105,6 +107,63 @@ export default function AdminPage() {
   const [formImageUrl, setFormImageUrl] = useState('/productos/aji-calidad-kilo.jpeg');
   const [formIsActive, setFormIsActive] = useState(true);
   const [formSuccessMessage, setFormSuccessMessage] = useState('');
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
+  const [uploadError, setUploadError] = useState('');
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+  const handleLocalImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      setUploadError('Por favor selecciona un archivo de imagen válido (.jpg, .png, .webp)');
+      return;
+    }
+
+    if (file.size > 8 * 1024 * 1024) {
+      setUploadError('La imagen no debe superar los 8 MB de tamaño');
+      return;
+    }
+
+    setUploadError('');
+    setIsUploadingImage(true);
+
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const res = await fetch('/api/admin/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success && data.url) {
+        setFormImageUrl(data.url);
+      } else {
+        const reader = new FileReader();
+        reader.onload = (loadEvent) => {
+          if (loadEvent.target?.result) {
+            setFormImageUrl(loadEvent.target.result as string);
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+    } catch {
+      const reader = new FileReader();
+      reader.onload = (loadEvent) => {
+        if (loadEvent.target?.result) {
+          setFormImageUrl(loadEvent.target.result as string);
+        }
+      };
+      reader.readAsDataURL(file);
+    } finally {
+      setIsUploadingImage(false);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    }
+  };
 
   useEffect(() => {
     try {
@@ -1416,28 +1475,96 @@ export default function AdminPage() {
                 </div>
               </div>
 
-              <div className="space-y-1">
-                <label className="font-semibold text-sucrenita-800 dark:text-cacao-200 block">
-                  Foto del Producto
-                </label>
-                <select
-                  value={formImageUrl}
-                  onChange={(e) => setFormImageUrl(e.target.value)}
-                  className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 text-sucrenita-800 dark:text-cacao-100 mb-2 font-medium"
-                >
-                  {AVAILABLE_IMAGES.map((img) => (
-                    <option key={img.url} value={img.url}>
-                      {img.label}
-                    </option>
-                  ))}
-                </select>
-                <input
-                  type="text"
-                  value={formImageUrl}
-                  onChange={(e) => setFormImageUrl(e.target.value)}
-                  placeholder="O escribe una ruta de imagen personalizada"
-                  className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 font-mono text-[11px] text-sucrenita-700 dark:text-cacao-200"
-                />
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <label className="font-semibold text-sucrenita-800 dark:text-cacao-200 block">
+                    Foto del Producto
+                  </label>
+                  <span className="text-[10px] text-sucrenita-500 dark:text-cacao-300">
+                    Archivos locales o catálogo
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-3 p-3 rounded-2xl bg-pastel-sand/40 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700">
+                  <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-white dark:bg-cacao-900 border border-pastel-sandDark dark:border-cacao-700 shrink-0 shadow-soft">
+                    {formImageUrl ? (
+                      <Image
+                        src={formImageUrl}
+                        alt="Vista previa de imagen"
+                        fill
+                        unoptimized={Boolean(formImageUrl.startsWith('data:'))}
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-[10px] text-sucrenita-400">
+                        Sin foto
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex-1 space-y-1.5">
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept="image/png,image/jpeg,image/webp,image/jpg"
+                      onChange={handleLocalImageUpload}
+                      className="hidden"
+                      id="product-image-file-input"
+                    />
+                    <button
+                      type="button"
+                      disabled={isUploadingImage}
+                      onClick={() => fileInputRef.current?.click()}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sucrenita-800 hover:bg-sucrenita-900 dark:bg-cacao-750 dark:hover:bg-cacao-700 text-white font-semibold text-[11px] shadow-soft transition-colors disabled:opacity-50"
+                    >
+                      {isUploadingImage ? (
+                        <>
+                          <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                          <span>Cargando imagen local...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="w-3.5 h-3.5" />
+                          <span>Subir desde mi computadora</span>
+                        </>
+                      )}
+                    </button>
+                    <span className="text-[10px] text-sucrenita-500 dark:text-cacao-300 block">
+                      Formatos compatibles: JPG, PNG, WEBP (hasta 8 MB)
+                    </span>
+                  </div>
+                </div>
+
+                {uploadError && (
+                  <div className="text-[11px] text-pastel-peachText dark:text-rose-400 font-medium">
+                    {uploadError}
+                  </div>
+                )}
+
+                <div className="space-y-1 pt-1">
+                  <span className="text-[11px] text-sucrenita-600 dark:text-cacao-300 block font-medium">
+                    O elegir foto oficial existente:
+                  </span>
+                  <select
+                    value={formImageUrl}
+                    onChange={(e) => setFormImageUrl(e.target.value)}
+                    className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 text-sucrenita-800 dark:text-cacao-100 font-medium"
+                  >
+                    <option value="">-- Elige una imagen del catálogo --</option>
+                    {AVAILABLE_IMAGES.map((img) => (
+                      <option key={img.url} value={img.url}>
+                        {img.label}
+                      </option>
+                    ))}
+                  </select>
+                  <input
+                    type="text"
+                    value={formImageUrl}
+                    onChange={(e) => setFormImageUrl(e.target.value)}
+                    placeholder="O ingresa una URL web / ruta personalizada"
+                    className="w-full p-2 rounded-xl bg-pastel-sand/30 dark:bg-cacao-850 border border-pastel-sandDark/70 dark:border-cacao-700 font-mono text-[10px] text-sucrenita-700 dark:text-cacao-200 mt-1"
+                  />
+                </div>
               </div>
 
               <div className="space-y-1">

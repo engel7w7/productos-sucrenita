@@ -15,6 +15,7 @@ import {
 import { CartItem } from '@/types';
 import { WhatsAppIcon } from './SocialIcons';
 import { saveOrder } from '@/lib/orders';
+import { trackPurchase, trackBeginCheckout } from '@/lib/analytics';
 
 interface SimpleQRModalProps {
   isOpen: boolean;
