@@ -203,6 +203,12 @@ export default async function ProductDetailPage({ params }: Props) {
     if (s.includes('habas')) {
       return 'Habas de altura tostadas con sal marina, perfectas para acompañar con un queso criollo o disfrutar como snack energético a cualquier hora.';
     }
+    if (s.includes('platanitos')) {
+      return 'Platanitos finos y crujientes con sal ligera. Perfectos para servir en pocillos rústicos en meriendas o como snack para cumpleaños y reuniones familiares.';
+    }
+    if (s.includes('quintal')) {
+      return 'Presentación mayorista por quintal (100 libras) para pensiones y restaurantes. Almacénalo en ambiente seco y fresco sobre tarimas para conservar su aroma y color por más de 12 meses.';
+    }
     return 'Elaborado bajo receta casera tradicional sucrense, seleccionado a mano y embolsado con total higiene para garantizar frescura en tu cocina.';
   };
 

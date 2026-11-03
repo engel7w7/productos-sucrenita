@@ -75,10 +75,10 @@ const faqSchemaData = {
 export default async function HomePage() {
   const products = await getProducts();
   const prioritizedSlugs = new Set([
+    'aji-colorado-vaina-seleccionado-1kg',
     'mani-molido-tradicional-sopa-500g',
-    'aji-colorado-molido-picante-250g',
-    'chicharron-artesanal-crocante-200g',
-    'mani-dulce-garrapinado-250g',
+    'chicharron-artesanal-tira-13-unidades',
+    'platanitos-chips-artesanales-26-unidades',
   ]);
   const featured = products.filter((p) => prioritizedSlugs.has(p.slug));
   const featuredProducts = featured.length >= 4 ? featured : products.slice(0, 4);

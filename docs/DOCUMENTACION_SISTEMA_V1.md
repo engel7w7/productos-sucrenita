@@ -265,14 +265,20 @@ Los mensajes dirigidos al número oficial de WhatsApp (+591 71152182) se generan
 
 ## 13. Contenido Final de la Plataforma y Políticas Comerciales
 
-### 13.1 Catálogo Oficial de Productos
-1. **Maní Crudo Seleccionado (1 kg)** - Bs 18.00
-2. **Maní Molido Tradicional para Sopa (500g)** - Bs 15.00
-3. **Ají Colorado Molido con Picante (250g)** - Bs 12.00
-4. **Ají Amarillo Molido Sin Picante / Dulce (250g)** - Bs 12.00
-5. **Chicharrón Artesanal Crocante (200g)** - Bs 20.00
-6. **Maní Dulce Garrapiñado (250g)** - Bs 10.00
-7. **Habas Fritas Crocantes con Sal Marina (250g)** - Bs 10.00
+### 13.1 Catálogo Oficial de Productos Reales de la Casa
+1. **Ají Colorado Seleccionado en Vaina / Molido (1 kg)** - Bs 100.00 (Primera calidad desvenado) / Bs 80.00 (Con pepa).
+2. **Chicharrón Artesanal en Tira (13 Unidades)** - Bs 10.00.
+3. **Platanitos Chips Artesanales Crocantes (Paquete de 26 Unidades)** - Bs 20.00 (Novedad de la casa).
+4. **Habas Saladas Fritas Crocantes (Paquete de 26 Unidades)** - Bs 20.00.
+5. **Maní Dulce Confitado Garrapiñado (Paquete de 26 Unidades)** - Bs 20.00.
+6. **Chicharrón Artesanal Redondo Crocante Familiar (200g)** - Bs 20.00.
+7. **Ají Colorado Secado al Sol Chuquisaqueño (250g)** - Bs 15.00.
+8. **Chicharrones Crocantes en Tira Doble (26 Unidades)** - Bs 20.00.
+9. **Ají Colorado Primera Calidad por Quintal (100 lbs - Venta Mayorista)** - Bs 4,000.00.
+10. **Ají Colorado con Pepa por Quintal (100 lbs - Venta Mayorista)** - Bs 2,200.00.
+11. **Maní Molido Tradicional para Sopa (500g)** - Bs 15.00.
+12. **Maní Crudo Seleccionado (1 kg)** - Bs 18.00.
+13. **Ají Amarillo Molido Sin Picante / Dulce (250g)** - Bs 12.00.
 
 ### 13.2 Políticas de Entrega
 * **Entregas en Sucre**: Distribución en el centro histórico, San Roque, La Recoleta, Barrio Petrolero y zonas residenciales en un plazo máximo de 24 horas.
