@@ -21,8 +21,8 @@ export function ThemeToggle({ className = '', showLabel = false }: ThemeTogglePr
       title={isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
       className={`inline-flex items-center justify-center gap-2 p-2 rounded-2xl transition-all border ${
         isDark
-          ? 'bg-cacao-850 hover:bg-cacao-800 text-pastel-amberText border-cacao-700 shadow-soft'
-          : 'bg-white hover:bg-pastel-sand text-sucrenita-700 border-pastel-sandDark shadow-soft'
+          ? 'bg-cacao-850 hover:bg-cacao-800 text-amber-300 border-cacao-700 shadow-soft'
+          : 'bg-white hover:bg-pastel-sand text-sucrenita-800 border-pastel-sandDark shadow-soft'
       } ${className}`}
     >
       {isDark ? (

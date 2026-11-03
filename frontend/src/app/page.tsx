@@ -471,7 +471,7 @@ export default async function HomePage() {
                     <div className="w-10 h-10 rounded-xl bg-white dark:bg-cacao-750 text-sucrenita-800 dark:text-[#FAF6F0] flex items-center justify-center border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                       <WhatsAppIcon className="w-5 h-5 text-[#2B5E46] dark:text-[#78A887]" />
                     </div>
-                    <ArrowRight className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
+                    <ArrowRight className="w-4 h-4 text-sucrenita-400 dark:text-[#A8988C] group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
                   </div>
                   <div>
                     <h3 className="font-serif font-bold text-sm text-sucrenita-900 dark:text-[#FAF6F0]">
@@ -493,7 +493,7 @@ export default async function HomePage() {
                     <div className="w-10 h-10 rounded-xl bg-white dark:bg-cacao-750 text-[#1877F2] flex items-center justify-center border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                       <Facebook className="w-5 h-5" />
                     </div>
-                    <ArrowRight className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
+                    <ArrowRight className="w-4 h-4 text-sucrenita-400 dark:text-[#A8988C] group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
                   </div>
                   <div>
                     <h3 className="font-serif font-bold text-sm text-sucrenita-900 dark:text-[#FAF6F0]">
@@ -515,7 +515,7 @@ export default async function HomePage() {
                     <div className="w-10 h-10 rounded-xl bg-white dark:bg-cacao-750 text-[#E4405F] flex items-center justify-center border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                       <Instagram className="w-5 h-5" />
                     </div>
-                    <ArrowRight className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
+                    <ArrowRight className="w-4 h-4 text-sucrenita-400 dark:text-[#A8988C] group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
                   </div>
                   <div>
                     <h3 className="font-serif font-bold text-sm text-sucrenita-900 dark:text-[#FAF6F0]">
@@ -537,7 +537,7 @@ export default async function HomePage() {
                     <div className="w-10 h-10 rounded-xl bg-white dark:bg-cacao-750 text-slate-900 dark:text-slate-200 flex items-center justify-center border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                       <TikTokIcon className="w-5 h-5" />
                     </div>
-                    <ArrowRight className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
+                    <ArrowRight className="w-4 h-4 text-sucrenita-400 dark:text-[#A8988C] group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
                   </div>
                   <div>
                     <h3 className="font-serif font-bold text-sm text-sucrenita-900 dark:text-[#FAF6F0]">

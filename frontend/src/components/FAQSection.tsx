@@ -104,7 +104,7 @@ export function FAQSection() {
                   </div>
                   <ChevronDown
                     className={`w-5 h-5 text-sucrenita-500 shrink-0 transition-transform mt-1 ${
-                      isOpen ? 'rotate-180 text-pastel-peachText' : ''
+                      isOpen ? 'rotate-180 text-pastel-peachText dark:text-amber-300' : ''
                     }`}
                   />
                 </button>

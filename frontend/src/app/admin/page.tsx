@@ -465,7 +465,7 @@ export default function AdminPage() {
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   aria-label="Ver u ocultar contraseña"
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-sucrenita-400 hover:text-sucrenita-700"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-sucrenita-400 hover:text-sucrenita-700 dark:text-cacao-400 dark:hover:text-cacao-100"
                 >
                   {showPassword ? (
                     <EyeOff className="w-4 h-4" />

@@ -105,3 +105,43 @@ body {
   border-color: rgba(135, 76, 55, 0.5);
   box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.6);
 }
+
+.dark .text-pastel-amberText {
+  color: #E2B562 !important;
+}
+
+.dark .text-pastel-sageText {
+  color: #72C794 !important;
+}
+
+.dark .text-pastel-peachText {
+  color: #E89A7E !important;
+}
+
+.dark .text-pastel-roseText {
+  color: #F09A9A !important;
+}
+
+.dark .bg-pastel-amber {
+  background-color: rgba(60, 40, 20, 0.55) !important;
+}
+
+.dark .border-pastel-amberBorder {
+  border-color: rgba(180, 130, 60, 0.35) !important;
+}
+
+.dark .bg-pastel-sage {
+  background-color: rgba(20, 50, 30, 0.55) !important;
+}
+
+.dark .border-pastel-sageBorder {
+  border-color: rgba(60, 150, 90, 0.35) !important;
+}
+
+.dark .bg-pastel-peach {
+  background-color: rgba(60, 30, 25, 0.55) !important;
+}
+
+.dark .border-pastel-peachBorder {
+  border-color: rgba(180, 80, 60, 0.35) !important;
+}

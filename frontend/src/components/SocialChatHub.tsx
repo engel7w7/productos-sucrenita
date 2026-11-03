@@ -181,7 +181,7 @@ export function SocialChatHub() {
                             <span>{faq.question}</span>
                             <ChevronRight
                               className={`w-4 h-4 text-sucrenita-400 shrink-0 transition-transform ${
-                                isExpanded ? 'rotate-90 text-sucrenita-800' : ''
+                                isExpanded ? 'rotate-90 text-sucrenita-800 dark:text-amber-300' : ''
                               }`}
                             />
                           </button>
@@ -254,7 +254,7 @@ export function SocialChatHub() {
                         <p className="text-[11px] text-sucrenita-500 dark:text-cacao-300">+591 71152182 &bull; Atención directa</p>
                       </div>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-700" />
+                    <ExternalLink className="w-4 h-4 text-sucrenita-400 dark:text-cacao-400 group-hover:text-sucrenita-700 dark:group-hover:text-cacao-100" />
                   </a>
 
                   <a
@@ -274,7 +274,7 @@ export function SocialChatHub() {
                         <p className="text-[11px] text-sucrenita-500 dark:text-cacao-300">facebook.com &bull; Comunidad oficial</p>
                       </div>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-700" />
+                    <ExternalLink className="w-4 h-4 text-sucrenita-400 dark:text-cacao-400 group-hover:text-sucrenita-700 dark:group-hover:text-cacao-100" />
                   </a>
 
                   <a
@@ -294,7 +294,7 @@ export function SocialChatHub() {
                         <p className="text-[11px] text-sucrenita-500 dark:text-cacao-300">@productossucrenita &bull; Galería</p>
                       </div>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-700" />
+                    <ExternalLink className="w-4 h-4 text-sucrenita-400 dark:text-cacao-400 group-hover:text-sucrenita-700 dark:group-hover:text-cacao-100" />
                   </a>
 
                   <a
@@ -305,7 +305,7 @@ export function SocialChatHub() {
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-9 h-9 rounded-xl bg-pastel-sand dark:bg-cacao-800 text-sucrenita-800 dark:text-cacao-100 flex items-center justify-center">
-                        <TikTokIcon className="w-5 h-5 text-slate-800" />
+                        <TikTokIcon className="w-5 h-5 text-slate-800 dark:text-white" />
                       </div>
                       <div>
                         <h4 className="text-xs font-bold text-sucrenita-900 dark:text-cacao-100 group-hover:text-sucrenita-700 dark:group-hover:text-cacao-50 transition-colors">
@@ -314,7 +314,7 @@ export function SocialChatHub() {
                         <p className="text-[11px] text-sucrenita-500 dark:text-cacao-300">@sucrenita_artesanal &bull; Videos y recetas</p>
                       </div>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-700" />
+                    <ExternalLink className="w-4 h-4 text-sucrenita-400 dark:text-cacao-400 group-hover:text-sucrenita-700 dark:group-hover:text-cacao-100" />
                   </a>
                 </div>
               )}
@@ -322,7 +322,7 @@ export function SocialChatHub() {
 
             <div className="p-3 bg-white dark:bg-cacao-950 border-t border-pastel-sandDark dark:border-cacao-800 flex items-center justify-between text-[11px] text-sucrenita-500 dark:text-cacao-300">
               <span className="flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-sucrenita-600" />
+                <ShieldCheck className="w-3.5 h-3.5 text-sucrenita-600 dark:text-emerald-400" />
                 Venta directa sin comisiones
               </span>
               <a

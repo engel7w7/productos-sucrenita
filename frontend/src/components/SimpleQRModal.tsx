@@ -195,7 +195,7 @@ export function SimpleQRModal({
               </span>
             </div>
 
-            <div className="flex items-center justify-between pt-2 border-t border-pastel-sandDark/70">
+            <div className="flex items-center justify-between pt-2 border-t border-pastel-sandDark/70 dark:border-cacao-750">
               <div>
                 <span className="text-sucrenita-500 dark:text-cacao-300 block">Glosa / Concepto sugerido:</span>
                 <span className="font-mono font-bold text-sucrenita-900 dark:text-cacao-50 text-xs">
@@ -209,8 +209,8 @@ export function SimpleQRModal({
               >
                 {copied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-pastel-sageText" />
-                    <span className="text-pastel-sageText">Copiado</span>
+                    <Check className="w-3.5 h-3.5 text-pastel-sageText dark:text-emerald-400" />
+                    <span className="text-pastel-sageText dark:text-emerald-400">Copiado</span>
                   </>
                 ) : (
                   <>

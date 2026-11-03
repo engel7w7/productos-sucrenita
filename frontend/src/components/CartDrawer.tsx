@@ -191,7 +191,7 @@ export function CartDrawer() {
             <div className="p-5 border-t border-pastel-sandDark dark:border-cacao-800 bg-pastel-sand/30 dark:bg-cacao-850/80 space-y-3.5">
               <div className="p-3 rounded-2xl bg-pastel-amber/40 dark:bg-amber-950/40 border border-pastel-amberBorder/60 dark:border-amber-800/60 text-[11px] text-sucrenita-800 dark:text-amber-100 flex items-center justify-between gap-2.5">
                 <div className="flex items-center gap-2">
-                  <QrCode className="w-4 h-4 text-pastel-amberText shrink-0" />
+                  <QrCode className="w-4 h-4 text-pastel-amberText dark:text-amber-300 shrink-0" />
                   <span>
                     Aceptamos <strong>Simple QR</strong> sin comisiones y <strong>PayPal</strong> internacional.
                   </span>
@@ -213,7 +213,7 @@ export function CartDrawer() {
                   onClick={() => setIsQROpen(true)}
                   className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-2xl bg-pastel-amber hover:bg-pastel-sandDark dark:bg-amber-950/60 dark:hover:bg-amber-900/60 text-sucrenita-900 dark:text-amber-100 border border-pastel-amberBorder dark:border-amber-800/70 font-semibold text-xs tracking-wide shadow-soft transition-all"
                 >
-                  <QrCode className="w-4 h-4 text-pastel-amberText" />
+                  <QrCode className="w-4 h-4 text-pastel-amberText dark:text-amber-300" />
                   <span>Pagar con Simple QR (Bancos de Bolivia)</span>
                 </button>
 

@@ -19,14 +19,14 @@ export function FloatingWhatsApp() {
   return (
     <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end">
       {isOpen && (
-        <div className="mb-3 w-80 rounded-3xl bg-white/95 backdrop-blur-md p-5 border border-pastel-sandDark shadow-soft-lg transition-all animate-in fade-in slide-in-from-bottom-4 duration-300">
-          <div className="flex items-start justify-between pb-3 border-b border-pastel-sandDark">
+        <div className="mb-3 w-80 rounded-3xl bg-white/95 dark:bg-cacao-900/95 backdrop-blur-md p-5 border border-pastel-sandDark dark:border-cacao-750 shadow-soft-lg transition-all animate-in fade-in slide-in-from-bottom-4 duration-300">
+          <div className="flex items-start justify-between pb-3 border-b border-pastel-sandDark dark:border-cacao-750">
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-full bg-pastel-sage flex items-center justify-center text-pastel-sageText border border-pastel-sageBorder">
                 <MessageCircle className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-serif font-bold text-sm text-sucrenita-900">
+                <h4 className="font-serif font-bold text-sm text-sucrenita-900 dark:text-cacao-50">
                   Productos Sucreñita
                 </h4>
                 <span className="flex items-center gap-1.5 text-[11px] text-pastel-sageText font-medium">
@@ -39,17 +39,17 @@ export function FloatingWhatsApp() {
               type="button"
               onClick={() => setIsOpen(false)}
               aria-label="Cerrar ventana de WhatsApp"
-              className="p-1 rounded-full text-sucrenita-400 hover:text-sucrenita-700 hover:bg-pastel-sand transition-colors"
+              className="p-1 rounded-full text-sucrenita-400 hover:text-sucrenita-700 dark:text-cacao-400 dark:hover:text-cacao-100 hover:bg-pastel-sand dark:hover:bg-cacao-800 transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
-          <div className="py-3 text-xs text-sucrenita-700 leading-relaxed space-y-2">
+          <div className="py-3 text-xs text-sucrenita-700 dark:text-cacao-200 leading-relaxed space-y-2">
             <p>
               ¡Hola! Atendemos pedidos de maní, ajíes y snacks directamente por chat con entrega en Sucre y envíos nacionales.
             </p>
-            <div className="p-2.5 rounded-2xl bg-pastel-amber/40 border border-pastel-amberBorder/60 text-[11px] text-sucrenita-800 flex items-center gap-2">
+            <div className="p-2.5 rounded-2xl bg-pastel-amber/40 dark:bg-amber-950/40 border border-pastel-amberBorder/60 dark:border-amber-900/50 text-[11px] text-sucrenita-800 dark:text-amber-200 flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-pastel-amberText shrink-0" />
               <span>Cobro inmediato sin comisión con Simple QR</span>
             </div>

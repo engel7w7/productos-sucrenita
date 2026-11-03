@@ -42,7 +42,7 @@ export function ShareProductButtons({ productName, slug }: ShareProductButtonsPr
     <div className="p-4 rounded-3xl bg-pastel-sand/60 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-800 space-y-3">
       <div className="flex items-center justify-between">
         <span className="text-xs font-semibold text-sucrenita-800 dark:text-cacao-100 flex items-center gap-1.5">
-          <Share2 className="w-3.5 h-3.5 text-sucrenita-700" />
+          <Share2 className="w-3.5 h-3.5 text-sucrenita-700 dark:text-amber-300" />
           <span>Compartir en Redes Oficiales</span>
         </span>
         <span className="text-[11px] text-sucrenita-500 dark:text-cacao-300 font-medium">Difusión sin costo</span>
@@ -78,7 +78,7 @@ export function ShareProductButtons({ productName, slug }: ShareProductButtonsPr
           aria-label="Ver TikTok de Productos Sucreñita"
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-white hover:bg-pastel-sand dark:bg-cacao-800 dark:hover:bg-cacao-700 text-sucrenita-800 dark:text-cacao-100 border border-pastel-sandDark dark:border-cacao-700 shadow-soft transition-all"
         >
-          <TikTokIcon className="w-3.5 h-3.5 text-slate-800" />
+          <TikTokIcon className="w-3.5 h-3.5 text-slate-800 dark:text-white" />
           <span>TikTok</span>
         </a>
 
@@ -102,11 +102,11 @@ export function ShareProductButtons({ productName, slug }: ShareProductButtonsPr
           {copied ? (
             <>
               <Check className="w-3.5 h-3.5 text-[#2B5E46]" />
-              <span className="text-sucrenita-900 font-semibold">Enlace copiado</span>
+              <span className="text-sucrenita-900 dark:text-emerald-300 font-semibold">Enlace copiado</span>
             </>
           ) : (
             <>
-              <Share2 className="w-3.5 h-3.5 text-sucrenita-500" />
+              <Share2 className="w-3.5 h-3.5 text-sucrenita-500 dark:text-cacao-300" />
               <span>Copiar enlace</span>
             </>
           )}
