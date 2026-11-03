@@ -112,7 +112,7 @@ export function FAQSection() {
                 {isOpen && (
                   <div className="px-5 pb-5 pt-1 text-xs text-sucrenita-700 leading-relaxed border-t border-pastel-sandDark/50 space-y-3 animate-in fade-in">
                     <p>{faq.answer}</p>
-                    <div className="flex items-center gap-1.5 text-[11px] text-emerald-700 font-medium">
+                    <div className="flex items-center gap-1.5 text-[11px] text-pastel-sageText font-medium">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       <span>Información verificada por el taller familiar Sucreñita</span>
                     </div>
@@ -136,7 +136,7 @@ export function FAQSection() {
             href="https://wa.me/59171152182?text=Hola%20Productos%20Sucre%C3%B1ita,%20tengo%20una%20consulta%20adicional%20sobre%20sus%20productos"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shadow-soft transition-all shrink-0"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1F7A4C] hover:bg-[#19653E] text-white font-semibold text-xs shadow-soft transition-all shrink-0"
           >
             <WhatsAppIcon className="w-4 h-4" />
             <span>Consultar por WhatsApp</span>

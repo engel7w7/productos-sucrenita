@@ -157,15 +157,22 @@ La interfaz fue diseñada con identidad propia de taller artesanal chuquisaqueñ
 
 ---
 
-## 7. Plugins Sociales Multicanal
+## 7. Canales Sociales Oficiales y Atención Unificada
 
-Se implementó el componente central `SocialChatHub.tsx`, ubicado en la esquina inferior de la pantalla:
-1. **WhatsApp Directo**: `https://wa.me/59171152182` con mensajes preconfigurados.
-2. **Facebook Messenger**: `https://m.me/61595923780807` para atención vía chat de Meta.
-3. **Telegram Oficial**: `https://t.me/ProductosSucrenita` para consultas seguras.
-4. **TikTok Oficial**: `https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk` para videos cortos y recetas.
-5. **Página de Facebook**: `https://www.facebook.com/profile.php?id=61595923780807` para comunidad local.
-6. **Instagram**: `https://www.instagram.com/productossucrenita` para galería fotográfica.
+La presencia digital de la marca se concentra de manera exclusiva y rigurosa en **4 redes sociales oficiales**, unificando la comunicación con el cliente y eliminando canales dispersos:
+
+1. **WhatsApp Oficial de Ventas y Pedidos**: `https://wa.me/59171152182` (+591 71152182).
+   * Atención directa de la familia propietaria.
+   * Recepción de comprobantes de pago por Simple QR y PayPal.
+   * Coordinación de entregas locales en Sucre y despachos por flota a nivel nacional.
+2. **TikTok Oficial (@sucrenita_artesanal)**: `https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk`.
+   * Video marketing, recetas tradicionales de Chuquisaca, técnicas en batán y demostración de crocancia de snacks.
+3. **Facebook Oficial**: `https://www.facebook.com/profile.php?id=61595923780807`.
+   * Comunidad chuquisaqueña, avisos de molienda fresca semanal y contacto directo.
+4. **Instagram Oficial**: `https://www.instagram.com/productossucrenita`.
+   * Galería visual de productos, presentación de recetas y novedades gastronómicas.
+
+> **Nota de Gobernanza de Marca**: Las plataformas secundarias (YouTube, Telegram, Messenger) fueron deshabilitadas y retiradas del catálogo para evitar dispersión operativa y garantizar que el 100% de los clientes reciban atención rápida y directa por los canales verificados de la marca.
 
 ---
 
@@ -325,3 +332,17 @@ Los mensajes dirigidos al número oficial de WhatsApp (+591 71152182) se generan
 3. **Edición Completa**: Modificación inmediata de nombres, descripciones, precios, existencias y categoría de productos existentes.
 4. **Control de Visibilidad**: Activación y desactivación de productos con un solo clic para ocultar temporalmente del catálogo público productos sin stock sin eliminarlos del historial.
 5. **Persistencia Dual**: Capaz de sincronizarse con la API REST (`/api/products`) y mantener persistencia en almacenamiento local (`localStorage`) para funcionamiento continuo tanto en entornos conectados a la base de datos remota como en entornos desacoplados.
+
+---
+
+## 15. Identidad Visual Armoniosa y Paleta Artesanal Sucrense
+
+Para transmitir la calidez, tradición y sobriedad de la gastronomía chuquisaqueña, la tienda virtual abandonó contrastes estridentes o chillantes (amarillos saturados, verdes neón, rosas eléctricos) y consolidó una paleta cromática sobria y armónica:
+
+* **Fondos y Lienzo**: Tonos lino y arena natural (`#FCFAF7`, `#F7F4EE`, `#FAF8F5`) con bordes en lino suave (`#EAE3D6`).
+* **Tipografía Primaria**: Tono café carbón profundo (`#26170E`, `#3E2314`) para máxima legibilidad y confort visual.
+* **Acentos Gastronómicos**:
+  * **Terracota Suave**: `#874C37` para detalles de recetas, batán e historia familiar.
+  * **Ámbar Miel**: `#7C5B28` para consejos de Doña Sucreñita y valoraciones.
+  * **Verde Bosque / Sabio**: `#3B5745` y verde institucional atenuado `#1F7A4C` para disponibilidad de inventario y atención directa por WhatsApp.
+* **Cero Emojis y Cero Comentarios**: Toda la iconografía se basa exclusivamente en vectores SVG y componentes de `lucide-react`, manteniendo el código de producción limpio y estilizado.

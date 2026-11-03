@@ -11,21 +11,19 @@ import {
   Lock,
 } from 'lucide-react';
 import {
-  TelegramIcon,
   TikTokIcon,
-  MessengerIcon,
   PayPalIcon,
   WhatsAppIcon,
 } from './SocialIcons';
 
 export function Footer() {
   return (
-    <footer className="bg-pastel-sandDark/60 text-sucrenita-800 border-t border-pastel-sandDark">
+    <footer className="bg-pastel-sand/80 text-sucrenita-800 border-t border-pastel-sandDark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="space-y-4 md:col-span-1">
             <span className="font-serif text-2xl font-bold tracking-tight text-sucrenita-900 flex items-center gap-2">
-              <span className="w-8 h-8 rounded-full bg-pastel-amber flex items-center justify-center border border-pastel-amberBorder text-pastel-amberText">
+              <span className="w-8 h-8 rounded-full bg-sucrenita-800 flex items-center justify-center text-pastel-sand">
                 <Wheat className="w-4 h-4" />
               </span>
               Productos Sucreñita
@@ -34,16 +32,16 @@ export function Footer() {
               Emprendimiento familiar boliviano comprometido con llevar a tu hogar los mejores abarrotes y condimentos tradicionales: maní crudo y molido para la auténtica sopa de maní, ají colorado y amarillo puro, y snacks crocantes artesanales preparados con esmero y sazón hogareña.
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-2 text-xs">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-pastel-amber text-pastel-amberText border border-pastel-amberBorder font-medium">
-                <QrCode className="w-3.5 h-3.5 text-pastel-amberText" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-sucrenita-800 border border-pastel-sandDark font-medium shadow-soft">
+                <QrCode className="w-3.5 h-3.5 text-sucrenita-700" />
                 Simple QR Bancario
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sky-100 text-sky-800 border border-sky-200 font-medium">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-sucrenita-800 border border-pastel-sandDark font-medium shadow-soft">
                 <PayPalIcon className="w-3.5 h-3.5 text-[#0070BA]" />
                 PayPal Checkout
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-pastel-sage text-pastel-sageText border border-pastel-sageBorder font-medium">
-                <WhatsAppIcon className="w-3.5 h-3.5 text-pastel-sageText" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-sucrenita-800 border border-pastel-sandDark font-medium shadow-soft">
+                <WhatsAppIcon className="w-3.5 h-3.5 text-[#2B5E46]" />
                 Atención vía WhatsApp
               </span>
             </div>
@@ -95,7 +93,7 @@ export function Footer() {
                 href="https://www.facebook.com/profile.php?id=61595923780807"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
+                className="inline-flex items-center gap-2 p-2.5 rounded-xl bg-white hover:bg-pastel-sand/60 border border-pastel-sandDark transition-colors"
               >
                 <Facebook className="w-3.5 h-3.5 text-[#1877F2]" />
                 <span className="font-medium">Facebook</span>
@@ -105,7 +103,7 @@ export function Footer() {
                 href="https://www.instagram.com/productossucrenita"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
+                className="inline-flex items-center gap-2 p-2.5 rounded-xl bg-white hover:bg-pastel-sand/60 border border-pastel-sandDark transition-colors"
               >
                 <Instagram className="w-3.5 h-3.5 text-[#E4405F]" />
                 <span className="font-medium">Instagram</span>
@@ -115,9 +113,9 @@ export function Footer() {
                 href="https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
+                className="inline-flex items-center gap-2 p-2.5 rounded-xl bg-white hover:bg-pastel-sand/60 border border-pastel-sandDark transition-colors"
               >
-                <TikTokIcon className="w-3.5 h-3.5 text-slate-900" />
+                <TikTokIcon className="w-3.5 h-3.5 text-slate-800" />
                 <span className="font-medium">TikTok</span>
               </a>
 
@@ -125,30 +123,10 @@ export function Footer() {
                 href="https://wa.me/59171152182?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20consultar%20sobre%20sus%20productos"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
+                className="inline-flex items-center gap-2 p-2.5 rounded-xl bg-white hover:bg-pastel-sand/60 border border-pastel-sandDark transition-colors"
               >
-                <WhatsAppIcon className="w-3.5 h-3.5 text-pastel-sageText" />
+                <WhatsAppIcon className="w-3.5 h-3.5 text-[#2B5E46]" />
                 <span className="font-medium">WhatsApp</span>
-              </a>
-
-              <a
-                href="https://t.me/ProductosSucrenita"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
-              >
-                <TelegramIcon className="w-3.5 h-3.5 text-[#229ED9]" />
-                <span className="font-medium">Telegram</span>
-              </a>
-
-              <a
-                href="https://m.me/61595923780807"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 p-2 rounded-xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark transition-colors"
-              >
-                <MessengerIcon className="w-3.5 h-3.5 text-[#0084FF]" />
-                <span className="font-medium">Messenger</span>
               </a>
             </div>
           </div>
@@ -159,15 +137,15 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs text-sucrenita-600">
               <li className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-pastel-amberText shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-sucrenita-700 shrink-0" />
                 <span>Granos e ingredientes 100% seleccionados</span>
               </li>
               <li className="flex items-center gap-2">
-                <Truck className="w-4 h-4 text-pastel-sageText shrink-0" />
+                <Truck className="w-4 h-4 text-sucrenita-700 shrink-0" />
                 <span>Envíos en Sucre y flotas a toda Bolivia</span>
               </li>
               <li className="flex items-center gap-2">
-                <QrCode className="w-4 h-4 text-pastel-peachText shrink-0" />
+                <QrCode className="w-4 h-4 text-sucrenita-700 shrink-0" />
                 <span>Simple QR sin comisiones (Bancos de Bolivia)</span>
               </li>
               <li className="flex items-center gap-2">
@@ -209,6 +187,15 @@ export function Footer() {
               className="hover:text-sucrenita-800 transition-colors"
             >
               TikTok
+            </a>
+            <span>&bull;</span>
+            <a
+              href="https://wa.me/59171152182"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-sucrenita-800 transition-colors"
+            >
+              WhatsApp
             </a>
             <span>&bull;</span>
             <Link

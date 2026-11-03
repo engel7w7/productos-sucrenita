@@ -162,9 +162,9 @@ export function TestimonialsSection() {
 
           <div className="flex items-center gap-4 bg-white p-4 rounded-2xl border border-pastel-sandDark shadow-soft shrink-0">
             <div className="text-right">
-              <div className="flex items-center gap-1 justify-end text-amber-500">
+              <div className="flex items-center gap-1 justify-end text-pastel-amberText">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-500" />
+                  <Star key={i} className="w-4 h-4 fill-pastel-amberText text-pastel-amberText" />
                 ))}
               </div>
               <span className="text-xs font-bold text-sucrenita-900 block mt-0.5">
@@ -218,16 +218,16 @@ export function TestimonialsSection() {
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-1 text-amber-500">
+                    <div className="flex items-center gap-1 text-pastel-amberText">
                       {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-500" />
+                        <Star key={i} className="w-3.5 h-3.5 fill-pastel-amberText text-pastel-amberText" />
                       ))}
                     </div>
                     <span className="text-[11px] text-sucrenita-400">{t.date}</span>
                   </div>
 
                   <div className="p-3 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark text-[11px] text-sucrenita-700 flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-pastel-sageText shrink-0" />
                     <span className="truncate">
                       <strong>Compra verificada:</strong> {t.productPurchased}
                     </span>
@@ -258,11 +258,11 @@ export function TestimonialsSection() {
                     onClick={() => handleToggleLike(t.id)}
                     className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold transition-colors border ${
                       isLiked
-                        ? 'bg-rose-50 text-rose-700 border-rose-200'
+                        ? 'bg-pastel-peach text-pastel-peachText border-pastel-peachBorder'
                         : 'bg-white hover:bg-pastel-sand text-sucrenita-600 border-pastel-sandDark'
                     }`}
                   >
-                    <ThumbsUp className={`w-3 h-3 ${isLiked ? 'text-rose-600 fill-rose-600' : ''}`} />
+                    <ThumbsUp className={`w-3 h-3 ${isLiked ? 'text-pastel-peachText fill-pastel-peachText' : ''}`} />
                     <span>{likeCount}</span>
                   </button>
                 </div>

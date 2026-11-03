@@ -177,7 +177,7 @@ export function CartDrawer() {
                       type="button"
                       onClick={() => removeFromCart(item.product.id)}
                       aria-label={`Quitar ${item.product.name}`}
-                      className="p-1.5 text-sucrenita-400 hover:text-rose-600 transition-colors"
+                      className="p-1.5 text-sucrenita-400 hover:text-pastel-peachText transition-colors"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -211,7 +211,7 @@ export function CartDrawer() {
                 <button
                   type="button"
                   onClick={() => setIsQROpen(true)}
-                  className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-2xl bg-pastel-amber hover:bg-amber-300 text-sucrenita-900 border border-pastel-amberBorder font-semibold text-xs tracking-wide shadow-soft transition-all"
+                  className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-2xl bg-pastel-amber hover:bg-pastel-sandDark text-sucrenita-900 border border-pastel-amberBorder font-semibold text-xs tracking-wide shadow-soft transition-all"
                 >
                   <QrCode className="w-4 h-4 text-pastel-amberText" />
                   <span>Pagar con Simple QR (Bancos de Bolivia)</span>
@@ -222,7 +222,7 @@ export function CartDrawer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleCheckout}
-                  className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs tracking-wide shadow-soft transition-all"
+                  className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-2xl bg-[#1F7A4C] hover:bg-[#19653E] text-white font-semibold text-xs tracking-wide shadow-soft transition-all"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
                   <span>Pedir por WhatsApp (Atención Directa)</span>
@@ -241,7 +241,7 @@ export function CartDrawer() {
                   <button
                     type="button"
                     onClick={clearCart}
-                    className="text-[11px] text-sucrenita-500 hover:text-rose-600 transition-colors"
+                    className="text-[11px] text-sucrenita-500 hover:text-pastel-peachText transition-colors"
                   >
                     Vaciar lista
                   </button>

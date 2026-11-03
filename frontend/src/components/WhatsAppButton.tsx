@@ -18,7 +18,7 @@ export function WhatsAppButton({
   productName,
   price,
   source = 'product_detail',
-  className = 'flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md hover:shadow-lg transition-all',
+  className = 'flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl text-sm font-semibold bg-[#1F7A4C] hover:bg-[#19653E] text-white shadow-md hover:shadow-lg transition-all',
   label = 'Pedir por WhatsApp',
 }: WhatsAppButtonProps) {
   const handleClick = () => {

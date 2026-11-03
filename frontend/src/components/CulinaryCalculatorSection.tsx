@@ -317,7 +317,7 @@ export function CulinaryCalculatorSection() {
           <div className="lg:col-span-7 space-y-6">
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-pastel-sandDark shadow-soft space-y-6">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 block mb-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-pastel-sageText block mb-1">
                   Ingredientes Sucreñita requeridos
                 </span>
                 <h4 className="font-serif text-xl font-bold text-sucrenita-900">
@@ -345,7 +345,7 @@ export function CulinaryCalculatorSection() {
                         {item.packagesNeeded} paquete(s) sugerido(s)
                       </div>
                       {item.product && (
-                        <span className="font-serif font-bold text-xs text-emerald-800">
+                        <span className="font-serif font-bold text-xs text-sucrenita-900">
                           Bs {(
                             (typeof item.product.price === 'string'
                               ? parseFloat(item.product.price)
@@ -368,7 +368,7 @@ export function CulinaryCalculatorSection() {
                       key={idx}
                       className="flex items-center gap-2 p-2 rounded-xl bg-pastel-cream/40"
                     >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-pastel-sageText shrink-0" />
                       <span>
                         <strong>{pantry.name}:</strong> {pantry.amountPerPerson}
                       </span>
@@ -395,7 +395,7 @@ export function CulinaryCalculatorSection() {
                   href={`https://wa.me/59171152182?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs tracking-wide shadow-soft transition-all shrink-0"
+                  className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-[#1F7A4C] hover:bg-[#19653E] text-white font-semibold text-xs tracking-wide shadow-soft transition-all shrink-0"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
                   <span>Pedir combo por WhatsApp</span>

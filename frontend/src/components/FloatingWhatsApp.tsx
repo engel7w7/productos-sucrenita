@@ -29,8 +29,8 @@ export function FloatingWhatsApp() {
                 <h4 className="font-serif font-bold text-sm text-sucrenita-900">
                   Productos Sucreñita
                 </h4>
-                <span className="flex items-center gap-1.5 text-[11px] text-emerald-700 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="flex items-center gap-1.5 text-[11px] text-pastel-sageText font-medium">
+                  <span className="w-2 h-2 rounded-full bg-[#1F7A4C] animate-pulse" />
                   Atención en línea
                 </span>
               </div>
@@ -60,7 +60,7 @@ export function FloatingWhatsApp() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={handleClick}
-            className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs tracking-wide shadow-soft transition-all"
+            className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-[#1F7A4C] hover:bg-[#19653E] text-white font-semibold text-xs tracking-wide shadow-soft transition-all"
           >
             <MessageCircle className="w-4 h-4" />
             <span>Iniciar conversación</span>
@@ -72,10 +72,10 @@ export function FloatingWhatsApp() {
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Contactar por WhatsApp"
-        className="group relative flex items-center gap-2.5 px-4 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-soft-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+        className="group relative flex items-center gap-2.5 px-4 py-3.5 rounded-full bg-[#1F7A4C] hover:bg-[#19653E] text-white shadow-soft-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
       >
         <span className="relative flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pastel-sage opacity-75" />
           <span className="relative inline-flex rounded-full h-3 w-3 bg-white" />
         </span>
         <MessageCircle className="w-5 h-5" />

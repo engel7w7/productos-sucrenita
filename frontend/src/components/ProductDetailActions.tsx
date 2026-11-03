@@ -98,13 +98,13 @@ export function ProductDetailActions({
             onClick={handleAdd}
             className={`inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-semibold transition-all border ${
               added
-                ? 'bg-emerald-100 text-emerald-800 border-emerald-300 shadow-soft scale-105'
+                ? 'bg-pastel-sage text-pastel-sageText border-pastel-sageBorder shadow-soft scale-105'
                 : 'bg-pastel-amber/90 hover:bg-pastel-amber text-pastel-amberText border border-pastel-amberBorder shadow-soft hover:shadow-soft-lg'
             }`}
           >
             {added ? (
               <>
-                <Check className="w-4 h-4 text-emerald-600" />
+                <Check className="w-4 h-4 text-pastel-sageText" />
                 <span>¡Agregado a la bolsita!</span>
               </>
             ) : (
@@ -118,7 +118,7 @@ export function ProductDetailActions({
           <button
             type="button"
             onClick={handleDirectWhatsApp}
-            className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white shadow-soft hover:shadow-soft-lg transition-all"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl text-xs font-semibold bg-[#1F7A4C] hover:bg-[#19653E] text-white shadow-soft hover:shadow-soft-lg transition-all"
           >
             <WhatsAppIcon className="w-4 h-4" />
             <span>Pedir directo por WhatsApp</span>

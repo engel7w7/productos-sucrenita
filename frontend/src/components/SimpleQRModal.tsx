@@ -147,7 +147,7 @@ export function SimpleQRModal({
                 </svg>
 
                 <div className="absolute inset-x-0 bottom-1 text-center">
-                  <span className="text-[10px] font-bold text-amber-800 tracking-wider uppercase bg-amber-100/90 px-2 py-0.5 rounded-full border border-amber-300">
+                  <span className="text-[10px] font-bold text-pastel-amberText tracking-wider uppercase bg-pastel-amber px-2 py-0.5 rounded-full border border-pastel-amberBorder">
                     Simple QR Oficial
                   </span>
                 </div>
@@ -186,8 +186,8 @@ export function SimpleQRModal({
               >
                 {copied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-emerald-600" />
-                    <span className="text-emerald-700">Copiado</span>
+                    <Check className="w-3.5 h-3.5 text-pastel-sageText" />
+                    <span className="text-pastel-sageText">Copiado</span>
                   </>
                 ) : (
                   <>
@@ -232,7 +232,7 @@ export function SimpleQRModal({
             target="_blank"
             rel="noopener noreferrer"
             onClick={handleFinalize}
-            className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs tracking-wide shadow-soft transition-all"
+            className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl bg-[#1F7A4C] hover:bg-[#19653E] text-white font-semibold text-xs tracking-wide shadow-soft transition-all"
           >
             <WhatsAppIcon className="w-4 h-4" />
             <span>Enviar Comprobante de Pago por WhatsApp (+591 71152182)</span>
@@ -240,7 +240,7 @@ export function SimpleQRModal({
 
           <div className="flex items-center justify-between text-[11px] text-sucrenita-500 pt-1">
             <span className="flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <ShieldCheck className="w-3.5 h-3.5 text-pastel-sageText" />
               Transferencia protegida por el sistema financiero boliviano
             </span>
             <button

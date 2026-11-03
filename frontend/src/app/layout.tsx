@@ -119,7 +119,7 @@ const organizationSchema = {
     'https://www.facebook.com/profile.php?id=61595923780807',
     'https://www.instagram.com/productossucrenita',
     'https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk',
-    'https://t.me/ProductosSucrenita',
+    'https://wa.me/59171152182',
   ],
 };
 

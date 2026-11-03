@@ -234,12 +234,12 @@ export function PayPalCheckoutModal({
             </form>
           ) : (
             <div className="text-center py-4 space-y-5 animate-in zoom-in-95 duration-200">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto border-2 border-emerald-300">
+              <div className="w-16 h-16 rounded-full bg-pastel-sage text-pastel-sageText flex items-center justify-center mx-auto border-2 border-pastel-sageBorder">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
 
               <div>
-                <span className="text-xs uppercase font-bold text-emerald-700 tracking-wider">
+                <span className="text-xs uppercase font-bold text-pastel-sageText tracking-wider">
                   Pago Aprobado
                 </span>
                 <h3 className="font-serif text-2xl font-bold text-sucrenita-900 mt-1">
@@ -280,7 +280,7 @@ export function PayPalCheckoutModal({
                   href={`https://wa.me/59171152182?text=${generateWhatsAppMessage()}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-soft transition-all"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-[#1F7A4C] hover:bg-[#19653E] text-white font-bold text-xs shadow-soft transition-all"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
                   <span>Enviar comprobante a WhatsApp de la tienda</span>

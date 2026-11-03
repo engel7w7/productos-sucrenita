@@ -25,9 +25,8 @@ import {
   MapPin,
   CreditCard,
   ShieldCheck,
-  Flame,
 } from 'lucide-react';
-import { PayPalIcon, WhatsAppIcon } from '@/components/SocialIcons';
+import { TikTokIcon, PayPalIcon, WhatsAppIcon } from '@/components/SocialIcons';
 
 export const revalidate = 60;
 
@@ -88,18 +87,18 @@ export default async function HomePage() {
       <JsonLd data={faqSchemaData} />
 
       <div className="flex flex-col gap-16 md:gap-24 pb-20">
-        <section className="relative overflow-hidden bg-gradient-to-b from-pastel-peach/40 via-pastel-amber/30 to-pastel-sand pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-pastel-sandDark/60">
+        <section className="relative overflow-hidden bg-pastel-sand/60 pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-pastel-sandDark">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-pastel-amber/80 border border-pastel-amberBorder text-pastel-amberText shadow-soft">
-                  <Wheat className="w-4 h-4 text-pastel-amberText" />
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-white border border-pastel-sandDark text-sucrenita-800 shadow-soft">
+                  <Wheat className="w-4 h-4 text-sucrenita-700" />
                   <span>Emprendimiento Familiar Chuquisaqueño &bull; Taller Tradicional en Sucre</span>
                 </div>
 
                 <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-sucrenita-900 tracking-tight leading-[1.15]">
                   Los auténticos <br className="hidden sm:inline" />
-                  <span className="text-pastel-peachText underline decoration-pastel-peachText/40 decoration-wavy underline-offset-8">
+                  <span className="text-sucrenita-800 underline decoration-sucrenita-400/60 decoration-wavy underline-offset-8">
                     abarrotes y snacks
                   </span> <br className="hidden sm:inline" />
                   de Sucreñita
@@ -112,9 +111,9 @@ export default async function HomePage() {
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
                   <Link
                     href="/catalogo"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold bg-sucrenita-700 hover:bg-sucrenita-800 text-white shadow-soft hover:shadow-soft-lg transition-all transform hover:-translate-y-0.5"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold bg-sucrenita-800 hover:bg-sucrenita-900 text-white shadow-soft transition-all transform hover:-translate-y-0.5"
                   >
-                    <Store className="w-4 h-4" />
+                    <Store className="w-4 h-4 text-pastel-sand" />
                     <span>Ver Catálogo Completo</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -123,32 +122,32 @@ export default async function HomePage() {
                     url="https://wa.me/59171152182?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20un%20pedido%20desde%20su%20cat%C3%A1logo%20web"
                     source="hero"
                     label="Pedir por WhatsApp (+591 71152182)"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-semibold bg-pastel-sage hover:bg-emerald-100/80 text-pastel-sageText border border-pastel-sageBorder shadow-soft transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-sm font-semibold bg-white hover:bg-pastel-sand text-sucrenita-800 border border-pastel-sandDark shadow-soft transition-all"
                   />
                 </div>
 
-                <div className="grid grid-cols-4 gap-3 pt-8 border-t border-pastel-sandDark/70">
-                  <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white/70 border border-pastel-sandDark/50 shadow-soft">
-                    <span className="font-serif font-bold text-xl sm:text-2xl text-sucrenita-700">100%</span>
-                    <span className="text-[11px] text-sucrenita-500">Puro Sin Relleno</span>
+                <div className="grid grid-cols-4 gap-3 pt-8 border-t border-pastel-sandDark">
+                  <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white border border-pastel-sandDark shadow-soft">
+                    <span className="font-serif font-bold text-xl sm:text-2xl text-sucrenita-900">100%</span>
+                    <span className="text-[11px] text-sucrenita-600">Puro Sin Relleno</span>
                   </div>
-                  <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white/70 border border-pastel-sandDark/50 shadow-soft">
-                    <span className="font-serif font-bold text-xl sm:text-2xl text-pastel-amberText">Simple QR</span>
-                    <span className="text-[11px] text-sucrenita-500">Bancos de Bolivia</span>
+                  <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white border border-pastel-sandDark shadow-soft">
+                    <span className="font-serif font-bold text-xl sm:text-2xl text-sucrenita-900">Simple QR</span>
+                    <span className="text-[11px] text-sucrenita-600">Bancos de Bolivia</span>
                   </div>
-                  <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white/70 border border-pastel-sandDark/50 shadow-soft">
-                    <span className="font-serif font-bold text-xl sm:text-2xl text-[#0070BA]">PayPal</span>
-                    <span className="text-[11px] text-sucrenita-500">Tarjetas y Exterior</span>
+                  <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white border border-pastel-sandDark shadow-soft">
+                    <span className="font-serif font-bold text-xl sm:text-2xl text-sucrenita-900">PayPal</span>
+                    <span className="text-[11px] text-sucrenita-600">Tarjetas / Exterior</span>
                   </div>
-                  <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white/70 border border-pastel-sandDark/50 shadow-soft">
-                    <span className="font-serif font-bold text-xl sm:text-2xl text-pastel-sageText">B2C</span>
-                    <span className="text-[11px] text-sucrenita-500">Directo del Taller</span>
+                  <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white border border-pastel-sandDark shadow-soft">
+                    <span className="font-serif font-bold text-xl sm:text-2xl text-sucrenita-900">B2C</span>
+                    <span className="text-[11px] text-sucrenita-600">Directo del Taller</span>
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-5 relative">
-                <div className="relative mx-auto w-full max-w-md lg:max-w-none aspect-[4/5] rounded-3xl overflow-hidden shadow-soft-lg border-4 border-white">
+                <div className="relative mx-auto w-full max-w-md lg:max-w-none aspect-[4/5] rounded-3xl overflow-hidden shadow-soft-lg border border-pastel-sandDark bg-white">
                   <Image
                     src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1000&q=80"
                     alt="Ajíes y condimentos tradicionales de Sucre Productos Sucreñita"
@@ -160,8 +159,8 @@ export default async function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-sucrenita-900/60 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl glass-pastel text-sucrenita-900 shadow-soft">
                     <div className="flex items-center gap-2 mb-1">
-                      <MapPin className="w-3.5 h-3.5 text-pastel-peachText" />
-                      <span className="text-[11px] uppercase tracking-wider text-pastel-peachText font-bold">
+                      <MapPin className="w-3.5 h-3.5 text-sucrenita-700" />
+                      <span className="text-[11px] uppercase tracking-wider text-sucrenita-700 font-bold">
                         Desde Sucre, Bolivia &bull; San Roque
                       </span>
                     </div>
@@ -175,8 +174,8 @@ export default async function HomePage() {
 
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-pastel-amber/80 text-pastel-amberText border border-pastel-amberBorder shadow-soft mb-2">
-              <Sparkles className="w-3.5 h-3.5" />
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-white text-sucrenita-800 border border-pastel-sandDark shadow-soft mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-sucrenita-700" />
               Nuestras Dos Líneas Comerciales
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900">
@@ -185,42 +184,42 @@ export default async function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="relative rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-pastel-amber to-amber-100/70 border border-pastel-amberBorder text-sucrenita-900 shadow-soft flex flex-col justify-between min-h-[240px]">
+            <div className="relative rounded-3xl p-8 sm:p-10 bg-white border border-pastel-sandDark text-sucrenita-900 shadow-soft flex flex-col justify-between min-h-[240px] hover:border-sucrenita-300 transition-colors">
               <div>
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/90 text-pastel-amberText border border-pastel-amberBorder/50 shadow-soft mb-3">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-pastel-sand text-sucrenita-800 border border-pastel-sandDark shadow-soft mb-3">
                   Línea de Cocina Tradicional
                 </span>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-sucrenita-900">
                   Abarrotes & Condimentos
                 </h3>
-                <p className="mt-2 text-sm text-sucrenita-700 max-w-sm leading-relaxed">
+                <p className="mt-2 text-sm text-sucrenita-600 max-w-sm leading-relaxed">
                   Maní crudo y molido con la proporción exacta para la auténtica sopa de maní, ají colorado picante chuquisaqueño y ají dulce amarillo puro molido en batán.
                 </p>
               </div>
               <Link
                 href="/catalogo?categoria=abarrotes-condimentos"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-pastel-amberText hover:text-amber-900 transition-colors"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sucrenita-800 hover:text-sucrenita-950 transition-colors"
               >
                 <span>Explorar productos de cocina</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
-            <div className="relative rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-pastel-peach to-orange-100/60 border border-pastel-peachBorder text-sucrenita-900 shadow-soft flex flex-col justify-between min-h-[240px]">
+            <div className="relative rounded-3xl p-8 sm:p-10 bg-white border border-pastel-sandDark text-sucrenita-900 shadow-soft flex flex-col justify-between min-h-[240px] hover:border-sucrenita-300 transition-colors">
               <div>
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/90 text-pastel-peachText border border-pastel-peachBorder/50 shadow-soft mb-3">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-pastel-sand text-sucrenita-800 border border-pastel-sandDark shadow-soft mb-3">
                   Línea de Degustación
                 </span>
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-sucrenita-900">
                   Snacks Artesanales
                 </h3>
-                <p className="mt-2 text-sm text-sucrenita-700 max-w-sm leading-relaxed">
+                <p className="mt-2 text-sm text-sucrenita-600 max-w-sm leading-relaxed">
                   Chicharrones crujientes sin grasa excedente, maní garrapiñado acaramelado a fuego lento y habas fritas saladas para compartir en familia.
                 </p>
               </div>
               <Link
                 href="/catalogo?categoria=snacks-artesanales"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-pastel-peachText hover:text-orange-900 transition-colors"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sucrenita-800 hover:text-sucrenita-950 transition-colors"
               >
                 <span>Ver todos los snacks caseros</span>
                 <ArrowRight className="w-4 h-4" />
@@ -232,7 +231,7 @@ export default async function HomePage() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-pastel-peachText">
+              <span className="text-xs font-bold uppercase tracking-wider text-sucrenita-600">
                 Inventario Disponible
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 mt-1">
@@ -241,7 +240,7 @@ export default async function HomePage() {
             </div>
             <Link
               href="/catalogo"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-pastel-peachText hover:text-sucrenita-800 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-sucrenita-800 hover:text-sucrenita-950 transition-colors"
             >
               <span>Ver todo el catálogo</span>
               <ArrowRight className="w-4 h-4" />
@@ -261,8 +260,8 @@ export default async function HomePage() {
 
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-pastel-sage text-pastel-sageText border border-pastel-sageBorder shadow-soft mb-2">
-              <Clock className="w-3.5 h-3.5" />
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-white text-sucrenita-800 border border-pastel-sandDark shadow-soft mb-2">
+              <Clock className="w-3.5 h-3.5 text-sucrenita-700" />
               Experiencia de Compra Sencilla
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900">
@@ -272,10 +271,10 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="p-6 rounded-3xl bg-white border border-pastel-sandDark shadow-soft flex flex-col items-center text-center">
-              <div className="w-14 h-14 rounded-2xl bg-pastel-amber flex items-center justify-center text-pastel-amberText font-serif font-bold text-xl mb-4 border border-pastel-amberBorder">
+              <div className="w-12 h-12 rounded-2xl bg-pastel-sand text-sucrenita-900 font-serif font-bold text-lg mb-4 flex items-center justify-center border border-pastel-sandDark">
                 1
               </div>
-              <h3 className="font-serif font-bold text-lg text-sucrenita-900 mb-2">
+              <h3 className="font-serif font-bold text-base text-sucrenita-900 mb-2">
                 Explora el Catálogo
               </h3>
               <p className="text-xs text-sucrenita-600 leading-relaxed">
@@ -284,10 +283,10 @@ export default async function HomePage() {
             </div>
 
             <div className="p-6 rounded-3xl bg-white border border-pastel-sandDark shadow-soft flex flex-col items-center text-center">
-              <div className="w-14 h-14 rounded-2xl bg-pastel-sage flex items-center justify-center text-pastel-sageText font-serif font-bold text-xl mb-4 border border-pastel-sageBorder">
+              <div className="w-12 h-12 rounded-2xl bg-pastel-sand text-sucrenita-900 font-serif font-bold text-lg mb-4 flex items-center justify-center border border-pastel-sandDark">
                 2
               </div>
-              <h3 className="font-serif font-bold text-lg text-sucrenita-900 mb-2">
+              <h3 className="font-serif font-bold text-base text-sucrenita-900 mb-2">
                 Bolsita o WhatsApp
               </h3>
               <p className="text-xs text-sucrenita-600 leading-relaxed">
@@ -296,10 +295,10 @@ export default async function HomePage() {
             </div>
 
             <div className="p-6 rounded-3xl bg-white border border-pastel-sandDark shadow-soft flex flex-col items-center text-center">
-              <div className="w-14 h-14 rounded-2xl bg-pastel-peach flex items-center justify-center text-pastel-peachText font-serif font-bold text-xl mb-4 border border-pastel-peachBorder">
+              <div className="w-12 h-12 rounded-2xl bg-pastel-sand text-sucrenita-900 font-serif font-bold text-lg mb-4 flex items-center justify-center border border-pastel-sandDark">
                 3
               </div>
-              <h3 className="font-serif font-bold text-lg text-sucrenita-900 mb-2">
+              <h3 className="font-serif font-bold text-base text-sucrenita-900 mb-2">
                 Simple QR o PayPal
               </h3>
               <p className="text-xs text-sucrenita-600 leading-relaxed">
@@ -314,82 +313,126 @@ export default async function HomePage() {
         <VideoMarketingSection />
 
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-pastel-peach/50 via-white to-pastel-amber/40 border border-pastel-sandDark shadow-soft">
+          <div className="rounded-3xl p-8 sm:p-12 bg-white border border-pastel-sandDark shadow-soft">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-4">
-                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-pastel-peachText border border-pastel-peachBorder shadow-soft">
-                  <Heart className="w-3.5 h-3.5 text-rose-500" />
-                  <span>Nuestra Comunidad &bull; Redes Oficiales</span>
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-pastel-sand text-sucrenita-800 border border-pastel-sandDark shadow-soft">
+                  <Heart className="w-3.5 h-3.5 text-sucrenita-700" />
+                  <span>Nuestra Comunidad &bull; Cuatro Redes Oficiales</span>
                 </span>
                 <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 tracking-tight">
-                  Síguenos en Facebook e Instagram
+                  Conéctate a Nuestras Redes Oficiales
                 </h2>
-                <p className="text-sm sm:text-base text-sucrenita-700 leading-relaxed max-w-xl">
-                  Descubre videos del proceso de selección de granos, fotos de lotes recién tostados, ideas de recetas tradicionales chuquisaqueñas y novedades de nuevos productos. Conéctate directamente con nosotros sin costo alguno.
+                <p className="text-sm sm:text-base text-sucrenita-600 leading-relaxed max-w-xl">
+                  Síguenos en nuestros cuatro canales autorizados para ver videos de elaboración tradicional, fotos de tostados recientes, recetas chuquisaqueñas y novedades de productos.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs text-sucrenita-700">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-sucrenita-700 shrink-0" />
                     <span>Avisos de disponibilidad de maní fresco</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Recetas familiares de sopa y ajíes</span>
+                    <CheckCircle2 className="w-4 h-4 text-sucrenita-700 shrink-0" />
+                    <span>Recetas tradicionales de sopa y ajíes</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Atención rápida sin intermediarios</span>
+                    <CheckCircle2 className="w-4 h-4 text-sucrenita-700 shrink-0" />
+                    <span>Atención directa sin intermediarios</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-sucrenita-700 shrink-0" />
                     <span>Lotes de snacks crocantes de la semana</span>
                   </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-5 flex flex-col gap-4">
+              <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a
+                  href="https://wa.me/59171152182"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col justify-between p-4 rounded-2xl bg-pastel-sand/50 hover:bg-pastel-sand border border-pastel-sandDark transition-all"
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="w-10 h-10 rounded-xl bg-white text-sucrenita-800 flex items-center justify-center border border-pastel-sandDark shadow-soft">
+                      <WhatsAppIcon className="w-5 h-5 text-[#2B5E46]" />
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-800 transition-colors" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif font-bold text-sm text-sucrenita-900">
+                      WhatsApp Oficial
+                    </h3>
+                    <p className="text-[11px] text-sucrenita-500">
+                      +591 71152182 &bull; Pedidos
+                    </p>
+                  </div>
+                </a>
+
                 <a
                   href="https://www.facebook.com/profile.php?id=61595923780807"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between p-5 rounded-2xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark shadow-soft transition-all"
+                  className="group flex flex-col justify-between p-4 rounded-2xl bg-pastel-sand/50 hover:bg-pastel-sand border border-pastel-sandDark transition-all"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-[#1877F2]/10 text-[#1877F2] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                      <Facebook className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="w-10 h-10 rounded-xl bg-white text-[#1877F2] flex items-center justify-center border border-pastel-sandDark shadow-soft">
+                      <Facebook className="w-5 h-5" />
                     </div>
-                    <div>
-                      <h3 className="font-serif font-bold text-sucrenita-900 group-hover:text-[#1877F2] transition-colors">
-                        Página de Facebook
-                      </h3>
-                      <p className="text-xs text-sucrenita-600">
-                        facebook.com/profile.php?id=61595923780807
-                      </p>
-                    </div>
+                    <ArrowRight className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-800 transition-colors" />
                   </div>
-                  <ArrowRight className="w-5 h-5 text-sucrenita-400 group-hover:text-[#1877F2] group-hover:translate-x-1 transition-all" />
+                  <div>
+                    <h3 className="font-serif font-bold text-sm text-sucrenita-900">
+                      Página de Facebook
+                    </h3>
+                    <p className="text-[11px] text-sucrenita-500">
+                      Comunidad oficial
+                    </p>
+                  </div>
                 </a>
 
                 <a
                   href="https://www.instagram.com/productossucrenita"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between p-5 rounded-2xl bg-white hover:bg-pastel-peach/30 border border-pastel-sandDark shadow-soft transition-all"
+                  className="group flex flex-col justify-between p-4 rounded-2xl bg-pastel-sand/50 hover:bg-pastel-sand border border-pastel-sandDark transition-all"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-[#E4405F]/10 text-[#E4405F] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                      <Instagram className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="w-10 h-10 rounded-xl bg-white text-[#E4405F] flex items-center justify-center border border-pastel-sandDark shadow-soft">
+                      <Instagram className="w-5 h-5" />
                     </div>
-                    <div>
-                      <h3 className="font-serif font-bold text-sucrenita-900 group-hover:text-[#E4405F] transition-colors">
-                        Perfil de Instagram
-                      </h3>
-                      <p className="text-xs text-sucrenita-600">
-                        @productossucrenita
-                      </p>
-                    </div>
+                    <ArrowRight className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-800 transition-colors" />
                   </div>
-                  <ArrowRight className="w-5 h-5 text-sucrenita-400 group-hover:text-[#E4405F] group-hover:translate-x-1 transition-all" />
+                  <div>
+                    <h3 className="font-serif font-bold text-sm text-sucrenita-900">
+                      Perfil de Instagram
+                    </h3>
+                    <p className="text-[11px] text-sucrenita-500">
+                      @productossucrenita
+                    </p>
+                  </div>
+                </a>
+
+                <a
+                  href="https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col justify-between p-4 rounded-2xl bg-pastel-sand/50 hover:bg-pastel-sand border border-pastel-sandDark transition-all"
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="w-10 h-10 rounded-xl bg-white text-slate-900 flex items-center justify-center border border-pastel-sandDark shadow-soft">
+                      <TikTokIcon className="w-5 h-5" />
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-800 transition-colors" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif font-bold text-sm text-sucrenita-900">
+                      TikTok Oficial
+                    </h3>
+                    <p className="text-[11px] text-sucrenita-500">
+                      @sucrenita_artesanal
+                    </p>
+                  </div>
                 </a>
               </div>
             </div>
@@ -400,8 +443,8 @@ export default async function HomePage() {
 
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="card-pastel rounded-3xl p-8 sm:p-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex items-start gap-4 p-4 rounded-2xl bg-pastel-amber/50 border border-pastel-amberBorder/60">
-              <div className="p-3.5 rounded-2xl bg-white text-pastel-amberText shadow-soft shrink-0">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-pastel-sand/40 border border-pastel-sandDark">
+              <div className="p-3 rounded-2xl bg-white text-sucrenita-700 shadow-soft shrink-0 border border-pastel-sandDark">
                 <Utensils className="w-5 h-5" />
               </div>
               <div>
@@ -412,8 +455,8 @@ export default async function HomePage() {
               </div>
             </div>
 
-            <div className="flex items-start gap-4 p-4 rounded-2xl bg-pastel-sage/50 border border-pastel-sageBorder/60">
-              <div className="p-3.5 rounded-2xl bg-white text-pastel-sageText shadow-soft shrink-0">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-pastel-sand/40 border border-pastel-sandDark">
+              <div className="p-3 rounded-2xl bg-white text-sucrenita-700 shadow-soft shrink-0 border border-pastel-sandDark">
                 <MessageCircle className="w-5 h-5" />
               </div>
               <div>
@@ -424,8 +467,8 @@ export default async function HomePage() {
               </div>
             </div>
 
-            <div className="flex items-start gap-4 p-4 rounded-2xl bg-pastel-peach/50 border border-pastel-peachBorder/60">
-              <div className="p-3.5 rounded-2xl bg-white text-pastel-peachText shadow-soft shrink-0">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-pastel-sand/40 border border-pastel-sandDark">
+              <div className="p-3 rounded-2xl bg-white text-sucrenita-700 shadow-soft shrink-0 border border-pastel-sandDark">
                 <QrCode className="w-5 h-5" />
               </div>
               <div>

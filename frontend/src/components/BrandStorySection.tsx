@@ -43,7 +43,7 @@ export function BrandStorySection() {
 
           <div className="lg:col-span-6 space-y-6 text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-pastel-peachText border border-pastel-peachBorder shadow-soft">
-              <Heart className="w-3.5 h-3.5 text-rose-500" />
+              <Heart className="w-3.5 h-3.5 text-pastel-peachText" />
               <span>Nuestra Historia &bull; Pasión por la Sazón Auténtica</span>
             </div>
 
@@ -62,19 +62,19 @@ export function BrandStorySection() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs text-sucrenita-800">
               <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/80 border border-pastel-sandDark/70">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-pastel-sageText shrink-0" />
                 <span>Molienda fresca cada semana</span>
               </div>
               <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/80 border border-pastel-sandDark/70">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-pastel-sageText shrink-0" />
                 <span>Granos selectos de primera calidad</span>
               </div>
               <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/80 border border-pastel-sandDark/70">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-pastel-sageText shrink-0" />
                 <span>Cobro seguro por Simple QR y PayPal</span>
               </div>
               <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/80 border border-pastel-sandDark/70">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-pastel-sageText shrink-0" />
                 <span>Envíos garantizados a todo el país</span>
               </div>
             </div>

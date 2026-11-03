@@ -307,12 +307,12 @@ export default async function ProductDetailPage({ params }: Props) {
                   className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border ${
                     isAvailable
                       ? 'bg-pastel-sage text-pastel-sageText border-pastel-sageBorder'
-                      : 'bg-pastel-rose text-rose-800 border-rose-200'
+                      : 'bg-pastel-peach text-pastel-peachText border-pastel-peachBorder'
                   }`}
                 >
                   <span
                     className={`w-2 h-2 rounded-full ${
-                      isAvailable ? 'bg-emerald-500' : 'bg-rose-500'
+                      isAvailable ? 'bg-[#1F7A4C]' : 'bg-pastel-peachText'
                     }`}
                   />
                   {isAvailable ? `Disponible (${product.stock} unidades en almacén)` : 'Agotado temporalmente'}
