@@ -1,38 +1,29 @@
 'use client';
 
-import Script from 'next/script';
+import { useEffect, Suspense } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { GA_TRACKING_ID, pageView } from '@/lib/analytics';
 
-interface GoogleAnalyticsProps {
-  gaId?: string;
+function AnalyticsRouteListener() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (!pathname) return;
+    const queryString = searchParams?.toString();
+    const targetUrl = queryString ? `${pathname}?${queryString}` : pathname;
+    pageView(targetUrl);
+  }, [pathname, searchParams]);
+
+  return null;
 }
 
-export function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
-  const trackingId = gaId || process.env.NEXT_PUBLIC_GA_ID || 'G-488V6796W5';
-
-  if (!trackingId) {
-    return null;
-  }
+export function GoogleAnalytics() {
+  if (!GA_TRACKING_ID) return null;
 
   return (
-    <>
-      <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}
-      />
-      <Script
-        id="google-analytics-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${trackingId}', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }}
-      />
-    </>
+    <Suspense fallback={null}>
+      <AnalyticsRouteListener />
+    </Suspense>
   );
 }

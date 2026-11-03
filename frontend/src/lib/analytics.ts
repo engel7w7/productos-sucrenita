@@ -11,6 +11,13 @@ export function pageView(url: string) {
   if (typeof window !== 'undefined' && window.gtag && GA_TRACKING_ID) {
     window.gtag('config', GA_TRACKING_ID, {
       page_path: url,
+      page_location: window.location.href,
+      page_title: document.title,
+    });
+    window.gtag('event', 'page_view', {
+      page_path: url,
+      page_location: window.location.href,
+      page_title: document.title,
     });
   }
 }

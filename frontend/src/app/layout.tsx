@@ -142,13 +142,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
-      <head>
+            <head>
+        <meta name="generator" content="Next.js" />
+        <meta name="application-name" content="Productos Sucreñita" />
         <meta name="color-scheme" content="light dark" />
         <link rel="icon" href="/logo-profile.jpg" type="image/jpeg" />
         <link rel="apple-touch-icon" href="/logo-profile.jpg" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var s=localStorage.getItem('theme');var m=document.querySelector('meta[name="color-scheme"]');var d=s==='dark'||(!s&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d){document.documentElement.classList.add('dark');if(m)m.content='dark';}else{document.documentElement.classList.remove('dark');if(m)m.content='light';}}catch(e){}})();`,
+          }}
+        />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-488V6796W5" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-488V6796W5', { send_page_view: true });`,
           }}
         />
       </head>
