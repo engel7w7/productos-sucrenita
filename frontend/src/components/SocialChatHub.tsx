@@ -93,8 +93,8 @@ export function SocialChatHub() {
         )}
 
         {isOpen && (
-          <div className="w-[340px] sm:w-[380px] bg-white rounded-3xl shadow-soft-lg border border-pastel-sandDark overflow-hidden flex flex-col max-h-[85vh] animate-in zoom-in-95 duration-200">
-            <div className="bg-sucrenita-900 text-white p-5 flex items-center justify-between">
+          <div className="w-[340px] sm:w-[380px] bg-white dark:bg-cacao-900 rounded-3xl shadow-soft-lg border border-pastel-sandDark dark:border-cacao-800 overflow-hidden flex flex-col max-h-[85vh] animate-in zoom-in-95 duration-200 transition-colors">
+            <div className="bg-sucrenita-900 dark:bg-cacao-950 dark:border-b dark:border-cacao-800 text-white p-5 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-sucrenita-800 text-pastel-sand flex items-center justify-center font-serif font-bold text-lg border border-sucrenita-700">
                   S
@@ -119,14 +119,14 @@ export function SocialChatHub() {
               </button>
             </div>
 
-            <div className="flex border-b border-pastel-sandDark bg-pastel-sand/40">
+            <div className="flex border-b border-pastel-sandDark dark:border-cacao-800 bg-pastel-sand/40 dark:bg-cacao-850">
               <button
                 type="button"
                 onClick={() => setActiveTab('chat')}
                 className={`flex-1 py-3 text-xs font-semibold text-center transition-colors flex items-center justify-center gap-2 ${
                   activeTab === 'chat'
-                    ? 'text-sucrenita-900 border-b-2 border-sucrenita-800 bg-white'
-                    : 'text-sucrenita-500 hover:text-sucrenita-800'
+                    ? 'text-sucrenita-900 dark:text-cacao-50 border-b-2 border-sucrenita-800 dark:border-cacao-400 bg-white dark:bg-cacao-900'
+                    : 'text-sucrenita-500 dark:text-cacao-300 hover:text-sucrenita-800 dark:hover:text-cacao-100'
                 }`}
               >
                 <HelpCircle className="w-4 h-4 text-sucrenita-600" />
@@ -137,8 +137,8 @@ export function SocialChatHub() {
                 onClick={() => setActiveTab('social')}
                 className={`flex-1 py-3 text-xs font-semibold text-center transition-colors flex items-center justify-center gap-2 ${
                   activeTab === 'social'
-                    ? 'text-sucrenita-900 border-b-2 border-sucrenita-800 bg-white'
-                    : 'text-sucrenita-500 hover:text-sucrenita-800'
+                    ? 'text-sucrenita-900 dark:text-cacao-50 border-b-2 border-sucrenita-800 dark:border-cacao-400 bg-white dark:bg-cacao-900'
+                    : 'text-sucrenita-500 dark:text-cacao-300 hover:text-sucrenita-800 dark:hover:text-cacao-100'
                 }`}
               >
                 <MessageSquare className="w-4 h-4 text-sucrenita-600" />
@@ -146,11 +146,11 @@ export function SocialChatHub() {
               </button>
             </div>
 
-            <div className="p-4 overflow-y-auto flex-1 space-y-3 bg-pastel-sand/20">
+            <div className="p-4 overflow-y-auto flex-1 space-y-3 bg-pastel-sand/20 dark:bg-cacao-900/60">
               {activeTab === 'chat' ? (
                 <div className="space-y-3">
-                  <div className="p-3.5 rounded-2xl bg-white border border-pastel-sandDark text-xs text-sucrenita-700 leading-relaxed shadow-soft">
-                    <p className="font-medium text-sucrenita-900 mb-1">
+                  <div className="p-3.5 rounded-2xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-800 text-xs text-sucrenita-700 dark:text-cacao-200 leading-relaxed shadow-soft">
+                    <p className="font-medium text-sucrenita-900 dark:text-cacao-100 mb-1">
                       ¡Bienvenido a Productos Sucreñita!
                     </p>
                     <p>
@@ -164,12 +164,12 @@ export function SocialChatHub() {
                       return (
                         <div
                           key={faq.id}
-                          className="rounded-2xl border border-pastel-sandDark bg-white overflow-hidden transition-all shadow-soft"
+                          className="rounded-2xl border border-pastel-sandDark dark:border-cacao-800 bg-white dark:bg-cacao-850 overflow-hidden transition-all shadow-soft"
                         >
                           <button
                             type="button"
                             onClick={() => setSelectedFaq(isExpanded ? null : faq.id)}
-                            className="w-full p-3.5 text-left text-xs font-semibold text-sucrenita-800 hover:text-sucrenita-950 flex items-center justify-between gap-2 transition-colors"
+                            className="w-full p-3.5 text-left text-xs font-semibold text-sucrenita-800 dark:text-cacao-100 hover:text-sucrenita-950 dark:hover:text-cacao-50 flex items-center justify-between gap-2 transition-colors"
                           >
                             <span>{faq.question}</span>
                             <ChevronRight
@@ -180,7 +180,7 @@ export function SocialChatHub() {
                           </button>
 
                           {isExpanded && (
-                            <div className="p-3.5 pt-0 text-[11px] text-sucrenita-600 border-t border-pastel-sand/50 bg-pastel-sand/30 space-y-2.5">
+                            <div className="p-3.5 pt-0 text-[11px] text-sucrenita-600 dark:text-cacao-200 border-t border-pastel-sand/50 dark:border-cacao-800 bg-pastel-sand/30 dark:bg-cacao-800/50 space-y-2.5">
                               <p className="leading-relaxed">{faq.answer}</p>
                               <a
                                 href={`https://wa.me/59171152182?text=${encodeURIComponent(
@@ -200,8 +200,8 @@ export function SocialChatHub() {
                     })}
                   </div>
 
-                  <div className="pt-2 border-t border-pastel-sandDark space-y-2">
-                    <label className="text-[11px] font-semibold text-sucrenita-700 block">
+                  <div className="pt-2 border-t border-pastel-sandDark dark:border-cacao-800 space-y-2">
+                    <label className="text-[11px] font-semibold text-sucrenita-700 dark:text-cacao-200 block">
                       ¿Tienes otra consulta o pedido especial?
                     </label>
                     <div className="flex gap-2">
@@ -211,7 +211,7 @@ export function SocialChatHub() {
                         onChange={(e) => setCustomMessage(e.target.value)}
                         onKeyDown={(e) => e.key === 'Enter' && handleSendWhatsApp()}
                         placeholder="Escribe tu mensaje aquí..."
-                        className="flex-1 p-2.5 text-xs rounded-2xl border border-pastel-sandDark focus:outline-none focus:ring-1 focus:ring-sucrenita-500 bg-white text-sucrenita-800"
+                        className="flex-1 p-2.5 text-xs rounded-2xl border border-pastel-sandDark dark:border-cacao-700 focus:outline-none focus:ring-1 focus:ring-sucrenita-500 bg-white dark:bg-cacao-850 text-sucrenita-800 dark:text-cacao-100 placeholder-sucrenita-400 dark:placeholder-cacao-400"
                       />
                       <button
                         type="button"
@@ -234,17 +234,17 @@ export function SocialChatHub() {
                     href="https://wa.me/59171152182?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20un%20pedido"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3 rounded-2xl bg-white hover:bg-pastel-sand/60 border border-pastel-sandDark transition-all group"
+                    className="flex items-center justify-between p-3 rounded-2xl bg-white dark:bg-cacao-850 hover:bg-pastel-sand/60 dark:hover:bg-cacao-800 border border-pastel-sandDark dark:border-cacao-800 transition-all group"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-pastel-sand text-sucrenita-800 flex items-center justify-center">
+                      <div className="w-9 h-9 rounded-xl bg-pastel-sand dark:bg-cacao-800 text-sucrenita-800 dark:text-cacao-100 flex items-center justify-center">
                         <WhatsAppIcon className="w-5 h-5 text-[#2B5E46]" />
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold text-sucrenita-900 group-hover:text-sucrenita-700 transition-colors">
+                        <h4 className="text-xs font-bold text-sucrenita-900 dark:text-cacao-100 group-hover:text-sucrenita-700 dark:group-hover:text-cacao-50 transition-colors">
                           WhatsApp Oficial
                         </h4>
-                        <p className="text-[11px] text-sucrenita-500">+591 71152182 &bull; Atención directa</p>
+                        <p className="text-[11px] text-sucrenita-500 dark:text-cacao-300">+591 71152182 &bull; Atención directa</p>
                       </div>
                     </div>
                     <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-700" />
@@ -254,17 +254,17 @@ export function SocialChatHub() {
                     href="https://www.facebook.com/profile.php?id=61595923780807"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3 rounded-2xl bg-white hover:bg-pastel-sand/60 border border-pastel-sandDark transition-all group"
+                    className="flex items-center justify-between p-3 rounded-2xl bg-white dark:bg-cacao-850 hover:bg-pastel-sand/60 dark:hover:bg-cacao-800 border border-pastel-sandDark dark:border-cacao-800 transition-all group"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-pastel-sand text-sucrenita-800 flex items-center justify-center">
+                      <div className="w-9 h-9 rounded-xl bg-pastel-sand dark:bg-cacao-800 text-sucrenita-800 dark:text-cacao-100 flex items-center justify-center">
                         <Facebook className="w-5 h-5 text-[#1877F2]" />
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold text-sucrenita-900 group-hover:text-sucrenita-700 transition-colors">
+                        <h4 className="text-xs font-bold text-sucrenita-900 dark:text-cacao-100 group-hover:text-sucrenita-700 dark:group-hover:text-cacao-50 transition-colors">
                           Página de Facebook
                         </h4>
-                        <p className="text-[11px] text-sucrenita-500">facebook.com &bull; Comunidad oficial</p>
+                        <p className="text-[11px] text-sucrenita-500 dark:text-cacao-300">facebook.com &bull; Comunidad oficial</p>
                       </div>
                     </div>
                     <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-700" />
@@ -274,17 +274,17 @@ export function SocialChatHub() {
                     href="https://www.instagram.com/productossucrenita"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3 rounded-2xl bg-white hover:bg-pastel-sand/60 border border-pastel-sandDark transition-all group"
+                    className="flex items-center justify-between p-3 rounded-2xl bg-white dark:bg-cacao-850 hover:bg-pastel-sand/60 dark:hover:bg-cacao-800 border border-pastel-sandDark dark:border-cacao-800 transition-all group"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-pastel-sand text-sucrenita-800 flex items-center justify-center">
+                      <div className="w-9 h-9 rounded-xl bg-pastel-sand dark:bg-cacao-800 text-sucrenita-800 dark:text-cacao-100 flex items-center justify-center">
                         <Instagram className="w-5 h-5 text-[#E4405F]" />
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold text-sucrenita-900 group-hover:text-sucrenita-700 transition-colors">
+                        <h4 className="text-xs font-bold text-sucrenita-900 dark:text-cacao-100 group-hover:text-sucrenita-700 dark:group-hover:text-cacao-50 transition-colors">
                           Perfil de Instagram
                         </h4>
-                        <p className="text-[11px] text-sucrenita-500">@productossucrenita &bull; Galería</p>
+                        <p className="text-[11px] text-sucrenita-500 dark:text-cacao-300">@productossucrenita &bull; Galería</p>
                       </div>
                     </div>
                     <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-700" />
@@ -294,17 +294,17 @@ export function SocialChatHub() {
                     href="https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3 rounded-2xl bg-white hover:bg-pastel-sand/60 border border-pastel-sandDark transition-all group"
+                    className="flex items-center justify-between p-3 rounded-2xl bg-white dark:bg-cacao-850 hover:bg-pastel-sand/60 dark:hover:bg-cacao-800 border border-pastel-sandDark dark:border-cacao-800 transition-all group"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-pastel-sand text-sucrenita-800 flex items-center justify-center">
+                      <div className="w-9 h-9 rounded-xl bg-pastel-sand dark:bg-cacao-800 text-sucrenita-800 dark:text-cacao-100 flex items-center justify-center">
                         <TikTokIcon className="w-5 h-5 text-slate-800" />
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold text-sucrenita-900 group-hover:text-sucrenita-700 transition-colors">
+                        <h4 className="text-xs font-bold text-sucrenita-900 dark:text-cacao-100 group-hover:text-sucrenita-700 dark:group-hover:text-cacao-50 transition-colors">
                           TikTok Oficial
                         </h4>
-                        <p className="text-[11px] text-sucrenita-500">@sucrenita_artesanal &bull; Videos y recetas</p>
+                        <p className="text-[11px] text-sucrenita-500 dark:text-cacao-300">@sucrenita_artesanal &bull; Videos y recetas</p>
                       </div>
                     </div>
                     <ExternalLink className="w-4 h-4 text-sucrenita-400 group-hover:text-sucrenita-700" />
@@ -313,7 +313,7 @@ export function SocialChatHub() {
               )}
             </div>
 
-            <div className="p-3 bg-white border-t border-pastel-sandDark flex items-center justify-between text-[11px] text-sucrenita-500">
+            <div className="p-3 bg-white dark:bg-cacao-950 border-t border-pastel-sandDark dark:border-cacao-800 flex items-center justify-between text-[11px] text-sucrenita-500 dark:text-cacao-300">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-sucrenita-600" />
                 Venta directa sin comisiones
@@ -322,7 +322,7 @@ export function SocialChatHub() {
                 href="https://wa.me/59171152182"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sucrenita-800 hover:text-sucrenita-950 transition-colors"
+                className="font-semibold text-sucrenita-800 dark:text-cacao-100 hover:text-sucrenita-950 dark:hover:text-cacao-50 transition-colors"
               >
                 +591 71152182
               </a>

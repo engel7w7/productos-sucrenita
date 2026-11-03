@@ -7,6 +7,7 @@ import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import { JsonLd } from '@/components/JsonLd';
 import { SocialChatHub } from '@/components/SocialChatHub';
 import { CartProvider } from '@/context/CartContext';
+import { ThemeProvider } from '@/context/ThemeContext';
 import { CartDrawer } from '@/components/CartDrawer';
 
 const inter = Inter({
@@ -129,17 +130,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="min-h-screen flex flex-col font-sans antialiased bg-sucrenita-50 text-sucrenita-900 selection:bg-sucrenita-600 selection:text-white">
+    <html lang="es" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        <meta name="color-scheme" content="light dark" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem('theme');var m=document.querySelector('meta[name="color-scheme"]');var d=s==='dark'||(!s&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d){document.documentElement.classList.add('dark');if(m)m.content='dark';}else{document.documentElement.classList.remove('dark');if(m)m.content='light';}}catch(e){}})();`,
+          }}
+        />
+      </head>
+      <body className="min-h-screen flex flex-col font-sans antialiased bg-sucrenita-50 dark:bg-cacao-950 text-sucrenita-900 dark:text-[#F5EFEB] selection:bg-sucrenita-600 dark:selection:bg-[#5A3A27] selection:text-white transition-colors duration-200">
         <JsonLd data={organizationSchema} />
         <GoogleAnalytics />
-        <CartProvider>
+        <ThemeProvider>
+          <CartProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
           <SocialChatHub />
           <CartDrawer />
-        </CartProvider>
+          </CartProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

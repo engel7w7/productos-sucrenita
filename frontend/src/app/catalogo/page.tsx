@@ -52,32 +52,32 @@ export default async function CatalogoPage({ searchParams }: CatalogoPageProps) 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 space-y-10">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-pastel-amber/80 text-pastel-amberText border border-pastel-amberBorder shadow-soft">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-pastel-amber/80 dark:bg-cacao-800 text-pastel-amberText dark:text-[#D4A853] border border-pastel-amberBorder dark:border-cacao-700 shadow-soft">
             <Store className="w-3.5 h-3.5" />
             <span>Tienda Virtual Oficial &bull; Productos Sucreñita</span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl font-bold text-sucrenita-900 tracking-tight">
+          <h1 className="font-serif text-3xl sm:text-5xl font-bold text-sucrenita-900 dark:text-[#FAF6F0] tracking-tight">
             Catálogo Artesanal de la Casa
           </h1>
 
-          <p className="text-sm sm:text-base text-sucrenita-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-sucrenita-600 dark:text-[#CBBFB6] max-w-2xl mx-auto leading-relaxed">
             Ingredientes seleccionados para dar el auténtico toque chuquisaqueño a tus recetas familiares y snacks recién tostados para disfrutar en cualquier momento.
           </p>
 
-          <div className="pt-2 inline-flex flex-wrap items-center justify-center gap-4 sm:gap-6 px-6 py-3 rounded-2xl bg-white/80 border border-pastel-sandDark shadow-soft text-xs text-sucrenita-700">
+          <div className="pt-2 inline-flex flex-wrap items-center justify-center gap-4 sm:gap-6 px-6 py-3 rounded-2xl bg-white/80 dark:bg-cacao-850/80 border border-pastel-sandDark dark:border-cacao-700 shadow-soft text-xs text-sucrenita-700 dark:text-[#D1C3B8]">
             <span className="flex items-center gap-2 font-medium">
-              <QrCode className="w-4 h-4 text-pastel-peachText" />
+              <QrCode className="w-4 h-4 text-pastel-peachText dark:text-[#D48065]" />
               Simple QR sin comisiones
             </span>
-            <span className="hidden sm:inline text-pastel-sandDark">&bull;</span>
+            <span className="hidden sm:inline text-pastel-sandDark dark:text-cacao-700">&bull;</span>
             <span className="flex items-center gap-2 font-medium">
-              <Truck className="w-4 h-4 text-pastel-amberText" />
+              <Truck className="w-4 h-4 text-pastel-amberText dark:text-[#D4A853]" />
               Entregas en Sucre y flotas al interior
             </span>
-            <span className="hidden sm:inline text-pastel-sandDark">&bull;</span>
+            <span className="hidden sm:inline text-pastel-sandDark dark:text-cacao-700">&bull;</span>
             <span className="flex items-center gap-2 font-medium">
-              <MessageCircle className="w-4 h-4 text-pastel-sageText" />
+              <MessageCircle className="w-4 h-4 text-pastel-sageText dark:text-[#78A887]" />
               WhatsApp directo (+591 71152182)
             </span>
           </div>

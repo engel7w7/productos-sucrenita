@@ -101,17 +101,17 @@ const TIKTOK_SHORTS = [
 export function VideoMarketingSection() {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div className="rounded-3xl p-8 sm:p-12 bg-gradient-to-b from-white via-pastel-sand/40 to-pastel-cream/70 border border-pastel-sandDark shadow-soft space-y-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-pastel-sandDark/70 pb-8">
+      <div className="rounded-3xl p-8 sm:p-12 bg-gradient-to-b from-white via-pastel-sand/40 to-pastel-cream/70 dark:from-cacao-900 dark:via-cacao-850 dark:to-cacao-900 border border-pastel-sandDark dark:border-cacao-800 shadow-soft space-y-12 transition-colors">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-pastel-sandDark/70 dark:border-cacao-800 pb-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white shadow-soft mb-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 dark:bg-cacao-800 text-white dark:text-cacao-100 border border-transparent dark:border-cacao-700 shadow-soft mb-3">
               <TikTokIcon className="w-3.5 h-3.5 text-white" />
               <span>Canal Oficial de TikTok &bull; @sucrenita_artesanal</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 dark:text-cacao-50 tracking-tight">
               Secretos culinarios y recetas en video
             </h2>
-            <p className="mt-2 text-sm text-sucrenita-600 max-w-2xl leading-relaxed">
+            <p className="mt-2 text-sm text-sucrenita-600 dark:text-cacao-200 max-w-2xl leading-relaxed">
               Descubre cómo preparar platos típicos de Chuquisaca usando nuestros ingredientes tradicionales. Videos cortos, recetas tradicionales y cápsulas paso a paso en nuestra cuenta oficial de TikTok.
             </p>
           </div>
@@ -120,7 +120,7 @@ export function VideoMarketingSection() {
             href="https://www.tiktok.com/@sucrenita_artesanal?_r=1&_t=ZS-9B4ug7qM3Bk"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 hover:bg-black text-white font-semibold text-xs shadow-soft transition-all shrink-0"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 dark:bg-cacao-800 hover:bg-black dark:hover:bg-cacao-700 text-white font-semibold text-xs shadow-soft transition-all shrink-0"
           >
             <TikTokIcon className="w-4 h-4 text-white" />
             <span>Seguir en TikTok @sucrenita_artesanal</span>
@@ -132,7 +132,7 @@ export function VideoMarketingSection() {
           {TIKTOK_VIDEOS.map((video) => (
             <div
               key={video.id}
-              className="group rounded-3xl bg-white border border-pastel-sandDark overflow-hidden shadow-soft hover:shadow-soft-lg transition-all flex flex-col justify-between"
+              className="group rounded-3xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-800 overflow-hidden shadow-soft hover:shadow-soft-lg transition-all flex flex-col justify-between"
             >
               <div>
                 <a
@@ -168,13 +168,13 @@ export function VideoMarketingSection() {
                 </a>
 
                 <div className="p-5 space-y-3">
-                  <div className="flex items-center gap-1 text-[11px] text-pastel-peachText font-medium">
+                  <div className="flex items-center gap-1 text-[11px] text-pastel-peachText dark:text-amber-300 font-medium">
                     <span>{video.tag}</span>
                   </div>
-                  <h3 className="font-serif font-bold text-base text-sucrenita-900 group-hover:text-sucrenita-700 transition-colors leading-snug">
+                  <h3 className="font-serif font-bold text-base text-sucrenita-900 dark:text-cacao-50 group-hover:text-sucrenita-700 dark:group-hover:text-cacao-200 transition-colors leading-snug">
                     {video.title}
                   </h3>
-                  <p className="text-xs text-sucrenita-600 line-clamp-3 leading-relaxed">
+                  <p className="text-xs text-sucrenita-600 dark:text-cacao-300 line-clamp-3 leading-relaxed">
                     {video.description}
                   </p>
                 </div>
@@ -198,7 +198,7 @@ export function VideoMarketingSection() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-pastel-sage hover:bg-pastel-sage/70 text-pastel-sageText border border-pastel-sageBorder text-[11px] font-semibold transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-pastel-sage hover:bg-pastel-sage/70 dark:bg-emerald-950/50 dark:hover:bg-emerald-900/40 text-pastel-sageText dark:text-emerald-300 border border-pastel-sageBorder dark:border-emerald-800/60 text-[11px] font-semibold transition-colors"
                 >
                   <WhatsAppIcon className="w-3.5 h-3.5" />
                   <span>Pedir ingredientes de esta receta</span>
@@ -208,7 +208,7 @@ export function VideoMarketingSection() {
           ))}
         </div>
 
-        <div className="rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-sucrenita-950 via-sucrenita-900 to-sucrenita-950 text-white shadow-soft-lg">
+        <div className="rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-sucrenita-950 via-sucrenita-900 to-sucrenita-950 dark:from-cacao-950 dark:via-cacao-900 dark:to-cacao-950 border border-transparent dark:border-cacao-800 text-white shadow-soft-lg">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-6">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-pastel-sand border border-white/10">

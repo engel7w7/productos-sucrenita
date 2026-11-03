@@ -52,17 +52,17 @@ export function CartDrawer() {
           onClick={closeCart}
         />
 
-        <aside className="relative w-full max-w-md bg-white h-full shadow-2xl flex flex-col z-10 border-l border-pastel-sandDark animate-in slide-in-from-right duration-300">
-          <div className="p-5 border-b border-pastel-sandDark flex items-center justify-between bg-pastel-sand/50">
+        <aside className="relative w-full max-w-md bg-white dark:bg-cacao-900 h-full shadow-2xl flex flex-col z-10 border-l border-pastel-sandDark dark:border-cacao-800 animate-in slide-in-from-right duration-300 transition-colors">
+          <div className="p-5 border-b border-pastel-sandDark dark:border-cacao-800 flex items-center justify-between bg-pastel-sand/50 dark:bg-cacao-850">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-2xl bg-pastel-amber flex items-center justify-center text-pastel-amberText border border-pastel-amberBorder">
+              <div className="w-9 h-9 rounded-2xl bg-pastel-amber dark:bg-amber-950/60 flex items-center justify-center text-pastel-amberText dark:text-amber-300 border border-pastel-amberBorder dark:border-amber-800/70">
                 <ShoppingBag className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="font-serif font-bold text-base text-sucrenita-900">
+                <h3 className="font-serif font-bold text-base text-sucrenita-900 dark:text-cacao-50">
                   Tu Lista de Pedido
                 </h3>
-                <p className="text-xs text-sucrenita-500">
+                <p className="text-xs text-sucrenita-500 dark:text-cacao-300">
                   {totalItems === 0
                     ? 'Bolsa vacía'
                     : `${totalItems} ${
@@ -77,7 +77,7 @@ export function CartDrawer() {
               type="button"
               onClick={closeCart}
               aria-label="Cerrar bolsa de compras"
-              className="p-2 rounded-full text-sucrenita-500 hover:text-sucrenita-900 hover:bg-white transition-colors"
+              className="p-2 rounded-full text-sucrenita-500 dark:text-cacao-300 hover:text-sucrenita-900 dark:hover:text-cacao-50 hover:bg-white dark:hover:bg-cacao-800 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -86,14 +86,14 @@ export function CartDrawer() {
           <div className="flex-1 overflow-y-auto p-5 space-y-4">
             {items.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
-                <div className="w-16 h-16 rounded-3xl bg-pastel-sand flex items-center justify-center text-sucrenita-400 border border-pastel-sandDark">
+                <div className="w-16 h-16 rounded-3xl bg-pastel-sand dark:bg-cacao-850 flex items-center justify-center text-sucrenita-400 dark:text-cacao-300 border border-pastel-sandDark dark:border-cacao-800">
                   <ShoppingBag className="w-7 h-7" />
                 </div>
                 <div>
-                  <h4 className="font-serif font-bold text-lg text-sucrenita-900">
+                  <h4 className="font-serif font-bold text-lg text-sucrenita-900 dark:text-cacao-50">
                     Tu bolsita está vacía
                   </h4>
-                  <p className="mt-1 text-xs text-sucrenita-500 max-w-xs leading-relaxed">
+                  <p className="mt-1 text-xs text-sucrenita-500 dark:text-cacao-300 max-w-xs leading-relaxed">
                     Explora nuestro maní seleccionado para sopa, ajíes molidos a piedra y snacks crujientes caseros.
                   </p>
                 </div>
@@ -117,9 +117,9 @@ export function CartDrawer() {
                 return (
                   <div
                     key={item.product.id}
-                    className="p-3.5 rounded-2xl bg-white border border-pastel-sandDark shadow-soft flex items-center gap-3.5 group"
+                    className="p-3.5 rounded-2xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-800 shadow-soft flex items-center gap-3.5 group"
                   >
-                    <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-pastel-sand shrink-0 border border-pastel-sandDark">
+                    <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-pastel-sand dark:bg-cacao-900 shrink-0 border border-pastel-sandDark dark:border-cacao-700">
                       <Image
                         src={item.product.imageUrl || 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=300&q=80'}
                         alt={item.product.name}
@@ -130,15 +130,15 @@ export function CartDrawer() {
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-serif font-bold text-xs text-sucrenita-900 truncate">
+                      <h4 className="font-serif font-bold text-xs text-sucrenita-900 dark:text-cacao-100 truncate">
                         {item.product.name}
                       </h4>
-                      <p className="text-[11px] text-sucrenita-500 mt-0.5">
+                      <p className="text-[11px] text-sucrenita-500 dark:text-cacao-300 mt-0.5">
                         {formatPrice(numericPrice)} c/u
                       </p>
 
                       <div className="flex items-center justify-between mt-2">
-                        <div className="inline-flex items-center gap-2 bg-pastel-sand/60 rounded-lg p-1 border border-pastel-sandDark">
+                        <div className="inline-flex items-center gap-2 bg-pastel-sand/60 dark:bg-cacao-800 rounded-lg p-1 border border-pastel-sandDark dark:border-cacao-700">
                           <button
                             type="button"
                             onClick={() =>
@@ -148,11 +148,11 @@ export function CartDrawer() {
                               )
                             }
                             aria-label="Disminuir cantidad"
-                            className="w-5 h-5 rounded flex items-center justify-center hover:bg-white text-sucrenita-700 transition-colors"
+                            className="w-5 h-5 rounded flex items-center justify-center hover:bg-white dark:hover:bg-cacao-700 text-sucrenita-700 dark:text-cacao-200 transition-colors"
                           >
                             <Minus className="w-3 h-3" />
                           </button>
-                          <span className="text-xs font-semibold text-sucrenita-900 w-4 text-center">
+                          <span className="text-xs font-semibold text-sucrenita-900 dark:text-cacao-100 w-4 text-center">
                             {item.quantity}
                           </span>
                           <button
@@ -161,13 +161,13 @@ export function CartDrawer() {
                               updateQuantity(item.product.id, item.quantity + 1)
                             }
                             aria-label="Aumentar cantidad"
-                            className="w-5 h-5 rounded flex items-center justify-center hover:bg-white text-sucrenita-700 transition-colors"
+                            className="w-5 h-5 rounded flex items-center justify-center hover:bg-white dark:hover:bg-cacao-700 text-sucrenita-700 dark:text-cacao-200 transition-colors"
                           >
                             <Plus className="w-3 h-3" />
                           </button>
                         </div>
 
-                        <span className="font-serif font-bold text-xs text-sucrenita-900">
+                        <span className="font-serif font-bold text-xs text-sucrenita-900 dark:text-cacao-50">
                           Bs {itemTotal.toFixed(2)}
                         </span>
                       </div>
@@ -177,7 +177,7 @@ export function CartDrawer() {
                       type="button"
                       onClick={() => removeFromCart(item.product.id)}
                       aria-label={`Quitar ${item.product.name}`}
-                      className="p-1.5 text-sucrenita-400 hover:text-pastel-peachText transition-colors"
+                      className="p-1.5 text-sucrenita-400 dark:text-cacao-300 hover:text-pastel-peachText dark:hover:text-amber-400 transition-colors"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -188,8 +188,8 @@ export function CartDrawer() {
           </div>
 
           {items.length > 0 && (
-            <div className="p-5 border-t border-pastel-sandDark bg-pastel-sand/30 space-y-3.5">
-              <div className="p-3 rounded-2xl bg-pastel-amber/40 border border-pastel-amberBorder/60 text-[11px] text-sucrenita-800 flex items-center justify-between gap-2.5">
+            <div className="p-5 border-t border-pastel-sandDark dark:border-cacao-800 bg-pastel-sand/30 dark:bg-cacao-850/80 space-y-3.5">
+              <div className="p-3 rounded-2xl bg-pastel-amber/40 dark:bg-amber-950/40 border border-pastel-amberBorder/60 dark:border-amber-800/60 text-[11px] text-sucrenita-800 dark:text-amber-100 flex items-center justify-between gap-2.5">
                 <div className="flex items-center gap-2">
                   <QrCode className="w-4 h-4 text-pastel-amberText shrink-0" />
                   <span>
@@ -199,10 +199,10 @@ export function CartDrawer() {
               </div>
 
               <div className="flex items-baseline justify-between pt-1">
-                <span className="text-xs font-medium text-sucrenita-600">
+                <span className="text-xs font-medium text-sucrenita-600 dark:text-cacao-300">
                   Total a pagar:
                 </span>
-                <span className="font-serif text-2xl font-bold text-sucrenita-900">
+                <span className="font-serif text-2xl font-bold text-sucrenita-900 dark:text-cacao-50">
                   Bs {totalPrice.toFixed(2)}
                 </span>
               </div>
@@ -211,7 +211,7 @@ export function CartDrawer() {
                 <button
                   type="button"
                   onClick={() => setIsQROpen(true)}
-                  className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-2xl bg-pastel-amber hover:bg-pastel-sandDark text-sucrenita-900 border border-pastel-amberBorder font-semibold text-xs tracking-wide shadow-soft transition-all"
+                  className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-2xl bg-pastel-amber hover:bg-pastel-sandDark dark:bg-amber-950/60 dark:hover:bg-amber-900/60 text-sucrenita-900 dark:text-amber-100 border border-pastel-amberBorder dark:border-amber-800/70 font-semibold text-xs tracking-wide shadow-soft transition-all"
                 >
                   <QrCode className="w-4 h-4 text-pastel-amberText" />
                   <span>Pagar con Simple QR (Bancos de Bolivia)</span>
@@ -241,14 +241,14 @@ export function CartDrawer() {
                   <button
                     type="button"
                     onClick={clearCart}
-                    className="text-[11px] text-sucrenita-500 hover:text-pastel-peachText transition-colors"
+                    className="text-[11px] text-sucrenita-500 dark:text-cacao-300 hover:text-pastel-peachText dark:hover:text-amber-400 transition-colors"
                   >
                     Vaciar lista
                   </button>
                   <button
                     type="button"
                     onClick={closeCart}
-                    className="text-[11px] text-sucrenita-700 hover:text-sucrenita-900 font-medium transition-colors"
+                    className="text-[11px] text-sucrenita-700 dark:text-cacao-200 hover:text-sucrenita-900 dark:hover:text-cacao-50 font-medium transition-colors"
                   >
                     Seguir agregando productos
                   </button>

@@ -5,6 +5,20 @@
 :root {
   --foreground-rgb: 38, 23, 14;
   --background-rgb: 250, 248, 245;
+  color-scheme: light dark;
+}
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]),
+html.dark {
+  --foreground-rgb: 245, 239, 235;
+  --background-rgb: 18, 13, 10;
+  color-scheme: dark;
+}
+
+:root:has(> head > meta[name="color-scheme"][content="light"]),
+html:not(.dark) {
+  --foreground-rgb: 38, 23, 14;
+  --background-rgb: 250, 248, 245;
 }
 
 html {
@@ -23,6 +37,11 @@ body {
   color: #3F271A;
 }
 
+.dark ::selection {
+  background-color: #5A3A27;
+  color: #FAF6F0;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -32,13 +51,25 @@ body {
   background: #F4EFE7;
 }
 
+.dark ::-webkit-scrollbar-track {
+  background: #140F0C;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #D5C3B0;
   border-radius: 9999px;
 }
 
+.dark ::-webkit-scrollbar-thumb {
+  background: #342821;
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background: #B28E77;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #46362C;
 }
 
 .glass-pastel {
@@ -48,13 +79,29 @@ body {
   border: 1px solid rgba(234, 227, 214, 0.85);
 }
 
+.dark .glass-pastel {
+  background: rgba(26, 20, 17, 0.94);
+  border: 1px solid rgba(52, 40, 33, 0.85);
+}
+
 .card-pastel {
   background-color: #FFFFFF;
   border: 1px solid rgba(234, 227, 214, 0.9);
   box-shadow: 0 4px 20px -2px rgba(117, 78, 56, 0.04);
 }
 
+.dark .card-pastel {
+  background-color: #1A1411;
+  border: 1px solid rgba(52, 40, 33, 0.85);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+}
+
 .card-pastel:hover {
   box-shadow: 0 10px 25px -4px rgba(117, 78, 56, 0.07);
   border-color: rgba(213, 195, 176, 0.95);
+}
+
+.dark .card-pastel:hover {
+  border-color: rgba(135, 76, 55, 0.5);
+  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.6);
 }

@@ -194,17 +194,17 @@ export function CulinaryCalculatorSection() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div className="rounded-3xl p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-white via-pastel-sand/50 to-pastel-amber/30 border border-pastel-sandDark shadow-soft space-y-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-pastel-sandDark pb-8">
+      <div className="rounded-3xl p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-white dark:from-cacao-850 via-pastel-sand/50 dark:via-cacao-900 to-pastel-amber/30 dark:to-cacao-800 border border-pastel-sandDark dark:border-cacao-700 shadow-soft space-y-10 transition-colors">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-pastel-sandDark dark:border-cacao-700 pb-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-pastel-amber text-pastel-amberText border border-pastel-amberBorder shadow-soft mb-3">
-              <ChefHat className="w-4 h-4 text-pastel-amberText" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-pastel-amber dark:bg-cacao-800 text-pastel-amberText dark:text-[#D4A853] border border-pastel-amberBorder dark:border-cacao-700 shadow-soft mb-3">
+              <ChefHat className="w-4 h-4 text-pastel-amberText dark:text-[#D4A853]" />
               <span>Calculadora Culinaria Doña Sucreñita</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 dark:text-[#FAF6F0] tracking-tight">
               Calcula tus ingredientes para el almuerzo
             </h2>
-            <p className="mt-2 text-sm text-sucrenita-600 max-w-2xl leading-relaxed">
+            <p className="mt-2 text-sm text-sucrenita-600 dark:text-[#CBBFB6] max-w-2xl leading-relaxed">
               Elige el plato que vas a cocinar, selecciona el número de personas en tu mesa y calcularemos la cantidad exacta de maní, ají o snacks que necesitas para lograr el sabor perfecto sin desperdiciar nada.
             </p>
           </div>
@@ -220,8 +220,8 @@ export function CulinaryCalculatorSection() {
                   onClick={() => setSelectedDishId(dish.id)}
                   className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-semibold transition-all shadow-soft ${
                     isSelected
-                      ? 'bg-sucrenita-800 text-white shadow-soft-lg scale-105'
-                      : 'bg-white text-sucrenita-700 hover:bg-pastel-peach/50 border border-pastel-sandDark'
+                      ? 'bg-sucrenita-800 dark:bg-[#7C5B28] text-white shadow-soft-lg scale-105'
+                      : 'bg-white dark:bg-cacao-800 text-sucrenita-700 dark:text-[#D1C3B8] hover:bg-pastel-peach/50 dark:hover:bg-cacao-750 border border-pastel-sandDark dark:border-cacao-700'
                   }`}
                 >
                   <IconComp className="w-3.5 h-3.5" />
@@ -234,28 +234,28 @@ export function CulinaryCalculatorSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 rounded-3xl bg-white border border-pastel-sandDark shadow-soft space-y-5">
+            <div className="p-6 rounded-3xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 shadow-soft space-y-5">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-pastel-peachText">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-pastel-peachText dark:text-[#D48065]">
                   {currentDish.categoryBadge}
                 </span>
-                <h3 className="font-serif text-2xl font-bold text-sucrenita-900 mt-1">
+                <h3 className="font-serif text-2xl font-bold text-sucrenita-900 dark:text-[#FAF6F0] mt-1">
                   {currentDish.name}
                 </h3>
-                <p className="mt-2 text-xs text-sucrenita-600 leading-relaxed">
+                <p className="mt-2 text-xs text-sucrenita-600 dark:text-[#A8988C] leading-relaxed">
                   {currentDish.description}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-pastel-sandDark space-y-3">
+              <div className="pt-4 border-t border-pastel-sandDark dark:border-cacao-700 space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-pastel-amberText" />
-                    <span className="text-xs font-bold text-sucrenita-800">
+                    <Users className="w-4 h-4 text-pastel-amberText dark:text-[#D4A853]" />
+                    <span className="text-xs font-bold text-sucrenita-800 dark:text-[#FAF6F0]">
                       Número de comensales:
                     </span>
                   </div>
-                  <span className="font-serif text-2xl font-bold text-sucrenita-900">
+                  <span className="font-serif text-2xl font-bold text-sucrenita-900 dark:text-[#FAF6F0]">
                     {diners} personas
                   </span>
                 </div>
@@ -266,7 +266,7 @@ export function CulinaryCalculatorSection() {
                     onClick={() => setDiners((prev) => Math.max(2, prev - 2))}
                     disabled={diners <= 2}
                     aria-label="Disminuir porciones"
-                    className="w-10 h-10 rounded-2xl bg-pastel-sand hover:bg-pastel-amber border border-pastel-sandDark flex items-center justify-center text-sucrenita-800 disabled:opacity-40 transition-colors"
+                    className="w-10 h-10 rounded-2xl bg-pastel-sand dark:bg-cacao-800 hover:bg-pastel-amber dark:hover:bg-cacao-750 border border-pastel-sandDark dark:border-cacao-700 flex items-center justify-center text-sucrenita-800 dark:text-[#FAF6F0] disabled:opacity-40 transition-colors"
                   >
                     <Minus className="w-4 h-4" />
                   </button>
@@ -278,7 +278,7 @@ export function CulinaryCalculatorSection() {
                     step="2"
                     value={diners}
                     onChange={(e) => setDiners(parseInt(e.target.value, 10))}
-                    className="flex-1 accent-sucrenita-700 h-2 bg-pastel-sand rounded-lg cursor-pointer"
+                    className="flex-1 accent-sucrenita-700 dark:accent-[#D4A853] h-2 bg-pastel-sand dark:bg-cacao-800 rounded-lg cursor-pointer"
                   />
 
                   <button
@@ -286,28 +286,28 @@ export function CulinaryCalculatorSection() {
                     onClick={() => setDiners((prev) => Math.min(24, prev + 2))}
                     disabled={diners >= 24}
                     aria-label="Aumentar porciones"
-                    className="w-10 h-10 rounded-2xl bg-pastel-sand hover:bg-pastel-amber border border-pastel-sandDark flex items-center justify-center text-sucrenita-800 disabled:opacity-40 transition-colors"
+                    className="w-10 h-10 rounded-2xl bg-pastel-sand dark:bg-cacao-800 hover:bg-pastel-amber dark:hover:bg-cacao-750 border border-pastel-sandDark dark:border-cacao-700 flex items-center justify-center text-sucrenita-800 dark:text-[#FAF6F0] disabled:opacity-40 transition-colors"
                   >
                     <Plus className="w-4 h-4" />
                   </button>
                 </div>
 
-                <div className="flex items-center justify-between text-[11px] text-sucrenita-500 pt-1">
+                <div className="flex items-center justify-between text-[11px] text-sucrenita-500 dark:text-[#8C7C72] pt-1">
                   <span>Mínimo: 2 personas</span>
-                  <span className="flex items-center gap-1 font-medium text-sucrenita-700">
-                    <Clock className="w-3 h-3 text-pastel-amberText" />
+                  <span className="flex items-center gap-1 font-medium text-sucrenita-700 dark:text-[#D1C3B8]">
+                    <Clock className="w-3 h-3 text-pastel-amberText dark:text-[#D4A853]" />
                     Tiempo: {currentDish.timeEstimate}
                   </span>
                   <span>Hasta: 24 personas</span>
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-pastel-amber/40 border border-pastel-amberBorder/60 space-y-1.5">
-                <span className="text-[11px] uppercase font-bold text-pastel-amberText flex items-center gap-1.5">
+              <div className="p-4 rounded-2xl bg-pastel-amber/40 dark:bg-cacao-800/60 border border-pastel-amberBorder/60 dark:border-cacao-700 space-y-1.5">
+                <span className="text-[11px] uppercase font-bold text-pastel-amberText dark:text-[#D4A853] flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5" />
                   El consejo de Doña Sucreñita:
                 </span>
-                <p className="text-xs text-sucrenita-800 leading-relaxed italic">
+                <p className="text-xs text-sucrenita-800 dark:text-[#FAF6F0] leading-relaxed italic">
                   &ldquo;{currentDish.secretTip}&rdquo;
                 </p>
               </div>
@@ -315,12 +315,12 @@ export function CulinaryCalculatorSection() {
           </div>
 
           <div className="lg:col-span-7 space-y-6">
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-pastel-sandDark shadow-soft space-y-6">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 shadow-soft space-y-6">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-pastel-sageText block mb-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-pastel-sageText dark:text-[#78A887] block mb-1">
                   Ingredientes Sucreñita requeridos
                 </span>
-                <h4 className="font-serif text-xl font-bold text-sucrenita-900">
+                <h4 className="font-serif text-xl font-bold text-sucrenita-900 dark:text-[#FAF6F0]">
                   Para tu mesa de {diners} comensales:
                 </h4>
               </div>
@@ -329,23 +329,23 @@ export function CulinaryCalculatorSection() {
                 {calculatedSucrenitaProducts.map((item) => (
                   <div
                     key={item.productSlug}
-                    className="p-4 rounded-2xl bg-pastel-sand/40 border border-pastel-sandDark flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                    className="p-4 rounded-2xl bg-pastel-sand/40 dark:bg-cacao-800/40 border border-pastel-sandDark dark:border-cacao-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                   >
                     <div className="space-y-1">
-                      <span className="font-serif font-bold text-sm text-sucrenita-900 block">
+                      <span className="font-serif font-bold text-sm text-sucrenita-900 dark:text-[#FAF6F0] block">
                         {item.product?.name || item.unitName}
                       </span>
-                      <span className="text-xs text-sucrenita-600 block">
+                      <span className="text-xs text-sucrenita-600 dark:text-[#A8988C] block">
                         Se necesitan <strong>{item.totalGramsNeeded}g</strong> para {diners} porciones generosas.
                       </span>
                     </div>
 
                     <div className="flex items-center gap-3 shrink-0">
-                      <div className="px-3 py-1.5 rounded-xl bg-white border border-pastel-sandDark text-xs font-bold text-sucrenita-800 text-center shadow-soft">
+                      <div className="px-3 py-1.5 rounded-xl bg-white dark:bg-cacao-750 border border-pastel-sandDark dark:border-cacao-700 text-xs font-bold text-sucrenita-800 dark:text-[#FAF6F0] text-center shadow-soft">
                         {item.packagesNeeded} paquete(s) sugerido(s)
                       </div>
                       {item.product && (
-                        <span className="font-serif font-bold text-xs text-sucrenita-900">
+                        <span className="font-serif font-bold text-xs text-sucrenita-900 dark:text-[#D4A853]">
                           Bs {(
                             (typeof item.product.price === 'string'
                               ? parseFloat(item.product.price)
@@ -358,17 +358,17 @@ export function CulinaryCalculatorSection() {
                 ))}
               </div>
 
-              <div className="pt-4 border-t border-pastel-sandDark space-y-2">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-sucrenita-400 block">
+              <div className="pt-4 border-t border-pastel-sandDark dark:border-cacao-700 space-y-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-sucrenita-400 dark:text-[#8C7C72] block">
                   Ingredientes complementarios de tu cocina:
                 </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-sucrenita-700">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-sucrenita-700 dark:text-[#D1C3B8]">
                   {currentDish.kitchenPantry.map((pantry, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-2 p-2 rounded-xl bg-pastel-cream/40"
+                      className="flex items-center gap-2 p-2 rounded-xl bg-pastel-cream/40 dark:bg-cacao-800/50"
                     >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-pastel-sageText shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-pastel-sageText dark:text-[#78A887] shrink-0" />
                       <span>
                         <strong>{pantry.name}:</strong> {pantry.amountPerPerson}
                       </span>
@@ -377,11 +377,11 @@ export function CulinaryCalculatorSection() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-pastel-sandDark flex flex-col sm:flex-row gap-3">
+              <div className="pt-4 border-t border-pastel-sandDark dark:border-cacao-700 flex flex-col sm:flex-row gap-3">
                 <button
                   type="button"
                   onClick={handleAddAllToCart}
-                  className="flex-1 inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-sucrenita-700 hover:bg-sucrenita-800 text-white font-semibold text-xs tracking-wide shadow-soft transition-all"
+                  className="flex-1 inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-sucrenita-700 hover:bg-sucrenita-800 dark:bg-cacao-800 dark:hover:bg-cacao-750 text-white font-semibold text-xs tracking-wide shadow-soft transition-all"
                 >
                   <ShoppingBag className="w-4 h-4" />
                   <span>
@@ -408,4 +408,3 @@ export function CulinaryCalculatorSection() {
     </section>
   );
 }
-

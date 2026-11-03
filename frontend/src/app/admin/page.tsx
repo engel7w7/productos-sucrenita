@@ -279,21 +279,21 @@ export default function AdminPage() {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
-        <div className="w-full max-w-md bg-white rounded-3xl p-8 border border-pastel-sandDark shadow-2xl space-y-6">
+        <div className="w-full max-w-md bg-white dark:bg-cacao-900 rounded-3xl p-8 border border-pastel-sandDark dark:border-cacao-800 shadow-2xl space-y-6 transition-colors">
           <div className="text-center space-y-2">
-            <div className="w-16 h-16 rounded-3xl bg-pastel-amber flex items-center justify-center text-pastel-amberText font-serif font-bold text-2xl mx-auto shadow-soft border border-pastel-amberBorder">
+            <div className="w-16 h-16 rounded-3xl bg-pastel-amber dark:bg-amber-950/60 flex items-center justify-center text-pastel-amberText dark:text-amber-300 font-serif font-bold text-2xl mx-auto shadow-soft border border-pastel-amberBorder dark:border-amber-800/70">
               S
             </div>
-            <h1 className="font-serif text-2xl font-bold text-sucrenita-900">
+            <h1 className="font-serif text-2xl font-bold text-sucrenita-900 dark:text-cacao-50">
               Panel Administrativo
             </h1>
-            <p className="text-xs text-sucrenita-600">
+            <p className="text-xs text-sucrenita-600 dark:text-cacao-300">
               Productos Sucreñita &bull; Gestión de catálogo y almacén
             </p>
           </div>
 
           {loginError && (
-            <div className="p-3.5 rounded-2xl bg-pastel-peach border border-pastel-peachBorder text-pastel-peachText text-xs flex items-center gap-2 animate-in fade-in">
+            <div className="p-3.5 rounded-2xl bg-pastel-peach dark:bg-rose-950/60 border border-pastel-peachBorder dark:border-rose-800/60 text-pastel-peachText dark:text-rose-300 text-xs flex items-center gap-2 animate-in fade-in">
               <AlertCircle className="w-4 h-4 shrink-0 text-pastel-peachText" />
               <span>{loginError}</span>
             </div>
@@ -303,7 +303,7 @@ export default function AdminPage() {
             <div className="space-y-1">
               <label
                 htmlFor="admin-username"
-                className="text-xs font-semibold text-sucrenita-800 block"
+                className="text-xs font-semibold text-sucrenita-800 dark:text-cacao-200 block"
               >
                 Usuario Administrador
               </label>
@@ -316,7 +316,7 @@ export default function AdminPage() {
                   value={usernameInput}
                   onChange={(e) => setUsernameInput(e.target.value)}
                   placeholder="Usuario registrado"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark focus:outline-none focus:ring-2 focus:ring-pastel-peachText/40 text-xs text-sucrenita-900"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 focus:outline-none focus:ring-2 focus:ring-pastel-peachText/40 text-xs text-sucrenita-900 dark:text-cacao-100 placeholder-sucrenita-400 dark:placeholder-cacao-400"
                 />
               </div>
             </div>
@@ -324,7 +324,7 @@ export default function AdminPage() {
             <div className="space-y-1">
               <label
                 htmlFor="admin-password"
-                className="text-xs font-semibold text-sucrenita-800 block"
+                className="text-xs font-semibold text-sucrenita-800 dark:text-cacao-200 block"
               >
                 Contraseña
               </label>
@@ -337,7 +337,7 @@ export default function AdminPage() {
                   value={passwordInput}
                   onChange={(e) => setPasswordInput(e.target.value)}
                   placeholder="Contraseña de acceso"
-                  className="w-full pl-10 pr-10 py-2.5 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark focus:outline-none focus:ring-2 focus:ring-pastel-peachText/40 text-xs text-sucrenita-900"
+                  className="w-full pl-10 pr-10 py-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 focus:outline-none focus:ring-2 focus:ring-pastel-peachText/40 text-xs text-sucrenita-900 dark:text-cacao-100 placeholder-sucrenita-400 dark:placeholder-cacao-400"
                 />
                 <button
                   type="button"
@@ -357,17 +357,17 @@ export default function AdminPage() {
             <button
               type="submit"
               disabled={isLoggingIn}
-              className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-sucrenita-700 hover:bg-sucrenita-800 text-white font-semibold text-xs shadow-soft transition-all"
+              className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-sucrenita-700 hover:bg-sucrenita-800 dark:bg-amber-700 dark:hover:bg-amber-600 text-white font-semibold text-xs shadow-soft transition-all"
             >
               <ShieldCheck className="w-4 h-4" />
               <span>{isLoggingIn ? 'Verificando...' : 'Ingresar al Panel'}</span>
             </button>
           </form>
 
-          <div className="pt-2 border-t border-pastel-sandDark text-center">
+          <div className="pt-2 border-t border-pastel-sandDark dark:border-cacao-800 text-center">
             <Link
               href="/"
-              className="text-xs text-sucrenita-500 hover:text-sucrenita-800 transition-colors inline-flex items-center gap-1"
+              className="text-xs text-sucrenita-500 dark:text-cacao-300 hover:text-sucrenita-800 dark:hover:text-cacao-100 transition-colors inline-flex items-center gap-1"
             >
               <Store className="w-3.5 h-3.5" />
               <span>Regresar a la tienda pública</span>
@@ -380,17 +380,17 @@ export default function AdminPage() {
 
   return (
     <div className="min-h-screen pb-16">
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-pastel-sandDark">
+      <header className="sticky top-0 z-40 bg-white/95 dark:bg-cacao-900/95 backdrop-blur-md border-b border-pastel-sandDark dark:border-cacao-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-pastel-amber flex items-center justify-center text-pastel-amberText font-serif font-bold text-lg border border-pastel-amberBorder">
+            <div className="w-10 h-10 rounded-2xl bg-pastel-amber dark:bg-amber-950/60 flex items-center justify-center text-pastel-amberText dark:text-amber-300 font-serif font-bold text-lg border border-pastel-amberBorder dark:border-amber-800/70">
               S
             </div>
             <div>
-              <span className="font-serif font-bold text-base text-sucrenita-900 block leading-tight">
+              <span className="font-serif font-bold text-base text-sucrenita-900 dark:text-cacao-50 block leading-tight">
                 Productos Sucreñita
               </span>
-              <span className="text-[11px] text-pastel-peachText font-bold uppercase tracking-wider">
+              <span className="text-[11px] text-pastel-peachText dark:text-amber-300 font-bold uppercase tracking-wider">
                 Panel de Administración
               </span>
             </div>
@@ -398,7 +398,7 @@ export default function AdminPage() {
 
           <div className="flex items-center gap-3">
             <div className="hidden sm:flex flex-col text-right">
-              <span className="text-xs font-bold text-sucrenita-900">
+              <span className="text-xs font-bold text-sucrenita-900 dark:text-cacao-100">
                 {adminUser?.name || 'Jhojan Erick Romero Morales'}
               </span>
               <span className="text-[11px] text-pastel-sageText font-medium">
@@ -409,7 +409,7 @@ export default function AdminPage() {
             <Link
               href="/"
               target="_blank"
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-pastel-sand/60 hover:bg-pastel-amber/40 border border-pastel-sandDark text-xs font-semibold text-sucrenita-700 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-pastel-sand/60 hover:bg-pastel-amber/40 dark:bg-cacao-800 dark:hover:bg-cacao-750 border border-pastel-sandDark dark:border-cacao-700 text-xs font-semibold text-sucrenita-700 dark:text-cacao-200 transition-colors"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               <span className="hidden md:inline">Ver Tienda</span>
@@ -418,7 +418,7 @@ export default function AdminPage() {
             <button
               type="button"
               onClick={handleLogout}
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-pastel-peach/60 hover:bg-pastel-peach border border-pastel-peachBorder text-xs font-semibold text-pastel-peachText transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-pastel-peach/60 hover:bg-pastel-peach dark:bg-rose-950/60 dark:hover:bg-rose-900/60 border border-pastel-peachBorder dark:border-rose-800/60 text-xs font-semibold text-pastel-peachText dark:text-rose-300 transition-colors"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span className="hidden md:inline">Salir</span>
@@ -429,12 +429,12 @@ export default function AdminPage() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="p-5 rounded-3xl bg-white border border-pastel-sandDark shadow-soft space-y-1">
-            <span className="text-xs text-sucrenita-500 font-medium flex items-center gap-1.5">
+          <div className="p-5 rounded-3xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-800 shadow-soft space-y-1">
+            <span className="text-xs text-sucrenita-500 dark:text-cacao-300 font-medium flex items-center gap-1.5">
               <Layers className="w-3.5 h-3.5 text-pastel-amberText" />
               Total Catálogo
             </span>
-            <div className="font-serif text-3xl font-bold text-sucrenita-900">
+            <div className="font-serif text-3xl font-bold text-sucrenita-900 dark:text-cacao-50">
               {products.length}
             </div>
             <span className="text-[11px] text-pastel-sageText font-semibold block">
@@ -442,47 +442,47 @@ export default function AdminPage() {
             </span>
           </div>
 
-          <div className="p-5 rounded-3xl bg-white border border-pastel-sandDark shadow-soft space-y-1">
-            <span className="text-xs text-sucrenita-500 font-medium flex items-center gap-1.5">
+          <div className="p-5 rounded-3xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-800 shadow-soft space-y-1">
+            <span className="text-xs text-sucrenita-500 dark:text-cacao-300 font-medium flex items-center gap-1.5">
               <PackageCheck className="w-3.5 h-3.5 text-pastel-sageText" />
               Stock Disponible
             </span>
-            <div className="font-serif text-3xl font-bold text-sucrenita-900">
+            <div className="font-serif text-3xl font-bold text-sucrenita-900 dark:text-cacao-50">
               {totalStock}
             </div>
-            <span className="text-[11px] text-sucrenita-500 block">
+            <span className="text-[11px] text-sucrenita-500 dark:text-cacao-300 block">
               Unidades en almacén
             </span>
           </div>
 
-          <div className="p-5 rounded-3xl bg-white border border-pastel-sandDark shadow-soft space-y-1">
-            <span className="text-xs text-sucrenita-500 font-medium flex items-center gap-1.5">
+          <div className="p-5 rounded-3xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-800 shadow-soft space-y-1">
+            <span className="text-xs text-sucrenita-500 dark:text-cacao-300 font-medium flex items-center gap-1.5">
               <Wheat className="w-3.5 h-3.5 text-pastel-peachText" />
               Abarrotes & Maní
             </span>
-            <div className="font-serif text-3xl font-bold text-sucrenita-900">
+            <div className="font-serif text-3xl font-bold text-sucrenita-900 dark:text-cacao-50">
               {products.filter((p) => p.categoryId === 'cat-abarrotes').length}
             </div>
-            <span className="text-[11px] text-sucrenita-500 block">
+            <span className="text-[11px] text-sucrenita-500 dark:text-cacao-300 block">
               Línea cocina tradicional
             </span>
           </div>
 
-          <div className="p-5 rounded-3xl bg-white border border-pastel-sandDark shadow-soft space-y-1">
-            <span className="text-xs text-sucrenita-500 font-medium flex items-center gap-1.5">
+          <div className="p-5 rounded-3xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-800 shadow-soft space-y-1">
+            <span className="text-xs text-sucrenita-500 dark:text-cacao-300 font-medium flex items-center gap-1.5">
               <DollarSign className="w-3.5 h-3.5 text-pastel-sageText" />
               Snacks Caseros
             </span>
-            <div className="font-serif text-3xl font-bold text-sucrenita-900">
+            <div className="font-serif text-3xl font-bold text-sucrenita-900 dark:text-cacao-50">
               {products.filter((p) => p.categoryId === 'cat-snacks').length}
             </div>
-            <span className="text-[11px] text-sucrenita-500 block">
+            <span className="text-[11px] text-sucrenita-500 dark:text-cacao-300 block">
               Chicharrones y tostados
             </span>
           </div>
         </div>
 
-        <div className="p-5 sm:p-6 rounded-3xl bg-white border border-pastel-sandDark shadow-soft space-y-4">
+        <div className="p-5 sm:p-6 rounded-3xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-800 shadow-soft space-y-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="relative w-full sm:max-w-md">
               <Search className="w-4 h-4 text-sucrenita-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -491,7 +491,7 @@ export default function AdminPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Buscar por nombre o slug..."
-                className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark focus:outline-none focus:ring-2 focus:ring-pastel-peachText/40 text-xs text-sucrenita-900"
+                className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-900 border border-pastel-sandDark dark:border-cacao-700 focus:outline-none focus:ring-2 focus:ring-pastel-peachText/40 text-xs text-sucrenita-900 dark:text-cacao-100 placeholder-sucrenita-400 dark:placeholder-cacao-400"
               />
             </div>
 
@@ -499,7 +499,7 @@ export default function AdminPage() {
               <select
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
-                className="px-3.5 py-2.5 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark text-xs font-semibold text-sucrenita-800 focus:outline-none"
+                className="px-3.5 py-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-900 border border-pastel-sandDark dark:border-cacao-700 text-xs font-semibold text-sucrenita-800 dark:text-cacao-100 focus:outline-none"
               >
                 <option value="all">Todas las categorías</option>
                 <option value="cat-abarrotes">Abarrotes y Condimentos</option>
@@ -509,7 +509,7 @@ export default function AdminPage() {
               <button
                 type="button"
                 onClick={openCreateModal}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-sucrenita-700 hover:bg-sucrenita-800 text-white font-semibold text-xs shadow-soft transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-sucrenita-700 hover:bg-sucrenita-800 dark:bg-amber-700 dark:hover:bg-amber-600 text-white font-semibold text-xs shadow-soft transition-all"
               >
                 <Plus className="w-4 h-4" />
                 <span>Añadir Producto</span>
@@ -518,11 +518,11 @@ export default function AdminPage() {
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl border border-pastel-sandDark shadow-soft overflow-hidden">
+        <div className="bg-white dark:bg-cacao-850 rounded-3xl border border-pastel-sandDark dark:border-cacao-800 shadow-soft overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-pastel-sandDark bg-pastel-sand/40 text-sucrenita-600 font-bold uppercase tracking-wider text-[10px]">
+                <tr className="border-b border-pastel-sandDark dark:border-cacao-800 bg-pastel-sand/40 dark:bg-cacao-900 text-sucrenita-600 dark:text-cacao-300 font-bold uppercase tracking-wider text-[10px]">
                   <th className="p-4">Foto</th>
                   <th className="p-4">Nombre Comercial</th>
                   <th className="p-4">Categoría</th>
@@ -532,17 +532,17 @@ export default function AdminPage() {
                   <th className="p-4 text-right">Acciones</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-pastel-sandDark/70">
+              <tbody className="divide-y divide-pastel-sandDark/70 dark:divide-cacao-800">
                 {filteredProducts.map((p) => {
                   const priceNum =
                     typeof p.price === 'string' ? parseFloat(p.price) : p.price;
                   return (
                     <tr
                       key={p.id}
-                      className="hover:bg-pastel-sand/20 transition-colors"
+                      className="hover:bg-pastel-sand/20 dark:hover:bg-cacao-800/40 transition-colors"
                     >
                       <td className="p-4">
-                        <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-pastel-sand border border-pastel-sandDark shrink-0">
+                        <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-pastel-sand dark:bg-cacao-900 border border-pastel-sandDark dark:border-cacao-700 shrink-0">
                           {p.imageUrl ? (
                             <Image
                               src={p.imageUrl}
@@ -559,22 +559,22 @@ export default function AdminPage() {
                         </div>
                       </td>
                       <td className="p-4">
-                        <span className="font-serif font-bold text-sucrenita-900 block text-xs">
+                        <span className="font-serif font-bold text-sucrenita-900 dark:text-cacao-100 block text-xs">
                           {p.name}
                         </span>
-                        <span className="font-mono text-[10px] text-sucrenita-400">
+                        <span className="font-mono text-[10px] text-sucrenita-400 dark:text-cacao-300">
                           {p.slug}
                         </span>
                       </td>
                       <td className="p-4">
-                        <span className="inline-block px-2.5 py-1 rounded-full text-[10px] font-semibold bg-pastel-amber/50 text-pastel-amberText border border-pastel-amberBorder">
+                        <span className="inline-block px-2.5 py-1 rounded-full text-[10px] font-semibold bg-pastel-amber/50 dark:bg-amber-950/60 text-pastel-amberText dark:text-amber-300 border border-pastel-amberBorder dark:border-amber-800/60">
                           {p.category?.name || 'Abarrotes'}
                         </span>
                       </td>
-                      <td className="p-4 font-serif font-bold text-xs text-sucrenita-900">
+                      <td className="p-4 font-serif font-bold text-xs text-sucrenita-900 dark:text-cacao-50">
                         Bs {priceNum.toFixed(2)}
                       </td>
-                      <td className="p-4 font-medium text-sucrenita-700">
+                      <td className="p-4 font-medium text-sucrenita-700 dark:text-cacao-200">
                         {p.stock} unidades
                       </td>
                       <td className="p-4">
@@ -600,7 +600,7 @@ export default function AdminPage() {
                           <button
                             type="button"
                             onClick={() => openEditModal(p)}
-                            className="p-2 rounded-xl bg-pastel-sand/60 hover:bg-pastel-amber/50 text-sucrenita-700 border border-pastel-sandDark transition-colors"
+                            className="p-2 rounded-xl bg-pastel-sand/60 hover:bg-pastel-amber/50 dark:bg-cacao-800 dark:hover:bg-cacao-750 text-sucrenita-700 dark:text-cacao-200 border border-pastel-sandDark dark:border-cacao-700 transition-colors"
                             aria-label={`Editar ${p.name}`}
                           >
                             <Edit className="w-3.5 h-3.5" />
@@ -618,15 +618,15 @@ export default function AdminPage() {
 
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-sucrenita-950/70 backdrop-blur-sm animate-in fade-in">
-          <div className="relative w-full max-w-xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-pastel-sandDark max-h-[90vh] flex flex-col">
-            <div className="bg-gradient-to-r from-pastel-amber to-amber-200/80 p-5 border-b border-pastel-amberBorder flex items-center justify-between">
-              <h3 className="font-serif font-bold text-base text-sucrenita-900">
+          <div className="relative w-full max-w-xl bg-white dark:bg-cacao-900 rounded-3xl overflow-hidden shadow-2xl border border-pastel-sandDark dark:border-cacao-800 max-h-[90vh] flex flex-col transition-colors">
+            <div className="bg-gradient-to-r from-pastel-amber to-amber-200/80 dark:from-cacao-950 dark:to-cacao-900 p-5 border-b border-pastel-amberBorder dark:border-cacao-800 flex items-center justify-between">
+              <h3 className="font-serif font-bold text-base text-sucrenita-900 dark:text-cacao-50">
                 {editingProduct ? 'Editar Producto' : 'Añadir Nuevo Producto'}
               </h3>
               <button
                 type="button"
                 onClick={() => setIsModalOpen(false)}
-                className="p-1 rounded-full hover:bg-white/40 text-sucrenita-700"
+                className="p-1 rounded-full hover:bg-white/40 dark:hover:bg-cacao-800 text-sucrenita-700 dark:text-cacao-200 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -644,7 +644,7 @@ export default function AdminPage() {
               )}
 
               <div className="space-y-1">
-                <label className="font-semibold text-sucrenita-800 block">
+                <label className="font-semibold text-sucrenita-800 dark:text-cacao-200 block">
                   Nombre Comercial del Producto
                 </label>
                 <input
@@ -653,13 +653,13 @@ export default function AdminPage() {
                   value={formName}
                   onChange={(e) => handleFormNameChange(e.target.value)}
                   placeholder="Ej. Maní Tostado sin Sal (500g)"
-                  className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark focus:outline-none focus:ring-2 focus:ring-pastel-peachText/40 text-sucrenita-900"
+                  className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 focus:outline-none focus:ring-2 focus:ring-pastel-peachText/40 text-sucrenita-900 dark:text-cacao-100 placeholder-sucrenita-400 dark:placeholder-cacao-400"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="font-semibold text-sucrenita-800 block">
+                  <label className="font-semibold text-sucrenita-800 dark:text-cacao-200 block">
                     Slug / URL Única
                   </label>
                   <input
@@ -668,18 +668,18 @@ export default function AdminPage() {
                     value={formSlug}
                     onChange={(e) => setFormSlug(e.target.value)}
                     placeholder="mani-tostado-sin-sal-500g"
-                    className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark font-mono text-[11px] text-sucrenita-700"
+                    className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 font-mono text-[11px] text-sucrenita-700 dark:text-cacao-200"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="font-semibold text-sucrenita-800 block">
+                  <label className="font-semibold text-sucrenita-800 dark:text-cacao-200 block">
                     Categoría
                   </label>
                   <select
                     value={formCategory}
                     onChange={(e) => setFormCategory(e.target.value)}
-                    className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark font-semibold text-sucrenita-800"
+                    className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 font-semibold text-sucrenita-800 dark:text-cacao-100"
                   >
                     <option value="cat-abarrotes">Abarrotes y Condimentos</option>
                     <option value="cat-snacks">Snacks Artesanales</option>
@@ -689,7 +689,7 @@ export default function AdminPage() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="font-semibold text-sucrenita-800 block">
+                  <label className="font-semibold text-sucrenita-800 dark:text-cacao-200 block">
                     Precio en Bolivianos (Bs)
                   </label>
                   <input
@@ -699,12 +699,12 @@ export default function AdminPage() {
                     required
                     value={formPrice}
                     onChange={(e) => setFormPrice(e.target.value)}
-                    className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark font-bold text-sucrenita-900"
+                    className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 font-bold text-sucrenita-900 dark:text-cacao-100"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="font-semibold text-sucrenita-800 block">
+                  <label className="font-semibold text-sucrenita-800 dark:text-cacao-200 block">
                     Stock en Almacén (Unidades)
                   </label>
                   <input
@@ -713,19 +713,19 @@ export default function AdminPage() {
                     required
                     value={formStock}
                     onChange={(e) => setFormStock(e.target.value)}
-                    className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark text-sucrenita-900"
+                    className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 text-sucrenita-900 dark:text-cacao-100"
                   />
                 </div>
               </div>
 
               <div className="space-y-1">
-                <label className="font-semibold text-sucrenita-800 block">
+                <label className="font-semibold text-sucrenita-800 dark:text-cacao-200 block">
                   Foto del Producto
                 </label>
                 <select
                   value={formImageUrl}
                   onChange={(e) => setFormImageUrl(e.target.value)}
-                  className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark text-sucrenita-800 mb-2 font-medium"
+                  className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 text-sucrenita-800 dark:text-cacao-100 mb-2 font-medium"
                 >
                   {AVAILABLE_IMAGES.map((img) => (
                     <option key={img.url} value={img.url}>
@@ -738,12 +738,12 @@ export default function AdminPage() {
                   value={formImageUrl}
                   onChange={(e) => setFormImageUrl(e.target.value)}
                   placeholder="O escribe una ruta de imagen personalizada"
-                  className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark font-mono text-[11px] text-sucrenita-700"
+                  className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 font-mono text-[11px] text-sucrenita-700 dark:text-cacao-200"
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="font-semibold text-sucrenita-800 block">
+                <label className="font-semibold text-sucrenita-800 dark:text-cacao-200 block">
                   Descripción y Consejos Culinarios
                 </label>
                 <textarea
@@ -751,7 +751,7 @@ export default function AdminPage() {
                   value={formDescription}
                   onChange={(e) => setFormDescription(e.target.value)}
                   placeholder="Detalles del producto, calidad de grano, textura..."
-                  className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark text-sucrenita-900"
+                  className="w-full p-2.5 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 text-sucrenita-900 dark:text-cacao-100"
                 />
               </div>
 
@@ -765,23 +765,23 @@ export default function AdminPage() {
                 />
                 <label
                   htmlFor="form-active"
-                  className="font-medium text-sucrenita-800 cursor-pointer"
+                  className="font-medium text-sucrenita-800 dark:text-cacao-200 cursor-pointer"
                 >
                   Producto visible y disponible en la tienda pública
                 </label>
               </div>
 
-              <div className="pt-4 border-t border-pastel-sandDark flex items-center justify-end gap-3">
+              <div className="pt-4 border-t border-pastel-sandDark dark:border-cacao-800 flex items-center justify-end gap-3">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-5 py-2.5 rounded-2xl bg-pastel-sand hover:bg-pastel-amber/40 text-sucrenita-700 font-semibold transition-colors"
+                  className="px-5 py-2.5 rounded-2xl bg-pastel-sand hover:bg-pastel-amber/40 dark:bg-cacao-800 dark:hover:bg-cacao-750 text-sucrenita-700 dark:text-cacao-200 font-semibold transition-colors"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-2xl bg-sucrenita-700 hover:bg-sucrenita-800 text-white font-semibold shadow-soft transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-2xl bg-sucrenita-700 hover:bg-sucrenita-800 dark:bg-amber-700 dark:hover:bg-amber-600 text-white font-semibold shadow-soft transition-all"
                 >
                   <Save className="w-4 h-4" />
                   <span>{editingProduct ? 'Guardar Cambios' : 'Registrar Producto'}</span>

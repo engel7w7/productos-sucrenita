@@ -65,16 +65,16 @@ export function FAQSection() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div className="rounded-3xl p-8 sm:p-12 bg-white border border-pastel-sandDark shadow-soft space-y-10">
+      <div className="rounded-3xl p-8 sm:p-12 bg-white dark:bg-cacao-900 border border-pastel-sandDark dark:border-cacao-800 shadow-soft space-y-10 transition-colors">
         <div className="text-center max-w-2xl mx-auto">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-pastel-amber/80 text-pastel-amberText border border-pastel-amberBorder shadow-soft mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-pastel-amber/80 dark:bg-amber-950/40 text-pastel-amberText dark:text-amber-300 border border-pastel-amberBorder dark:border-amber-800/60 shadow-soft mb-3">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Respuestas Claras &bull; Guía del Consumidor</span>
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 dark:text-cacao-50 tracking-tight">
             Preguntas Frecuentes
           </h2>
-          <p className="mt-2 text-sm text-sucrenita-600 leading-relaxed">
+          <p className="mt-2 text-sm text-sucrenita-600 dark:text-cacao-200 leading-relaxed">
             Todo lo que necesitas saber sobre nuestros ingredientes, consejos de preparación, entregas en Sucre y métodos de pago disponibles.
           </p>
         </div>
@@ -87,17 +87,17 @@ export function FAQSection() {
                 key={faq.id}
                 className={`rounded-2xl border transition-all overflow-hidden ${
                   isOpen
-                    ? 'border-pastel-peachText/40 bg-pastel-sand/40 shadow-soft'
-                    : 'border-pastel-sandDark/80 bg-white hover:border-pastel-sandDark hover:bg-pastel-sand/20'
+                    ? 'border-pastel-peachText/40 bg-pastel-sand/40 shadow-soft dark:border-amber-700/60 dark:bg-cacao-850'
+                    : 'border-pastel-sandDark/80 bg-white hover:border-pastel-sandDark hover:bg-pastel-sand/20 dark:border-cacao-800 dark:bg-cacao-850/60 dark:hover:border-cacao-700 dark:hover:bg-cacao-800/50'
                 }`}
               >
                 <button
                   type="button"
                   onClick={() => toggle(faq.id)}
-                  className="w-full p-5 text-left flex items-start justify-between gap-3 text-sm font-semibold text-sucrenita-900"
+                  className="w-full p-5 text-left flex items-start justify-between gap-3 text-sm font-semibold text-sucrenita-900 dark:text-cacao-100"
                 >
                   <div className="space-y-1">
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-pastel-peachText">
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-pastel-peachText dark:text-amber-300">
                       {faq.category}
                     </span>
                     <h3 className="font-serif text-base leading-snug">{faq.question}</h3>
@@ -110,9 +110,9 @@ export function FAQSection() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-xs text-sucrenita-700 leading-relaxed border-t border-pastel-sandDark/50 space-y-3 animate-in fade-in">
+                  <div className="px-5 pb-5 pt-1 text-xs text-sucrenita-700 dark:text-cacao-200 leading-relaxed border-t border-pastel-sandDark/50 dark:border-cacao-800 space-y-3 animate-in fade-in">
                     <p>{faq.answer}</p>
-                    <div className="flex items-center gap-1.5 text-[11px] text-pastel-sageText font-medium">
+                    <div className="flex items-center gap-1.5 text-[11px] text-pastel-sageText dark:text-emerald-400 font-medium">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       <span>Información verificada por el taller familiar Sucreñita</span>
                     </div>
@@ -123,12 +123,12 @@ export function FAQSection() {
           })}
         </div>
 
-        <div className="p-6 rounded-2xl bg-pastel-amber/30 border border-pastel-amberBorder flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="p-6 rounded-2xl bg-pastel-amber/30 dark:bg-cacao-850 border border-pastel-amberBorder dark:border-cacao-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <h4 className="font-serif font-bold text-sm text-sucrenita-900">
+            <h4 className="font-serif font-bold text-sm text-sucrenita-900 dark:text-cacao-100">
               ¿Tienes alguna otra consulta o pedido especial?
             </h4>
-            <p className="text-xs text-sucrenita-600 mt-0.5">
+            <p className="text-xs text-sucrenita-600 dark:text-cacao-300 mt-0.5">
               Estamos en línea para responder tus dudas sobre preparación o coordinar tu despacho.
             </p>
           </div>

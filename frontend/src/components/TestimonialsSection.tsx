@@ -145,36 +145,36 @@ export function TestimonialsSection() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div className="rounded-3xl p-6 sm:p-10 lg:p-12 bg-gradient-to-b from-pastel-sand/40 via-white to-pastel-cream/50 border border-pastel-sandDark shadow-soft space-y-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-pastel-sandDark pb-8">
+      <div className="rounded-3xl p-6 sm:p-10 lg:p-12 bg-gradient-to-b from-pastel-sand/40 dark:from-cacao-850 via-white dark:via-cacao-900 to-pastel-cream/50 dark:to-cacao-850 border border-pastel-sandDark dark:border-cacao-700 shadow-soft space-y-10 transition-colors">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-pastel-sandDark dark:border-cacao-700 pb-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-pastel-sage text-pastel-sageText border border-pastel-sageBorder shadow-soft mb-3">
-              <ShieldCheck className="w-4 h-4 text-pastel-sageText" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-pastel-sage dark:bg-cacao-800 text-pastel-sageText dark:text-[#78A887] border border-pastel-sageBorder dark:border-cacao-700 shadow-soft mb-3">
+              <ShieldCheck className="w-4 h-4 text-pastel-sageText dark:text-[#78A887]" />
               <span>Clientes y Pensiones de Confianza</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 dark:text-[#FAF6F0] tracking-tight">
               Experiencias de familias y cocineros reales
             </h2>
-            <p className="mt-2 text-sm text-sucrenita-600 max-w-2xl leading-relaxed">
+            <p className="mt-2 text-sm text-sucrenita-600 dark:text-[#CBBFB6] max-w-2xl leading-relaxed">
               Opiniones de comensales en Sucre y compradores en toda Bolivia que eligen nuestros granos de maní, ajíes molidos a piedra y snacks crocantes hechos en casa.
             </p>
           </div>
 
-          <div className="flex items-center gap-4 bg-white p-4 rounded-2xl border border-pastel-sandDark shadow-soft shrink-0">
+          <div className="flex items-center gap-4 bg-white dark:bg-cacao-800 p-4 rounded-2xl border border-pastel-sandDark dark:border-cacao-700 shadow-soft shrink-0">
             <div className="text-right">
-              <div className="flex items-center gap-1 justify-end text-pastel-amberText">
+              <div className="flex items-center gap-1 justify-end text-pastel-amberText dark:text-[#D4A853]">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-pastel-amberText text-pastel-amberText" />
+                  <Star key={i} className="w-4 h-4 fill-pastel-amberText dark:fill-[#D4A853] text-pastel-amberText dark:text-[#D4A853]" />
                 ))}
               </div>
-              <span className="text-xs font-bold text-sucrenita-900 block mt-0.5">
+              <span className="text-xs font-bold text-sucrenita-900 dark:text-[#FAF6F0] block mt-0.5">
                 4.9 de 5.0 Estrellas
               </span>
-              <span className="text-[11px] text-sucrenita-500">
+              <span className="text-[11px] text-sucrenita-500 dark:text-[#8C7C72]">
                 128 pedidos verificados
               </span>
             </div>
-            <div className="w-12 h-12 rounded-xl bg-pastel-amber flex items-center justify-center font-serif text-xl font-bold text-pastel-amberText">
+            <div className="w-12 h-12 rounded-xl bg-pastel-amber dark:bg-cacao-750 flex items-center justify-center font-serif text-xl font-bold text-pastel-amberText dark:text-[#D4A853] border border-pastel-amberBorder dark:border-cacao-700">
               4.9
             </div>
           </div>
@@ -196,8 +196,8 @@ export function TestimonialsSection() {
                 onClick={() => setSelectedCategory(cat.id as TestimonialCategory)}
                 className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
                   isSelected
-                    ? 'bg-sucrenita-800 text-white shadow-soft scale-105'
-                    : 'bg-white text-sucrenita-700 hover:bg-pastel-peach/50 border border-pastel-sandDark'
+                    ? 'bg-sucrenita-800 dark:bg-[#7C5B28] text-white shadow-soft scale-105'
+                    : 'bg-white dark:bg-cacao-800 text-sucrenita-700 dark:text-[#D1C3B8] hover:bg-pastel-peach/50 dark:hover:bg-cacao-750 border border-pastel-sandDark dark:border-cacao-700'
                 }`}
               >
                 {cat.label}
@@ -214,41 +214,41 @@ export function TestimonialsSection() {
             return (
               <div
                 key={t.id}
-                className="rounded-3xl bg-white border border-pastel-sandDark p-6 shadow-soft hover:shadow-soft-lg transition-all flex flex-col justify-between space-y-4 group"
+                className="rounded-3xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 p-6 shadow-soft hover:shadow-soft-lg transition-all flex flex-col justify-between space-y-4 group"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-1 text-pastel-amberText">
+                    <div className="flex items-center gap-1 text-pastel-amberText dark:text-[#D4A853]">
                       {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-pastel-amberText text-pastel-amberText" />
+                        <Star key={i} className="w-3.5 h-3.5 fill-pastel-amberText dark:fill-[#D4A853] text-pastel-amberText dark:text-[#D4A853]" />
                       ))}
                     </div>
-                    <span className="text-[11px] text-sucrenita-400">{t.date}</span>
+                    <span className="text-[11px] text-sucrenita-400 dark:text-[#8C7C72]">{t.date}</span>
                   </div>
 
-                  <div className="p-3 rounded-2xl bg-pastel-sand/50 border border-pastel-sandDark text-[11px] text-sucrenita-700 flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-pastel-sageText shrink-0" />
+                  <div className="p-3 rounded-2xl bg-pastel-sand/50 dark:bg-cacao-800 border border-pastel-sandDark dark:border-cacao-700 text-[11px] text-sucrenita-700 dark:text-[#D1C3B8] flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-pastel-sageText dark:text-[#78A887] shrink-0" />
                     <span className="truncate">
                       <strong>Compra verificada:</strong> {t.productPurchased}
                     </span>
                   </div>
 
-                  <h3 className="font-serif font-bold text-sm text-sucrenita-900 group-hover:text-sucrenita-700 transition-colors leading-snug">
+                  <h3 className="font-serif font-bold text-sm text-sucrenita-900 dark:text-[#FAF6F0] group-hover:text-sucrenita-700 dark:group-hover:text-[#D4A853] transition-colors leading-snug">
                     &ldquo;{t.highlight}&rdquo;
                   </h3>
 
-                  <p className="text-xs text-sucrenita-600 leading-relaxed italic">
+                  <p className="text-xs text-sucrenita-600 dark:text-[#A8988C] leading-relaxed italic">
                     {t.comment}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-pastel-sandDark flex items-center justify-between">
+                <div className="pt-4 border-t border-pastel-sandDark dark:border-cacao-700 flex items-center justify-between">
                   <div>
-                    <h4 className="font-serif font-bold text-xs text-sucrenita-900">
+                    <h4 className="font-serif font-bold text-xs text-sucrenita-900 dark:text-[#FAF6F0]">
                       {t.name}
                     </h4>
-                    <span className="text-[11px] text-sucrenita-500 flex items-center gap-1 mt-0.5">
-                      <MapPin className="w-3 h-3 text-pastel-peachText" />
+                    <span className="text-[11px] text-sucrenita-500 dark:text-[#8C7C72] flex items-center gap-1 mt-0.5">
+                      <MapPin className="w-3.5 h-3.5 text-pastel-peachText dark:text-[#D48065]" />
                       <span dangerouslySetInnerHTML={{ __html: t.location }} />
                     </span>
                   </div>
@@ -258,11 +258,11 @@ export function TestimonialsSection() {
                     onClick={() => handleToggleLike(t.id)}
                     className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold transition-colors border ${
                       isLiked
-                        ? 'bg-pastel-peach text-pastel-peachText border-pastel-peachBorder'
-                        : 'bg-white hover:bg-pastel-sand text-sucrenita-600 border-pastel-sandDark'
+                        ? 'bg-pastel-peach dark:bg-[#341B18] text-pastel-peachText dark:text-[#D48065] border-pastel-peachBorder dark:border-[#522924]'
+                        : 'bg-white dark:bg-cacao-800 hover:bg-pastel-sand dark:hover:bg-cacao-750 text-sucrenita-600 dark:text-[#D1C3B8] border-pastel-sandDark dark:border-cacao-700'
                     }`}
                   >
-                    <ThumbsUp className={`w-3 h-3 ${isLiked ? 'text-pastel-peachText fill-pastel-peachText' : ''}`} />
+                    <ThumbsUp className={`w-3 h-3 ${isLiked ? 'text-pastel-peachText dark:text-[#D48065] fill-pastel-peachText dark:fill-[#D48065]' : ''}`} />
                     <span>{likeCount}</span>
                   </button>
                 </div>
@@ -274,4 +274,3 @@ export function TestimonialsSection() {
     </section>
   );
 }
-

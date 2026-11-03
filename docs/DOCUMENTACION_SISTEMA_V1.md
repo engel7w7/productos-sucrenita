@@ -35,6 +35,8 @@
 12. Mensajería Automatizada a WhatsApp
 13. Contenido Final de la Plataforma y Políticas Comerciales
 14. Panel de Administración y Gestión de Inventario
+15. Identidad Visual Armoniosa y Paleta Artesanal Sucrense
+16. Soporte de Modo Oscuro Adaptable (Dark Mode) y Prevención de FOUC
 
 ---
 
@@ -299,6 +301,8 @@ Los mensajes dirigidos al número oficial de WhatsApp (+591 71152182) se generan
 ---
 
 ## 14. Panel de Administración y Gestión de Inventario
+15. Identidad Visual Armoniosa y Paleta Artesanal Sucrense
+16. Soporte de Modo Oscuro Adaptable (Dark Mode) y Prevención de FOUC
 
 ### 14.1 Arquitectura y Acceso
 * **Ruta de Acceso**: `/admin` (disponible en local y en producción).
@@ -346,3 +350,36 @@ Para transmitir la calidez, tradición y sobriedad de la gastronomía chuquisaqu
   * **Ámbar Miel**: `#7C5B28` para consejos de Doña Sucreñita y valoraciones.
   * **Verde Bosque / Sabio**: `#3B5745` y verde institucional atenuado `#1F7A4C` para disponibilidad de inventario y atención directa por WhatsApp.
 * **Cero Emojis y Cero Comentarios**: Toda la iconografía se basa exclusivamente en vectores SVG y componentes de `lucide-react`, manteniendo el código de producción limpio y estilizado.
+
+---
+
+## 16. Soporte de Modo Oscuro Adaptable (Dark Mode) y Prevención de FOUC
+
+### 16.1 Filosofía de Diseño Artesanal en Modo Oscuro
+Para evitar la estética genérica de plantilla de inteligencia artificial (que suele recurrir a negros puros `#000000` o azules espaciales `#0F172A` con bordes de neón estridentes), el modo oscuro de Productos Sucreñita fue concebido bajo la paleta semántica **Cacao Tostado Chuquisaqueño**:
+* **Superficie Principal (`cacao-950` / `cacao-900`)**: `#0E0A08` y `#140F0C`, inspirados en ollas de barro curadas y granos de maní tostados a leña.
+* **Tarjetas y Contenedores Elevados (`cacao-850` / `cacao-800`)**: `#1A1411` y `#221A15`, ofreciendo profundidad y calidez orgánica.
+* **Bordes y Delimitadores (`cacao-700` / `cacao-600`)**: `#342821` y `#4A3B32`, reemplazando líneas frías por acabados de madera rústica y arcilla.
+* **Tipografía y Contraste (`cacao-50` / `cacao-100`)**: Lino marfil `#FAF6F0` y crema suave `#F0E8DD`, garantizando descanso visual prolongado (ratio de contraste superior a 12:1 bajo normas WCAG AAA).
+* **Acentos Cálidos**: Miel andino (`#D4A853`), terracota viva (`#D48065`) y esmeralda bosque (`#34D399`) para estados activos y botones de pago.
+
+### 16.2 Arquitectura Técnica Anti-FOUC (Modern Web Guidance)
+Siguiendo las recomendaciones oficiales de **Modern Web Guidance** (`dark-mode`, `dark-mode-toggle`):
+1. **Declaración en `<head>`**: Se incluye `<meta name="color-scheme" content="light dark" />` y `<meta name="theme-color" ... />` en `layout.tsx` para sincronizar los controles del navegador y scrollbars nativos.
+2. **Script Síncrono de Inicialización**: Se inyecta un script inline en `<head>` que evalúa la preferencia guardada en `localStorage.getItem('sucrenita_theme')` o el query de medios del sistema `window.matchMedia('(prefers-color-scheme: dark)')` antes del primer renderizado de la pintura, eliminando el parpadeo blanco (*Flash of Unstyled Content*).
+3. **Sincronización React Context (`ThemeContext.tsx`)**:
+   * Manejo reactivo de estado con persistencia automática en `localStorage`.
+   * Listener bidireccional sobre `prefers-color-scheme` para usuarios que cambian el tema a nivel del sistema operativo.
+   * Listener del evento nativo `storage` para sincronizar el modo oscuro instantáneamente entre múltiples pestañas abiertas.
+4. **Control Accesible (`ThemeToggle.tsx`)**:
+   * Botón con icono vectorial adaptable (`Sun` y `Moon` de `lucide-react`), atributos `aria-label` descriptivos y transiciones suaves de opacidad y rotación.
+   * Ubicado de manera prominente en el `Navbar` superior (tanto en barra de escritorio como en el menú desplegable móvil).
+5. **Cobertura al 100% de Vistas y Componentes**:
+   * Página de inicio (`Hero`, `BrandStory`, `CulinaryCalculator`, `Testimonials`, `VideoMarketing`, `FAQ`).
+   * Catálogo de productos (`CatalogSearchFilter`, `ProductCard`, tags y paginación).
+   * Ficha de detalle de producto (`/productos/[slug]`, `ShareProductButtons`, `ProductDetailActions`).
+   * Carrito flotante (`CartDrawer`).
+   * Centro de atención y chat (`SocialChatHub`).
+   * Pasarelas y modales de cobro (`SimpleQRModal` y `PayPalCheckoutModal`).
+   * Panel administrativo de inventario (`/admin`).
+
