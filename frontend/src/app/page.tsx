@@ -259,19 +259,19 @@ export default async function HomePage() {
                 <div className="grid grid-cols-4 gap-3 pt-8 border-t border-pastel-sandDark dark:border-cacao-700">
                   <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                     <span className="font-serif font-bold text-xl sm:text-2xl text-sucrenita-900 dark:text-[#FAF6F0]">100%</span>
-                    <span className="text-[11px] text-sucrenita-600 dark:text-[#A8988C]">Puro Sin Relleno</span>
+                    <span className="text-[11px] text-sucrenita-600 dark:text-cacao-200">Puro Sin Relleno</span>
                   </div>
                   <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                     <span className="font-serif font-bold text-xl sm:text-2xl text-sucrenita-900 dark:text-[#FAF6F0]">Simple QR</span>
-                    <span className="text-[11px] text-sucrenita-600 dark:text-[#A8988C]">Bancos de Bolivia</span>
+                    <span className="text-[11px] text-sucrenita-600 dark:text-cacao-200">Bancos de Bolivia</span>
                   </div>
                   <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                     <span className="font-serif font-bold text-xl sm:text-2xl text-sucrenita-900 dark:text-[#FAF6F0]">PayPal</span>
-                    <span className="text-[11px] text-sucrenita-600 dark:text-[#A8988C]">Cambio Paralelo</span>
+                    <span className="text-[11px] text-sucrenita-600 dark:text-cacao-200">Cambio Paralelo</span>
                   </div>
                   <div className="flex flex-col items-center lg:items-start p-3 rounded-2xl bg-white dark:bg-cacao-850 border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                     <span className="font-serif font-bold text-xl sm:text-2xl text-sucrenita-900 dark:text-[#FAF6F0]">B2C</span>
-                    <span className="text-[11px] text-sucrenita-600 dark:text-[#A8988C]">Directo del Taller</span>
+                    <span className="text-[11px] text-sucrenita-600 dark:text-cacao-200">Directo del Taller</span>
                   </div>
                 </div>
               </div>
@@ -322,7 +322,7 @@ export default async function HomePage() {
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-sucrenita-900 dark:text-[#FAF6F0]">
                   Abarrotes & Condimentos
                 </h3>
-                <p className="mt-2 text-sm text-sucrenita-600 dark:text-[#A8988C] max-w-sm leading-relaxed">
+                <p className="mt-2 text-sm text-sucrenita-600 dark:text-cacao-200 max-w-sm leading-relaxed">
                   Maní crudo y molido con la proporción exacta para la auténtica sopa de maní, ají colorado picante chuquisaqueño y ají dulce amarillo puro molido en batán.
                 </p>
               </div>
@@ -343,7 +343,7 @@ export default async function HomePage() {
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-sucrenita-900 dark:text-[#FAF6F0]">
                   Snacks Artesanales
                 </h3>
-                <p className="mt-2 text-sm text-sucrenita-600 dark:text-[#A8988C] max-w-sm leading-relaxed">
+                <p className="mt-2 text-sm text-sucrenita-600 dark:text-cacao-200 max-w-sm leading-relaxed">
                   Chicharrones crujientes sin grasa excedente, maní garrapiñado acaramelado a fuego lento y habas fritas saladas para compartir en familia.
                 </p>
               </div>
@@ -361,7 +361,7 @@ export default async function HomePage() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-sucrenita-600 dark:text-[#A8988C]">
+              <span className="text-xs font-bold uppercase tracking-wider text-sucrenita-600 dark:text-cacao-200">
                 Inventario Disponible
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 dark:text-[#FAF6F0] mt-1">
@@ -407,7 +407,7 @@ export default async function HomePage() {
               <h3 className="font-serif font-bold text-base text-sucrenita-900 dark:text-[#FAF6F0] mb-2">
                 Explora el Catálogo
               </h3>
-              <p className="text-xs text-sucrenita-600 dark:text-[#A8988C] leading-relaxed">
+              <p className="text-xs text-sucrenita-600 dark:text-cacao-200 leading-relaxed">
                 Revisa nuestras fotos y detalles de maní, ajíes y snacks preparados artesanalmente en Sucre.
               </p>
             </div>
@@ -419,7 +419,7 @@ export default async function HomePage() {
               <h3 className="font-serif font-bold text-base text-sucrenita-900 dark:text-[#FAF6F0] mb-2">
                 Bolsita o WhatsApp
               </h3>
-              <p className="text-xs text-sucrenita-600 dark:text-[#A8988C] leading-relaxed">
+              <p className="text-xs text-sucrenita-600 dark:text-cacao-200 leading-relaxed">
                 Agrega a tu bolsita para calcular el subtotal en Bolivianos o haz clic para pedir directo por WhatsApp.
               </p>
             </div>
@@ -431,7 +431,7 @@ export default async function HomePage() {
               <h3 className="font-serif font-bold text-base text-sucrenita-900 dark:text-[#FAF6F0] mb-2">
                 Simple QR o PayPal
               </h3>
-              <p className="text-xs text-sucrenita-600 dark:text-[#A8988C] leading-relaxed">
+              <p className="text-xs text-sucrenita-600 dark:text-cacao-200 leading-relaxed">
                 Escanea el Simple QR bancario nacional sin comisiones o paga con PayPal al tipo de cambio referencial.
               </p>
             </div>
@@ -453,7 +453,7 @@ export default async function HomePage() {
                 <h2 className="font-serif text-3xl sm:text-4xl font-bold text-sucrenita-900 dark:text-[#FAF6F0] tracking-tight">
                   Conéctate a Nuestras Redes Oficiales
                 </h2>
-                <p className="text-sm sm:text-base text-sucrenita-600 dark:text-[#A8988C] leading-relaxed max-w-xl">
+                <p className="text-sm sm:text-base text-sucrenita-600 dark:text-cacao-200 leading-relaxed max-w-xl">
                   Síguenos en nuestros cuatro canales autorizados para ver videos de elaboración tradicional, fotos de tostados recientes, recetas chuquisaqueñas y novedades de productos.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs text-sucrenita-700 dark:text-[#CBBFB6]">
@@ -487,13 +487,13 @@ export default async function HomePage() {
                     <div className="w-10 h-10 rounded-xl bg-white dark:bg-cacao-750 text-sucrenita-800 dark:text-[#FAF6F0] flex items-center justify-center border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                       <WhatsAppIcon className="w-5 h-5 text-[#2B5E46] dark:text-[#78A887]" />
                     </div>
-                    <ArrowRight className="w-4 h-4 text-sucrenita-400 dark:text-[#A8988C] group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
+                    <ArrowRight className="w-4 h-4 text-sucrenita-400 dark:text-cacao-200 group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
                   </div>
                   <div>
                     <h3 className="font-serif font-bold text-sm text-sucrenita-900 dark:text-[#FAF6F0]">
                       WhatsApp Oficial
                     </h3>
-                    <p className="text-[11px] text-sucrenita-500 dark:text-[#A8988C]">
+                    <p className="text-[11px] text-sucrenita-500 dark:text-cacao-200">
                       +591 71152182 &bull; Pedidos
                     </p>
                   </div>
@@ -509,13 +509,13 @@ export default async function HomePage() {
                     <div className="w-10 h-10 rounded-xl bg-white dark:bg-cacao-750 text-[#1877F2] flex items-center justify-center border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                       <Facebook className="w-5 h-5" />
                     </div>
-                    <ArrowRight className="w-4 h-4 text-sucrenita-400 dark:text-[#A8988C] group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
+                    <ArrowRight className="w-4 h-4 text-sucrenita-400 dark:text-cacao-200 group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
                   </div>
                   <div>
                     <h3 className="font-serif font-bold text-sm text-sucrenita-900 dark:text-[#FAF6F0]">
                       Página de Facebook
                     </h3>
-                    <p className="text-[11px] text-sucrenita-500 dark:text-[#A8988C]">
+                    <p className="text-[11px] text-sucrenita-500 dark:text-cacao-200">
                       Comunidad oficial
                     </p>
                   </div>
@@ -531,13 +531,13 @@ export default async function HomePage() {
                     <div className="w-10 h-10 rounded-xl bg-white dark:bg-cacao-750 text-[#E4405F] flex items-center justify-center border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                       <Instagram className="w-5 h-5" />
                     </div>
-                    <ArrowRight className="w-4 h-4 text-sucrenita-400 dark:text-[#A8988C] group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
+                    <ArrowRight className="w-4 h-4 text-sucrenita-400 dark:text-cacao-200 group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
                   </div>
                   <div>
                     <h3 className="font-serif font-bold text-sm text-sucrenita-900 dark:text-[#FAF6F0]">
                       Perfil de Instagram
                     </h3>
-                    <p className="text-[11px] text-sucrenita-500 dark:text-[#A8988C]">
+                    <p className="text-[11px] text-sucrenita-500 dark:text-cacao-200">
                       @productossucrenita
                     </p>
                   </div>
@@ -553,13 +553,13 @@ export default async function HomePage() {
                     <div className="w-10 h-10 rounded-xl bg-white dark:bg-cacao-750 text-slate-900 dark:text-slate-200 flex items-center justify-center border border-pastel-sandDark dark:border-cacao-700 shadow-soft">
                       <TikTokIcon className="w-5 h-5" />
                     </div>
-                    <ArrowRight className="w-4 h-4 text-sucrenita-400 dark:text-[#A8988C] group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
+                    <ArrowRight className="w-4 h-4 text-sucrenita-400 dark:text-cacao-200 group-hover:text-sucrenita-800 dark:group-hover:text-white transition-colors" />
                   </div>
                   <div>
                     <h3 className="font-serif font-bold text-sm text-sucrenita-900 dark:text-[#FAF6F0]">
                       TikTok Oficial
                     </h3>
-                    <p className="text-[11px] text-sucrenita-500 dark:text-[#A8988C]">
+                    <p className="text-[11px] text-sucrenita-500 dark:text-cacao-200">
                       @sucrenita_artesanal
                     </p>
                   </div>
@@ -573,37 +573,37 @@ export default async function HomePage() {
 
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="card-pastel rounded-3xl p-8 sm:p-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex items-start gap-4 p-5 rounded-2xl bg-pastel-sand/40 dark:bg-cacao-800/40 border border-pastel-sandDark dark:border-cacao-700">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-pastel-sand/40 dark:bg-cacao-850 border border-pastel-sandDark/80 dark:border-cacao-750">
               <div className="p-3 rounded-2xl bg-white dark:bg-cacao-750 text-sucrenita-700 dark:text-[#D4A853] shadow-soft shrink-0 border border-pastel-sandDark dark:border-cacao-700">
                 <Utensils className="w-5 h-5" />
               </div>
               <div>
                 <h3 className="font-serif text-base font-bold text-sucrenita-900 dark:text-[#FAF6F0]">Selección Rigurosa</h3>
-                <p className="mt-1 text-xs text-sucrenita-600 dark:text-[#A8988C] leading-relaxed">
+                <p className="mt-1 text-xs text-sucrenita-600 dark:text-cacao-200 leading-relaxed">
                   Seleccionamos cada grano de maní y cada vaina de ají de manera minuciosa para asegurar la mejor sazón y rendimiento en tus comidas.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4 p-5 rounded-2xl bg-pastel-sand/40 dark:bg-cacao-800/40 border border-pastel-sandDark dark:border-cacao-700">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-pastel-sand/40 dark:bg-cacao-850 border border-pastel-sandDark/80 dark:border-cacao-750">
               <div className="p-3 rounded-2xl bg-white dark:bg-cacao-750 text-sucrenita-700 dark:text-[#D4A853] shadow-soft shrink-0 border border-pastel-sandDark dark:border-cacao-700">
                 <MessageCircle className="w-5 h-5" />
               </div>
               <div>
                 <h3 className="font-serif text-base font-bold text-sucrenita-900 dark:text-[#FAF6F0]">Venta Directa B2C</h3>
-                <p className="mt-1 text-xs text-sucrenita-600 dark:text-[#A8988C] leading-relaxed">
+                <p className="mt-1 text-xs text-sucrenita-600 dark:text-cacao-200 leading-relaxed">
                   Trato directo y cercano de nuestro negocio familiar a tu hogar vía WhatsApp, resolviendo cualquier consulta al instante.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4 p-5 rounded-2xl bg-pastel-sand/40 dark:bg-cacao-800/40 border border-pastel-sandDark dark:border-cacao-700">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-pastel-sand/40 dark:bg-cacao-850 border border-pastel-sandDark/80 dark:border-cacao-750">
               <div className="p-3 rounded-2xl bg-white dark:bg-cacao-750 text-sucrenita-700 dark:text-[#D4A853] shadow-soft shrink-0 border border-pastel-sandDark dark:border-cacao-700">
                 <QrCode className="w-5 h-5" />
               </div>
               <div>
                 <h3 className="font-serif text-base font-bold text-sucrenita-900 dark:text-[#FAF6F0]">Simple QR y PayPal</h3>
-                <p className="mt-1 text-xs text-sucrenita-600 dark:text-[#A8988C] leading-relaxed">
+                <p className="mt-1 text-xs text-sucrenita-600 dark:text-cacao-200 leading-relaxed">
                   Paga con Simple QR bancario nacional sin comisiones o con tarjeta internacional a través de la pasarela PayPal al cambio referencial.
                 </p>
               </div>
