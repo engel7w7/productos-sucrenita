@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import {
   ShoppingBag,
   Store,
@@ -13,6 +14,7 @@ import {
   Menu,
   X,
   Phone,
+  Sparkles,
 } from 'lucide-react';
 import { TikTokIcon, WhatsAppIcon } from '@/components/SocialIcons';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
@@ -22,6 +24,7 @@ import { useCart } from '@/context/CartContext';
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { totalItems, openCart } = useCart();
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-40 transition-all">
@@ -82,14 +85,18 @@ export function Navbar() {
         </div>
       </div>
 
-      <div className="glass-pastel">
+      <div className="glass-pastel transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center gap-3.5 group">
+            <Link
+              href="/"
+              aria-label="Productos Sucreñita - Inicio"
+              className="flex items-center gap-3.5 group focus:outline-none"
+            >
               <div className="relative w-11 h-11 rounded-2xl overflow-hidden shadow-soft border border-pastel-sandDark dark:border-cacao-700 bg-sucrenita-800 shrink-0 group-hover:scale-105 transition-transform duration-200">
                 <Image
                   src="/logo-profile.jpg"
-                  alt="Logo Productos Sucreñita"
+                  alt="Logo oficial Productos Sucreñita"
                   width={44}
                   height={44}
                   className="w-full h-full object-cover"
@@ -97,10 +104,10 @@ export function Navbar() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-sucrenita-900 dark:text-[#FAF6F0] group-hover:text-sucrenita-700 dark:group-hover:text-[#D4A853] transition-colors">
+                <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-sucrenita-900 dark:text-[#FAF6F0] group-hover:text-sucrenita-700 dark:group-hover:text-[#D4A853] transition-colors leading-tight">
                   Productos Sucreñita
                 </span>
-                <span className="text-[11px] tracking-wide font-medium text-sucrenita-600 dark:text-[#CBBFB6]">
+                <span className="text-[11px] tracking-wide font-medium text-sucrenita-600 dark:text-[#CBBFB6] leading-snug">
                   Abarrotes &bull; Ajíes &bull; Snacks Artesanales
                 </span>
               </div>
@@ -109,16 +116,24 @@ export function Navbar() {
             <nav className="hidden md:flex items-center gap-1.5 text-sm font-medium text-sucrenita-800 dark:text-[#D1C3B8]">
               <Link
                 href="/"
-                className="px-4 py-2 rounded-full hover:bg-pastel-sand/80 dark:hover:bg-cacao-800 hover:text-sucrenita-900 dark:hover:text-white transition-all"
+                className={`px-4 py-2 rounded-full transition-all ${
+                  pathname === '/'
+                    ? 'bg-sucrenita-800 text-white dark:bg-cacao-800 dark:text-[#FAF6F0] shadow-soft font-semibold'
+                    : 'hover:bg-pastel-sand/80 dark:hover:bg-cacao-800 hover:text-sucrenita-900 dark:hover:text-white'
+                }`}
               >
                 Inicio
               </Link>
               <Link
                 href="/catalogo"
-                className="px-4 py-2 rounded-full hover:bg-pastel-sand/80 dark:hover:bg-cacao-800 hover:text-sucrenita-900 dark:hover:text-white transition-all flex items-center gap-1.5"
+                className={`px-4 py-2 rounded-full transition-all flex items-center gap-1.5 ${
+                  pathname === '/catalogo'
+                    ? 'bg-sucrenita-800 text-white dark:bg-cacao-800 dark:text-[#FAF6F0] shadow-soft font-semibold'
+                    : 'hover:bg-pastel-sand/80 dark:hover:bg-cacao-800 hover:text-sucrenita-900 dark:hover:text-white'
+                }`}
               >
                 <Store className="w-4 h-4 text-sucrenita-600 dark:text-[#D4A853]" />
-                <span>Catálogo Completo</span>
+                <span>Catálogo</span>
               </Link>
               <Link
                 href="/catalogo?categoria=abarrotes-condimentos"
@@ -129,13 +144,14 @@ export function Navbar() {
               </Link>
               <Link
                 href="/catalogo?categoria=snacks-artesanales"
-                className="px-4 py-2 rounded-full hover:bg-pastel-sand/80 dark:hover:bg-cacao-800 hover:text-sucrenita-900 dark:hover:text-white transition-all"
+                className="px-4 py-2 rounded-full hover:bg-pastel-sand/80 dark:hover:bg-cacao-800 hover:text-sucrenita-900 dark:hover:text-white transition-all flex items-center gap-1.5"
               >
-                Snacks Artesanales
+                <Sparkles className="w-4 h-4 text-sucrenita-600 dark:text-[#D4A853]" />
+                <span>Snacks Artesanales</span>
               </Link>
             </nav>
 
-            <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <button
                 type="button"
                 onClick={openCart}
@@ -150,9 +166,8 @@ export function Navbar() {
                 )}
               </button>
 
-
-
               <ThemeToggle />
+
               <div className="hidden sm:block">
                 <WhatsAppButton
                   url="https://wa.me/59171152182?text=Hola%20Productos%20Sucre%C3%B1ita,%20quisiera%20hacer%20una%20consulta%20sobre%20sus%20productos"
@@ -162,14 +177,6 @@ export function Navbar() {
                 />
               </div>
 
-              <Link
-                href="/catalogo"
-                className="hidden lg:inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wide bg-sucrenita-800 hover:bg-sucrenita-900 text-white shadow-soft transition-all"
-              >
-                <Store className="w-3.5 h-3.5 text-pastel-sand" />
-                <span>Catálogo</span>
-              </Link>
-
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -178,8 +185,6 @@ export function Navbar() {
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
-
-
             </div>
           </div>
         </div>
@@ -191,16 +196,24 @@ export function Navbar() {
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-3 rounded-2xl hover:bg-pastel-sand dark:hover:bg-cacao-800 transition-colors"
+              className={`p-3 rounded-2xl transition-colors ${
+                pathname === '/'
+                  ? 'bg-sucrenita-800 text-white dark:bg-cacao-800 dark:text-[#FAF6F0] font-semibold'
+                  : 'hover:bg-pastel-sand dark:hover:bg-cacao-800'
+              }`}
             >
               Inicio
             </Link>
             <Link
               href="/catalogo"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-3 rounded-2xl hover:bg-pastel-sand dark:hover:bg-cacao-800 transition-colors flex items-center justify-between"
+              className={`p-3 rounded-2xl transition-colors flex items-center justify-between ${
+                pathname === '/catalogo'
+                  ? 'bg-sucrenita-800 text-white dark:bg-cacao-800 dark:text-[#FAF6F0] font-semibold'
+                  : 'hover:bg-pastel-sand dark:hover:bg-cacao-800'
+              }`}
             >
-              <span>Catálogo Completo</span>
+              <span>Catálogo</span>
               <Store className="w-4 h-4 text-sucrenita-600" />
             </Link>
             <Link
@@ -208,7 +221,7 @@ export function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="p-3 rounded-2xl hover:bg-pastel-sand dark:hover:bg-cacao-800 transition-colors flex items-center justify-between"
             >
-              <span>Abarrotes & Maní para Sopa</span>
+              <span>Abarrotes & Ajíes</span>
               <UtensilsCrossed className="w-4 h-4 text-sucrenita-600" />
             </Link>
             <Link
@@ -216,8 +229,8 @@ export function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="p-3 rounded-2xl hover:bg-pastel-sand dark:hover:bg-cacao-800 transition-colors flex items-center justify-between"
             >
-              <span>Snacks Crujientes Caseros</span>
-              <Store className="w-4 h-4 text-sucrenita-600" />
+              <span>Snacks Artesanales</span>
+              <Sparkles className="w-4 h-4 text-sucrenita-600" />
             </Link>
             <div className="pt-3 border-t border-pastel-sandDark dark:border-cacao-700 flex flex-col gap-2">
               <ThemeToggle showLabel className="w-full justify-start px-3 py-2.5" />
@@ -225,9 +238,9 @@ export function Navbar() {
                 href="https://wa.me/59171152182"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 p-3 rounded-2xl bg-sucrenita-800 dark:bg-cacao-750 hover:bg-sucrenita-900 dark:hover:bg-cacao-700 text-white font-semibold text-xs shadow-soft transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 p-3 rounded-2xl bg-[#1F7A4C] hover:bg-[#19653E] text-white font-semibold text-xs shadow-soft transition-colors"
               >
-                <Phone className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
                 <span>Atención directa por WhatsApp</span>
               </a>
             </div>

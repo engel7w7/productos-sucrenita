@@ -231,7 +231,7 @@ export function CartDrawer() {
                 <button
                   type="button"
                   onClick={() => setIsPayPalOpen(true)}
-                  className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-2xl bg-[#0070BA] hover:bg-[#003087] text-white font-semibold text-xs tracking-wide shadow-soft transition-all"
+                  className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-2xl bg-[#003087] hover:bg-[#002266] text-white font-semibold text-xs tracking-wide shadow-soft transition-all"
                 >
                   <PayPalIcon className="w-4 h-4" />
                   <span>Pagar con PayPal / Tarjeta Internacional</span>

@@ -287,7 +287,7 @@ export default async function HomePage() {
                     className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-sucrenita-900/60 dark:from-cacao-950/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl glass-pastel text-sucrenita-900 dark:text-[#FAF6F0] shadow-soft">
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 dark:bg-cacao-900/95 backdrop-blur-md border border-pastel-sandDark/80 dark:border-cacao-700/80 text-sucrenita-900 dark:text-[#FAF6F0] shadow-soft">
                     <div className="flex items-center gap-2 mb-1">
                       <MapPin className="w-3.5 h-3.5 text-sucrenita-700 dark:text-[#D4A853]" />
                       <span className="text-[11px] uppercase tracking-wider text-sucrenita-700 dark:text-[#D4A853] font-bold">

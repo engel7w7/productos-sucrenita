@@ -138,7 +138,7 @@ export function ProductDetailActions({
           <button
             type="button"
             onClick={() => setIsPayPalOpen(true)}
-            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-xs font-semibold bg-[#0070BA] hover:bg-[#003087] text-white shadow-soft hover:shadow-soft-lg transition-all"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-xs font-semibold bg-[#003087] hover:bg-[#002266] text-white shadow-soft hover:shadow-soft-lg transition-all"
           >
             <PayPalIcon className="w-4 h-4" />
             <span>PayPal / Tarjeta de Crédito</span>
