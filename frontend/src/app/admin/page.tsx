@@ -63,8 +63,8 @@ const AVAILABLE_IMAGES = [
   { label: 'Chicharrones Tira Doble (26 unidades)', url: '/productos/chicharron-tira-detalle.jpeg' },
   { label: 'Ají Colorado Primera Quintal', url: '/productos/aji-quintal-primera.jpeg' },
   { label: 'Ají con Pepa Quintal', url: '/productos/aji-quintal-con-pepa.jpeg' },
-  { label: 'Maní Molido para Sopa (500g)', url: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80' },
-  { label: 'Maní Crudo Seleccionado (1 kg)', url: 'https://images.unsplash.com/photo-1525904097878-94fb15835963?auto=format&fit=crop&w=800&q=80' },
+  { label: 'Maní Molido para Sopa (500g)', url: '/productos/mani-crudo-molido.webp' },
+  { label: 'Maní Crudo Seleccionado (1 kg)', url: '/productos/mani-crudo.jpg' },
   { label: 'Ají Amarillo Dulce Molido (250g)', url: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80' },
 ];
 

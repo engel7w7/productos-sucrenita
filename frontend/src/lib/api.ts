@@ -170,7 +170,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description: 'Maní puro molido con la textura perfecta y aceites naturales conservados, esencial para preparar la auténtica y cremosa sopa de maní chuquisaqueña.',
     price: 15.0,
     stock: 60,
-    imageUrl: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/productos/mani-crudo-molido.webp',
     categoryId: 'cat-abarrotes',
     category: {
       id: 'cat-abarrotes',
@@ -186,7 +186,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description: 'Grano de maní de primera calidad, limpio y seleccionado a mano. Ideal para tostar en casa, preparar confituras o utilizar en recetas tradicionales.',
     price: 18.0,
     stock: 70,
-    imageUrl: 'https://images.unsplash.com/photo-1525904097878-94fb15835963?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/productos/mani-crudo.jpg',
     categoryId: 'cat-abarrotes',
     category: {
       id: 'cat-abarrotes',
