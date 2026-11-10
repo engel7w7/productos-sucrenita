@@ -274,6 +274,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  unoptimized={Boolean(product.imageUrl && (product.imageUrl.startsWith('data:') || product.imageUrl.startsWith('blob:')))}
                   className="object-cover object-center"
                 />
               ) : (

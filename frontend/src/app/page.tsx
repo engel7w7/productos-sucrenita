@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getProducts } from '@/lib/api';
 import { ProductCard } from '@/components/ProductCard';
+import { FeaturedProductsList } from '@/components/FeaturedProductsList';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { VideoMarketingSection } from '@/components/VideoMarketingSection';
 import { FAQSection } from '@/components/FAQSection';
@@ -377,11 +378,7 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          <FeaturedProductsList initialProducts={featuredProducts} />
         </section>
 
         <CulinaryCalculatorSection />

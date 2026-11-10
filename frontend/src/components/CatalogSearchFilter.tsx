@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { Product } from '@/types';
 import { ProductCard } from '@/components/ProductCard';
@@ -34,6 +34,30 @@ export function CatalogSearchFilter({
 }: CatalogSearchFilterProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState<SortOption>('featured');
+  const [allProducts, setAllProducts] = useState<Product[]>(initialProducts);
+
+  useEffect(() => {
+    const syncFromStorage = () => {
+      try {
+        const stored = localStorage.getItem('sucrenita_custom_products');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setAllProducts(parsed);
+            return;
+          }
+        }
+      } catch {
+      }
+      setAllProducts(initialProducts);
+    };
+
+    syncFromStorage();
+    window.addEventListener('sucrenita_products_updated', syncFromStorage);
+    return () => {
+      window.removeEventListener('sucrenita_products_updated', syncFromStorage);
+    };
+  }, [initialProducts]);
 
   const categories = [
     { name: 'Todos los Productos', slug: undefined },
@@ -42,7 +66,11 @@ export function CatalogSearchFilter({
   ];
 
   const filteredAndSortedProducts = useMemo(() => {
-    const filtered = initialProducts.filter((product) => {
+    const filteredByCategory = currentCategory
+      ? allProducts.filter((p) => p.category?.slug === currentCategory)
+      : allProducts;
+
+    const filtered = filteredByCategory.filter((product) => {
       const term = searchTerm.toLowerCase().trim();
       if (!term) return true;
       const matchName = product.name.toLowerCase().includes(term);
@@ -63,7 +91,7 @@ export function CatalogSearchFilter({
     });
 
     return sorted;
-  }, [initialProducts, searchTerm, sortBy]);
+  }, [allProducts, currentCategory, searchTerm, sortBy]);
 
   return (
     <div className="space-y-8">

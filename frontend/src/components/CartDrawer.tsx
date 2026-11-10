@@ -126,6 +126,7 @@ export function CartDrawer() {
                         fill
                         className="object-cover object-center"
                         sizes="64px"
+                        unoptimized={Boolean(item.product.imageUrl && (item.product.imageUrl.startsWith('data:') || item.product.imageUrl.startsWith('blob:')))}
                       />
                     </div>
 

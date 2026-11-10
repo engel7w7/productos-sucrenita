@@ -382,6 +382,7 @@ export default function AdminPage() {
         'sucrenita_custom_products',
         JSON.stringify(updatedList)
       );
+      window.dispatchEvent(new Event('sucrenita_products_updated'));
     } catch {
     }
 
@@ -400,6 +401,7 @@ export default function AdminPage() {
     setProducts(updated);
     try {
       localStorage.setItem('sucrenita_custom_products', JSON.stringify(updated));
+      window.dispatchEvent(new Event('sucrenita_products_updated'));
     } catch {
     }
   };
