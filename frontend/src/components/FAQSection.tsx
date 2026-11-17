@@ -38,7 +38,7 @@ const FAQS_LIST: FAQ[] = [
     category: 'Formas de Pago',
     question: '¿Qué formas de pago aceptan en la tienda virtual?',
     answer:
-      'Contamos con tres modalidades seguras: 1) Simple QR de la red bancaria boliviana (sin comisiones desde cualquier banco como BNB, BCP, Banco Unión, Mercantil, Bisa, Fassil); 2) Pasarela PayPal con tarjeta de crédito o débito internacional en dólares americanos (USD); y 3) Efectivo contra entrega en la ciudad de Sucre.',
+      'Contamos con tres modalidades seguras: 1) Simple QR real de Banco Unión S.A. interoperable con la red bancaria boliviana (sin comisiones desde cualquier banco como Banco Unión, BNB, BCP, Mercantil Santa Cruz, Bisa, FIE, Banco Sol o Ganadero); 2) Pasarela PayPal con tarjeta de crédito o débito internacional en dólares americanos (USD); y 3) Efectivo contra entrega en la ciudad de Sucre.',
   },
   {
     id: 'f-5',

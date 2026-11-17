@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import {
   X,
   QrCode,
@@ -11,6 +12,7 @@ import {
   ExternalLink,
   CheckCircle2,
   Building2,
+  Download,
 } from 'lucide-react';
 import { CartItem } from '@/types';
 import { WhatsAppIcon } from './SocialIcons';
@@ -134,65 +136,44 @@ export function SimpleQRModal({
           </div>
 
           <div className="flex flex-col items-center justify-center">
-            <div className="relative p-5 rounded-3xl bg-white dark:bg-cacao-850 border-2 border-dashed border-pastel-amberBorder dark:border-amber-700/60 shadow-soft flex flex-col items-center group">
-              <div className="w-52 h-52 sm:w-60 sm:h-60 rounded-2xl bg-gradient-to-br from-sucrenita-50 to-amber-50/50 dark:from-cacao-900 dark:to-cacao-800 border border-pastel-sandDark dark:border-cacao-700 flex flex-col items-center justify-center p-4 relative overflow-hidden">
-                <svg
-                  className="w-full h-full text-sucrenita-900 dark:text-cacao-100"
-                  viewBox="0 0 100 100"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <rect x="5" y="5" width="26" height="26" rx="4" strokeWidth="4" />
-                  <rect x="11" y="11" width="14" height="14" fill="currentColor" />
-                  <rect x="69" y="5" width="26" height="26" rx="4" strokeWidth="4" />
-                  <rect x="75" y="11" width="14" height="14" fill="currentColor" />
-                  <rect x="5" y="69" width="26" height="26" rx="4" strokeWidth="4" />
-                  <rect x="11" y="75" width="14" height="14" fill="currentColor" />
-                  <path
-                    d="M38 12h8m-8 8h14m-14 8h6M58 8v16m6-16v8m8 0h12M12 38v8m8-8v16m8-16v8M38 38h8v8h-8zm16 0h8v8h-8zm16 0h14v8H70zm-32 16h14v8H38zm22 0h8v14h-8zm16 0h14v8H76zm-38 16h8v14h-8zm16 0h14v8H54zm22 0h14v8H76z"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                  />
-                  <defs>
-                    <clipPath id="qr-logo-emblem">
-                      <circle cx="50" cy="50" r="9" />
-                    </clipPath>
-                  </defs>
-                  <circle cx="50" cy="50" r="10" fill="#FFF7ED" stroke="#D97706" strokeWidth="2.5" />
-                  <image
-                    href="/logo-profile.jpg"
-                    x="41"
-                    y="41"
-                    width="18"
-                    height="18"
-                    preserveAspectRatio="xMidYMid slice"
-                    clipPath="url(#qr-logo-emblem)"
-                  />
-                </svg>
-
-                <div className="absolute inset-x-0 bottom-1 text-center">
-                  <span className="text-[10px] font-bold text-pastel-amberText tracking-wider uppercase bg-pastel-amber px-2 py-0.5 rounded-full border border-pastel-amberBorder">
-                    Simple QR Oficial
-                  </span>
-                </div>
+            <div className="relative p-4 sm:p-5 rounded-3xl bg-white dark:bg-cacao-850 border-2 border-pastel-amberBorder dark:border-amber-700/60 shadow-soft flex flex-col items-center group">
+              <div className="w-60 h-60 sm:w-64 sm:h-64 rounded-2xl bg-white border border-pastel-sandDark dark:border-cacao-700 flex items-center justify-center p-2 relative overflow-hidden shadow-sm">
+                <Image
+                  src="/qr-banco-union.jpg"
+                  alt="Código Simple QR Oficial Banco Unión - Productos Sucreñita"
+                  fill
+                  priority
+                  sizes="256px"
+                  className="object-contain p-1"
+                />
               </div>
 
-              <div className="mt-3 text-center">
-                <span className="text-xs font-semibold text-sucrenita-800 dark:text-cacao-100 block">
-                  Productos Sucreñita &bull; Taller Artesanal
+              <div className="mt-3 text-center space-y-1">
+                <span className="text-xs font-bold text-sucrenita-900 dark:text-cacao-50 block">
+                  Banco Unión S.A. &bull; Jhojan Romero
                 </span>
-                <span className="text-[11px] text-sucrenita-500 dark:text-cacao-300">
-                  Válido para cualquier entidad financiera de Bolivia
+                <span className="text-[11px] font-mono text-sucrenita-600 dark:text-cacao-300 block">
+                  Cta: 10000046520561 &bull; Simple QR Interoperable
                 </span>
+                <div className="pt-1.5">
+                  <a
+                    href="/qr-banco-union.jpg"
+                    download="QR-Simple-BancoUnion-ProductosSucrenita.jpg"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-pastel-sand dark:bg-cacao-800 hover:bg-pastel-amber dark:hover:bg-cacao-700 text-sucrenita-800 dark:text-cacao-100 border border-pastel-sandDark dark:border-cacao-700 text-[11px] font-semibold transition-colors shadow-soft"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>Descargar QR para galería móvil</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
           <div className="space-y-3 bg-pastel-sand/40 dark:bg-cacao-850 p-4 rounded-2xl border border-pastel-sandDark dark:border-cacao-800 text-xs text-sucrenita-700 dark:text-cacao-200">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between gap-2">
               <span className="text-sucrenita-500 dark:text-cacao-300">Entidades Habilitadas:</span>
-              <span className="font-medium text-sucrenita-900 dark:text-cacao-100">
-                BNB, BCP, Mercantil, Unión, Bisa, FIE, Fassil
+              <span className="font-medium text-sucrenita-900 dark:text-cacao-100 text-right">
+                Unión, BNB, BCP, Mercantil, Bisa, FIE, Sol, Ganadero
               </span>
             </div>
 
@@ -231,13 +212,13 @@ export function SimpleQRModal({
               <span className="w-5 h-5 rounded-full bg-pastel-amber dark:bg-amber-950/60 flex items-center justify-center text-pastel-amberText dark:text-amber-300 font-bold text-[11px] shrink-0 border border-transparent dark:border-amber-800/70">
                 1
               </span>
-              <span>Abre la app de tu banco móvil y escanea el código QR superior.</span>
+              <span>Abre la app de tu banco móvil (UNIMóvil, BNB, BCP, Mercantil, Bisa, FIE u otro) y escanea o carga el código QR oficial de Banco Unión.</span>
             </div>
             <div className="flex items-start gap-2.5">
               <span className="w-5 h-5 rounded-full bg-pastel-amber dark:bg-amber-950/60 flex items-center justify-center text-pastel-amberText dark:text-amber-300 font-bold text-[11px] shrink-0 border border-transparent dark:border-amber-800/70">
                 2
               </span>
-              <span>Verifica el monto de <strong>Bs {totalBob.toFixed(2)}</strong> y confirma la transferencia.</span>
+              <span>Ingresa el monto exacto de <strong>Bs {totalBob.toFixed(2)}</strong>, pega la glosa sugerida y confirma la transferencia a cuenta de Jhojan Romero.</span>
             </div>
             <div className="flex items-start gap-2.5">
               <span className="w-5 h-5 rounded-full bg-pastel-amber dark:bg-amber-950/60 flex items-center justify-center text-pastel-amberText dark:text-amber-300 font-bold text-[11px] shrink-0 border border-transparent dark:border-amber-800/70">
