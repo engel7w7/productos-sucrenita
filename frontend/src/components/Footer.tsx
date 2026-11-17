@@ -10,6 +10,7 @@ import {
   Instagram,
   CreditCard,
   Lock,
+  MapPin,
 } from 'lucide-react';
 import {
   TikTokIcon,
@@ -159,15 +160,19 @@ export function Footer() {
                 <CreditCard className="w-4 h-4 text-[#0070BA] shrink-0" />
                 <span>PayPal internacional con tarjetas de débito/crédito</span>
               </li>
+              <li className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-sucrenita-700 dark:text-[#D4A853] shrink-0" />
+                <span>Alto Senac A s/n, Sucre, Bolivia</span>
+              </li>
               <li className="text-sucrenita-500 dark:text-[#8C7C72] italic pt-1">
-                Taller familiar en Sucre &bull; Venta directa del productor
+                Taller familiar en Alto Senac A s/n &bull; Venta directa del productor
               </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-6 border-t border-pastel-sandDark dark:border-cacao-700 flex flex-col sm:flex-row items-center justify-between text-xs text-sucrenita-500 dark:text-[#8C7C72] gap-4">
-          <p>&copy; {new Date().getFullYear()} Productos Sucreñita. Sucre, Bolivia. Tienda virtual familiar.</p>
+          <p>&copy; {new Date().getFullYear()} Productos Sucreñita. Alto Senac A s/n, Sucre, Bolivia.</p>
           <div className="flex items-center gap-4">
             <a
               href="https://www.facebook.com/profile.php?id=61595923780807"

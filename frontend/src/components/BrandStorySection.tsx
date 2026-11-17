@@ -82,7 +82,7 @@ export function BrandStorySection() {
               />
               <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sucrenita-900/85 dark:bg-cacao-950/85 text-white backdrop-blur-md text-[11px] font-semibold border border-white/20">
                 <MapPin className="w-3 h-3 text-[#D4A853]" />
-                <span>San Roque, Sucre</span>
+                <span>Alto Senac A s/n, Sucre</span>
               </div>
             </div>
 

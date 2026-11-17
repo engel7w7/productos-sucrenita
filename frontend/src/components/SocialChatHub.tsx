@@ -31,7 +31,7 @@ const FAQS: FAQItem[] = [
     id: 'faq-1',
     question: '¿Cómo realizo un pedido de maní, ají o snacks?',
     answer:
-      'Puedes agregar los productos que desees a la bolsita de compras en la web o pedirlos directamente por WhatsApp. Coordinamos la entrega a domicilio o retiro en Sucre.',
+      'Puedes agregar los productos que desees a la bolsita de compras en la web o pedirlos directamente por WhatsApp. Coordinamos la entrega a domicilio o retiro en Alto Senac A s/n, Sucre.',
     actionText: 'Coordinar pedido por WhatsApp',
     whatsappMessage: 'Hola Productos Sucreñita, quisiera hacer un pedido de maní y ajíes.',
   },
@@ -112,7 +112,7 @@ export function SocialChatHub() {
                   </h3>
                   <p className="text-[11px] text-sucrenita-300 flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#1F7A4C] inline-block" />
-                    Taller familiar &bull; Sucre, Bolivia
+                    Alto Senac A s/n &bull; Sucre, Bolivia
                   </p>
                 </div>
               </div>
@@ -269,9 +269,9 @@ export function SocialChatHub() {
                       </div>
                       <div>
                         <h4 className="text-xs font-bold text-sucrenita-900 dark:text-cacao-100 group-hover:text-sucrenita-700 dark:group-hover:text-cacao-50 transition-colors">
-                          Página de Facebook
+                          Facebook & Messenger
                         </h4>
-                        <p className="text-[11px] text-sucrenita-500 dark:text-cacao-300">facebook.com &bull; Comunidad oficial</p>
+                        <p className="text-[11px] text-sucrenita-500 dark:text-cacao-300">facebook.com &bull; Mensajes y comunidad</p>
                       </div>
                     </div>
                     <ExternalLink className="w-4 h-4 text-sucrenita-400 dark:text-cacao-400 group-hover:text-sucrenita-700 dark:group-hover:text-cacao-100" />

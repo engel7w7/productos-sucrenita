@@ -31,7 +31,7 @@ const FAQS_LIST: FAQ[] = [
     category: 'Envíos & Cobertura',
     question: '¿Cómo funcionan las entregas en Sucre y los envíos a toda Bolivia?',
     answer:
-      'En la ciudad de Sucre realizamos entregas a domicilio en el centro histórico, San Roque, La Recoleta, Barrio Petrolero y zonas aledañas en menos de 24 horas. Para el resto de Bolivia (La Paz, Cochabamba, Santa Cruz, Potosí, Oruro, Tarija, Beni y Pando), enviamos dos veces por semana por encomienda en flota con empaque al vacío o hermético.',
+      'Desde nuestro taller en Alto Senac A s/n, Sucre realizamos entregas a domicilio en toda la ciudad (Alto Senac, centro histórico, San Roque, La Recoleta, Barrio Petrolero y zonas aledañas) en menos de 24 horas. Para el resto de Bolivia (La Paz, Cochabamba, Santa Cruz, Potosí, Oruro, Tarija, Beni y Pando), enviamos dos veces por semana por encomienda en flota con empaque al vacío o hermético.',
   },
   {
     id: 'f-4',

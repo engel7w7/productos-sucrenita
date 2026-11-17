@@ -123,6 +123,7 @@ const organizationSchema = {
   paymentAccepted: 'Simple QR, PayPal, Tarjeta de Crédito, Efectivo, Transferencia Bancaria',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: 'Alto Senac A s/n',
     addressLocality: 'Sucre',
     addressRegion: 'Chuquisaca',
     addressCountry: 'BO',

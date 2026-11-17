@@ -117,7 +117,7 @@ const localBusinessSchema = {
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Calle San Alberto, Zona San Roque y Centro Histórico',
+    streetAddress: 'Alto Senac A s/n',
     addressLocality: 'Sucre',
     addressRegion: 'Chuquisaca',
     postalCode: '0000',
@@ -148,17 +148,39 @@ const localBusinessSchema = {
 
 const videoObjectSchema = {
   '@context': 'https://schema.org',
-  '@type': 'VideoObject',
-  name: 'Secretos de Nuestra Sazón Chuquisaqueña en TikTok - Productos Sucreñita',
-  description:
-    'Video oficial de Productos Sucreñita en TikTok (@sucrenita_artesanal): proceso artesanal de selección de maní para sopa, molienda de ají en batán y recetas tradicionales de Sucre.',
-  thumbnailUrl: [
-    `${siteUrl}/logo-profile.jpg`,
-    'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80',
+  '@graph': [
+    {
+      '@type': 'VideoObject',
+      name: 'El domingo en Sucre tiene aroma a sopa de maní recién hecha - Productos Sucreñita',
+      description:
+        'Para lograr esa textura sedosa, cremosa y con el espesor perfecto, la base de maní debe ser pura y de primera calidad. Maní seleccionado de los valles chuquisaqueños: en grano limpio o molido tradicional.',
+      thumbnailUrl: [
+        `${siteUrl}/productos/mani-crudo-molido.webp`,
+        'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80',
+      ],
+      uploadDate: '2026-11-17T12:00:00-04:00',
+      contentUrl: 'https://vt.tiktok.com/ZSpn96Fa7/',
+      embedUrl: 'https://vt.tiktok.com/ZSpn96Fa7/',
+      sameAs: [
+        'https://www.facebook.com/share/v/1UaeYfyUzu/',
+        'https://www.instagram.com/reel/Df2oLqIzcb1/?mdxt=OWF1Nnp5cmhoYmpk',
+        'https://vt.tiktok.com/ZSpn96Fa7/',
+      ],
+    },
+    {
+      '@type': 'VideoObject',
+      name: 'Secretos de Nuestra Sazón Chuquisaqueña en TikTok - Productos Sucreñita',
+      description:
+        'Video oficial de Productos Sucreñita en TikTok (@sucrenita_artesanal): proceso artesanal de selección de maní para sopa, molienda de ají en batán y recetas tradicionales de Sucre.',
+      thumbnailUrl: [
+        `${siteUrl}/logo-profile.jpg`,
+        `${siteUrl}/banner-cover.jpg`,
+      ],
+      uploadDate: '2026-11-01T12:00:00-04:00',
+      contentUrl: 'https://vt.tiktok.com/ZSpdgQt7R/',
+      embedUrl: 'https://vt.tiktok.com/ZSpdgQt7R/',
+    },
   ],
-  uploadDate: '2026-11-01T12:00:00-04:00',
-  contentUrl: 'https://vt.tiktok.com/ZSpdgQt7R/',
-  embedUrl: 'https://vt.tiktok.com/ZSpdgQt7R/',
 };
 
 const websiteSearchSchema = {
@@ -292,7 +314,7 @@ export default async function HomePage() {
                     <div className="flex items-center gap-2 mb-1">
                       <MapPin className="w-3.5 h-3.5 text-sucrenita-700 dark:text-[#D4A853]" />
                       <span className="text-[11px] uppercase tracking-wider text-sucrenita-700 dark:text-[#D4A853] font-bold">
-                        Desde Sucre, Bolivia &bull; San Roque
+                        Alto Senac A s/n &bull; Sucre, Bolivia
                       </span>
                     </div>
                     <p className="font-serif text-lg font-bold">Maní, Ajíes & Snacks Artesanales</p>
