@@ -24,6 +24,7 @@ const playfair = Playfair_Display({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://productos-sucrenita.vercel.app';
+const paypalClientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || 'sb';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -169,8 +170,8 @@ gtag('config', 'G-488V6796W5', { send_page_view: true });`,
         <GoogleAnalytics />
         <Script
           id="paypal-js-sdk"
-          strategy="lazyOnload"
-          src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"
+          strategy="afterInteractive"
+          src={`https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=USD&intent=capture&components=buttons`}
         />
         <ThemeProvider>
           <CartProvider>
