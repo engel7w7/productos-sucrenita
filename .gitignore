@@ -41,8 +41,9 @@ deploy/nginx/
 .DS_Store
 Thumbs.db
 
-# Documentos locales generados
+# Documentos y presentaciones locales generadas
 *.docx
+*.pptx
 
 # Archivos de uso exclusivamente local
 frontend/public/ver-logos.html
